@@ -1,0 +1,127 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<pageDefinition xmlns="http://xmlns.oracle.com/adfm/uimodel"
+                version="11.1.1.55.36" id="defaultPageDef" Package="pages.cust">
+  <parameters/>
+  <executables>
+    <variableIterator id="variables"/>
+    <iterator Binds="Sasn07Industries" RangeSize="25"
+              DataControl="PerpSasNewsAppModuleDataControl"
+              id="Sasn07IndustriesIterator"/>
+    <iterator Binds="Sasn07CustomersListInIndustries" RangeSize="25"
+              DataControl="PerpSasNewsAppModuleDataControl"
+              id="Sasn07CustomersListInIndustriesIterator"/>
+  </executables>
+  <bindings>
+    <tree IterBinding="Sasn07IndustriesIterator" id="Sasn07Industries">
+      <nodeDefinition DefName="com.vc.sasnmodel.views.sasn.Industries"
+                      Name="Sasn07Industries0">
+        <AttrNames>
+          <Item Value="IndId"/>
+          <Item Value="IndName"/>
+        </AttrNames>
+      </nodeDefinition>
+    </tree>
+    <action IterBinding="Sasn07IndustriesIterator" id="setCurrentRowWithKey"
+            RequiresUpdateModel="false" Action="setCurrentRowWithKey">
+      <NamedData NDName="rowKey" NDValue="#{row.rowKeyStr}"
+                 NDType="java.lang.String"/>
+    </action>
+    <tree IterBinding="Sasn07CustomersListInIndustriesIterator"
+          id="Sasn07CustomersListInIndustries">
+      <nodeDefinition DefName="com.vc.sasnmodel.views.sasn.Customers" Name="Sasn07CustomersListInIndustries0">
+        <AttrNames>
+          <Item Value="CusId"/>
+          <Item Value="IndId"/>
+          <Item Value="CompanyName"/>
+          <Item Value="CompanyAddress"/>
+          <Item Value="CompanyTelephone"/>
+          <Item Value="CompanyFax"/>
+          <Item Value="CompanyEmail"/>
+          <Item Value="CompanyWebsite"/>
+          <Item Value="ContactPersonName"/>
+          <Item Value="ContactPersonPosition"/>
+          <Item Value="ContactPersonTelephone"/>
+          <Item Value="ContactPersonEmail"/>
+          <Item Value="Description"/>
+        </AttrNames>
+      </nodeDefinition>
+    </tree>
+    <attributeValues IterBinding="Sasn07IndustriesIterator" id="IndName">
+      <AttrNames>
+        <Item Value="IndName"/>
+      </AttrNames>
+    </attributeValues>
+    <attributeValues IterBinding="Sasn07CustomersListInIndustriesIterator"
+                     id="CusId">
+      <AttrNames>
+        <Item Value="CusId"/>
+      </AttrNames>
+    </attributeValues>
+    <attributeValues IterBinding="Sasn07CustomersListInIndustriesIterator"
+                     id="CompanyName">
+      <AttrNames>
+        <Item Value="CompanyName"/>
+      </AttrNames>
+    </attributeValues>
+    <attributeValues IterBinding="Sasn07CustomersListInIndustriesIterator"
+                     id="CompanyAddress">
+      <AttrNames>
+        <Item Value="CompanyAddress"/>
+      </AttrNames>
+    </attributeValues>
+    <attributeValues IterBinding="Sasn07CustomersListInIndustriesIterator"
+                     id="CompanyTelephone">
+      <AttrNames>
+        <Item Value="CompanyTelephone"/>
+      </AttrNames>
+    </attributeValues>
+    <attributeValues IterBinding="Sasn07CustomersListInIndustriesIterator"
+                     id="CompanyFax">
+      <AttrNames>
+        <Item Value="CompanyFax"/>
+      </AttrNames>
+    </attributeValues>
+    <attributeValues IterBinding="Sasn07CustomersListInIndustriesIterator"
+                     id="CompanyEmail">
+      <AttrNames>
+        <Item Value="CompanyEmail"/>
+      </AttrNames>
+    </attributeValues>
+    <attributeValues IterBinding="Sasn07CustomersListInIndustriesIterator"
+                     id="CompanyWebsite">
+      <AttrNames>
+        <Item Value="CompanyWebsite"/>
+      </AttrNames>
+    </attributeValues>
+    <attributeValues IterBinding="Sasn07CustomersListInIndustriesIterator"
+                     id="ContactPersonName">
+      <AttrNames>
+        <Item Value="ContactPersonName"/>
+      </AttrNames>
+    </attributeValues>
+    <attributeValues IterBinding="Sasn07CustomersListInIndustriesIterator"
+                     id="ContactPersonPosition">
+      <AttrNames>
+        <Item Value="ContactPersonPosition"/>
+      </AttrNames>
+    </attributeValues>
+    <attributeValues IterBinding="Sasn07CustomersListInIndustriesIterator"
+                     id="ContactPersonTelephone">
+      <AttrNames>
+        <Item Value="ContactPersonTelephone"/>
+      </AttrNames>
+    </attributeValues>
+    <attributeValues IterBinding="Sasn07CustomersListInIndustriesIterator"
+                     id="ContactPersonEmail">
+      <AttrNames>
+        <Item Value="ContactPersonEmail"/>
+      </AttrNames>
+    </attributeValues>
+    <attributeValues IterBinding="Sasn07CustomersListInIndustriesIterator"
+                     id="Description">
+      <AttrNames>
+        <Item Value="Description"/>
+      </AttrNames>
+    </attributeValues>
+  </bindings>
+</pageDefinition>

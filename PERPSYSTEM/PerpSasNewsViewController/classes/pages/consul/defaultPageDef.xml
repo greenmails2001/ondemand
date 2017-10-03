@@ -1,0 +1,299 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<pageDefinition xmlns="http://xmlns.oracle.com/adfm/uimodel"
+                version="11.1.1.56.60" id="defaultPageDef"
+                Package="pages.consul">
+  <parameters/>
+  <executables>
+    <variableIterator id="variables">
+      <variable Name="agrId" Type="oracle.jbo.domain.Number"/>
+    </variableIterator>
+    <iterator Binds="Sasn03ConsultantCategories" RangeSize="-1"
+              DataControl="PerpSasNewsAppModuleDataControl"
+              id="Sasn03ConsultantCategoriesIterator" ChangeEventPolicy="ppr"/>
+    <iterator Binds="Sasn03ConsultantsListInConsultantCategories" RangeSize="10"
+              DataControl="PerpSasNewsAppModuleDataControl"
+              id="Sasn03ConsultantsListInConsultantCategoriesIterator"
+              ChangeEventPolicy="ppr"/>
+    <iterator Binds="Sasn09DocumentCategories" RangeSize="25"
+              DataControl="PerpSasNewsAppModuleDataControl"
+              id="Sasn09DocumentCategoriesIterator"/>
+    <iterator Binds="Sasn09DocumentDownloadsListInDocumentCategories"
+              RangeSize="25" DataControl="PerpSasNewsAppModuleDataControl"
+              id="Sasn09DocumentDownloadsListInDocumentCategoriesIterator"/>
+    <iterator Binds="Sasn11AnswerGroups" RangeSize="25"
+              DataControl="PerpSasNewsAppModuleDataControl"
+              id="Sasn11AnswerGroupsIterator"/>
+    <iterator Binds="Sasn14OnlineHelps" RangeSize="25"
+              DataControl="PerpSasNewsAppModuleDataControl"
+              id="Sasn14OnlineHelpsIterator" ChangeEventPolicy="ppr"/>
+    <iterator Binds="LovAnswerGroups" RangeSize="-1"
+              DataControl="PerpSasNewsAppModuleDataControl"
+              id="LovAnswerGroupsIterator"/>
+    <iterator Binds="LovOnlineHelpTypes" RangeSize="-1"
+              DataControl="PerpSasNewsAppModuleDataControl"
+              id="LovOnlineHelpTypesIterator"/>
+    <iterator id="Sasn11C01OnlineHelpsListInAnswerGroupsIterator" Binds="Sasn11C01OnlineHelpsListInAnswerGroups"
+              DataControl="PerpSasNewsAppModuleDataControl" RangeSize="25" ChangeEventPolicy="ppr"/>
+    <taskFlow id="sasnconsultaskflow1" taskFlowId="/WEB-INF/sasn-consul-task-flow.xml#sasn-consul-task-flow" activation="deferred"
+              xmlns="http://xmlns.oracle.com/adf/controller/binding">
+      <parameters>
+        <parameter id="taskFlow" value="#{pageFlowScope.taskFlow}"/>
+      </parameters>
+    </taskFlow>
+    <iterator Binds="DocumentCategoriesRoot1" RangeSize="25" DataControl="PerpSasNewsAppModuleDataControl"
+              id="DocumentCategoriesRoot1Iterator"/>
+    <invokeAction id="showDocumentDownload"
+                  Binds="prepareToShowDocumentDownloadByDcaId"
+                  Refresh="ifNeeded"/>
+    <iterator Binds="DocumentDownloadsListByDocumentCategory" RangeSize="10"
+              DataControl="PerpSasNewsAppModuleDataControl"
+              id="DocumentDownloadsListByDocumentCategoryIterator"/>
+    <searchRegion Binds="DocumentDownloadsListByDocumentCategoryIterator"
+                  Criteria=""
+                  Customizer="oracle.jbo.uicli.binding.JUSearchBindingCustomizer"
+                  id="DocumentDownloadsListByDocumentCategory1Query"/>
+  </executables>
+  <bindings>
+    <tree IterBinding="Sasn03ConsultantCategoriesIterator"
+          id="Sasn03ConsultantCategories">
+      <nodeDefinition DefName="com.vc.sasnmodel.views.sasn.ConsultantCategories" Name="Sasn03ConsultantCategories0">
+        <AttrNames>
+          <Item Value="CcaName"/>
+          <Item Value="CcaId"/>
+        </AttrNames>
+      </nodeDefinition>
+    </tree>
+    <attributeValues IterBinding="Sasn03ConsultantCategoriesIterator"
+                     id="CcaName">
+      <AttrNames>
+        <Item Value="CcaName"/>
+      </AttrNames>
+    </attributeValues>
+    <tree IterBinding="Sasn03ConsultantsListInConsultantCategoriesIterator"
+          id="Sasn03ConsultantsListInConsultantCategories">
+      <nodeDefinition DefName="com.vc.sasnmodel.views.sasn.Consultants"
+                      Name="Sasn03ConsultantsListInConsultantCategories0">
+        <AttrNames>
+          <Item Value="ConId"/>
+          <Item Value="CcaId"/>
+          <Item Value="Question"/>
+          <Item Value="Answer"/>
+          <Item Value="Description"/>
+          <Item Value="ShortAnswer"/>
+        </AttrNames>
+      </nodeDefinition>
+    </tree>
+    <attributeValues IterBinding="Sasn03ConsultantsListInConsultantCategoriesIterator"
+                     id="Question">
+      <AttrNames>
+        <Item Value="Question"/>
+      </AttrNames>
+    </attributeValues>
+    <attributeValues IterBinding="Sasn03ConsultantsListInConsultantCategoriesIterator"
+                     id="Answer">
+      <AttrNames>
+        <Item Value="Answer"/>
+      </AttrNames>
+    </attributeValues>
+    <action IterBinding="Sasn03ConsultantsListInConsultantCategoriesIterator"
+            id="setCurrentRowWithKey1" RequiresUpdateModel="false"
+            Action="setCurrentRowWithKey">
+      <NamedData NDName="rowKey" NDValue="#{row.rowKeyStr}"
+                 NDType="java.lang.String"/>
+    </action>
+    <attributeValues IterBinding="Sasn09DocumentCategoriesIterator" id="Title">
+      <AttrNames>
+        <Item Value="Title"/>
+      </AttrNames>
+    </attributeValues>
+    <tree IterBinding="Sasn11AnswerGroupsIterator" id="Sasn11AnswerGroups">
+      <nodeDefinition DefName="com.vc.sasnmodel.views.sasn.AnswerGroups" Name="Sasn11AnswerGroups0">
+        <AttrNames>
+          <Item Value="AgrId"/>
+          <Item Value="Name"/>
+          <Item Value="Description"/>
+        </AttrNames>
+        <Accessors>
+          <Item Value="C01OnlineHelps"/>
+        </Accessors>
+      </nodeDefinition>
+      <nodeDefinition DefName="com.vc.sasnmodel.views.customize.C01OnlineHelps" Name="Sasn11AnswerGroups1">
+        <AttrNames>
+          <Item Value="OheId"/>
+          <Item Value="NickName"/>
+          <Item Value="Note"/>
+          <Item Value="HelpType"/>
+          <Item Value="Status"/>
+        </AttrNames>
+      </nodeDefinition>
+    </tree>
+    <attributeValues IterBinding="Sasn14OnlineHelpsIterator" id="NickName">
+      <AttrNames>
+        <Item Value="NickName"/>
+      </AttrNames>
+    </attributeValues>
+    <attributeValues IterBinding="Sasn14OnlineHelpsIterator" id="Note">
+      <AttrNames>
+        <Item Value="Note"/>
+      </AttrNames>
+    </attributeValues>
+    <attributeValues IterBinding="Sasn14OnlineHelpsIterator" id="Status">
+      <AttrNames>
+        <Item Value="Status"/>
+      </AttrNames>
+    </attributeValues>
+    <action IterBinding="Sasn14OnlineHelpsIterator" id="First"
+            RequiresUpdateModel="true" Action="first"/>
+    <action IterBinding="Sasn14OnlineHelpsIterator" id="Previous"
+            RequiresUpdateModel="true" Action="previous"/>
+    <action IterBinding="Sasn14OnlineHelpsIterator" id="Next"
+            RequiresUpdateModel="true" Action="next"/>
+    <action IterBinding="Sasn14OnlineHelpsIterator" id="Last"
+            RequiresUpdateModel="true" Action="last"/>
+    <action id="Commit" RequiresUpdateModel="true" Action="commitTransaction"
+            DataControl="PerpSasNewsAppModuleDataControl"/>
+    <action id="Rollback" RequiresUpdateModel="false"
+            Action="rollbackTransaction"
+            DataControl="PerpSasNewsAppModuleDataControl"/>
+    <action IterBinding="Sasn14OnlineHelpsIterator" id="Create"
+            RequiresUpdateModel="true" Action="createRow"/>
+    <list IterBinding="Sasn14OnlineHelpsIterator" id="Name" DTSupportsMRU="true"
+          StaticList="false" ListIter="LovAnswerGroupsIterator">
+      <AttrNames>
+        <Item Value="AgrId"/>
+      </AttrNames>
+      <ListAttrNames>
+        <Item Value="AgrId"/>
+      </ListAttrNames>
+      <ListDisplayAttrNames>
+        <Item Value="Name"/>
+      </ListDisplayAttrNames>
+    </list>
+    <list IterBinding="Sasn14OnlineHelpsIterator" id="Name1"
+          DTSupportsMRU="true" StaticList="false"
+          ListIter="LovOnlineHelpTypesIterator">
+      <AttrNames>
+        <Item Value="HelpType"/>
+      </AttrNames>
+      <ListAttrNames>
+        <Item Value="HelpType"/>
+      </ListAttrNames>
+      <ListDisplayAttrNames>
+        <Item Value="Name"/>
+      </ListDisplayAttrNames>
+    </list>
+    <attributeValues IterBinding="Sasn03ConsultantsListInConsultantCategoriesIterator"
+                     id="Description">
+      <AttrNames>
+        <Item Value="Description"/>
+      </AttrNames>
+    </attributeValues>
+    <attributeValues IterBinding="Sasn09DocumentDownloadsListInDocumentCategoriesIterator"
+                     id="Title1">
+      <AttrNames>
+        <Item Value="Title"/>
+      </AttrNames>
+    </attributeValues>
+    <attributeValues IterBinding="Sasn09DocumentDownloadsListInDocumentCategoriesIterator"
+                     id="ShortContent">
+      <AttrNames>
+        <Item Value="ShortContent"/>
+      </AttrNames>
+    </attributeValues>
+    <attributeValues IterBinding="Sasn09DocumentDownloadsListInDocumentCategoriesIterator"
+                     id="PublicDate">
+      <AttrNames>
+        <Item Value="PublicDate"/>
+      </AttrNames>
+    </attributeValues>
+    <attributeValues IterBinding="Sasn09DocumentDownloadsListInDocumentCategoriesIterator"
+                     id="DataSize">
+      <AttrNames>
+        <Item Value="DataSize"/>
+      </AttrNames>
+    </attributeValues>
+    <attributeValues IterBinding="Sasn09DocumentDownloadsListInDocumentCategoriesIterator"
+                     id="DownloadCount">
+      <AttrNames>
+        <Item Value="DownloadCount"/>
+      </AttrNames>
+    </attributeValues>
+    <attributeValues IterBinding="Sasn09DocumentDownloadsListInDocumentCategoriesIterator"
+                     id="PriorityOrder">
+      <AttrNames>
+        <Item Value="PriorityOrder"/>
+      </AttrNames>
+    </attributeValues>
+    <attributeValues IterBinding="Sasn09DocumentDownloadsListInDocumentCategoriesIterator"
+                     id="FileName">
+      <AttrNames>
+        <Item Value="FileName"/>
+      </AttrNames>
+    </attributeValues>
+    <attributeValues IterBinding="Sasn09DocumentDownloadsListInDocumentCategoriesIterator"
+                     id="FileType">
+      <AttrNames>
+        <Item Value="FileType"/>
+      </AttrNames>
+    </attributeValues>
+    <attributeValues IterBinding="Sasn03ConsultantsListInConsultantCategoriesIterator"
+                     id="ShortAnswer">
+      <AttrNames>
+        <Item Value="ShortAnswer"/>
+      </AttrNames>
+    </attributeValues>
+    <tree IterBinding="DocumentCategoriesRoot1Iterator" id="DocumentCategoriesRoot1">
+      <nodeDefinition DefName="com.vc.sasnmodel.views.sasn.DocumentCategoriesRoot" Name="DocumentCategoriesRoot10">
+        <AttrNames>
+          <Item Value="DcaCode"/>
+          <Item Value="ShortContent"/>
+          <Item Value="Title"/>
+          <Item Value="DcaId"/>
+        </AttrNames>
+        <Accessors>
+          <Item Value="DocumentCategories1"/>
+        </Accessors>
+      </nodeDefinition>
+      <nodeDefinition DefName="com.vc.sasnmodel.views.sasn.DocumentCategories" Name="DocumentCategoriesRoot11">
+        <AttrNames>
+          <Item Value="DcaId"/>
+          <Item Value="Title"/>
+          <Item Value="ShortContent"/>
+          <Item Value="DcaCode"/>
+        </AttrNames>
+        <Accessors>
+          <Item Value="DocumentCategories2"/>
+        </Accessors>
+      </nodeDefinition>
+    </tree>
+    <tree IterBinding="DocumentDownloadsListByDocumentCategoryIterator"
+          id="DocumentDownloadsListByDocumentCategory">
+      <nodeDefinition DefName="com.vc.sasnmodel.views.sasn.DocumentDownloads"
+                      Name="DocumentDownloadsListByDocumentCategory0">
+        <AttrNames>
+          <Item Value="DdoId"/>
+          <Item Value="DataSize"/>
+          <Item Value="DcaId"/>
+          <Item Value="DownloadCount"/>
+          <Item Value="DownloadData"/>
+          <Item Value="DownloadLink"/>
+          <Item Value="FileName"/>
+          <Item Value="FileType"/>
+          <Item Value="PriorityOrder"/>
+          <Item Value="PublicDate"/>
+          <Item Value="ShortContent"/>
+          <Item Value="Title"/>
+        </AttrNames>
+      </nodeDefinition>
+    </tree>
+    <methodAction id="prepareToShowDocumentDownloadByDcaId"
+                  InstanceName="PerpSasNewsAppModuleDataControl.dataProvider"
+                  DataControl="PerpSasNewsAppModuleDataControl"
+                  RequiresUpdateModel="true" Action="invokeMethod"
+                  MethodName="prepareToShowDocumentDownloadByDcaId"
+                  IsViewObjectMethod="false">
+      <NamedData NDName="DcaId" NDValue="#{pageFlowScope.rowKeyDca}"
+                 NDType="oracle.jbo.domain.Number"/>
+    </methodAction>
+  </bindings>
+</pageDefinition>

@@ -1,0 +1,74 @@
+<?xml version = '1.0' encoding = 'UTF-8'?>
+<SDM>
+   <OverallProperties
+      id="OverallProperties1"/>
+   <Router
+      id="Router2">
+      <property
+         name="activityId">gate</property>
+      <property
+         name="start">true</property>
+      <property
+         name="description">&lt;html>&lt;p>&lt;b>gate&lt;/b> (Default Activity)&lt;/p>&lt;p>Activity Type:  Router&lt;/p></property>
+      <property
+         name="exceptionHandler">false</property>
+      <property
+         name="y">201.94824</property>
+      <property
+         name="x">148.0</property>
+   </Router>
+   <View
+      id="View3">
+      <property
+         name="activityId">consul</property>
+      <property
+         name="page">/pages/consul/consulFrag/consul.jsff</property>
+      <property
+         name="description">&lt;html>&lt;p>&lt;b>consul&lt;/b>&lt;/p>&lt;p>Activity Type:  View&lt;/p></property>
+      <property
+         name="exceptionHandler">false</property>
+      <property
+         name="y">133.29883</property>
+      <property
+         name="x">377.0</property>
+      <property
+         name="pageFragment">true</property>
+   </View>
+   <View
+      id="View4">
+      <property
+         name="activityId">question</property>
+      <property
+         name="page">/pages/consul/consulFrag/question.jsff</property>
+      <property
+         name="description">&lt;html>&lt;p>&lt;b>question&lt;/b>&lt;/p>&lt;p>Activity Type:  View&lt;/p></property>
+      <property
+         name="exceptionHandler">false</property>
+      <property
+         name="y">323.29883</property>
+      <property
+         name="x">372.0</property>
+      <property
+         name="pageFragment">true</property>
+   </View>
+   <ControlFlowCase
+      islink="true"
+      id="ControlFlowCase5"
+      from="Router2"
+      to="View3">
+      <property
+         name="fromOutcome">consult</property>
+      <property
+         name="sdm:polyPoints">R46,189.0,198.09766,336.0,132.94824,L50</property>
+   </ControlFlowCase>
+   <ControlFlowCase
+      islink="true"
+      id="ControlFlowCase6"
+      from="Router2"
+      to="View4">
+      <property
+         name="fromOutcome">question</property>
+      <property
+         name="sdm:polyPoints">R54,189.0,205.09766,331.0,322.94824,L50</property>
+   </ControlFlowCase>
+</SDM>

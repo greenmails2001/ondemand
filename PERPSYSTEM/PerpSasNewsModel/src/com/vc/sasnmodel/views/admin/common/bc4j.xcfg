@@ -1,0 +1,12 @@
+<?xml version = '1.0' encoding = 'UTF-8'?>
+<BC4JConfig version="11.1" xmlns="http://xmlns.oracle.com/bc4j/configuration">
+   <AppModuleConfigBag ApplicationName="com.vc.sasnmodel.views.admin.SasNewsAddminAppModule">
+      <AppModuleConfig name="SasNewsAddminAppModuleLocal" ApplicationName="com.vc.sasnmodel.views.admin.SasNewsAddminAppModule" DeployPlatform="LOCAL" JDBCName="PerpSasNewsConnection" jbo.project="com.vc.sasnmodel.PerpSasNewsModel">
+         <Security AppModuleJndiName="com.vc.sasnmodel.views.admin.SasNewsAddminAppModule"/>
+      </AppModuleConfig>
+      <AppModuleConfig name="SasNewsAddminAppModuleShared" ApplicationName="com.vc.sasnmodel.views.admin.SasNewsAddminAppModule" DeployPlatform="LOCAL" JDBCName="PerpSasNewsConnection" jbo.project="com.vc.sasnmodel.PerpSasNewsModel">
+         <AM-Pooling jbo.ampool.maxpoolsize="1" jbo.ampool.isuseexclusive="false"/>
+         <Security AppModuleJndiName="com.vc.sasnmodel.views.admin.SasNewsAddminAppModule"/>
+      </AppModuleConfig>
+   </AppModuleConfigBag>
+</BC4JConfig>

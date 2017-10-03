@@ -1,0 +1,43 @@
+<?xml version="1.0" encoding="windows-1252" ?>
+<!DOCTYPE Association SYSTEM "jbo_03_01.dtd">
+<!---->
+<Association
+  xmlns="http://xmlns.oracle.com/bc4j"
+  Name="ParPgrFkAssoc"
+  Version="11.1.1.55.36">
+  <DesignTime>
+    <Attr Name="_isCodegen" Value="true"/>
+  </DesignTime>
+  <AssociationEnd
+    Name="PartnerGroups"
+    Cardinality="1"
+    Source="true"
+    Owner="com.vc.sasnmodel.entities.PartnerGroups">
+    <DesignTime>
+      <Attr Name="_aggregation" Value="0"/>
+      <Attr Name="_finderName" Value="PartnerGroups"/>
+      <Attr Name="_foreignKey"
+        Value="com.vc.sasnmodel.entities.PartnerGroups.PgrPk"/>
+      <Attr Name="_isUpdateable" Value="true"/>
+      <Attr Name="_minCardinality" Value="1"/>
+    </DesignTime>
+    <AttrArray Name="Attributes">
+      <Item Value="com.vc.sasnmodel.entities.PartnerGroups.PgrId"/>
+    </AttrArray>
+  </AssociationEnd>
+  <AssociationEnd
+    Name="Partners"
+    Cardinality="-1"
+    Owner="com.vc.sasnmodel.entities.Partners">
+    <DesignTime>
+      <Attr Name="_aggregation" Value="0"/>
+      <Attr Name="_finderName" Value="Partners"/>
+      <Attr Name="_foreignKey"
+        Value="com.vc.sasnmodel.entities.Partners.ParPgrFk"/>
+      <Attr Name="_isUpdateable" Value="true"/>
+    </DesignTime>
+    <AttrArray Name="Attributes">
+      <Item Value="com.vc.sasnmodel.entities.Partners.PgrId"/>
+    </AttrArray>
+  </AssociationEnd>
+</Association>

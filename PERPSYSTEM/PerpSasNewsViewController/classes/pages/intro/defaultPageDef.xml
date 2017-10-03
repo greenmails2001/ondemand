@@ -1,0 +1,90 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<pageDefinition xmlns="http://xmlns.oracle.com/adfm/uimodel"
+                version="11.1.1.55.36" id="defaultPageDef"
+                Package="pages.intro">
+  <parameters/>
+  <executables>
+    <invokeAction Binds="prepareToShowNewsOthers1" id="call_preparedToShowArchitech" Refresh="default"/>
+    <invokeAction id="call_prepareToShowNewsOthers"
+                  Binds="prepareToShowNewsOthers" Refresh="default"/>
+    <iterator Binds="Sasn01Introductions" RangeSize="25"
+              DataControl="PerpSasNewsAppModuleDataControl"
+              id="Sasn01IntroductionsIterator"/>
+    <iterator Binds="Sasn02C01Products" RangeSize="25"
+              DataControl="PerpSasNewsAppModuleDataControl"
+              id="Sasn02C01ProductsIterator"/>
+    <variableIterator id="variables">
+      <variable Name="notNumber" Type="java.lang.String"
+                DefaultValue="HISTORY"/>
+    </variableIterator>
+  </executables>
+  <bindings>
+    <methodAction id="prepareToShowNewsOthers" RequiresUpdateModel="true"
+                  Action="invokeMethod" MethodName="prepareToShowNewsOthers"
+                  IsViewObjectMethod="false"
+                  DataControl="PerpSasNewsAppModuleDataControl"
+                  InstanceName="PerpSasNewsAppModuleDataControl.dataProvider">
+      <NamedData NDName="notNumber" NDType="java.lang.String"
+                 NDValue="HISTORY"/>
+    </methodAction>
+    <methodAction id="prepareToShowNewsOthers1" InstanceName="PerpSasNewsAppModuleDataControl.dataProvider"
+                  DataControl="PerpSasNewsAppModuleDataControl" RequiresUpdateModel="true" Action="invokeMethod"
+                  MethodName="prepareToShowNewsOthers" IsViewObjectMethod="false">
+      <NamedData NDName="notNumber" NDValue="ARCHITECT" NDType="java.lang.String"/>
+    </methodAction>
+    <tree IterBinding="Sasn01IntroductionsIterator" id="Sasn01Introductions">
+      <nodeDefinition DefName="com.vc.sasnmodel.views.sasn.Introductions"
+                      Name="Sasn01Introductions0">
+        <AttrNames>
+          <Item Value="Title"/>
+        </AttrNames>
+      </nodeDefinition>
+    </tree>
+    <attributeValues IterBinding="Sasn01IntroductionsIterator" id="IntId">
+      <AttrNames>
+        <Item Value="IntId"/>
+      </AttrNames>
+    </attributeValues>
+    <attributeValues IterBinding="Sasn01IntroductionsIterator" id="Title">
+      <AttrNames>
+        <Item Value="Title"/>
+      </AttrNames>
+    </attributeValues>
+    <attributeValues IterBinding="Sasn01IntroductionsIterator" id="Content">
+      <AttrNames>
+        <Item Value="Content"/>
+      </AttrNames>
+    </attributeValues>
+    <action IterBinding="Sasn01IntroductionsIterator" id="setCurrentRowWithKey"
+            RequiresUpdateModel="false" Action="setCurrentRowWithKey">
+      <NamedData NDName="rowKey" NDValue="#{row.rowKeyStr}"
+                 NDType="java.lang.String"/>
+    </action>
+    <tree IterBinding="Sasn02C01ProductsIterator" id="Sasn02C01Products">
+      <nodeDefinition DefName="com.vc.sasnmodel.views.customize.C01Products"
+                      Name="Sasn02C01Products0">
+        <AttrNames>
+          <Item Value="ProId"/>
+          <Item Value="Title"/>
+          <Item Value="ShortContent"/>
+          <Item Value="PcaId"/>
+        </AttrNames>
+      </nodeDefinition>
+    </tree>
+    <action IterBinding="Sasn02C01ProductsIterator" id="setCurrentRowWithKey1"
+            RequiresUpdateModel="false" Action="setCurrentRowWithKey">
+      <NamedData NDName="rowKey" NDValue="#{row.rowKeyStr}"
+                 NDType="java.lang.String"/>
+    </action>
+    <attributeValues IterBinding="Sasn02C01ProductsIterator" id="Content1">
+      <AttrNames>
+        <Item Value="Content"/>
+      </AttrNames>
+    </attributeValues>
+    <attributeValues IterBinding="Sasn02C01ProductsIterator" id="Title1">
+      <AttrNames>
+        <Item Value="Title"/>
+      </AttrNames>
+    </attributeValues>
+  </bindings>
+</pageDefinition>

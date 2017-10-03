@@ -1,0 +1,63 @@
+<?xml version='1.0' encoding='UTF-8'?>
+<jsp:root xmlns:jsp="http://java.sun.com/JSP/Page" version="2.1" xmlns:f="http://java.sun.com/jsf/core"
+          xmlns:h="http://java.sun.com/jsf/html" xmlns:af="http://xmlns.oracle.com/adf/faces/rich">
+  <jsp:directive.page contentType="text/html;charset=UTF-8"/>
+  <f:view>
+    <af:document id="d1">
+      <af:form id="f1">
+        <af:pageTemplate viewId="/templates/sasTemplate.jspx" id="pt1">
+          <f:facet name="status"/>
+          <f:facet name="globalLinks">
+            <af:navigationPane hint="buttons" id="pt_np1">
+              <af:commandNavigationItem text="Home" action="sasnews" id="pt_cni1" targetFrame="_blank"/>
+              <af:commandNavigationItem text="Forum" id="pt_cni3" targetFrame="_blank"/>
+            </af:navigationPane>
+          </f:facet>
+          <f:facet name="about">
+            <af:outputText value="vinhcuu" id="ot2"/>
+          </f:facet>
+          <f:facet name="copyright">
+            <af:outputText value="Vinh Cuu 2014, all rights reserved." id="ot1"/>
+          </f:facet>
+          <f:facet name="globalSearch"></f:facet>
+          <f:facet name="globalToolbar"></f:facet>
+          <f:facet name="center">
+            <af:decorativeBox id="db2" theme="light">             
+              <f:facet name="center">
+                <af:region value="#{bindings.sasn_admin1.regionModel}" id="r1" binding="#{adminBackingBean.region}"/>
+              </f:facet>
+            </af:decorativeBox>
+          </f:facet>
+          <f:facet name="globalTabs">
+            <af:navigationPane id="np1">
+              <af:commandNavigationItem text="News" id="cni1" actionListener="#{adminBackingBean.setOutcomeActionListener}"
+                                        partialSubmit="true">
+                <f:attribute name="outcome" value="news"/>
+              </af:commandNavigationItem>
+              <af:commandNavigationItem text="Service" id="cni2" actionListener="#{adminBackingBean.setOutcomeActionListener}"
+                                        partialSubmit="true">
+                <f:attribute name="outcome" value="service"/>
+              </af:commandNavigationItem>
+              <af:commandNavigationItem text="Partner" id="cni4" actionListener="#{adminBackingBean.setOutcomeActionListener}"
+                                        partialSubmit="true">
+                <f:attribute name="outcome" value="partner"/>
+              </af:commandNavigationItem>
+              <af:commandNavigationItem text="Product" id="cni3" actionListener="#{adminBackingBean.setOutcomeActionListener}"
+                                        partialSubmit="true">
+                <f:attribute name="outcome" value="product"/>
+              </af:commandNavigationItem>
+              <af:commandNavigationItem text="Consultant" id="cni5" actionListener="#{adminBackingBean.setOutcomeActionListener}"
+                                        partialSubmit="true">
+                <f:attribute name="outcome" value="consultant"/>
+              </af:commandNavigationItem>
+              <af:commandNavigationItem text="Document" id="cni6" actionListener="#{adminBackingBean.setOutcomeActionListener}"
+                                        partialSubmit="true">
+                <f:attribute name="outcome" value="document"/>
+              </af:commandNavigationItem>
+            </af:navigationPane>
+          </f:facet>
+        </af:pageTemplate>
+      </af:form>
+    </af:document>
+  </f:view>
+</jsp:root>

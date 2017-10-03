@@ -1,0 +1,45 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE AppModule SYSTEM "jbo_03_01.dtd">
+<!---->
+<AppModule
+  xmlns="http://xmlns.oracle.com/bc4j"
+  Name="PerpSasEnvAppModule"
+  Version="11.1.1.51.88"
+  ComponentClass="com.perp.sasenvmodel.PerpSasEnvAppModuleImpl"
+  ClearCacheOnRollback="true"
+  ComponentInterface="com.perp.sasenvmodel.common.PerpSasEnvAppModule"
+  ClientProxyName="com.perp.sasenvmodel.client.PerpSasEnvAppModuleClient">
+  <DesignTime>
+    <Attr Name="_deployType" Value="0"/>
+    <Attr Name="_isCodegen" Value="true"/>
+  </DesignTime>
+  <ViewUsage
+    Name="Sasem001Environments"
+    ViewObjectName="com.perp.sasenvmodel.views.sasem001.Sasem001Environments"/>
+  <ViewUsage
+    Name="Sasem001LovSubscriptionViewDetails"
+    ViewObjectName="com.perp.sasenvmodel.views.sasem001.Sasem001LovSubscriptionViewDetails"/>
+  <ClientInterface>
+    <Method
+      Name="test">
+      <Return
+        Type="void"/>
+    </Method>
+    <Method
+      Name="getSasem001Environments">
+      <Return
+        Type="oracle.jbo.ViewObject"/>
+    </Method>
+    <Method
+      Name="getCountSubscriptionExceptEnvId">
+      <Return
+        Type="int"/>
+      <Parameter
+        Name="envId"
+        Type="java.lang.Long"/>
+      <Parameter
+        Name="subId"
+        Type="java.lang.Long"/>
+    </Method>
+  </ClientInterface>
+</AppModule>

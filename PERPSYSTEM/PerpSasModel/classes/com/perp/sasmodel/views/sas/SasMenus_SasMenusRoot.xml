@@ -1,0 +1,43 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE ViewLink SYSTEM "jbo_03_01.dtd">
+<!---->
+<ViewLink
+  xmlns="http://xmlns.oracle.com/bc4j"
+  Name="SasMenus_SasMenusRoot"
+  Version="11.1.1.56.60"
+  Where="((:Bind_MenId = MEN_ID_CHILD_OF) AND (:Bind_GusId = GUS_ID) AND (:Bind_AppCode = APP_CODE))"
+  WhereReverse="((:Bind_MenIdChildOf = MEN_ID) AND (:Bind_GusId = GUS_ID) AND (:Bind_AppCode = APP_CODE))">
+  <DesignTime>
+    <Attr Name="_isCodegen" Value="true"/>
+  </DesignTime>
+  <ViewLinkDefEnd
+    Name="SasMenusRoot"
+    Cardinality="1"
+    Owner="com.perp.sasmodel.views.sas.SasMenusRoot"
+    Source="true">
+    <DesignTime>
+      <Attr Name="_accessor" Value="true"/>
+      <Attr Name="_finderName" Value="MenIdChildOfSasMenusRoot"/>
+      <Attr Name="_isUpdateable" Value="true"/>
+    </DesignTime>
+    <AttrArray Name="Attributes">
+      <Item Value="com.perp.sasmodel.views.sas.SasMenusRoot.MenId"/>
+      <Item Value="com.perp.sasmodel.views.sas.SasMenusRoot.GusId"/>
+      <Item Value="com.perp.sasmodel.views.sas.SasMenusRoot.AppCode"/>
+    </AttrArray>
+  </ViewLinkDefEnd>
+  <ViewLinkDefEnd
+    Name="SasMenus1"
+    Cardinality="-1"
+    Owner="com.perp.sasmodel.views.sas.SasMenus">
+    <DesignTime>
+      <Attr Name="_finderName" Value="SasMenus"/>
+      <Attr Name="_isUpdateable" Value="true"/>
+    </DesignTime>
+    <AttrArray Name="Attributes">
+      <Item Value="com.perp.sasmodel.views.sas.SasMenus.MenIdChildOf"/>
+      <Item Value="com.perp.sasmodel.views.sas.SasMenus.GusId"/>
+      <Item Value="com.perp.sasmodel.views.sas.SasMenus.AppCode"/>
+    </AttrArray>
+  </ViewLinkDefEnd>
+</ViewLink>

@@ -1,0 +1,15 @@
+<?xml version="1.0" encoding="windows-1252" ?>
+<adfc-config xmlns="http://xmlns.oracle.com/adf/controller" version="1.2">
+  <task-flow-definition id="sasn-partn">
+    <default-activity id="__1">default</default-activity>
+    <managed-bean id="__3">
+      <managed-bean-name id="__2">partnBean</managed-bean-name>
+      <managed-bean-class id="__4">pages.partn.PartnBean</managed-bean-class>
+      <managed-bean-scope id="__5">request</managed-bean-scope>
+    </managed-bean>
+    <view id="default">
+      <page>/pages/partn/default.jsff</page>
+    </view>
+    <use-page-fragments/>
+  </task-flow-definition>
+</adfc-config>

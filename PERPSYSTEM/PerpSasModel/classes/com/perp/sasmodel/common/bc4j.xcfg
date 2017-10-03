@@ -1,0 +1,20 @@
+<?xml version = '1.0' encoding = 'UTF-8'?>
+<!---->
+<BC4JConfig version="11.1" xmlns="http://xmlns.oracle.com/bc4j/configuration">
+   <AppModuleConfigBag ApplicationName="com.perp.sasmodel.PerpSasAppModule">
+      <AppModuleConfig DeployPlatform="LOCAL" RELEASE_MODE="Stateless" jbo.project="com.perp.sasmodel.PerpSasModel" name="PerpSasAppModuleLocal" jbo.txn.disconnect_level="1" ApplicationName="com.perp.sasmodel.PerpSasAppModule">  
+         <Database jbo.locking.mode="optimistic"/>  
+         <Security AppModuleJndiName="com.perp.sasmodel.PerpSasAppModule"/>
+         <Custom JDBCDataSource="java:comp/env/jdbc/PerpSasConnectionDS" jbo.envinfoprovider="com.perp.sasmodel.dynamicjdbc.DynamicJDBCEnvInfoProvider"/>
+      </AppModuleConfig>
+      <AppModuleConfig name="PerpSasAppModuleShared" ApplicationName="com.perp.sasmodel.PerpSasAppModule" DeployPlatform="LOCAL" JDBCName="PerpSasConnection" jbo.project="com.perp.sasmodel.PerpSasModel">
+         <AM-Pooling jbo.ampool.maxpoolsize="1" jbo.ampool.isuseexclusive="false"/>
+         <Security AppModuleJndiName="com.perp.sasmodel.PerpSasAppModule"/>
+      </AppModuleConfig>
+      <AppModuleConfig name="PerpSasAppModuleLocal1" jbo.project="com.perp.sasmodel.PerpSasModel"
+                       ApplicationName="com.perp.sasmodel.PerpSasAppModule" JDBCName="PerpSasConnection"
+                       DeployPlatform="LOCAL">
+         <Security AppModuleJndiName="com.perp.sasmodel.PerpSasAppModule"/>
+      </AppModuleConfig>
+   </AppModuleConfigBag>
+</BC4JConfig>

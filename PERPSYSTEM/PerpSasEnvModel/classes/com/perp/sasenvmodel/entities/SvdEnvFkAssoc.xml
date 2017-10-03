@@ -1,0 +1,40 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE Association SYSTEM "jbo_03_01.dtd">
+<!---->
+<Association
+  xmlns="http://xmlns.oracle.com/bc4j"
+  Name="SvdEnvFkAssoc"
+  Version="11.1.1.51.88">
+  <DesignTime>
+    <Attr Name="_isCodegen" Value="true"/>
+  </DesignTime>
+  <AssociationEnd
+    Name="SubscriptionViewDetails"
+    Cardinality="1"
+    Source="true"
+    Owner="com.perp.sasenvmodel.entities.SubscriptionViewDetails"
+    LockLevel="NONE">
+    <AttrArray Name="Attributes">
+      <Item
+        Value="com.perp.sasenvmodel.entities.SubscriptionViewDetails.SubId"/>
+    </AttrArray>
+    <DesignTime>
+      <Attr Name="_aggregation" Value="0"/>
+      <Attr Name="_finderName" Value="SubscriptionViewDetails"/>
+      <Attr Name="_isUpdateable" Value="true"/>
+    </DesignTime>
+  </AssociationEnd>
+  <AssociationEnd
+    Name="Environments"
+    Cardinality="-1"
+    Owner="com.perp.sasenvmodel.entities.Environments">
+    <AttrArray Name="Attributes">
+      <Item Value="com.perp.sasenvmodel.entities.Environments.SubId"/>
+    </AttrArray>
+    <DesignTime>
+      <Attr Name="_aggregation" Value="0"/>
+      <Attr Name="_finderName" Value="Environments"/>
+      <Attr Name="_isUpdateable" Value="true"/>
+    </DesignTime>
+  </AssociationEnd>
+</Association>

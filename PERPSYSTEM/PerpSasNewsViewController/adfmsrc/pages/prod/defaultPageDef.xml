@@ -1,0 +1,94 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<pageDefinition xmlns="http://xmlns.oracle.com/adfm/uimodel"
+                version="11.1.1.56.60" id="defaultPageDef" Package="pages.prod">
+  <parameters/>
+  <executables>
+    <variableIterator id="variables"/>
+    <iterator Binds="Sasn02C01Products" RangeSize="25"
+              DataControl="PerpSasNewsAppModuleDataControl"
+              id="Sasn02C01ProductsIterator"/>
+    <iterator Binds="Sasn13C02Products" RangeSize="25"
+              DataControl="PerpSasNewsAppModuleDataControl"
+              id="Sasn13C02ProductsIterator"/>
+  </executables>
+  <bindings>
+    <tree IterBinding="Sasn02C01ProductsIterator" id="Sasn02C01Products">
+      <nodeDefinition DefName="com.vc.sasnmodel.views.customize.C01Products"
+                      Name="Sasn02C01Products0">
+        <AttrNames>
+          <Item Value="ProId"/>
+          <Item Value="Title"/>
+          <Item Value="ShortContent"/>
+          <Item Value="Content"/>
+          <Item Value="Description"/>
+          <Item Value="PcaId"/>
+          <Item Value="ProCode"/>
+        </AttrNames>
+      </nodeDefinition>
+    </tree>
+    <attributeValues IterBinding="Sasn02C01ProductsIterator" id="ProId">
+      <AttrNames>
+        <Item Value="ProId"/>
+      </AttrNames>
+    </attributeValues>
+    <attributeValues IterBinding="Sasn02C01ProductsIterator" id="Title">
+      <AttrNames>
+        <Item Value="Title"/>
+      </AttrNames>
+    </attributeValues>
+    <attributeValues IterBinding="Sasn02C01ProductsIterator" id="ShortContent">
+      <AttrNames>
+        <Item Value="ShortContent"/>
+      </AttrNames>
+    </attributeValues>
+    <attributeValues IterBinding="Sasn02C01ProductsIterator" id="Content">
+      <AttrNames>
+        <Item Value="Content"/>
+      </AttrNames>
+    </attributeValues>
+    <attributeValues IterBinding="Sasn02C01ProductsIterator" id="Description">
+      <AttrNames>
+        <Item Value="Description"/>
+      </AttrNames>
+    </attributeValues>
+    <attributeValues IterBinding="Sasn02C01ProductsIterator" id="PcaId">
+      <AttrNames>
+        <Item Value="PcaId"/>
+      </AttrNames>
+    </attributeValues>
+    <action IterBinding="Sasn02C01ProductsIterator" id="setCurrentRowWithKey"
+            RequiresUpdateModel="false" Action="setCurrentRowWithKey">
+      <NamedData NDName="rowKey" NDValue="#{row.rowKeyStr}"
+                 NDType="java.lang.String"/>
+    </action>
+    <tree IterBinding="Sasn13C02ProductsIterator" id="Sasn13C02Products">
+      <nodeDefinition DefName="com.vc.sasnmodel.views.customize.C02Products"
+                      Name="Sasn13C02Products0">
+        <AttrNames>
+          <Item Value="ProId"/>
+          <Item Value="Title"/>
+          <Item Value="Content"/>
+          <Item Value="Description"/>
+          <Item Value="PcaId"/>
+          <Item Value="ShortContent"/>
+          <Item Value="PriorityOrder"/>
+          <Item Value="ProCode"/>
+        </AttrNames>
+      </nodeDefinition>
+    </tree>
+    <attributeValues IterBinding="Sasn13C02ProductsIterator" id="Title1">
+      <AttrNames>
+        <Item Value="Title"/>
+      </AttrNames>
+    </attributeValues>
+    <attributeValues IterBinding="Sasn13C02ProductsIterator" id="Content1">
+      <AttrNames>
+        <Item Value="Content"/>
+      </AttrNames>
+    </attributeValues>
+    <action IterBinding="Sasn13C02ProductsIterator" id="setCurrentRowWithKey1"
+            RequiresUpdateModel="false" Action="setCurrentRowWithKey">
+      <NamedData NDName="rowKey" NDValue="#{row.rowKeyStr}" NDType="java.lang.String"/>
+    </action>
+  </bindings>
+</pageDefinition>

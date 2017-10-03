@@ -1,0 +1,33 @@
+<?xml version='1.0' encoding='UTF-8'?>
+<jsp:root xmlns:jsp="http://java.sun.com/JSP/Page" version="2.1"
+          xmlns:f="http://java.sun.com/jsf/core"
+          xmlns:af="http://xmlns.oracle.com/adf/faces/rich"
+          xmlns:c="http://java.sun.com/jsp/jstl/core"
+          xmlns:h="http://java.sun.com/jsf/html">
+  <c:set var="perpsasnewsviewcontrollerBundle"
+         value="#{adfBundle['com.vc.sasn.PerpSasNewsViewControllerBundle']}"/>
+  <jsp:directive.page contentType="text/html;charset=UTF-8"/>
+  <f:view>
+    <af:document id="d1">
+      <af:form id="f1">
+        <af:messages id="m1"/>
+        <f:attribute name="myAttribute" value="HISTORY"/>
+        <af:outputText value="#{c01NewsOthers.newsOthers.title}" id="ot1"/>
+        <af:panelFormLayout id="pfl1">
+          <af:inputText value="#{bindings.realPath.inputValue}"
+                        label="#{bindings.realPath.hints.label}"
+                        required="#{bindings.realPath.hints.mandatory}"
+                        columns="#{bindings.realPath.hints.displayWidth}"
+                        maximumLength="#{bindings.realPath.hints.precision}"
+                        shortDesc="#{bindings.realPath.hints.tooltip}" id="it1">
+            <f:validator binding="#{bindings.realPath.validator}"/>
+          </af:inputText>
+          <af:commandButton actionListener="#{bindings.generateImageFromBlobDatas.execute}"
+                            text="generateImageFromBlobDatas"
+                            disabled="#{!bindings.generateImageFromBlobDatas.enabled}"
+                            id="cb1"/>
+        </af:panelFormLayout>
+      </af:form>
+    </af:document>
+  </f:view>
+</jsp:root>

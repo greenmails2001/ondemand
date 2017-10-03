@@ -1,0 +1,75 @@
+<?xml version="1.0" encoding="windows-1252" ?>
+<adfc-config xmlns="http://xmlns.oracle.com/adf/controller" version="1.2">
+  <task-flow-definition id="sasn_admin">
+    <default-activity id="__23">gate</default-activity>
+    <view id="document">
+      <page>/pages/admin/document.jsff</page>
+    </view>
+    <view id="consultant">
+      <page>/pages/admin/consultant.jsff</page>
+    </view>
+    <view id="news">
+      <page>/pages/admin/news.jsff</page>
+    </view>
+    <view id="partner">
+      <page>/pages/admin/partner.jsff</page>
+    </view>
+    <view id="product">
+      <page>/pages/admin/product.jsff</page>
+    </view>
+    <view id="service">
+      <page>/pages/admin/service.jsff</page>
+    </view>
+    <router id="gate">
+      <case>
+        <expression>#{adminBackingBean.outcome=='service'}</expression>
+        <outcome id="__46">service</outcome>
+      </case>
+      <case>
+        <expression>#{adminBackingBean.outcome=='partner'}</expression>
+        <outcome id="__47">partner</outcome>
+      </case>
+      <case>
+        <expression>#{adminBackingBean.outcome=='product'}</expression>
+        <outcome id="__48">product</outcome>
+      </case>
+      <case>
+        <expression>#{adminBackingBean.outcome=='consultant'}</expression>
+        <outcome id="__49">consultant</outcome>
+      </case>
+      <case>
+        <expression>#{adminBackingBean.outcome=='document'}</expression>
+        <outcome id="__50">document</outcome>
+      </case>
+      <default-outcome>news</default-outcome>
+    </router>
+    <control-flow-rule id="__26">
+      <from-activity-id id="__27">gate</from-activity-id>
+      <control-flow-case id="__29">
+        <from-outcome id="__30">service</from-outcome>
+        <to-activity-id id="__28">service</to-activity-id>
+      </control-flow-case>
+      <control-flow-case id="__31">
+        <from-outcome id="__33">partner</from-outcome>
+        <to-activity-id id="__32">partner</to-activity-id>
+      </control-flow-case>
+      <control-flow-case id="__35">
+        <from-outcome id="__36">news</from-outcome>
+        <to-activity-id id="__34">news</to-activity-id>
+      </control-flow-case>
+      <control-flow-case id="__38">
+        <from-outcome id="__39">product</from-outcome>
+        <to-activity-id id="__37">product</to-activity-id>
+      </control-flow-case>
+      <control-flow-case id="__41">
+        <from-outcome id="__42">consultant</from-outcome>
+        <to-activity-id id="__40">consultant</to-activity-id>
+      </control-flow-case>
+      <control-flow-case id="__44">
+        <from-outcome id="__45">document</from-outcome>
+        <to-activity-id id="__43">document</to-activity-id>
+      </control-flow-case>
+    </control-flow-rule>
+    <use-page-fragments/>
+  </task-flow-definition>
+</adfc-config>

@@ -1,0 +1,12 @@
+<?xml version = '1.0' encoding = 'UTF-8'?>
+<BC4JConfig version="11.1" xmlns="http://xmlns.oracle.com/bc4j/configuration">
+   <AppModuleConfigBag ApplicationName="com.perp.sasmodel.PerpSasAppModule">
+      <AppModuleConfig name="144872218E2" DeployPlatform="LOCAL" BC4JConfigName="PerpSasAppModuleLocal" ApplicationName="com.perp.sasmodel.PerpSasAppModule" JDBCName="PerpSasConnection" IsLazyLoadingTrue="true" java.naming.factory.initial="oracle.jbo.common.JboInitialContextFactory" jbo.project="com.perp.sasmodel.PerpSasModel">
+         <AM-Pooling jbo.ampool.sessioncookiefactoryclass="com.perp.sasmodel.dynamicjdbc.DynamicJDBCSessionCookieFactory"/>
+         <Database jbo.SQLBuilder="Oracle" jbo.TypeMapEntries="Oracle"/>
+         <Security AppModuleJndiName="com.perp.sasmodel.PerpSasAppModule"/>
+         <Tester FullProxyInterfaceName="com.perp.sasmodel.common.PerpSasAppModule"/>
+         <Custom LastUsedConfiguration="PerpSasAppModuleLocal"/>
+      </AppModuleConfig>
+   </AppModuleConfigBag>
+</BC4JConfig>

@@ -1,0 +1,64 @@
+<?xml version='1.0' encoding='windows-1252' ?>
+<!DOCTYPE JboProject SYSTEM "jbo_03_01.dtd">
+<!---->
+
+<JboProject
+   xmlns="http://xmlns.oracle.com/bc4j"
+   Name="PerpSasModel"
+   Version="11.1.1.56.60"
+   SeparateXMLFiles="true"
+   PackageName="com.perp.sasmodel">
+   <DesignTime>
+      <Attr Name="_jprName" Value="../../../../PerpSasModel.jpr"/>
+      <Attr Name="_appModuleNames0" Value="com.perp.sasmodel.PerpSasAppModule"/>
+      <Attr Name="_NamedConnection" Value="PerpSasConnection"/>
+   </DesignTime>
+   <Containee
+      Name="entities"
+      PackageName="com.perp.sasmodel.entities"
+      ObjectType="JboPackage">
+      <DesignTime>
+         <Attr Name="_EO" Value="true"/>
+         <Attr Name="_AS" Value="true"/>
+      </DesignTime>
+   </Containee>
+   <Containee
+      Name="sas001"
+      PackageName="com.perp.sasmodel.sas001"
+      ObjectType="JboPackage"/>
+   <Containee
+      Name="sasmodel"
+      PackageName="com.perp.sasmodel"
+      ObjectType="JboPackage">
+      <DesignTime>
+         <Attr Name="_AM" Value="true"/>
+      </DesignTime>
+   </Containee>
+   <Containee
+      Name="adv"
+      PackageName="com.perp.sasmodel.views.adv"
+      ObjectType="JboPackage">
+      <DesignTime>
+         <Attr Name="_VO" Value="true"/>
+         <Attr Name="_VL" Value="true"/>
+      </DesignTime>
+   </Containee>
+   <Containee
+      Name="sas"
+      PackageName="com.perp.sasmodel.views.sas"
+      ObjectType="JboPackage">
+      <DesignTime>
+         <Attr Name="_VO" Value="true"/>
+         <Attr Name="_VL" Value="true"/>
+      </DesignTime>
+   </Containee>
+   <Containee
+      Name="testting"
+      PackageName="com.perp.sasmodel.views.testting"
+      ObjectType="JboPackage">
+      <DesignTime>
+         <Attr Name="_VO" Value="true"/>
+         <Attr Name="_VL" Value="true"/>
+      </DesignTime>
+   </Containee>
+</JboProject>

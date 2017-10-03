@@ -1,0 +1,65 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<pageDefinition xmlns="http://xmlns.oracle.com/adfm/uimodel"
+                version="11.1.1.55.36" id="defaultPageDef" Package="pages.serv">
+  <parameters/>
+  <executables>
+    <variableIterator id="variables"/>
+    <iterator Binds="ServicesRoot" RangeSize="10" DataControl="PerpSasNewsAppModuleDataControl" id="ServicesRootIterator"/>
+    <invokeAction id="showServiceContent" Binds="prepareToShowServiceBySerId" Refresh="ifNeeded"/>
+    <iterator Binds="C01ServicesListBySerId" RangeSize="10" DataControl="PerpSasNewsAppModuleDataControl"
+              id="C01ServicesListBySerIdIterator"/>
+  </executables>
+  <bindings>
+    <attributeValues IterBinding="C01ServicesListBySerIdIterator" id="Title">
+      <AttrNames>
+        <Item Value="Title"/>
+      </AttrNames>
+    </attributeValues>
+    <attributeValues IterBinding="C01ServicesListBySerIdIterator" id="Content">
+      <AttrNames>
+        <Item Value="Content"/>
+      </AttrNames>
+    </attributeValues>
+    <attributeValues IterBinding="C01ServicesListBySerIdIterator" id="Description">
+      <AttrNames>
+        <Item Value="Description"/>
+      </AttrNames>
+    </attributeValues>
+    <tree IterBinding="ServicesRootIterator" id="ServicesRoot">
+      <nodeDefinition DefName="com.vc.sasnmodel.views.sasn.ServicesRoot" Name="ServicesRoot0">
+        <AttrNames>
+          <Item Value="Content"/>
+          <Item Value="PriorityOrder"/>
+          <Item Value="Title"/>
+          <Item Value="SerId"/>
+        </AttrNames>
+        <Accessors>
+          <Item Value="ChildOfServicesRoot"/>
+        </Accessors>
+      </nodeDefinition>
+      <nodeDefinition DefName="com.vc.sasnmodel.views.sasn.Services" Name="ServicesRoot1">
+        <AttrNames>
+          <Item Value="SerId"/>
+          <Item Value="PriorityOrder"/>
+          <Item Value="Title"/>
+          <Item Value="Content"/>
+        </AttrNames>
+      </nodeDefinition>
+    </tree>
+    <tree IterBinding="C01ServicesListBySerIdIterator" id="C01ServicesListBySerId">
+      <nodeDefinition DefName="com.vc.sasnmodel.views.customize.C01Services" Name="C01ServicesListBySerId0">
+        <AttrNames>
+          <Item Value="Content"/>
+          <Item Value="SerId"/>
+          <Item Value="Title"/>
+          <Item Value="PriorityOrder"/>
+        </AttrNames>
+      </nodeDefinition>
+    </tree>
+    <methodAction id="prepareToShowServiceBySerId" InstanceName="PerpSasNewsAppModuleDataControl.dataProvider"
+                  DataControl="PerpSasNewsAppModuleDataControl" RequiresUpdateModel="true" Action="invokeMethod"
+                  MethodName="prepareToShowServiceBySerId" IsViewObjectMethod="false">
+      <NamedData NDName="SerId" NDValue="#{pageFlowScope.rowKeySer}" NDType="oracle.jbo.domain.Number"/>
+    </methodAction>
+  </bindings>
+</pageDefinition>

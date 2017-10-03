@@ -1,0 +1,79 @@
+<?xml version="1.0" encoding="windows-1252" ?>
+<!DOCTYPE ViewObject SYSTEM "jbo_03_01.dtd">
+<!---->
+<ViewObject
+  xmlns="http://xmlns.oracle.com/bc4j"
+  Name="Sasn001Services"
+  Version="11.1.1.55.36"
+  SelectList="Services.SER_ID, 
+       Services.TITLE, 
+       Services.CONTENT, 
+       Services.CREATE_DATE, 
+       Services.CREATED_BY, 
+       Services.MODIFY_DATE, 
+       Services.MODIFIED_BY, 
+       Services.DESCRIPTION"
+  FromList="SERVICES Services"
+  BindingStyle="OracleName"
+  CustomQuery="false"
+  PageIterMode="Full"
+  UseGlueCode="false">
+  <DesignTime>
+    <Attr Name="_codeGenFlag2" Value="Access|VarAccess"/>
+  </DesignTime>
+  <EntityUsage
+    Name="Services"
+    Entity="com.vc.sasnmodel.entities.Services"/>
+  <ViewAttribute
+    Name="SerId"
+    IsNotNull="true"
+    PrecisionRule="true"
+    EntityAttrName="SerId"
+    EntityUsage="Services"
+    AliasName="SER_ID"/>
+  <ViewAttribute
+    Name="Title"
+    PrecisionRule="true"
+    EntityAttrName="Title"
+    EntityUsage="Services"
+    AliasName="TITLE"/>
+  <ViewAttribute
+    Name="Content"
+    IsQueriable="false"
+    PrecisionRule="true"
+    EntityAttrName="Content"
+    EntityUsage="Services"
+    AliasName="CONTENT"/>
+  <ViewAttribute
+    Name="CreateDate"
+    IsNotNull="true"
+    PrecisionRule="true"
+    EntityAttrName="CreateDate"
+    EntityUsage="Services"
+    AliasName="CREATE_DATE"/>
+  <ViewAttribute
+    Name="CreatedBy"
+    IsNotNull="true"
+    PrecisionRule="true"
+    EntityAttrName="CreatedBy"
+    EntityUsage="Services"
+    AliasName="CREATED_BY"/>
+  <ViewAttribute
+    Name="ModifyDate"
+    PrecisionRule="true"
+    EntityAttrName="ModifyDate"
+    EntityUsage="Services"
+    AliasName="MODIFY_DATE"/>
+  <ViewAttribute
+    Name="ModifiedBy"
+    PrecisionRule="true"
+    EntityAttrName="ModifiedBy"
+    EntityUsage="Services"
+    AliasName="MODIFIED_BY"/>
+  <ViewAttribute
+    Name="Description"
+    PrecisionRule="true"
+    EntityAttrName="Description"
+    EntityUsage="Services"
+    AliasName="DESCRIPTION"/>
+</ViewObject>

@@ -1,0 +1,53 @@
+<?xml version='1.0' encoding='UTF-8'?>
+<jsp:root xmlns:jsp="http://java.sun.com/JSP/Page" version="2.1"
+          xmlns:f="http://java.sun.com/jsf/core"
+          xmlns:h="http://java.sun.com/jsf/html"
+          xmlns:af="http://xmlns.oracle.com/adf/faces/rich">
+  <jsp:directive.page contentType="text/html;charset=UTF-8"/>
+  <af:pageTemplateDef var="attrs">
+    <af:panelBorderLayout id="pt_pbl1" inlineStyle="width:990px;">
+      <f:facet name="bottom">
+        <af:facetRef facetName="bottom"/>
+      </f:facet>
+      <f:facet name="end">
+        <af:panelGroupLayout id="pt_pgl1" inlineStyle="padding:3px;">
+          <af:facetRef facetName="end"/>
+        </af:panelGroupLayout>
+      </f:facet>
+      <f:facet name="innerEnd">
+        <af:panelGroupLayout id="pt_pgl2" inlineStyle="padding:3px;">
+          <af:facetRef facetName="innerEnd"/>
+        </af:panelGroupLayout>
+      </f:facet>
+      <af:panelGroupLayout id="pt_pgl3" layout="vertical"
+                           inlineStyle="padding:1px;" halign="left">
+        <af:facetRef facetName="center"/>
+      </af:panelGroupLayout>
+    </af:panelBorderLayout>
+    <af:xmlContent>
+      <component xmlns="http://xmlns.oracle.com/adf/faces/rich/component">
+        <display-name>fragTemplate</display-name>
+        <facet>
+          <facet-name>
+            innerEnd
+          </facet-name>
+        </facet>
+        <facet>
+          <facet-name>
+            end
+          </facet-name>
+        </facet>
+        <facet>
+          <facet-name>
+            bottom
+          </facet-name>
+        </facet>
+        <facet>
+          <facet-name>
+            center
+          </facet-name>
+        </facet>
+      </component>
+    </af:xmlContent>
+  </af:pageTemplateDef>
+</jsp:root>

@@ -1,0 +1,221 @@
+<?xml version="1.0" encoding="windows-1252" ?>
+<!DOCTYPE Entity SYSTEM "jbo_03_01.dtd">
+<!---->
+<Entity
+  xmlns="http://xmlns.oracle.com/bc4j"
+  Name="GuestQuestions"
+  Version="11.1.1.56.60"
+  DBObjectType="table"
+  DBObjectName="GUEST_QUESTIONS"
+  AliasName="GuestQuestions"
+  BindingStyle="OracleName"
+  UseGlueCode="false"
+  RowClass="com.vc.sasnmodel.entities.GuestQuestionsImpl">
+  <DesignTime>
+    <Attr Name="_codeGenFlag2" Value="Access|DML"/>
+    <AttrArray Name="_publishEvents"/>
+    <Attr Name="_isCodegen" Value="true"/>
+  </DesignTime>
+  <Attribute
+    Name="GquId"
+    ColumnName="GQU_ID"
+    SQLType="NUMERIC"
+    Type="oracle.jbo.domain.Number"
+    ColumnType="NUMBER"
+    TableName="GUEST_QUESTIONS"
+    PrimaryKey="true">
+    <DesignTime>
+      <Attr Name="_DisplaySize" Value="22"/>
+    </DesignTime>
+  </Attribute>
+  <Attribute
+    Name="Title"
+    IsNotNull="true"
+    Precision="400"
+    ColumnName="TITLE"
+    SQLType="VARCHAR"
+    Type="java.lang.String"
+    ColumnType="VARCHAR2"
+    TableName="GUEST_QUESTIONS">
+    <DesignTime>
+      <Attr Name="_DisplaySize" Value="400"/>
+    </DesignTime>
+  </Attribute>
+  <Attribute
+    Name="Content"
+    IsNotNull="true"
+    Precision="4000"
+    ColumnName="CONTENT"
+    SQLType="VARCHAR"
+    Type="java.lang.String"
+    ColumnType="VARCHAR2"
+    TableName="GUEST_QUESTIONS">
+    <DesignTime>
+      <Attr Name="_DisplaySize" Value="4000"/>
+    </DesignTime>
+  </Attribute>
+  <Attribute
+    Name="QuestionDate"
+    ColumnName="QUESTION_DATE"
+    SQLType="TIMESTAMP"
+    Type="oracle.jbo.domain.Date"
+    ColumnType="DATE"
+    TableName="GUEST_QUESTIONS">
+    <DesignTime>
+      <Attr Name="_DisplaySize" Value="7"/>
+    </DesignTime>
+  </Attribute>
+  <Attribute
+    Name="GuestEmail"
+    IsNotNull="true"
+    Precision="100"
+    ColumnName="GUEST_EMAIL"
+    SQLType="VARCHAR"
+    Type="java.lang.String"
+    ColumnType="VARCHAR2"
+    TableName="GUEST_QUESTIONS">
+    <DesignTime>
+      <Attr Name="_DisplaySize" Value="100"/>
+    </DesignTime>
+  </Attribute>
+  <Attribute
+    Name="GuestTelephone"
+    IsNotNull="true"
+    Precision="100"
+    ColumnName="GUEST_TELEPHONE"
+    SQLType="VARCHAR"
+    Type="java.lang.String"
+    ColumnType="VARCHAR2"
+    TableName="GUEST_QUESTIONS">
+    <DesignTime>
+      <Attr Name="_DisplaySize" Value="100"/>
+    </DesignTime>
+  </Attribute>
+  <Attribute
+    Name="AgrId"
+    IsNotNull="true"
+    ColumnName="AGR_ID"
+    SQLType="NUMERIC"
+    Type="oracle.jbo.domain.Number"
+    ColumnType="NUMBER"
+    TableName="GUEST_QUESTIONS">
+    <DesignTime>
+      <Attr Name="_DisplaySize" Value="22"/>
+    </DesignTime>
+  </Attribute>
+  <Attribute
+    Name="AnswerMail"
+    Precision="100"
+    ColumnName="ANSWER_MAIL"
+    SQLType="VARCHAR"
+    Type="java.lang.String"
+    ColumnType="VARCHAR2"
+    TableName="GUEST_QUESTIONS">
+    <DesignTime>
+      <Attr Name="_DisplaySize" Value="100"/>
+    </DesignTime>
+  </Attribute>
+  <Attribute
+    Name="AnswerFlag"
+    Precision="1"
+    ColumnName="ANSWER_FLAG"
+    SQLType="VARCHAR"
+    Type="java.lang.String"
+    ColumnType="VARCHAR2"
+    TableName="GUEST_QUESTIONS">
+    <DesignTime>
+      <Attr Name="_DisplaySize" Value="1"/>
+    </DesignTime>
+  </Attribute>
+  <AccessorAttribute
+    Name="AnswerGroups"
+    Association="com.vc.sasnmodel.entities.GquAgrPkAssoc"
+    AssociationEnd="com.vc.sasnmodel.entities.GquAgrPkAssoc.AnswerGroups"
+    AssociationOtherEnd="com.vc.sasnmodel.entities.GquAgrPkAssoc.GuestQuestions"
+    Type="oracle.jbo.server.EntityImpl"
+    IsUpdateable="true"/>
+  <Key
+    Name="GquPk"
+    PrimaryKey="true">
+    <DesignTime>
+      <Attr Name="_DBObjectName" Value="GQU_PK"/>
+    </DesignTime>
+    <AttrArray Name="Attributes">
+      <Item Value="com.vc.sasnmodel.entities.GuestQuestions.GquId"/>
+    </AttrArray>
+  </Key>
+  <Key
+    Name="SysC0048841">
+    <DesignTime>
+      <Attr Name="_DBObjectName" Value="SYS_C0048841"/>
+      <Attr Name="_checkCondition" Value='"TITLE" IS NOT NULL'/>
+      <Attr Name="_isCheck" Value="true"/>
+    </DesignTime>
+    <AttrArray Name="Attributes">
+      <Item Value="com.vc.sasnmodel.entities.GuestQuestions.Title"/>
+    </AttrArray>
+  </Key>
+  <Key
+    Name="SysC0048842">
+    <DesignTime>
+      <Attr Name="_DBObjectName" Value="SYS_C0048842"/>
+      <Attr Name="_checkCondition" Value='"CONTENT" IS NOT NULL'/>
+      <Attr Name="_isCheck" Value="true"/>
+    </DesignTime>
+    <AttrArray Name="Attributes">
+      <Item Value="com.vc.sasnmodel.entities.GuestQuestions.Content"/>
+    </AttrArray>
+  </Key>
+  <Key
+    Name="SysC0048843">
+    <DesignTime>
+      <Attr Name="_DBObjectName" Value="SYS_C0048843"/>
+      <Attr Name="_checkCondition" Value='"QUESTION_DATE" IS NOT NULL'/>
+      <Attr Name="_isCheck" Value="true"/>
+    </DesignTime>
+  </Key>
+  <Key
+    Name="SysC0048844">
+    <DesignTime>
+      <Attr Name="_DBObjectName" Value="SYS_C0048844"/>
+      <Attr Name="_checkCondition" Value='"GUEST_EMAIL" IS NOT NULL'/>
+      <Attr Name="_isCheck" Value="true"/>
+    </DesignTime>
+    <AttrArray Name="Attributes">
+      <Item Value="com.vc.sasnmodel.entities.GuestQuestions.GuestEmail"/>
+    </AttrArray>
+  </Key>
+  <Key
+    Name="SysC0048845">
+    <DesignTime>
+      <Attr Name="_DBObjectName" Value="SYS_C0048845"/>
+      <Attr Name="_checkCondition" Value='"GUEST_TELEPHONE" IS NOT NULL'/>
+      <Attr Name="_isCheck" Value="true"/>
+    </DesignTime>
+    <AttrArray Name="Attributes">
+      <Item Value="com.vc.sasnmodel.entities.GuestQuestions.GuestTelephone"/>
+    </AttrArray>
+  </Key>
+  <Key
+    Name="SysC0048846">
+    <DesignTime>
+      <Attr Name="_DBObjectName" Value="SYS_C0048846"/>
+      <Attr Name="_checkCondition" Value='"AGR_ID" IS NOT NULL'/>
+      <Attr Name="_isCheck" Value="true"/>
+    </DesignTime>
+    <AttrArray Name="Attributes">
+      <Item Value="com.vc.sasnmodel.entities.GuestQuestions.AgrId"/>
+    </AttrArray>
+  </Key>
+  <Key
+    Name="GquAgrPk">
+    <DesignTime>
+      <Attr Name="_referencedKey" Value="AGR_PK"/>
+      <Attr Name="_isForeign" Value="true"/>
+      <Attr Name="_DBObjectName" Value="GQU_AGR_PK"/>
+    </DesignTime>
+    <AttrArray Name="Attributes">
+      <Item Value="com.vc.sasnmodel.entities.GuestQuestions.AgrId"/>
+    </AttrArray>
+  </Key>
+</Entity>

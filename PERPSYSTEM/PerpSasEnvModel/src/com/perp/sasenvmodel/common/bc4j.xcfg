@@ -1,0 +1,13 @@
+<?xml version = '1.0' encoding = 'UTF-8'?>
+<BC4JConfig version="11.1" xmlns="http://xmlns.oracle.com/bc4j/configuration">
+   <AppModuleConfigBag ApplicationName="com.perp.sasenvmodel.PerpSasEnvAppModule">
+      <AppModuleConfig DeployPlatform="LOCAL" jbo.project="com.perp.sasenvmodel.PerpSasEnvModel" name="PerpSasEnvAppModuleLocal" ApplicationName="com.perp.sasenvmodel.PerpSasEnvAppModule">
+         <Security AppModuleJndiName="com.perp.sasenvmodel.PerpSasEnvAppModule"/>
+         <Custom JDBCDataSource="java:comp/env/jdbc/PerpSasEnvConnectionDS"/>
+      </AppModuleConfig>
+      <AppModuleConfig name="PerpSasEnvAppModuleShared" ApplicationName="com.perp.sasenvmodel.PerpSasEnvAppModule" DeployPlatform="LOCAL" JDBCName="PerpSasEnvConnection" jbo.project="com.perp.sasenvmodel.PerpSasEnvModel">
+         <AM-Pooling jbo.ampool.maxpoolsize="1" jbo.ampool.isuseexclusive="false"/>
+         <Security AppModuleJndiName="com.perp.sasenvmodel.PerpSasEnvAppModule"/>
+      </AppModuleConfig>
+   </AppModuleConfigBag>
+</BC4JConfig>

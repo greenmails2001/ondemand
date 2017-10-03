@@ -1,0 +1,50 @@
+<?xml version="1.0" encoding="windows-1252" ?>
+<!DOCTYPE ViewObject SYSTEM "jbo_03_01.dtd">
+<!---->
+<ViewObject
+  xmlns="http://xmlns.oracle.com/bc4j"
+  Name="NewsRelations"
+  Version="11.1.1.55.36"
+  SelectList="NewsRelations.NRE_ID, 
+       NewsRelations.NEWS_ID, 
+       NewsRelations.NEWS_ID_RELATION, 
+       NewsRelations.DESCRIPTION"
+  FromList="NEWS_RELATIONS NewsRelations"
+  BindingStyle="OracleName"
+  CustomQuery="false"
+  PageIterMode="Full"
+  UseGlueCode="false">
+  <DesignTime>
+    <Attr Name="_codeGenFlag2" Value="Access|VarAccess"/>
+  </DesignTime>
+  <EntityUsage
+    Name="NewsRelations"
+    Entity="com.vc.sasnmodel.entities.NewsRelations"/>
+  <ViewAttribute
+    Name="NreId"
+    IsNotNull="true"
+    PrecisionRule="true"
+    EntityAttrName="NreId"
+    EntityUsage="NewsRelations"
+    AliasName="NRE_ID"/>
+  <ViewAttribute
+    Name="NewsId"
+    IsNotNull="true"
+    PrecisionRule="true"
+    EntityAttrName="NewsId"
+    EntityUsage="NewsRelations"
+    AliasName="NEWS_ID"/>
+  <ViewAttribute
+    Name="NewsIdRelation"
+    IsNotNull="true"
+    PrecisionRule="true"
+    EntityAttrName="NewsIdRelation"
+    EntityUsage="NewsRelations"
+    AliasName="NEWS_ID_RELATION"/>
+  <ViewAttribute
+    Name="Description"
+    PrecisionRule="true"
+    EntityAttrName="Description"
+    EntityUsage="NewsRelations"
+    AliasName="DESCRIPTION"/>
+</ViewObject>

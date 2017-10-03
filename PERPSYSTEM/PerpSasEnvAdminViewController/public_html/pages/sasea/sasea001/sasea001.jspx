@@ -1,0 +1,205 @@
+<?xml version='1.0' encoding='UTF-8'?>
+<jsp:root xmlns:jsp="http://java.sun.com/JSP/Page" version="2.1" xmlns:f="http://java.sun.com/jsf/core"
+          xmlns:h="http://java.sun.com/jsf/html" xmlns:af="http://xmlns.oracle.com/adf/faces/rich">
+  <jsp:directive.page contentType="text/html;charset=UTF-8"/>
+  <f:view>
+    <af:document id="d1">
+      <af:messages id="m1"/>
+      <af:form id="f1">
+        <af:pageTemplate viewId="/templates/saseaTemplate01.jspx" id="pt1">
+          <f:facet name="center">
+            <af:panelSplitter splitterPosition="327" positionedFromEnd="true" id="panelSplit1">
+              <f:facet name="first">
+                <af:panelCollection id="panelColl1">
+                  <f:facet name="menus"/>
+                  <f:facet name="toolbar"/>
+                  <f:facet name="statusbar"/>
+                  <af:table value="#{bindings.Sasem001Environments.collectionModel}" var="row"
+                            rows="#{bindings.Sasem001Environments.rangeSize}"
+                            emptyText="#{bindings.Sasem001Environments.viewable ? 'No rows yet.' : 'Access Denied.'}"
+                            fetchSize="#{bindings.Sasem001Environments.rangeSize}"
+                            selectedRowKeys="#{bindings.Sasem001Environments.collectionModel.selectedRow}"
+                            selectionListener="#{bindings.Sasem001Environments.collectionModel.makeCurrent}" rowSelection="single"
+                            id="table1" partialTriggers=":::create2 :::submit2 :::cancel2 :::delete2">
+                    <af:column sortProperty="RemovedDate" sortable="true" headerText="Ma ung dung" id="c1">
+                      <af:outputText value="#{row.Sasem001SubscriptionViewDetails.ActivatedCode}" id="ot1">
+                        <af:convertDateTime pattern="#{bindings.Sasem001Environments.hints.RemovedDate.format}"/>
+                      </af:outputText>
+                    </af:column>
+                    <af:column sortProperty="RemovedDate" sortable="true" headerText="Ten cong ty" id="c2">
+                      <af:outputText value="#{row.Sasem001SubscriptionViewDetails.OrganizationName}" id="ot2">
+                        <af:convertDateTime pattern="#{bindings.Sasem001Environments.hints.RemovedDate.format}"/>
+                      </af:outputText>
+                    </af:column>
+                    <af:column sortProperty="RemovedDate" sortable="true" headerText="Goi ung dung" id="c3">
+                      <af:outputText value="#{row.Sasem001SubscriptionViewDetails.PackageCode}" id="ot3">
+                        <af:convertDateTime pattern="#{bindings.Sasem001Environments.hints.RemovedDate.format}"/>
+                      </af:outputText>
+                    </af:column>
+                    <af:column sortProperty="SetupDate" sortable="true" headerText="#{bindings.Sasem001Environments.hints.SetupDate.label}"
+                               id="c4">
+                      <af:outputText value="#{row.SetupDate}" id="ot4">
+                        <af:convertDateTime pattern="#{bindings.Sasem001Environments.hints.SetupDate.format}"/>
+                      </af:outputText>
+                    </af:column>
+                    <af:column sortProperty="DbHost" sortable="true" headerText="#{bindings.Sasem001Environments.hints.DbHost.label}"
+                               id="c5">
+                      <af:outputText value="#{row.DbHost}" id="ot5"/>
+                    </af:column>
+                    <af:column sortProperty="DbPort" sortable="true" headerText="#{bindings.Sasem001Environments.hints.DbPort.label}"
+                               id="c6">
+                      <af:outputText value="#{row.DbPort}" id="ot6">
+                        <af:convertNumber groupingUsed="false" pattern="#{bindings.Sasem001Environments.hints.DbPort.format}"/>
+                      </af:outputText>
+                    </af:column>
+                    <af:column sortProperty="Sid" sortable="true" headerText="#{bindings.Sasem001Environments.hints.Sid.label}" id="c7">
+                      <af:outputText value="#{row.Sid}" id="ot7"/>
+                    </af:column>
+                    <af:column sortProperty="DbUser" sortable="true" headerText="#{bindings.Sasem001Environments.hints.DbUser.label}"
+                               id="c8">
+                      <af:outputText value="#{row.DbUser}" id="ot8"/>
+                    </af:column>
+                    <af:column sortProperty="AppHost" sortable="true" headerText="#{bindings.Sasem001Environments.hints.AppHost.label}"
+                               id="c9">
+                      <af:outputText value="#{row.AppHost}" id="ot9"/>
+                    </af:column>
+                    <af:column sortProperty="AppPort" sortable="true" headerText="#{bindings.Sasem001Environments.hints.AppPort.label}"
+                               id="c10">
+                      <af:outputText value="#{row.AppPort}" id="ot10">
+                        <af:convertNumber groupingUsed="false" pattern="#{bindings.Sasem001Environments.hints.AppPort.format}"/>
+                      </af:outputText>
+                    </af:column>
+                    <af:column sortProperty="RemovedDate" sortable="true"
+                               headerText="#{bindings.Sasem001Environments.hints.RemovedDate.label}" id="c11">
+                      <af:outputText value="#{row.RemovedDate}" id="ot11">
+                        <af:convertDateTime pattern="#{bindings.Sasem001Environments.hints.RemovedDate.format}"/>
+                      </af:outputText>
+                    </af:column>
+                    <af:column sortProperty="JdbcUrl" sortable="false" headerText="#{bindings.Sasem001Environments.hints.JdbcUrl.label}"
+                               id="c25">
+                      <af:outputText value="#{row.JdbcUrl}" id="ot12"/>
+                    </af:column>
+                  </af:table>
+                </af:panelCollection>
+              </f:facet>
+              <f:facet name="second">
+                <af:panelSplitter positionedFromEnd="true" orientation="vertical" splitterPosition="18" id="ps1">
+                  <f:facet name="first">
+                    <af:panelHeader text="Details" id="panelHeader2">
+                      <af:panelFormLayout id="formLayout2" partialTriggers="panelColl1:table1">
+                        <af:inputText value="#{bindings.EnvId.inputValue}" label="#{bindings.EnvId.hints.label}"
+                                      required="#{bindings.EnvId.hints.mandatory}" columns="#{bindings.EnvId.hints.displayWidth}"
+                                      maximumLength="#{bindings.EnvId.hints.precision}" shortDesc="#{bindings.EnvId.hints.tooltip}"
+                                      id="it1">
+                          <f:validator binding="#{bindings.EnvId.validator}"/>
+                          <af:convertNumber groupingUsed="false" pattern="#{bindings.EnvId.format}"/>
+                        </af:inputText>
+                        <af:inputText value="#{bindings.SubId.inputValue}" label="#{bindings.SubId.hints.label}"
+                                      required="#{bindings.SubId.hints.mandatory}" columns="#{bindings.SubId.hints.displayWidth}"
+                                      maximumLength="#{bindings.SubId.hints.precision}" shortDesc="#{bindings.SubId.hints.tooltip}"
+                                      id="it2">
+                          <f:validator binding="#{sasea001SubscriptionValidator}"/>
+                          <af:convertNumber groupingUsed="false" pattern="#{bindings.SubId.format}"/>
+                        </af:inputText>
+                        <af:inputText value="#{bindings.DbHost.inputValue}" label="#{bindings.DbHost.hints.label}"
+                                      required="#{bindings.DbHost.hints.mandatory}" columns="30"
+                                      maximumLength="#{bindings.DbHost.hints.precision}" shortDesc="#{bindings.DbHost.hints.tooltip}"
+                                      id="it3">
+                          <f:validator binding="#{bindings.DbHost.validator}"/>
+                        </af:inputText>
+                        <af:inputText value="#{bindings.DbPort.inputValue}" label="#{bindings.DbPort.hints.label}"
+                                      required="#{bindings.DbPort.hints.mandatory}" columns="#{bindings.DbPort.hints.displayWidth}"
+                                      maximumLength="#{bindings.DbPort.hints.precision}" shortDesc="#{bindings.DbPort.hints.tooltip}"
+                                      id="it4">
+                          <f:validator binding="#{bindings.DbPort.validator}"/>
+                          <af:convertNumber groupingUsed="false" pattern="#{bindings.DbPort.format}"/>
+                        </af:inputText>
+                        <af:inputText value="#{bindings.Sid.inputValue}" label="#{bindings.Sid.hints.label}"
+                                      required="#{bindings.Sid.hints.mandatory}" columns="#{bindings.Sid.hints.displayWidth}"
+                                      maximumLength="#{bindings.Sid.hints.precision}" shortDesc="#{bindings.Sid.hints.tooltip}" id="it5">
+                          <f:validator binding="#{bindings.Sid.validator}"/>
+                        </af:inputText>
+                        <af:inputText value="#{bindings.DbUser.inputValue}" label="#{bindings.DbUser.hints.label}"
+                                      required="#{bindings.DbUser.hints.mandatory}" columns="#{bindings.DbUser.hints.displayWidth}"
+                                      maximumLength="#{bindings.DbUser.hints.precision}" shortDesc="#{bindings.DbUser.hints.tooltip}"
+                                      id="it6">
+                          <f:validator binding="#{bindings.DbUser.validator}"/>
+                        </af:inputText>
+                        <af:inputText value="#{bindings.DbPwd.inputValue}" label="#{bindings.DbPwd.hints.label}"
+                                      required="#{bindings.DbPwd.hints.mandatory}" columns="#{bindings.DbPwd.hints.displayWidth}"
+                                      maximumLength="#{bindings.DbPwd.hints.precision}" shortDesc="#{bindings.DbPwd.hints.tooltip}"
+                                      id="it7">
+                          <f:validator binding="#{bindings.DbPwd.validator}"/>
+                        </af:inputText>
+                        <af:inputText value="#{bindings.AppHost.inputValue}" label="#{bindings.AppHost.hints.label}"
+                                      required="#{bindings.AppHost.hints.mandatory}" columns="30"
+                                      maximumLength="#{bindings.AppHost.hints.precision}" shortDesc="#{bindings.AppHost.hints.tooltip}"
+                                      id="it8">
+                          <f:validator binding="#{bindings.AppHost.validator}"/>
+                        </af:inputText>
+                        <af:inputText value="#{bindings.AppPort.inputValue}" label="#{bindings.AppPort.hints.label}"
+                                      required="#{bindings.AppPort.hints.mandatory}" columns="#{bindings.AppPort.hints.displayWidth}"
+                                      maximumLength="#{bindings.AppPort.hints.precision}" shortDesc="#{bindings.AppPort.hints.tooltip}"
+                                      id="it9">
+                          <f:validator binding="#{bindings.AppPort.validator}"/>
+                          <af:convertNumber groupingUsed="false" pattern="#{bindings.AppPort.format}"/>
+                        </af:inputText>
+                        <af:inputText value="#{bindings.JdbcUrl.inputValue}" label="#{bindings.JdbcUrl.hints.label}"
+                                      required="#{bindings.JdbcUrl.hints.mandatory}" columns="#{bindings.JdbcUrl.hints.displayWidth}"
+                                      maximumLength="#{bindings.JdbcUrl.hints.precision}" shortDesc="#{bindings.JdbcUrl.hints.tooltip}"
+                                      id="it12">
+                          <f:validator binding="#{bindings.JdbcUrl.validator}"/>
+                        </af:inputText>
+                        <af:inputText value="#{bindings.CurrentNumOfAppUser.inputValue}" label="User count"
+                                      required="#{bindings.CurrentNumOfAppUser.hints.mandatory}"
+                                      columns="#{bindings.CurrentNumOfAppUser.hints.displayWidth}"
+                                      maximumLength="#{bindings.CurrentNumOfAppUser.hints.precision}"
+                                      shortDesc="#{bindings.CurrentNumOfAppUser.hints.tooltip}" id="it10">
+                          <f:validator binding="#{bindings.CurrentNumOfAppUser.validator}"/>
+                          <af:convertNumber groupingUsed="false" pattern="#{bindings.CurrentNumOfAppUser.format}"/>
+                        </af:inputText>
+                        <af:inputDate value="#{bindings.SetupDate.inputValue}" label="Setup Date"
+                                      required="#{bindings.SetupDate.hints.mandatory}" shortDesc="#{bindings.SetupDate.hints.tooltip}"
+                                      id="id1">
+                          <f:validator binding="#{bindings.SetupDate.validator}"/>
+                          <af:convertDateTime pattern="#{bindings.SetupDate.format}"/>
+                        </af:inputDate>
+                        <af:inputDate value="#{bindings.RemovedDate.inputValue}" label="Remove Date"
+                                      required="#{bindings.RemovedDate.hints.mandatory}" shortDesc="#{bindings.RemovedDate.hints.tooltip}"
+                                      id="id2">
+                          <f:validator binding="#{bindings.RemovedDate.validator}"/>
+                          <af:convertDateTime pattern="#{bindings.RemovedDate.format}"/>
+                        </af:inputDate>
+                        <af:inputText value="#{bindings.Descriptions.inputValue}" label="Description"
+                                      required="#{bindings.Descriptions.hints.mandatory}" columns="30"
+                                      maximumLength="#{bindings.Descriptions.hints.precision}"
+                                      shortDesc="#{bindings.Descriptions.hints.tooltip}" rows="2" id="it11">
+                          <f:validator binding="#{bindings.Descriptions.validator}"/>
+                        </af:inputText>
+                        <f:facet name="footer"></f:facet>
+                      </af:panelFormLayout>
+                    </af:panelHeader>
+                  </f:facet>
+                  <f:facet name="second">
+                    <af:panelGroupLayout halign="center" layout="horizontal" id="pgl1">
+                      <af:commandButton actionListener="#{sasea001.createEnvActionListener}" text="Create New"
+                                        disabled="#{!bindings.Create.enabled}" partialTriggers="panelColl1:table1" id="create2"
+                                        partialSubmit="true"/>
+                      <af:commandButton text="Save" id="submit2" partialSubmit="true" actionListener="#{bindings.Commit.execute}"/>
+                      <af:commandButton text="Delete" partialSubmit="true" id="delete2" actionListener="#{bindings.Delete.execute}"
+                                        disabled="#{!bindings.Delete.enabled}" partialTriggers="panelColl1:table1"/>
+                      <af:commandButton actionListener="#{bindings.Rollback.execute}" text="Cancel" immediate="true" id="cancel2"
+                                        partialSubmit="true">
+                        <af:resetActionListener/>
+                      </af:commandButton>
+                    </af:panelGroupLayout>
+                  </f:facet>
+                </af:panelSplitter>
+              </f:facet>
+            </af:panelSplitter>
+          </f:facet>
+        </af:pageTemplate>
+      </af:form>
+    </af:document>
+  </f:view>
+</jsp:root>

@@ -1,0 +1,77 @@
+<?xml version="1.0" encoding="windows-1252" ?>
+<!DOCTYPE ViewObject SYSTEM "jbo_03_01.dtd">
+<!---->
+<ViewObject
+  xmlns="http://xmlns.oracle.com/bc4j"
+  Name="Sasn001ConsultantCategories"
+  Version="11.1.1.55.36"
+  SelectList="ConsultantCategories.CCA_ID, 
+       ConsultantCategories.CCA_NAME, 
+       ConsultantCategories.CREATE_DATE, 
+       ConsultantCategories.CREATED_BY, 
+       ConsultantCategories.MODIFY_DATE, 
+       ConsultantCategories.MODIFIED_BY, 
+       ConsultantCategories.DESCRIPTION"
+  FromList="CONSULTANT_CATEGORIES ConsultantCategories"
+  BindingStyle="OracleName"
+  CustomQuery="false"
+  PageIterMode="Full"
+  UseGlueCode="false">
+  <DesignTime>
+    <Attr Name="_codeGenFlag2" Value="Access|VarAccess"/>
+  </DesignTime>
+  <EntityUsage
+    Name="ConsultantCategories"
+    Entity="com.vc.sasnmodel.entities.ConsultantCategories"/>
+  <ViewAttribute
+    Name="CcaId"
+    IsNotNull="true"
+    PrecisionRule="true"
+    EntityAttrName="CcaId"
+    EntityUsage="ConsultantCategories"
+    AliasName="CCA_ID"/>
+  <ViewAttribute
+    Name="CcaName"
+    IsNotNull="true"
+    PrecisionRule="true"
+    EntityAttrName="CcaName"
+    EntityUsage="ConsultantCategories"
+    AliasName="CCA_NAME"/>
+  <ViewAttribute
+    Name="CreateDate"
+    IsNotNull="true"
+    PrecisionRule="true"
+    EntityAttrName="CreateDate"
+    EntityUsage="ConsultantCategories"
+    AliasName="CREATE_DATE"/>
+  <ViewAttribute
+    Name="CreatedBy"
+    IsNotNull="true"
+    PrecisionRule="true"
+    EntityAttrName="CreatedBy"
+    EntityUsage="ConsultantCategories"
+    AliasName="CREATED_BY"/>
+  <ViewAttribute
+    Name="ModifyDate"
+    PrecisionRule="true"
+    EntityAttrName="ModifyDate"
+    EntityUsage="ConsultantCategories"
+    AliasName="MODIFY_DATE"/>
+  <ViewAttribute
+    Name="ModifiedBy"
+    PrecisionRule="true"
+    EntityAttrName="ModifiedBy"
+    EntityUsage="ConsultantCategories"
+    AliasName="MODIFIED_BY"/>
+  <ViewAttribute
+    Name="Description"
+    PrecisionRule="true"
+    EntityAttrName="Description"
+    EntityUsage="ConsultantCategories"
+    AliasName="DESCRIPTION"/>
+  <ViewLinkAccessor
+    Name="Sasn001Consultants"
+    ViewLink="com.vc.sasnmodel.views.sasn001.Sasn001Consultants_Sasn001ConsultantCategories"
+    Type="oracle.jbo.RowIterator"
+    IsUpdateable="false"/>
+</ViewObject>

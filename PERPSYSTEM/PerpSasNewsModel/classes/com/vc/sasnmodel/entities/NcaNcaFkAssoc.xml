@@ -1,0 +1,42 @@
+<?xml version="1.0" encoding="windows-1252" ?>
+<!DOCTYPE Association SYSTEM "jbo_03_01.dtd">
+<!---->
+<Association
+  xmlns="http://xmlns.oracle.com/bc4j"
+  Name="NcaNcaFkAssoc"
+  Version="11.1.1.56.60">
+  <DesignTime>
+    <Attr Name="_isCodegen" Value="true"/>
+  </DesignTime>
+  <AssociationEnd
+    Name="NcaIdParentNewsCategories"
+    Cardinality="1"
+    Source="true"
+    Owner="com.vc.sasnmodel.entities.NewsCategories">
+    <DesignTime>
+      <Attr Name="_aggregation" Value="0"/>
+      <Attr Name="_finderName" Value="NcaIdParentNewsCategories"/>
+      <Attr Name="_foreignKey"
+        Value="com.vc.sasnmodel.entities.NewsCategories.NcaPk"/>
+      <Attr Name="_isUpdateable" Value="true"/>
+    </DesignTime>
+    <AttrArray Name="Attributes">
+      <Item Value="com.vc.sasnmodel.entities.NewsCategories.NcaId"/>
+    </AttrArray>
+  </AssociationEnd>
+  <AssociationEnd
+    Name="NewsCategories"
+    Cardinality="-1"
+    Owner="com.vc.sasnmodel.entities.NewsCategories">
+    <DesignTime>
+      <Attr Name="_aggregation" Value="0"/>
+      <Attr Name="_finderName" Value="NewsCategories"/>
+      <Attr Name="_foreignKey"
+        Value="com.vc.sasnmodel.entities.NewsCategories.NcaNcaFk"/>
+      <Attr Name="_isUpdateable" Value="true"/>
+    </DesignTime>
+    <AttrArray Name="Attributes">
+      <Item Value="com.vc.sasnmodel.entities.NewsCategories.NcaIdParent"/>
+    </AttrArray>
+  </AssociationEnd>
+</Association>

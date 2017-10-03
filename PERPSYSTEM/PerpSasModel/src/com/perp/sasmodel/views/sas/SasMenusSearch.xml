@@ -1,0 +1,260 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE ViewObject SYSTEM "jbo_03_01.dtd">
+<!---->
+<ViewObject
+  xmlns="http://xmlns.oracle.com/bc4j"
+  Name="SasMenusSearch"
+  Version="11.1.1.56.60"
+  BindingStyle="OracleName"
+  CustomQuery="true"
+  PageIterMode="Full"
+  UseGlueCode="false">
+  <DesignTime>
+    <Attr Name="_isExpertMode" Value="true"/>
+  </DesignTime>
+  <Variable
+    Name="p_Search_Text"
+    Kind="where"
+    Type="java.lang.String"/>
+  <Variable
+    Name="p_Find_In"
+    Kind="where"
+    Type="java.lang.String"/>
+  <Variable
+    Name="p_App_Code"
+    Kind="where"
+    Type="java.lang.String"/>
+  <Variable
+    Name="p_Aus_Id"
+    Kind="where"
+    Type="java.lang.Long"/>
+  <SQLQuery>
+    <![CDATA[Select Gus.Name Gus_Name
+      ,Menus.Men_Id
+      ,Menus.Menu_Name
+      ,Menus.Menu_Lable
+      ,Menus.Menu_Description
+      ,Menus.Module_Name
+      ,Menus.Men_Id_Child_Of
+      ,Menus.Menu_Number
+      ,Menus.Wbs_Level
+      ,Menus.Is_Parent
+      ,Menus.App_Code
+      ,Res.Gus_Id
+From   Menus            Menus
+      ,Responsibilities Res
+      ,User_Roles       Uro
+      ,Group_Users      Gus
+Where  ( /* label */
+        (Instr(Lower(Menus.Menu_Lable)
+              ,Lower(:p_Search_Text)) > 0 And :p_Find_In = 'label')
+       /* name */
+        Or (Instr(Lower(Menus.Menu_Name)
+                 ,Lower(:p_Search_Text)) > 0 And :p_Find_In = 'name')
+       /* description */
+        Or
+        (Instr(Lower(Menus.Menu_Description)
+              ,Lower(:p_Search_Text)) > 0 And :p_Find_In = 'description')
+       /* all */
+        Or ((Instr(Lower(Menus.Menu_Lable)
+                  ,Lower(:p_Search_Text)) > 0 Or
+        Instr(Lower(Menus.Menu_Name)
+                  ,Lower(:p_Search_Text)) > 0 Or
+        Instr(Lower(Menus.Menu_Description)
+                  ,Lower(:p_Search_Text)) > 0) And
+        (:p_Find_In = 'all' Or :p_Find_In Is Null)))
+And    Menus.Men_Id = Res.Men_Id
+And    Uro.Gus_Id = Res.Gus_Id
+And    Uro.Gus_Id = Gus.Gus_Id
+And    Uro.Aus_Id = :p_Aus_Id
+And    (Menus.App_Code = :p_App_Code Or :p_App_Code Is Null)
+Order  By Gus.Gus_Id]]>
+  </SQLQuery>
+  <ViewAttribute
+    Name="GusName"
+    IsUpdateable="false"
+    IsPersistent="false"
+    IsNotNull="true"
+    PrecisionRule="true"
+    Precision="100"
+    Type="java.lang.String"
+    ColumnType="VARCHAR2"
+    AliasName="GUS_NAME"
+    Expression="GUS_NAME"
+    SQLType="VARCHAR">
+    <DesignTime>
+      <Attr Name="_DisplaySize" Value="100"/>
+    </DesignTime>
+  </ViewAttribute>
+  <ViewAttribute
+    Name="MenId"
+    IsUpdateable="false"
+    IsPersistent="false"
+    IsNotNull="true"
+    PrecisionRule="true"
+    Type="oracle.jbo.domain.Number"
+    ColumnType="NUMBER"
+    AliasName="MEN_ID"
+    Expression="MEN_ID"
+    SQLType="NUMERIC">
+    <DesignTime>
+      <Attr Name="_DisplaySize" Value="22"/>
+    </DesignTime>
+  </ViewAttribute>
+  <ViewAttribute
+    Name="MenuName"
+    IsUpdateable="false"
+    IsPersistent="false"
+    IsNotNull="true"
+    PrecisionRule="true"
+    Precision="30"
+    Type="java.lang.String"
+    ColumnType="VARCHAR2"
+    AliasName="MENU_NAME"
+    Expression="MENU_NAME"
+    SQLType="VARCHAR">
+    <DesignTime>
+      <Attr Name="_DisplaySize" Value="30"/>
+    </DesignTime>
+  </ViewAttribute>
+  <ViewAttribute
+    Name="MenuLable"
+    IsUpdateable="false"
+    IsPersistent="false"
+    PrecisionRule="true"
+    Precision="100"
+    Type="java.lang.String"
+    ColumnType="VARCHAR2"
+    AliasName="MENU_LABLE"
+    Expression="MENU_LABLE"
+    SQLType="VARCHAR">
+    <DesignTime>
+      <Attr Name="_DisplaySize" Value="100"/>
+    </DesignTime>
+  </ViewAttribute>
+  <ViewAttribute
+    Name="MenuDescription"
+    IsUpdateable="false"
+    IsPersistent="false"
+    PrecisionRule="true"
+    Precision="200"
+    Type="java.lang.String"
+    ColumnType="VARCHAR2"
+    AliasName="MENU_DESCRIPTION"
+    Expression="MENU_DESCRIPTION"
+    SQLType="VARCHAR">
+    <DesignTime>
+      <Attr Name="_DisplaySize" Value="200"/>
+    </DesignTime>
+  </ViewAttribute>
+  <ViewAttribute
+    Name="ModuleName"
+    IsUpdateable="false"
+    IsPersistent="false"
+    PrecisionRule="true"
+    Precision="30"
+    Type="java.lang.String"
+    ColumnType="VARCHAR2"
+    AliasName="MODULE_NAME"
+    Expression="MODULE_NAME"
+    SQLType="VARCHAR">
+    <DesignTime>
+      <Attr Name="_DisplaySize" Value="30"/>
+    </DesignTime>
+  </ViewAttribute>
+  <ViewAttribute
+    Name="MenIdChildOf"
+    IsUpdateable="false"
+    IsPersistent="false"
+    PrecisionRule="true"
+    Precision="15"
+    Scale="0"
+    Type="oracle.jbo.domain.Number"
+    ColumnType="NUMBER"
+    AliasName="MEN_ID_CHILD_OF"
+    Expression="MEN_ID_CHILD_OF"
+    SQLType="NUMERIC">
+    <DesignTime>
+      <Attr Name="_DisplaySize" Value="22"/>
+    </DesignTime>
+  </ViewAttribute>
+  <ViewAttribute
+    Name="MenuNumber"
+    IsUpdateable="false"
+    IsPersistent="false"
+    PrecisionRule="true"
+    Precision="100"
+    Type="java.lang.String"
+    ColumnType="VARCHAR2"
+    AliasName="MENU_NUMBER"
+    Expression="MENU_NUMBER"
+    SQLType="VARCHAR">
+    <DesignTime>
+      <Attr Name="_DisplaySize" Value="100"/>
+    </DesignTime>
+  </ViewAttribute>
+  <ViewAttribute
+    Name="WbsLevel"
+    IsUpdateable="false"
+    IsPersistent="false"
+    PrecisionRule="true"
+    Precision="5"
+    Scale="0"
+    Type="oracle.jbo.domain.Number"
+    ColumnType="NUMBER"
+    AliasName="WBS_LEVEL"
+    Expression="WBS_LEVEL"
+    SQLType="NUMERIC">
+    <DesignTime>
+      <Attr Name="_DisplaySize" Value="22"/>
+    </DesignTime>
+  </ViewAttribute>
+  <ViewAttribute
+    Name="IsParent"
+    IsUpdateable="false"
+    IsPersistent="false"
+    IsNotNull="true"
+    PrecisionRule="true"
+    Precision="1"
+    Type="java.lang.String"
+    ColumnType="VARCHAR2"
+    AliasName="IS_PARENT"
+    Expression="IS_PARENT"
+    SQLType="VARCHAR">
+    <DesignTime>
+      <Attr Name="_DisplaySize" Value="1"/>
+    </DesignTime>
+  </ViewAttribute>
+  <ViewAttribute
+    Name="AppCode"
+    IsUpdateable="false"
+    IsPersistent="false"
+    PrecisionRule="true"
+    Precision="30"
+    Type="java.lang.String"
+    ColumnType="VARCHAR2"
+    AliasName="APP_CODE"
+    Expression="APP_CODE"
+    SQLType="VARCHAR">
+    <DesignTime>
+      <Attr Name="_DisplaySize" Value="30"/>
+    </DesignTime>
+  </ViewAttribute>
+  <ViewAttribute
+    Name="GusId"
+    IsUpdateable="false"
+    IsPersistent="false"
+    IsNotNull="true"
+    PrecisionRule="true"
+    Precision="15"
+    Scale="0"
+    Type="oracle.jbo.domain.Number"
+    ColumnType="NUMBER"
+    AliasName="GUS_ID"
+    Expression="GUS_ID"
+    SQLType="NUMERIC">
+    <DesignTime>
+      <Attr Name="_DisplaySize" Value="22"/>
+    </DesignTime>
+  </ViewAttribute>
+</ViewObject>

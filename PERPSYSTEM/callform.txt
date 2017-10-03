@@ -1,0 +1,8 @@
+<html> <head> ORACLE FORMS.</head>
+<body onload="document.pform.submit();" >
+<form name="pform" action="http://hatv:8889/forms90/f90servlet" method="POST">
+<input type="hidden" name="form"         value="D:\SUBVERION\Perp3.0\apps\hr\forms\QLNS130_PVOIL.fmx">
+<input type="hidden" name="userid"         value="TEST_PROD/TEST_PROD001@pdc_test">
+<input type="hidden" name="obr"         value="yes">
+<input type="hidden" name="array"         value="YES">
+ </form> </body></html>

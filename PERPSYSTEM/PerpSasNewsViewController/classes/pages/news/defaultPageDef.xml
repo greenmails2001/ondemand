@@ -1,0 +1,82 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<pageDefinition xmlns="http://xmlns.oracle.com/adfm/uimodel"
+                version="11.1.1.56.60" id="defaultPageDef" Package="pages.news">
+  <parameters/>
+  <executables>
+    <variableIterator id="variables"/>
+    <iterator Binds="Sasn04NewsCategories" RangeSize="25"
+              DataControl="PerpSasNewsAppModuleDataControl"
+              id="Sasn04NewsCategoriesIterator"/>
+    <iterator Binds="Sasn04NewsListInNewsCategories" RangeSize="25"
+              DataControl="PerpSasNewsAppModuleDataControl"
+              id="Sasn04NewsListInNewsCategoriesIterator"/>
+  </executables>
+  <bindings>
+    <tree IterBinding="Sasn04NewsCategoriesIterator" id="Sasn04NewsCategories">
+      <nodeDefinition DefName="com.vc.sasnmodel.views.sasn.NewsCategories"
+                      Name="Sasn04NewsCategories0">
+        <AttrNames>
+          <Item Value="NcaId"/>
+          <Item Value="NcaIdParent"/>
+          <Item Value="Title"/>
+          <Item Value="Description"/>
+          <Item Value="CategoryCode"/>
+          <Item Value="PriorityOrder"/>
+        </AttrNames>
+      </nodeDefinition>
+    </tree>
+    <action IterBinding="Sasn04NewsCategoriesIterator" id="setCurrentRowWithKey"
+            RequiresUpdateModel="false" Action="setCurrentRowWithKey">
+      <NamedData NDName="rowKey" NDValue="#{row.rowKeyStr}"
+                 NDType="java.lang.String"/>
+    </action>
+    <tree IterBinding="Sasn04NewsListInNewsCategoriesIterator"
+          id="Sasn04NewsListInNewsCategories">
+      <nodeDefinition DefName="com.vc.sasnmodel.views.sasn.News"
+                      Name="Sasn04NewsListInNewsCategories0">
+        <AttrNames>
+          <Item Value="Title"/>
+          <Item Value="ShortContent"/>
+          <Item Value="NewsDate"/>
+          <Item Value="NewsId"/>
+        </AttrNames>
+      </nodeDefinition>
+    </tree>
+    <attributeValues IterBinding="Sasn04NewsListInNewsCategoriesIterator"
+                     id="Title">
+      <AttrNames>
+        <Item Value="Title"/>
+      </AttrNames>
+    </attributeValues>
+    <attributeValues IterBinding="Sasn04NewsListInNewsCategoriesIterator"
+                     id="Content">
+      <AttrNames>
+        <Item Value="Content"/>
+      </AttrNames>
+    </attributeValues>
+    <attributeValues IterBinding="Sasn04NewsListInNewsCategoriesIterator"
+                     id="PriorityLevel">
+      <AttrNames>
+        <Item Value="PriorityLevel"/>
+      </AttrNames>
+    </attributeValues>
+    <attributeValues IterBinding="Sasn04NewsListInNewsCategoriesIterator"
+                     id="ShortContent">
+      <AttrNames>
+        <Item Value="ShortContent"/>
+      </AttrNames>
+    </attributeValues>
+    <attributeValues IterBinding="Sasn04NewsListInNewsCategoriesIterator"
+                     id="NewsDate">
+      <AttrNames>
+        <Item Value="NewsDate"/>
+      </AttrNames>
+    </attributeValues>
+    <action IterBinding="Sasn04NewsListInNewsCategoriesIterator"
+            id="setCurrentRowWithKey1" RequiresUpdateModel="false"
+            Action="setCurrentRowWithKey">
+      <NamedData NDName="rowKey" NDValue="#{row.rowKeyStr}"
+                 NDType="java.lang.String"/>
+    </action>
+  </bindings>
+</pageDefinition>

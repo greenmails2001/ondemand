@@ -1,0 +1,74 @@
+<?xml version='1.0' encoding='UTF-8'?>
+<jsp:root xmlns:jsp="http://java.sun.com/JSP/Page" version="2.1"
+          xmlns:f="http://java.sun.com/jsf/core"
+          xmlns:h="http://java.sun.com/jsf/html"
+          xmlns:af="http://xmlns.oracle.com/adf/faces/rich">
+  <jsp:directive.page contentType="text/html;charset=UTF-8"/>
+  <f:view>
+    <af:document id="d1">
+      <af:form id="f1">
+        <af:messages id="m1"/>
+        <af:panelFormLayout id="pfl1">
+          <af:inputText value="#{bindings.NcaId.inputValue}"
+                        label="#{bindings.NcaId.hints.label}"
+                        required="#{bindings.NcaId.hints.mandatory}"
+                        columns="#{bindings.NcaId.hints.displayWidth}"
+                        maximumLength="#{bindings.NcaId.hints.precision}"
+                        shortDesc="#{bindings.NcaId.hints.tooltip}" id="it6">
+            <f:validator binding="#{bindings.NcaId.validator}"/>
+            <af:convertNumber groupingUsed="false"
+                              pattern="#{bindings.NcaId.format}"/>
+          </af:inputText>
+          <af:inputText value="#{bindings.NcaIdParent.inputValue}"
+                        label="#{bindings.NcaIdParent.hints.label}"
+                        required="#{bindings.NcaIdParent.hints.mandatory}"
+                        columns="#{bindings.NcaIdParent.hints.displayWidth}"
+                        maximumLength="#{bindings.NcaIdParent.hints.precision}"
+                        shortDesc="#{bindings.NcaIdParent.hints.tooltip}"
+                        id="it1">
+            <f:validator binding="#{bindings.NcaIdParent.validator}"/>
+            <af:convertNumber groupingUsed="false"
+                              pattern="#{bindings.NcaIdParent.format}"/>
+          </af:inputText>
+          <af:inputText value="#{bindings.Title.inputValue}"
+                        label="#{bindings.Title.hints.label}"
+                        required="#{bindings.Title.hints.mandatory}"
+                        columns="#{bindings.Title.hints.displayWidth}"
+                        maximumLength="#{bindings.Title.hints.precision}"
+                        shortDesc="#{bindings.Title.hints.tooltip}" id="it3">
+            <f:validator binding="#{bindings.Title.validator}"/>
+          </af:inputText>
+          <af:inputText value="#{bindings.Description.inputValue}"
+                        label="#{bindings.Description.hints.label}"
+                        required="#{bindings.Description.hints.mandatory}"
+                        columns="#{bindings.Description.hints.displayWidth}"
+                        maximumLength="#{bindings.Description.hints.precision}"
+                        shortDesc="#{bindings.Description.hints.tooltip}"
+                        id="it2">
+            <f:validator binding="#{bindings.Description.validator}"/>
+          </af:inputText>
+          <af:inputText value="#{bindings.CategoryCode.inputValue}"
+                        label="#{bindings.CategoryCode.hints.label}"
+                        required="#{bindings.CategoryCode.hints.mandatory}"
+                        columns="#{bindings.CategoryCode.hints.displayWidth}"
+                        maximumLength="#{bindings.CategoryCode.hints.precision}"
+                        shortDesc="#{bindings.CategoryCode.hints.tooltip}"
+                        id="it5">
+            <f:validator binding="#{bindings.CategoryCode.validator}"/>
+          </af:inputText>
+          <af:inputText value="#{bindings.PriorityOrder.inputValue}"
+                        label="#{bindings.PriorityOrder.hints.label}"
+                        required="#{bindings.PriorityOrder.hints.mandatory}"
+                        columns="#{bindings.PriorityOrder.hints.displayWidth}"
+                        maximumLength="#{bindings.PriorityOrder.hints.precision}"
+                        shortDesc="#{bindings.PriorityOrder.hints.tooltip}"
+                        id="it4">
+            <f:validator binding="#{bindings.PriorityOrder.validator}"/>
+            <af:convertNumber groupingUsed="false"
+                              pattern="#{bindings.PriorityOrder.format}"/>
+          </af:inputText>
+        </af:panelFormLayout>
+      </af:form>
+    </af:document>
+  </f:view>
+</jsp:root>

@@ -1,0 +1,38 @@
+<?xml version="1.0" encoding="windows-1252" ?>
+<!DOCTYPE ViewLink SYSTEM "jbo_03_01.dtd">
+<!---->
+<ViewLink
+  xmlns="http://xmlns.oracle.com/bc4j"
+  Name="Oun_OunRoot"
+  Version="11.1.1.56.60"
+  EntityAssociation="com.perp.sasmodel.entities.OunOunFkAssoc">
+  <DesignTime>
+    <Attr Name="_isCodegen" Value="true"/>
+  </DesignTime>
+  <ViewLinkDefEnd
+    Name="OrganizationUnitsRoot"
+    Cardinality="1"
+    Owner="com.perp.sasmodel.views.adv.OrganizationUnitsRoot"
+    Source="true">
+    <DesignTime>
+      <Attr Name="_finderName" Value="OrganizationUnitsRoot"/>
+      <Attr Name="_isUpdateable" Value="true"/>
+    </DesignTime>
+    <AttrArray Name="Attributes">
+      <Item Value="com.perp.sasmodel.views.adv.OrganizationUnitsRoot.OunId"/>
+    </AttrArray>
+  </ViewLinkDefEnd>
+  <ViewLinkDefEnd
+    Name="OrganizationUnits"
+    Cardinality="-1"
+    Owner="com.perp.sasmodel.views.adv.OrganizationUnits">
+    <DesignTime>
+      <Attr Name="_finderName" Value="OrganizationUnits"/>
+      <Attr Name="_isUpdateable" Value="true"/>
+    </DesignTime>
+    <AttrArray Name="Attributes">
+      <Item
+        Value="com.perp.sasmodel.views.adv.OrganizationUnits.OunIdChildOf"/>
+    </AttrArray>
+  </ViewLinkDefEnd>
+</ViewLink>

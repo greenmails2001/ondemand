@@ -1,0 +1,15 @@
+<?xml version="1.0" encoding="windows-1252" ?>
+<adfc-config xmlns="http://xmlns.oracle.com/adf/controller" version="1.2">
+  <task-flow-definition id="sans-cust">
+    <default-activity id="__2">default</default-activity>
+    <managed-bean id="__1">
+      <managed-bean-name id="__4">custBean</managed-bean-name>
+      <managed-bean-class id="__5">pages.cust.CustBean</managed-bean-class>
+      <managed-bean-scope id="__3">request</managed-bean-scope>
+    </managed-bean>
+    <view id="default">
+      <page>/pages/cust/default.jsff</page>
+    </view>
+    <use-page-fragments/>
+  </task-flow-definition>
+</adfc-config>

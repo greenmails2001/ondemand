@@ -1,0 +1,270 @@
+<?xml version='1.0' encoding='UTF-8'?>
+<jsp:root xmlns:jsp="http://java.sun.com/JSP/Page" version="2.1" xmlns:af="http://xmlns.oracle.com/adf/faces/rich"
+          xmlns:f="http://java.sun.com/jsf/core">
+  <af:panelTabbed id="pt1">
+    <af:showDetailItem text="News Category" id="sdi1">
+      <af:panelStretchLayout id="psl1" inlineStyle="width:1273px; height:500px;">
+        <f:facet name="center">
+          <af:panelSplitter id="ps1" splitterPosition="512">
+            <f:facet name="first">
+              <af:panelCollection id="pc1">
+                <f:facet name="menus"/>
+                <f:facet name="toolbar"/>
+                <f:facet name="statusbar"/>
+                <af:table value="#{bindings.NewsCategories1.collectionModel}" var="row" rows="#{bindings.NewsCategories1.rangeSize}"
+                          emptyText="#{bindings.NewsCategories1.viewable ? 'No data to display.' : 'Access Denied.'}"
+                          fetchSize="#{bindings.NewsCategories1.rangeSize}" rowBandingInterval="0"
+                          filterModel="#{bindings.NewsCategories1Query.queryDescriptor}"
+                          queryListener="#{bindings.NewsCategories1Query.processQuery}" filterVisible="true" varStatus="vs"
+                          selectedRowKeys="#{bindings.NewsCategories1.collectionModel.selectedRow}"
+                          selectionListener="#{bindings.NewsCategories1.collectionModel.makeCurrent}" rowSelection="single" id="t1"
+                          columnStretching="last">
+                  <af:column sortProperty="CategoryCode" filterable="true" sortable="true"
+                             headerText="#{bindings.NewsCategories1.hints.CategoryCode.label}" id="c2">
+                    <af:outputText value="#{row.CategoryCode}" id="ot1"/>
+                  </af:column>
+                  <af:column sortProperty="Title" filterable="true" sortable="true"
+                             headerText="#{bindings.NewsCategories1.hints.Title.label}" id="c3">
+                    <af:outputText value="#{row.Title}" id="ot2"/>
+                  </af:column>
+                  <af:column sortProperty="PriorityOrder" filterable="true" sortable="true"
+                             headerText="#{bindings.NewsCategories1.hints.PriorityOrder.label}" id="c1">
+                    <af:outputText value="#{row.PriorityOrder}" id="ot4">
+                      <af:convertNumber groupingUsed="false" pattern="#{bindings.NewsCategories1.hints.PriorityOrder.format}"/>
+                    </af:outputText>
+                  </af:column>
+                  <af:column sortProperty="Description" filterable="true" sortable="true"
+                             headerText="#{bindings.NewsCategories1.hints.Description.label}" id="c4">
+                    <af:outputText value="#{row.Description}" id="ot3"/>
+                  </af:column>
+                </af:table>
+              </af:panelCollection>
+            </f:facet>
+            <f:facet name="second">
+              <af:panelStretchLayout id="psl3">
+                <f:facet name="center">
+                  <af:panelGroupLayout layout="scroll" xmlns:af="http://xmlns.oracle.com/adf/faces/rich" id="pgl1">
+                    <af:panelHeader text="News category" id="ph1">
+                      <f:facet name="context"/>
+                      <f:facet name="menuBar"/>
+                      <f:facet name="toolbar"/>
+                      <f:facet name="legend"/>
+                      <f:facet name="info"/>
+                      <af:panelBox text="Detail" id="pb1">
+                        <f:facet name="toolbar">
+                          <af:toolbar id="t3">
+                            <af:commandButton text="Submit Changes" id="cb9"
+                                              actionListener="#{valueHolder.setEnableEditingActionListener}"/>
+                            <af:spacer width="10" height="10" id="s9"/>
+                            <af:commandButton text="Create" disabled="#{valueHolder.editAction||valueHolder.createAction}" id="cb2"
+                                              partialTriggers="pc1:t1" actionListener="#{bindings.CreateNewsCategory.execute}">
+                              <af:setActionListener from="#{true}" to="#{valueHolder.createAction}"/>
+                            </af:commandButton>
+                            <af:spacer width="10" height="10" id="s8"/>
+                            <af:commandButton text="Delete" id="cb10" actionListener="#{bindings.Delete.execute}"
+                                              disabled="#{valueHolder.editAction||valueHolder.createAction}" partialTriggers="pc1:t1">
+                              <af:setActionListener from="#{true}" to="#{valueHolder.deleteAction}"/>
+                            </af:commandButton>
+                            <af:spacer width="10" height="10" id="s1"/>
+                            <af:commandButton actionListener="#{bindings.Commit.execute}" text="Save" disabled="#{!bindings.Commit.enabled}"
+                                              id="cb1">
+                              <af:setActionListener from="#{null}" to="#{valueHolder.selectedRow}"/>
+                            </af:commandButton>
+                            <af:spacer width="10" height="10" id="s5"/>
+                            <af:commandButton actionListener="#{bindings.Rollback.execute}" text="Cancel"
+                                              disabled="#{!bindings.Rollback.enabled}" id="cb5" immediate="true">
+                              <af:resetActionListener/>
+                              <af:setActionListener from="#{null}" to="#{valueHolder.selectedRow}"/>
+                            </af:commandButton>
+                          </af:toolbar>
+                        </f:facet>
+                        <af:panelStretchLayout id="psl2" inlineStyle="width:614px;">
+                          <f:facet name="center">
+                            <af:panelFormLayout id="pfl1" partialTriggers="pc1:t1">
+                              <af:inputText value="#{bindings.CategoryCode.inputValue}" label="#{bindings.CategoryCode.hints.label}"
+                                            required="#{bindings.CategoryCode.hints.mandatory}" columns="70"
+                                            maximumLength="#{bindings.CategoryCode.hints.precision}"
+                                            shortDesc="#{bindings.CategoryCode.hints.tooltip}" id="it3">
+                                <f:validator binding="#{bindings.CategoryCode.validator}"/>
+                              </af:inputText>
+                              <af:inputText value="#{bindings.Title.inputValue}" label="#{bindings.Title.hints.label}"
+                                            required="#{bindings.Title.hints.mandatory}" columns="70"
+                                            maximumLength="#{bindings.Title.hints.precision}" shortDesc="#{bindings.Title.hints.tooltip}"
+                                            id="it4">
+                                <f:validator binding="#{bindings.Title.validator}"/>
+                              </af:inputText>
+                              <af:richTextEditor value="#{bindings.Description.inputValue}" label="#{bindings.Description.hints.label}"
+                                                 required="#{bindings.Description.hints.mandatory}"
+                                                 shortDesc="#{bindings.Description.hints.tooltip}" id="it1"/>
+                              <af:inputNumberSpinbox value="#{bindings.PriorityOrder.inputValue}"
+                                                     label="#{bindings.PriorityOrder.hints.label}"
+                                                     required="#{bindings.PriorityOrder.hints.mandatory}"
+                                                     columns="#{bindings.PriorityOrder.hints.displayWidth}"
+                                                     shortDesc="#{bindings.PriorityOrder.hints.tooltip}" id="it2">
+                                <f:validator binding="#{bindings.PriorityOrder.validator}"/>
+                                <af:convertNumber groupingUsed="false" pattern="#{bindings.PriorityOrder.format}"/>
+                              </af:inputNumberSpinbox>
+                            </af:panelFormLayout>
+                          </f:facet>
+                        </af:panelStretchLayout>
+                      </af:panelBox>
+                    </af:panelHeader>
+                  </af:panelGroupLayout>
+                </f:facet>
+              </af:panelStretchLayout>
+            </f:facet>
+          </af:panelSplitter>
+        </f:facet>
+      </af:panelStretchLayout>
+    </af:showDetailItem>
+    <af:showDetailItem text="News" id="sdi2">
+      <af:panelStretchLayout id="psl5" inlineStyle="width:1273px; height:486px;">
+        <f:facet name="center">
+          <af:panelSplitter id="ps2" splitterPosition="516">
+            <f:facet name="first">
+              <af:panelCollection id="pc2">
+                <f:facet name="menus"/>
+                <f:facet name="toolbar"/>
+                <f:facet name="statusbar"/>
+                <af:table value="#{bindings.NewsVO1.collectionModel}" var="row" rows="#{bindings.NewsVO1.rangeSize}"
+                          emptyText="#{bindings.NewsVO1.viewable ? 'No data to display.' : 'Access Denied.'}"
+                          fetchSize="#{bindings.NewsVO1.rangeSize}" rowBandingInterval="0"
+                          filterModel="#{bindings.NewsVO1Query.queryDescriptor}" queryListener="#{bindings.NewsVO1Query.processQuery}"
+                          filterVisible="true" varStatus="vs" selectedRowKeys="#{bindings.NewsVO1.collectionModel.selectedRow}"
+                          selectionListener="#{bindings.NewsVO1.collectionModel.makeCurrent}" rowSelection="single" id="t2">
+                  <af:column sortProperty="Title" filterable="true" sortable="true" headerText="#{bindings.NewsVO1.hints.Title.label}"
+                             id="c10" width="248">
+                    <af:outputText value="#{row.Title}" id="ot9"/>
+                  </af:column>
+                  <af:column sortProperty="Content" filterable="true" sortable="true" headerText="#{bindings.NewsVO1.hints.Content.label}"
+                             id="c7" width="300">
+                    <af:outputText value="#{row.Content}" id="ot8"/>
+                  </af:column>
+                  <af:column sortProperty="ShortContent" filterable="true" sortable="true"
+                             headerText="#{bindings.NewsVO1.hints.ShortContent.label}" id="c6" width="250">
+                    <af:outputText value="#{row.ShortContent}" id="ot5"/>
+                  </af:column>
+                  <af:column sortProperty="NewsDate" filterable="true" sortable="true" headerText="#{bindings.NewsVO1.hints.NewsDate.label}"
+                             id="c8" width="100">
+                    <f:facet name="filter">
+                      <af:inputDate value="#{vs.filterCriteria.NewsDate}" id="id1"/>
+                    </f:facet>
+                    <af:outputText value="#{row.NewsDate}" id="ot7">
+                      <af:convertDateTime pattern="#{bindings.NewsVO1.hints.NewsDate.format}"/>
+                    </af:outputText>
+                  </af:column>
+                  <af:column sortProperty="BookmarkCode" filterable="true" sortable="true"
+                             headerText="#{bindings.NewsVO1.hints.BookmarkCode.label}" id="c5" width="87">
+                    <af:outputText value="#{row.BookmarkCode}" id="ot6"/>
+                  </af:column>
+                  <af:column sortProperty="PriorityLevel" filterable="true" sortable="true"
+                             headerText="#{bindings.NewsVO1.hints.PriorityLevel.label}" id="c9">
+                    <af:outputText value="#{row.PriorityLevel}" id="ot10">
+                      <af:convertNumber groupingUsed="false" pattern="#{bindings.NewsVO1.hints.PriorityLevel.format}"/>
+                    </af:outputText>
+                  </af:column>
+                </af:table>
+              </af:panelCollection>
+            </f:facet>
+            <f:facet name="second">
+              <af:panelStretchLayout id="psl6">
+                <f:facet name="center">
+                  <af:panelGroupLayout layout="scroll" xmlns:af="http://xmlns.oracle.com/adf/faces/rich" id="pgl2">
+                    <af:panelHeader text="News" id="ph2">
+                      <f:facet name="context"/>
+                      <f:facet name="menuBar"/>
+                      <f:facet name="toolbar"/>
+                      <f:facet name="legend"/>
+                      <f:facet name="info"/>
+                      <af:panelBox text="Detail" id="pb3" inlineStyle="height:460px;">
+                        <f:facet name="toolbar">
+                          <af:toolbar id="t4">
+                            <af:commandButton text="Submit Changes" id="cb7"
+                                              actionListener="#{valueHolder.setEnableEditingActionListener}"/>
+                            <af:spacer width="10" height="10" id="s7"/>
+                            <af:commandButton text="Create" disabled="#{valueHolder.editAction||valueHolder.createAction}" id="cb4"
+                                              partialTriggers="pc2:t2" actionListener="#{bindings.CreateNews.execute}">
+                              <af:setActionListener from="#{true}" to="#{valueHolder.createAction}"/>
+                            </af:commandButton>
+                            <af:spacer width="10" height="10" id="s6"/>
+                            <af:commandButton text="Delete" id="cb8" actionListener="#{bindings.Delete.execute}"
+                                              disabled="#{valueHolder.editAction||valueHolder.createAction}" partialTriggers="pc2:t2">
+                              <af:setActionListener from="#{true}" to="#{valueHolder.deleteAction}"/>
+                            </af:commandButton>
+                            <af:spacer width="10" height="10" id="s3"/>
+                            <af:commandButton text="Save" id="cb3" actionListener="#{bindings.Commit.execute}"
+                                              disabled="#{!bindings.Commit.enabled}" partialTriggers="pc2:t2"/>
+                            <af:spacer width="10" height="10" id="s4"/>
+                            <af:commandButton actionListener="#{bindings.Rollback.execute}" text="Cancel"
+                                              disabled="#{!bindings.Rollback.enabled}" immediate="true" id="cb6" partialTriggers="pc2:t2">
+                              <af:resetActionListener/>
+                            </af:commandButton>
+                          </af:toolbar>
+                        </f:facet>
+                        <af:panelStretchLayout id="psl7" inlineStyle="width:613px; height:425px;">
+                          <f:facet name="center">
+                            <af:panelFormLayout id="pfl2" partialTriggers="pc2:t2">
+                              <af:selectOneChoice value="#{bindings.NcaId.inputValue}" label="#{bindings.NcaId.hints.label}"
+                                                  required="#{bindings.NcaId.hints.mandatory}" shortDesc="#{bindings.NcaId.hints.tooltip}"
+                                                  id="it1NcaId" showRequired="true">
+                                <f:selectItems value="#{bindings.NcaId.items}" id="si1"/>
+                              </af:selectOneChoice>
+                              <af:inputText value="#{bindings.Title1.inputValue}" label="#{bindings.Title1.hints.label}"
+                                            required="#{bindings.Title1.hints.mandatory}" columns="90"
+                                            maximumLength="#{bindings.Title1.hints.precision}" shortDesc="#{bindings.Title1.hints.tooltip}"
+                                            id="it11">
+                                <f:validator binding="#{bindings.Title1.validator}"/>
+                              </af:inputText>
+                              <af:richTextEditor value="#{bindings.Content.inputValue}" label="#{bindings.Content.hints.label}"
+                                                 required="#{bindings.Content.hints.mandatory}"
+                                                 shortDesc="#{bindings.Content.hints.tooltip}" id="it9" converter="oracle.genericDomain"
+                                                 columns="90" rows="8"/>
+                              <af:inputText value="#{bindings.ShortContent.inputValue}" label="#{bindings.ShortContent.hints.label}"
+                                            required="#{bindings.ShortContent.hints.mandatory}"
+                                            shortDesc="#{bindings.ShortContent.hints.tooltip}" id="it6" rows="3" columns="90"/>
+                              <af:selectOneChoice value="#{bindings.IreIdMedium.inputValue}" label="#{bindings.IreIdMedium.hints.label}"
+                                                  required="#{bindings.IreIdMedium.hints.mandatory}"
+                                                  shortDesc="#{bindings.IreIdMedium.hints.tooltip}" id="it8">
+                                <f:selectItems value="#{bindings.IreIdMedium.items}" id="si2"/>
+                              </af:selectOneChoice>
+                              <af:selectOneChoice value="#{bindings.IreIdSmall.inputValue}" label="#{bindings.IreIdSmall.hints.label}"
+                                                  required="#{bindings.IreIdSmall.hints.mandatory}"
+                                                  shortDesc="#{bindings.IreIdSmall.hints.tooltip}" id="it5">
+                                <f:selectItems value="#{bindings.IreIdSmall.items}" id="si3"/>
+                              </af:selectOneChoice>
+                              <af:inputDate value="#{bindings.NewsDate.inputValue}" label="#{bindings.NewsDate.hints.label}"
+                                            required="#{bindings.NewsDate.hints.mandatory}" shortDesc="#{bindings.NewsDate.hints.tooltip}"
+                                            id="id2">
+                                <f:validator binding="#{bindings.NewsDate.validator}"/>
+                                <af:convertDateTime pattern="#{bindings.NewsDate.format}"/>
+                              </af:inputDate>
+                              <af:inputText value="#{bindings.BookmarkCode.inputValue}" label="#{bindings.BookmarkCode.hints.label}"
+                                            required="#{bindings.BookmarkCode.hints.mandatory}"
+                                            columns="#{bindings.BookmarkCode.hints.displayWidth}"
+                                            maximumLength="#{bindings.BookmarkCode.hints.precision}"
+                                            shortDesc="#{bindings.BookmarkCode.hints.tooltip}" id="it7">
+                                <f:validator binding="#{bindings.BookmarkCode.validator}"/>
+                              </af:inputText>
+                              <af:inputNumberSpinbox value="#{bindings.PriorityLevel.inputValue}"
+                                                     label="#{bindings.PriorityLevel.hints.label}"
+                                                     required="#{bindings.PriorityLevel.hints.mandatory}"
+                                                     columns="#{bindings.PriorityLevel.hints.displayWidth}"
+                                                     shortDesc="#{bindings.PriorityLevel.hints.tooltip}" id="it12">
+                                <f:validator binding="#{bindings.PriorityLevel.validator}"/>
+                                <af:convertNumber groupingUsed="false" pattern="#{bindings.PriorityLevel.format}"/>
+                              </af:inputNumberSpinbox>
+                            </af:panelFormLayout>
+                          </f:facet>
+                        </af:panelStretchLayout>
+                      </af:panelBox>
+                    </af:panelHeader>
+                  </af:panelGroupLayout>
+                </f:facet>
+              </af:panelStretchLayout>
+            </f:facet>
+          </af:panelSplitter>
+        </f:facet>
+      </af:panelStretchLayout>
+    </af:showDetailItem>
+  </af:panelTabbed>
+</jsp:root>

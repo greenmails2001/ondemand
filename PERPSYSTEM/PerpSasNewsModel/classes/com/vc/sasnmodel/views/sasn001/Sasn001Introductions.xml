@@ -1,0 +1,84 @@
+<?xml version="1.0" encoding="windows-1252" ?>
+<!DOCTYPE ViewObject SYSTEM "jbo_03_01.dtd">
+<!---->
+<ViewObject
+  xmlns="http://xmlns.oracle.com/bc4j"
+  Name="Sasn001Introductions"
+  Version="11.1.1.55.36"
+  SelectList="Introductions.INT_ID, 
+       Introductions.TITLE, 
+       Introductions.CONTENT, 
+       Introductions.CREATE_DATE, 
+       Introductions.CREATED_BY, 
+       Introductions.MODIFY_DATE, 
+       Introductions.MODIFIED_BY, 
+       Introductions.DESCRIPTION"
+  FromList="INTRODUCTIONS Introductions"
+  BindingStyle="OracleName"
+  CustomQuery="false"
+  PageIterMode="Full"
+  UseGlueCode="false"
+  RowClass="com.vc.sasnmodel.views.sasn001.Sasn001IntroductionsRowImpl"
+  ComponentClass="com.vc.sasnmodel.views.sasn001.Sasn001IntroductionsImpl"
+  RowInterface="com.vc.sasnmodel.views.sasn001.common.Sasn001IntroductionsRow"
+  ClientRowProxyName="com.vc.sasnmodel.views.sasn001.client.Sasn001IntroductionsRowClient">
+  <DesignTime>
+    <Attr Name="_codeGenFlag2" Value="Access|Coll|VarAccess"/>
+    <Attr Name="_isCodegen" Value="true"/>
+  </DesignTime>
+  <EntityUsage
+    Name="Introductions"
+    Entity="com.vc.sasnmodel.entities.Introductions"/>
+  <ViewAttribute
+    Name="IntId"
+    IsNotNull="true"
+    PrecisionRule="true"
+    EntityAttrName="IntId"
+    EntityUsage="Introductions"
+    AliasName="INT_ID"/>
+  <ViewAttribute
+    Name="Title"
+    PrecisionRule="true"
+    EntityAttrName="Title"
+    EntityUsage="Introductions"
+    AliasName="TITLE"/>
+  <ViewAttribute
+    Name="Content"
+    IsQueriable="false"
+    PrecisionRule="true"
+    EntityAttrName="Content"
+    EntityUsage="Introductions"
+    AliasName="CONTENT"/>
+  <ViewAttribute
+    Name="CreateDate"
+    IsNotNull="true"
+    PrecisionRule="true"
+    EntityAttrName="CreateDate"
+    EntityUsage="Introductions"
+    AliasName="CREATE_DATE"/>
+  <ViewAttribute
+    Name="CreatedBy"
+    IsNotNull="true"
+    PrecisionRule="true"
+    EntityAttrName="CreatedBy"
+    EntityUsage="Introductions"
+    AliasName="CREATED_BY"/>
+  <ViewAttribute
+    Name="ModifyDate"
+    PrecisionRule="true"
+    EntityAttrName="ModifyDate"
+    EntityUsage="Introductions"
+    AliasName="MODIFY_DATE"/>
+  <ViewAttribute
+    Name="ModifiedBy"
+    PrecisionRule="true"
+    EntityAttrName="ModifiedBy"
+    EntityUsage="Introductions"
+    AliasName="MODIFIED_BY"/>
+  <ViewAttribute
+    Name="Description"
+    PrecisionRule="true"
+    EntityAttrName="Description"
+    EntityUsage="Introductions"
+    AliasName="DESCRIPTION"/>
+</ViewObject>

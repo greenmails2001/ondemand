@@ -1,0 +1,368 @@
+<?xml version='1.0' encoding='UTF-8'?>
+<jsp:root xmlns:jsp="http://java.sun.com/JSP/Page" version="2.1"
+          xmlns:af="http://xmlns.oracle.com/adf/faces/rich"
+          xmlns:f="http://java.sun.com/jsf/core"
+          xmlns:c="http://java.sun.com/jsp/jstl/core"
+          xmlns:h="http://java.sun.com/jsf/html">
+  <c:set var="perpsasnewsviewcontrollerBundle1"
+         value="#{adfBundle['com.vc.sasn.PerpSasNewsViewControllerBundle']}"/>
+  <af:group id="g1">
+    <c:set var="perpsasnewsviewcontrollerBundle"
+           value="#{adfBundle['com.vc.sasn.Consultant']}"/>
+  </af:group>
+  <af:panelTabbed id="consult" styleClass="AFVisualRoot" clientComponent="true">
+    <af:showDetailItem text="#{perpsasnewsviewcontrollerBundle['tab.consultant']}"
+                       id="consul" stretchChildren="first">
+      <af:panelSplitter id="ps2" orientation="vertical" splitterPosition="20"
+                        disabled="true">
+        <f:facet name="first">
+          <af:panelGroupLayout layout="horizontal"
+                               xmlns:af="http://xmlns.oracle.com/adf/faces/rich"
+                               id="pgl1" inlineStyle="padding:3px;">
+            <af:iterator id="i2"
+                         value="#{bindings.Sasn03ConsultantCategories.collectionModel}"
+                         var="row">
+              <af:commandLink text="#{row.CcaName}" id="ccaNameLink"
+                              partialSubmit="true"
+                              actionListener="#{consulTaskFlowBean.setTaskFlowActionListener}">
+                <f:attribute name="ccaId" value="#{row.CcaId}"/>
+                <f:attribute name="taskFlow" value="consult"/>
+              </af:commandLink>
+              <af:spacer width="10" height="10" id="s2"/>
+            </af:iterator>
+            <af:spacer width="10" height="10" id="s1"/>
+            <af:commandLink text="Gửi câu hỏi" id="clquestion"
+                            partialSubmit="true"
+                            actionListener="#{consulTaskFlowBean.setTaskFlowActionListener}">
+              <f:attribute name="ccaId" value="#{null}"/>
+              <f:attribute name="taskFlow" value="question"/>
+            </af:commandLink>
+          </af:panelGroupLayout>
+        </f:facet>
+        <f:facet name="second">
+          <af:region value="#{bindings.sasnconsultaskflow1.regionModel}" id="r1"
+                     binding="#{consulTaskFlowBean.region}"/>
+        </f:facet>
+      </af:panelSplitter>
+    </af:showDetailItem>
+    <af:showDetailItem text="#{perpsasnewsviewcontrollerBundle['tab.download']}"
+                       id="download" stretchChildren="first">
+      <af:panelSplitter id="ps1" splitterPosition="305">
+        <f:facet name="first">
+          <af:panelBox id="pb2" showDisclosure="false" showHeader="never">
+            <f:facet name="toolbar"/>
+            <af:iterator id="i4"
+                         value="#{bindings.DocumentCategoriesRoot1.collectionModel}"
+                         var="row">
+              <af:panelGroupLayout id="pgl9" layout="vertical">
+                <af:commandImageLink text="#{row.Title}" id="cl1"
+                                     icon="/images/arrow-single-right-green.png">
+                  <af:setActionListener from="#{row.DcaId}"
+                                        to="#{pageFlowScope.rowKeyDca}"/>
+                </af:commandImageLink>
+                <af:iterator id="i1" value="#{row.DocumentCategories1}"
+                             var="row2">
+                  <af:panelGroupLayout id="pgl2" layout="vertical">
+                    <af:group id="g2">
+                      <af:spacer width="10" height="10" id="s3"/>
+                      <af:commandImageLink text="#{row2.Title}" id="cl2"
+                                           icon="/images/arrow-single-right-green.png">
+                        <af:setActionListener from="#{row2.DcaId}"
+                                              to="#{pageFlowScope.rowKeyDca}"/>
+                      </af:commandImageLink>
+                    </af:group>
+                  </af:panelGroupLayout>
+                </af:iterator>
+                <af:spacer width="10" height="5" id="s4"/>
+              </af:panelGroupLayout>
+            </af:iterator>
+          </af:panelBox>
+        </f:facet>
+        <f:facet name="second">
+          <af:panelBox text="PanelBox2" id="pb1" showDisclosure="false"
+                       showHeader="never" styleClass="AFStrecthWidth">
+            <f:facet name="toolbar"/>
+            <af:table value="#{bindings.DocumentDownloadsListByDocumentCategory.collectionModel}"
+                      var="row"
+                      rows="#{bindings.DocumentDownloadsListByDocumentCategory.rangeSize}"
+                      emptyText="#{bindings.DocumentDownloadsListByDocumentCategory.viewable ? 'Không tìm thấy tài liệu nào.' : 'Truy cập bị từ chối.'}"
+                      fetchSize="#{bindings.DocumentDownloadsListByDocumentCategory.rangeSize}"
+                      rowBandingInterval="0"
+                      filterModel="#{bindings.DocumentDownloadsListByDocumentCategory1Query.queryDescriptor}"
+                      queryListener="#{bindings.DocumentDownloadsListByDocumentCategory1Query.processQuery}"
+                      filterVisible="true" varStatus="vs"
+                      selectedRowKeys="#{bindings.DocumentDownloadsListByDocumentCategory.collectionModel.selectedRow}"
+                      selectionListener="#{bindings.DocumentDownloadsListByDocumentCategory.collectionModel.makeCurrent}"
+                      rowSelection="single" id="t1"
+                      styleClass="AFStrecthWidth" columnStretching="column:c4">
+              <af:column sortProperty="Title" filterable="true" sortable="true"
+                         headerText="#{perpsasnewsviewcontrollerBundle['tab.download.filename']}"
+                         id="c5" align="center"  width="156">
+                <af:goLink text="#{row.Title}" id="gl2"
+                           inlineStyle="font-weight:bold;" targetFrame="_blank"
+                           destination="/documentDownload?ddoId=#{row.DdoId}"/>
+              </af:column>
+              <af:column sortProperty="FileName" filterable="true"
+                         sortable="true"
+                         headerText="#{perpsasnewsviewcontrollerBundle['tab.download.filename']}"
+                         id="c7" align="center" width="156" rendered="false">
+                <af:goLink text="#{row.FileName}" id="gl3"
+                           inlineStyle="font-weight:bold;" targetFrame="_blank"
+                           destination="/documentDownload?ddoId=#{row.DdoId}"/>
+              </af:column>
+              <af:column sortProperty="ShortContent" filterable="true"
+                         sortable="true"
+                         headerText="#{perpsasnewsviewcontrollerBundle['tab.download.shortcontent']}"
+                         id="c4" align="center" width="277">
+                <af:outputText value="#{row.ShortContent}" id="ot6"/>
+              </af:column>
+              <af:column sortProperty="FileType" filterable="true"
+                         sortable="true"
+                         headerText="#{perpsasnewsviewcontrollerBundle['tab.download.filetype']}"
+                         id="c1" align="center" width="91">
+                <af:outputText value="#{row.FileType}" id="ot1"/>
+              </af:column>
+              <af:column sortProperty="DataSize" filterable="true"
+                         sortable="true"
+                         headerText="#{perpsasnewsviewcontrollerBundle['tab.download.filesize']}"
+                         id="c6" align="center" width="77">
+                <af:outputText value="#{row.DataSize}" id="ot3">
+                  <af:convertNumber groupingUsed="false"
+                                    pattern="#{bindings.DocumentDownloadsListByDocumentCategory1.hints.DataSize.format}"/>
+                </af:outputText>
+              </af:column>
+              <af:column sortProperty="PublicDate" filterable="true"
+                         sortable="true"
+                         headerText="#{perpsasnewsviewcontrollerBundle['tab.download.publicDate']}"
+                         id="c3" align="center" width="100">
+                <f:facet name="filter">
+                  <af:inputDate value="#{vs.filterCriteria.PublicDate}"
+                                id="id1"/>
+                </f:facet>
+                <af:outputText value="#{row.PublicDate}" id="ot21">
+                  <af:convertDateTime pattern="#{bindings.DocumentDownloadsListByDocumentCategory.hints.PublicDate.format}"/>
+                </af:outputText>
+              </af:column>
+              <af:column sortProperty="DownloadCount" filterable="true"
+                         sortable="true"
+                         headerText="#{perpsasnewsviewcontrollerBundle['tab.download.downloadCount']}"
+                         id="c2" align="center" width="113">
+                <af:outputText value="#{row.DownloadCount}" id="ot8">
+                  <af:convertNumber groupingUsed="false"
+                                    pattern="#{bindings.DocumentDownloadsListByDocumentCategory.hints.DownloadCount.format}"/>
+                </af:outputText>
+              </af:column>
+              <af:column headerText="#{perpsasnewsviewcontrollerBundle['tab.download.downloadfile']}" id="c8"
+                         width="60"
+                         align="center" frozen="true">
+                <af:goImageLink text="" id="gil1"
+                                icon="/images/Cloud-Download.png"
+                                destination="/documentDownload?ddoId=#{row.DdoId}"
+                                targetFrame="_blank"/>
+              </af:column>
+            </af:table>
+            <!--
+                <af:iterator id="i5"
+                             value="#{bindings.DocumentDownloadsListByDocumentCategory.collectionModel}"
+                             var="row">
+                  <af:panelGroupLayout id="pgl6" layout="vertical" halign="left"
+                                       valign="top">
+                    <af:panelGroupLayout id="pgl8" layout="horizontal"
+                                         inlineStyle="font-weight:bold;">
+                      <af:goLink text="#{row.Title}" id="gl2"
+                                 inlineStyle="font-weight:bold;"
+                                 targetFrame="_blank"
+                                 destination="/documentDownload?ddoId=#{row.DdoId}"/>
+                      <af:spacer width="10" height="10" id="s5"/>
+                      <af:outputText value="#{row.DataSize}" id="ot19"/>
+                      <af:outputText value="Byte" id="ot20"/>
+                      <af:spacer width="10" height="10" id="s10"/>
+                      <af:outputText value="(" id="ot15"/>
+                      <af:outputText value="#{perpsasnewsviewcontrollerBundle['tab.download.publicDate']}"
+                                     id="ot7"/>
+                      <af:spacer width="10" height="10" id="s8"/>
+                      <af:outputText value="#{row.PublicDate}" id="ot13"/>
+                      <af:outputText value=")" id="ot16"/>
+                      <af:spacer width="10" height="10" id="s6"/>
+                      <af:outputText value="-" id="ot17"/>
+                      <af:spacer width="10" height="10" id="s9"/>
+                      <af:outputText value="#{perpsasnewsviewcontrollerBundle['tab.download.downloadCount']}"
+                                     id="ot18"/>
+                      <af:spacer width="10" height="10" id="s11"/>
+                      <af:outputText value="#{row.DownloadCount}" id="ot14"/>
+                    </af:panelGroupLayout>
+                    <af:panelGroupLayout id="pgl7" layout="vertical"
+                                         inlineStyle="padding:3px;text-align:justify;">
+                      <af:outputText value="#{row.ShortContent}" id="ot12"
+                                     inlineStyle="text-align:justify;"/>
+                    </af:panelGroupLayout>
+                    <af:panelGroupLayout id="pgl29" layout="vertical"
+                                         halign="right">
+                      <af:panelGroupLayout id="pgl30" layout="horizontal">
+                        <af:commandImageLink id="commandImageLink2"
+                                             icon="/images/edit.png"
+                                             actionListener="#{documentDownload.editItemActionListener}">
+                          <f:attribute name="itemId" value="#{row.DdoId}"/>
+                        </af:commandImageLink>
+                        <af:spacer width="10" height="10" id="spacer2"/>
+                        <af:commandImageLink id="commandImageLink3"
+                                             icon="/images/delete.png"
+                                             actionListener="#{documentDownload.showConfirmDelItemActionListener}">
+                          <f:attribute name="itemId" value="#{row.DdoId}"/>
+                        </af:commandImageLink>
+                      </af:panelGroupLayout>
+                    </af:panelGroupLayout>
+                  </af:panelGroupLayout>
+                  <af:spacer width="10" height="10" id="s7"/>
+                </af:iterator>
+                -->
+          </af:panelBox>
+        </f:facet>
+      </af:panelSplitter>
+    </af:showDetailItem>
+    <af:showDetailItem id="online" stretchChildren="first"
+                       text="#{perpsasnewsviewcontrollerBundle['tab.onlineHelp']}">
+      <f:facet name="toolbar"/>
+      <af:panelBox id="panelBox7" showDisclosure="false" showHeader="always">
+        <f:facet name="toolbar">
+          <af:toolbar id="t2" rendered="#{sasnSessionLoginObject.sasnAdmin}">
+            <af:commandImageLink id="cil1" icon="/images/edit.png">
+              <af:showPopupBehavior popupId="onlineHelpPopup"/>
+            </af:commandImageLink>
+            <af:popup id="onlineHelpPopup" binding="#{onlineHelp.popup}">
+              <af:dialog id="d111" type="none" contentWidth="500"
+                         contentHeight="200">
+                <af:panelGroupLayout id="pgl19" layout="vertical" halign="left"
+                                     valign="top">
+                  <af:panelFormLayout id="pfl2">
+                    <af:selectOneChoice value="#{bindings.Name1.inputValue}"
+                                        label="#{bindings.Name1.label}"
+                                        required="#{bindings.Name1.hints.mandatory}"
+                                        shortDesc="#{bindings.Name1.hints.tooltip}"
+                                        id="soc3">
+                      <f:selectItems value="#{bindings.Name1.items}" id="si3"/>
+                    </af:selectOneChoice>
+                    <af:selectOneChoice value="#{bindings.Name.inputValue}"
+                                        label="#{bindings.Name.label}"
+                                        required="#{bindings.Name.hints.mandatory}"
+                                        shortDesc="#{bindings.Name.hints.tooltip}"
+                                        id="soc2">
+                      <f:selectItems value="#{bindings.Name.items}" id="si2"/>
+                    </af:selectOneChoice>
+                    <af:inputText value="#{bindings.NickName.inputValue}"
+                                  label="#{bindings.NickName.hints.label}"
+                                  required="#{bindings.NickName.hints.mandatory}"
+                                  columns="70"
+                                  maximumLength="#{bindings.NickName.hints.precision}"
+                                  shortDesc="#{bindings.NickName.hints.tooltip}"
+                                  id="it3">
+                      <f:validator binding="#{bindings.NickName.validator}"/>
+                    </af:inputText>
+                    <af:inputText value="#{bindings.Note.inputValue}"
+                                  label="#{bindings.Note.hints.label}"
+                                  required="#{bindings.Note.hints.mandatory}"
+                                  columns="70"
+                                  maximumLength="#{bindings.Note.hints.precision}"
+                                  shortDesc="#{bindings.Note.hints.tooltip}"
+                                  id="it9" rows="3">
+                      <f:validator binding="#{bindings.Note.validator}"/>
+                    </af:inputText>
+                    <af:inputText value="#{bindings.Status.inputValue}"
+                                  label="#{bindings.Status.hints.label}"
+                                  required="#{bindings.Status.hints.mandatory}"
+                                  columns="70"
+                                  maximumLength="#{bindings.Status.hints.precision}"
+                                  shortDesc="#{bindings.Status.hints.tooltip}"
+                                  id="it10">
+                      <f:validator binding="#{bindings.Status.validator}"/>
+                    </af:inputText>
+                    <f:facet name="footer">
+                      <af:panelGroupLayout layout="horizontal" id="pgl18">
+                        <af:commandButton actionListener="#{bindings.First.execute}"
+                                          text="First"
+                                          disabled="#{!bindings.First.enabled}"
+                                          partialSubmit="true" id="cb3"/>
+                        <af:commandButton actionListener="#{bindings.Previous.execute}"
+                                          text="Previous"
+                                          disabled="#{!bindings.Previous.enabled}"
+                                          partialSubmit="true" id="cb2"/>
+                        <af:commandButton actionListener="#{bindings.Next.execute}"
+                                          text="Next"
+                                          disabled="#{!bindings.Next.enabled}"
+                                          partialSubmit="true" id="cb4"/>
+                        <af:commandButton actionListener="#{bindings.Last.execute}"
+                                          text="Last"
+                                          disabled="#{!bindings.Last.enabled}"
+                                          partialSubmit="true" id="cb5"/>
+                      </af:panelGroupLayout>
+                    </f:facet>
+                  </af:panelFormLayout>
+                </af:panelGroupLayout>
+                <f:facet name="buttonBar">
+                  <af:group id="g22">
+                    <af:commandButton text="Create" id="cb6"
+                                      partialSubmit="true"
+                                      actionListener="#{bindings.Create.execute}"/>
+                    <af:commandButton text="Save" id="saveOnlineHelpBt"
+                                      partialSubmit="true"
+                                      actionListener="#{bindings.Commit.execute}"/>
+                    <af:commandButton text="Cancel/Close" id="cb8"
+                                      partialSubmit="true"
+                                      actionListener="#{bindings.Rollback.execute}"
+                                      immediate="true">
+                      <af:resetActionListener/>
+                    </af:commandButton>
+                  </af:group>
+                </f:facet>
+              </af:dialog>
+            </af:popup>
+          </af:toolbar>
+        </f:facet>
+        <af:panelGroupLayout id="pgl22" layout="scroll"
+                             partialTriggers="saveOnlineHelpBt">
+          <af:panelGroupLayout id="pgl23" layout="horizontal" halign="left"
+                               valign="top" inlineStyle="padding:10px;">
+            <af:iterator id="i7"
+                         value="#{bindings.Sasn11AnswerGroups.collectionModel}"
+                         var="row1">
+              <af:panelGroupLayout id="pgl25" layout="vertical"
+                                   inlineStyle="width:200.0px;">
+                <af:panelGroupLayout id="pgl24" layout="vertical">
+                  <af:outputText value="#{row1.Name}" id="ot2"
+                                 inlineStyle="font-size:larger;"/>
+                  <af:outputText value="#{row1.Description}" id="ot5"
+                                 inlineStyle="font-style:italic;"/>
+                </af:panelGroupLayout>
+                <af:panelGroupLayout id="pgl28" layout="vertical">
+                  <h:panelGrid columns="4" id="pg1" cellpadding="10"
+                               cellspacing="5" width="800" style="width:200px;">
+                    <af:iterator id="i8" value="#{row1.C01OnlineHelps}"
+                                 var="row2" rows="25">
+                      <af:panelGroupLayout id="pgl27"
+                                           inlineStyle="width:200px; height:200.0px;"
+                                           layout="vertical">
+                        <af:goLink id="gl1"
+                                   destination="ymsgr:sendim?#{row2.NickName}">
+                          <af:image source="http://opi.yahoo.com/online?u=#{row2.NickName}&amp;m=g&amp;t=14"
+                                    id="i9"/>
+                        </af:goLink>
+                        <af:panelGroupLayout id="pgl26" layout="horizontal"
+                                             inlineStyle="padding:3px;">
+                          <af:outputText value="Nick Name:" id="ot4"
+                                         inlineStyle="font-weight:bold;"/>
+                          <af:spacer width="10" height="10" id="s16"/>
+                          <af:outputText value="#{row2.NickName}" id="ot10"/>
+                        </af:panelGroupLayout>
+                      </af:panelGroupLayout>
+                    </af:iterator>
+                  </h:panelGrid>
+                </af:panelGroupLayout>
+              </af:panelGroupLayout>
+              <af:spacer width="10" height="10" id="s15"/>
+            </af:iterator>
+          </af:panelGroupLayout>
+        </af:panelGroupLayout>
+      </af:panelBox>
+    </af:showDetailItem>
+  </af:panelTabbed>
+</jsp:root>

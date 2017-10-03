@@ -1,0 +1,950 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE Entity SYSTEM "jbo_03_01.dtd">
+<!---->
+<Entity
+  xmlns="http://xmlns.oracle.com/bc4j"
+  Name="Suppliers"
+  Version="11.1.1.51.88"
+  DBObjectType="table"
+  DBObjectName="SUPPLIERS"
+  AliasName="Suppliers"
+  BindingStyle="OracleName"
+  UseGlueCode="false">
+  <DesignTime>
+    <Attr Name="_codeGenFlag2" Value="Access"/>
+    <AttrArray Name="_publishEvents"/>
+  </DesignTime>
+  <Attribute
+    Name="SupCode"
+    IsNotNull="true"
+    Precision="10"
+    ColumnName="SUP_CODE"
+    Type="java.lang.String"
+    ColumnType="VARCHAR2"
+    SQLType="VARCHAR"
+    TableName="SUPPLIERS"
+    PrimaryKey="true">
+    <DesignTime>
+      <Attr Name="_DisplaySize" Value="10"/>
+    </DesignTime>
+  </Attribute>
+  <Attribute
+    Name="FullName"
+    Precision="100"
+    ColumnName="FULL_NAME"
+    Type="java.lang.String"
+    ColumnType="VARCHAR2"
+    SQLType="VARCHAR"
+    TableName="SUPPLIERS">
+    <DesignTime>
+      <Attr Name="_DisplaySize" Value="100"/>
+    </DesignTime>
+  </Attribute>
+  <Attribute
+    Name="Name"
+    IsNotNull="true"
+    Precision="100"
+    ColumnName="NAME"
+    Type="java.lang.String"
+    ColumnType="VARCHAR2"
+    SQLType="VARCHAR"
+    TableName="SUPPLIERS">
+    <DesignTime>
+      <Attr Name="_DisplaySize" Value="100"/>
+    </DesignTime>
+  </Attribute>
+  <Attribute
+    Name="ShortName"
+    Precision="50"
+    ColumnName="SHORT_NAME"
+    Type="java.lang.String"
+    ColumnType="VARCHAR2"
+    SQLType="VARCHAR"
+    TableName="SUPPLIERS">
+    <DesignTime>
+      <Attr Name="_DisplaySize" Value="50"/>
+    </DesignTime>
+  </Attribute>
+  <Attribute
+    Name="InVietnam"
+    IsNotNull="true"
+    Precision="1"
+    ColumnName="IN_VIETNAM"
+    Type="java.lang.String"
+    ColumnType="VARCHAR2"
+    SQLType="VARCHAR"
+    TableName="SUPPLIERS">
+    <DesignTime>
+      <Attr Name="_DisplaySize" Value="1"/>
+    </DesignTime>
+  </Attribute>
+  <Attribute
+    Name="SupplierGroup"
+    IsNotNull="true"
+    Precision="1"
+    ColumnName="SUPPLIER_GROUP"
+    Type="java.lang.String"
+    ColumnType="VARCHAR2"
+    SQLType="VARCHAR"
+    TableName="SUPPLIERS">
+    <DesignTime>
+      <Attr Name="_DisplaySize" Value="1"/>
+    </DesignTime>
+  </Attribute>
+  <Attribute
+    Name="CompanyType"
+    Precision="1"
+    ColumnName="COMPANY_TYPE"
+    Type="java.lang.String"
+    ColumnType="VARCHAR2"
+    SQLType="VARCHAR"
+    TableName="SUPPLIERS">
+    <DesignTime>
+      <Attr Name="_DisplaySize" Value="1"/>
+    </DesignTime>
+  </Attribute>
+  <Attribute
+    Name="SupplierMajor"
+    Precision="15"
+    ColumnName="SUPPLIER_MAJOR"
+    Type="java.lang.String"
+    ColumnType="VARCHAR2"
+    SQLType="VARCHAR"
+    TableName="SUPPLIERS">
+    <DesignTime>
+      <Attr Name="_DisplaySize" Value="15"/>
+    </DesignTime>
+  </Attribute>
+  <Attribute
+    Name="SupplierType"
+    IsNotNull="true"
+    Precision="1"
+    ColumnName="SUPPLIER_TYPE"
+    Type="java.lang.String"
+    ColumnType="VARCHAR2"
+    SQLType="VARCHAR"
+    TableName="SUPPLIERS">
+    <DesignTime>
+      <Attr Name="_DisplaySize" Value="1"/>
+    </DesignTime>
+  </Attribute>
+  <Attribute
+    Name="EstablishedDate"
+    ColumnName="ESTABLISHED_DATE"
+    Type="oracle.jbo.domain.Date"
+    ColumnType="DATE"
+    SQLType="TIMESTAMP"
+    TableName="SUPPLIERS">
+    <DesignTime>
+      <Attr Name="_DisplaySize" Value="7"/>
+    </DesignTime>
+  </Attribute>
+  <Attribute
+    Name="TaxId"
+    Precision="16"
+    ColumnName="TAX_ID"
+    Type="java.lang.String"
+    ColumnType="VARCHAR2"
+    SQLType="VARCHAR"
+    TableName="SUPPLIERS">
+    <DesignTime>
+      <Attr Name="_DisplaySize" Value="16"/>
+    </DesignTime>
+  </Attribute>
+  <Attribute
+    Name="PteId"
+    Precision="20"
+    ColumnName="PTE_ID"
+    Type="java.lang.String"
+    ColumnType="VARCHAR2"
+    SQLType="VARCHAR"
+    TableName="SUPPLIERS">
+    <DesignTime>
+      <Attr Name="_DisplaySize" Value="20"/>
+    </DesignTime>
+  </Attribute>
+  <Attribute
+    Name="EmpId"
+    Precision="20"
+    ColumnName="EMP_ID"
+    Type="java.lang.String"
+    ColumnType="VARCHAR2"
+    SQLType="VARCHAR"
+    TableName="SUPPLIERS">
+    <DesignTime>
+      <Attr Name="_DisplaySize" Value="20"/>
+    </DesignTime>
+  </Attribute>
+  <Attribute
+    Name="Address"
+    Precision="100"
+    ColumnName="ADDRESS"
+    Type="java.lang.String"
+    ColumnType="VARCHAR2"
+    SQLType="VARCHAR"
+    TableName="SUPPLIERS">
+    <DesignTime>
+      <Attr Name="_DisplaySize" Value="100"/>
+    </DesignTime>
+  </Attribute>
+  <Attribute
+    Name="City"
+    Precision="50"
+    ColumnName="CITY"
+    Type="java.lang.String"
+    ColumnType="VARCHAR2"
+    SQLType="VARCHAR"
+    TableName="SUPPLIERS">
+    <DesignTime>
+      <Attr Name="_DisplaySize" Value="50"/>
+    </DesignTime>
+  </Attribute>
+  <Attribute
+    Name="Province"
+    Precision="50"
+    ColumnName="PROVINCE"
+    Type="java.lang.String"
+    ColumnType="VARCHAR2"
+    SQLType="VARCHAR"
+    TableName="SUPPLIERS">
+    <DesignTime>
+      <Attr Name="_DisplaySize" Value="50"/>
+    </DesignTime>
+  </Attribute>
+  <Attribute
+    Name="AddressCode"
+    Precision="50"
+    ColumnName="ADDRESS_CODE"
+    Type="java.lang.String"
+    ColumnType="VARCHAR2"
+    SQLType="VARCHAR"
+    TableName="SUPPLIERS">
+    <DesignTime>
+      <Attr Name="_DisplaySize" Value="50"/>
+    </DesignTime>
+  </Attribute>
+  <Attribute
+    Name="Country"
+    Precision="50"
+    ColumnName="COUNTRY"
+    Type="java.lang.String"
+    ColumnType="VARCHAR2"
+    SQLType="VARCHAR"
+    TableName="SUPPLIERS">
+    <DesignTime>
+      <Attr Name="_DisplaySize" Value="50"/>
+    </DesignTime>
+  </Attribute>
+  <Attribute
+    Name="Telephone"
+    Precision="20"
+    ColumnName="TELEPHONE"
+    Type="java.lang.String"
+    ColumnType="VARCHAR2"
+    SQLType="VARCHAR"
+    TableName="SUPPLIERS">
+    <DesignTime>
+      <Attr Name="_DisplaySize" Value="20"/>
+    </DesignTime>
+  </Attribute>
+  <Attribute
+    Name="Fax"
+    Precision="20"
+    ColumnName="FAX"
+    Type="java.lang.String"
+    ColumnType="VARCHAR2"
+    SQLType="VARCHAR"
+    TableName="SUPPLIERS">
+    <DesignTime>
+      <Attr Name="_DisplaySize" Value="20"/>
+    </DesignTime>
+  </Attribute>
+  <Attribute
+    Name="Email"
+    Precision="50"
+    ColumnName="EMAIL"
+    Type="java.lang.String"
+    ColumnType="VARCHAR2"
+    SQLType="VARCHAR"
+    TableName="SUPPLIERS">
+    <DesignTime>
+      <Attr Name="_DisplaySize" Value="50"/>
+    </DesignTime>
+  </Attribute>
+  <Attribute
+    Name="Web"
+    Precision="100"
+    ColumnName="WEB"
+    Type="java.lang.String"
+    ColumnType="VARCHAR2"
+    SQLType="VARCHAR"
+    TableName="SUPPLIERS">
+    <DesignTime>
+      <Attr Name="_DisplaySize" Value="100"/>
+    </DesignTime>
+  </Attribute>
+  <Attribute
+    Name="Class1"
+    Precision="10"
+    ColumnName="CLASS"
+    Type="java.lang.String"
+    ColumnType="VARCHAR2"
+    SQLType="VARCHAR"
+    TableName="SUPPLIERS">
+    <DesignTime>
+      <Attr Name="_DisplaySize" Value="10"/>
+    </DesignTime>
+  </Attribute>
+  <Attribute
+    Name="BusinessArea"
+    Precision="300"
+    ColumnName="BUSINESS_AREA"
+    Type="java.lang.String"
+    ColumnType="VARCHAR2"
+    SQLType="VARCHAR"
+    TableName="SUPPLIERS">
+    <DesignTime>
+      <Attr Name="_DisplaySize" Value="300"/>
+    </DesignTime>
+  </Attribute>
+  <Attribute
+    Name="BusinessMajor"
+    Precision="200"
+    ColumnName="BUSINESS_MAJOR"
+    Type="java.lang.String"
+    ColumnType="VARCHAR2"
+    SQLType="VARCHAR"
+    TableName="SUPPLIERS">
+    <DesignTime>
+      <Attr Name="_DisplaySize" Value="200"/>
+    </DesignTime>
+  </Attribute>
+  <Attribute
+    Name="CurCode"
+    Precision="3"
+    ColumnName="CUR_CODE"
+    Type="java.lang.String"
+    ColumnType="VARCHAR2"
+    SQLType="VARCHAR"
+    TableName="SUPPLIERS">
+    <DesignTime>
+      <Attr Name="_DisplaySize" Value="3"/>
+    </DesignTime>
+  </Attribute>
+  <Attribute
+    Name="DfltReceivingAddress"
+    Precision="100"
+    ColumnName="DFLT_RECEIVING_ADDRESS"
+    Type="java.lang.String"
+    ColumnType="VARCHAR2"
+    SQLType="VARCHAR"
+    TableName="SUPPLIERS">
+    <DesignTime>
+      <Attr Name="_DisplaySize" Value="100"/>
+    </DesignTime>
+  </Attribute>
+  <Attribute
+    Name="DfltReceivingMethod"
+    Precision="1"
+    ColumnName="DFLT_RECEIVING_METHOD"
+    Type="java.lang.String"
+    ColumnType="VARCHAR2"
+    SQLType="VARCHAR"
+    TableName="SUPPLIERS">
+    <DesignTime>
+      <Attr Name="_DisplaySize" Value="1"/>
+    </DesignTime>
+  </Attribute>
+  <Attribute
+    Name="Representer"
+    Precision="30"
+    ColumnName="REPRESENTER"
+    Type="java.lang.String"
+    ColumnType="VARCHAR2"
+    SQLType="VARCHAR"
+    TableName="SUPPLIERS">
+    <DesignTime>
+      <Attr Name="_DisplaySize" Value="30"/>
+    </DesignTime>
+  </Attribute>
+  <Attribute
+    Name="BusinessLicenseId"
+    Precision="30"
+    ColumnName="BUSINESS_LICENSE_ID"
+    Type="java.lang.String"
+    ColumnType="VARCHAR2"
+    SQLType="VARCHAR"
+    TableName="SUPPLIERS">
+    <DesignTime>
+      <Attr Name="_DisplaySize" Value="30"/>
+    </DesignTime>
+  </Attribute>
+  <Attribute
+    Name="ExpiryDate"
+    ColumnName="EXPIRY_DATE"
+    Type="oracle.jbo.domain.Date"
+    ColumnType="DATE"
+    SQLType="TIMESTAMP"
+    TableName="SUPPLIERS">
+    <DesignTime>
+      <Attr Name="_DisplaySize" Value="7"/>
+    </DesignTime>
+  </Attribute>
+  <Attribute
+    Name="Prolong"
+    Precision="1"
+    ColumnName="PROLONG"
+    Type="java.lang.String"
+    ColumnType="VARCHAR2"
+    SQLType="VARCHAR"
+    TableName="SUPPLIERS">
+    <DesignTime>
+      <Attr Name="_DisplaySize" Value="1"/>
+    </DesignTime>
+  </Attribute>
+  <Attribute
+    Name="Bank"
+    Precision="100"
+    ColumnName="BANK"
+    Type="java.lang.String"
+    ColumnType="VARCHAR2"
+    SQLType="VARCHAR"
+    TableName="SUPPLIERS">
+    <DesignTime>
+      <Attr Name="_DisplaySize" Value="100"/>
+    </DesignTime>
+  </Attribute>
+  <Attribute
+    Name="BankAccount"
+    Precision="30"
+    ColumnName="BANK_ACCOUNT"
+    Type="java.lang.String"
+    ColumnType="VARCHAR2"
+    SQLType="VARCHAR"
+    TableName="SUPPLIERS">
+    <DesignTime>
+      <Attr Name="_DisplaySize" Value="30"/>
+    </DesignTime>
+  </Attribute>
+  <Attribute
+    Name="Notes"
+    Precision="150"
+    ColumnName="NOTES"
+    Type="java.lang.String"
+    ColumnType="VARCHAR2"
+    SQLType="VARCHAR"
+    TableName="SUPPLIERS">
+    <DesignTime>
+      <Attr Name="_DisplaySize" Value="150"/>
+    </DesignTime>
+  </Attribute>
+  <Attribute
+    Name="Authorizer"
+    Precision="30"
+    ColumnName="AUTHORIZER"
+    Type="java.lang.String"
+    ColumnType="VARCHAR2"
+    SQLType="VARCHAR"
+    TableName="SUPPLIERS">
+    <DesignTime>
+      <Attr Name="_DisplaySize" Value="30"/>
+    </DesignTime>
+  </Attribute>
+  <Attribute
+    Name="SupAuthorization"
+    Precision="30"
+    ColumnName="SUP_AUTHORIZATION"
+    Type="java.lang.String"
+    ColumnType="VARCHAR2"
+    SQLType="VARCHAR"
+    TableName="SUPPLIERS">
+    <DesignTime>
+      <Attr Name="_DisplaySize" Value="30"/>
+    </DesignTime>
+  </Attribute>
+  <Attribute
+    Name="AuthorizationDate"
+    ColumnName="AUTHORIZATION_DATE"
+    Type="oracle.jbo.domain.Date"
+    ColumnType="DATE"
+    SQLType="TIMESTAMP"
+    TableName="SUPPLIERS">
+    <DesignTime>
+      <Attr Name="_DisplaySize" Value="7"/>
+    </DesignTime>
+  </Attribute>
+  <Attribute
+    Name="AuthorizationLocation"
+    Precision="100"
+    ColumnName="AUTHORIZATION_LOCATION"
+    Type="java.lang.String"
+    ColumnType="VARCHAR2"
+    SQLType="VARCHAR"
+    TableName="SUPPLIERS">
+    <DesignTime>
+      <Attr Name="_DisplaySize" Value="100"/>
+    </DesignTime>
+  </Attribute>
+  <Attribute
+    Name="AuthorizationNotarized"
+    Precision="1"
+    ColumnName="AUTHORIZATION_NOTARIZED"
+    Type="java.lang.String"
+    ColumnType="VARCHAR2"
+    SQLType="VARCHAR"
+    TableName="SUPPLIERS">
+    <DesignTime>
+      <Attr Name="_DisplaySize" Value="1"/>
+    </DesignTime>
+  </Attribute>
+  <Attribute
+    Name="CreateDate"
+    IsNotNull="true"
+    ColumnName="CREATE_DATE"
+    Type="oracle.jbo.domain.Date"
+    ColumnType="DATE"
+    SQLType="TIMESTAMP"
+    TableName="SUPPLIERS">
+    <DesignTime>
+      <Attr Name="_DisplaySize" Value="7"/>
+    </DesignTime>
+  </Attribute>
+  <Attribute
+    Name="CreatedBy"
+    IsNotNull="true"
+    Precision="30"
+    ColumnName="CREATED_BY"
+    Type="java.lang.String"
+    ColumnType="VARCHAR2"
+    SQLType="VARCHAR"
+    TableName="SUPPLIERS">
+    <DesignTime>
+      <Attr Name="_DisplaySize" Value="30"/>
+    </DesignTime>
+  </Attribute>
+  <Attribute
+    Name="ModifiedBy"
+    Precision="30"
+    ColumnName="MODIFIED_BY"
+    Type="java.lang.String"
+    ColumnType="VARCHAR2"
+    SQLType="VARCHAR"
+    TableName="SUPPLIERS">
+    <DesignTime>
+      <Attr Name="_DisplaySize" Value="30"/>
+    </DesignTime>
+  </Attribute>
+  <Attribute
+    Name="ModifyDate"
+    ColumnName="MODIFY_DATE"
+    Type="oracle.jbo.domain.Date"
+    ColumnType="DATE"
+    SQLType="TIMESTAMP"
+    TableName="SUPPLIERS">
+    <DesignTime>
+      <Attr Name="_DisplaySize" Value="7"/>
+    </DesignTime>
+  </Attribute>
+  <Attribute
+    Name="BusinessLicenseIssuer"
+    Precision="50"
+    ColumnName="BUSINESS_LICENSE_ISSUER"
+    Type="java.lang.String"
+    ColumnType="VARCHAR2"
+    SQLType="VARCHAR"
+    TableName="SUPPLIERS">
+    <DesignTime>
+      <Attr Name="_DisplaySize" Value="50"/>
+    </DesignTime>
+  </Attribute>
+  <Attribute
+    Name="AcoIdDebit"
+    Precision="10"
+    ColumnName="ACO_ID_DEBIT"
+    Type="java.lang.String"
+    ColumnType="VARCHAR2"
+    SQLType="VARCHAR"
+    TableName="SUPPLIERS">
+    <DesignTime>
+      <Attr Name="_DisplaySize" Value="10"/>
+    </DesignTime>
+  </Attribute>
+  <Attribute
+    Name="AcoIdDeposite"
+    Precision="10"
+    ColumnName="ACO_ID_DEPOSITE"
+    Type="java.lang.String"
+    ColumnType="VARCHAR2"
+    SQLType="VARCHAR"
+    TableName="SUPPLIERS">
+    <DesignTime>
+      <Attr Name="_DisplaySize" Value="10"/>
+    </DesignTime>
+  </Attribute>
+  <Attribute
+    Name="Status"
+    Precision="1"
+    ColumnName="STATUS"
+    Type="java.lang.String"
+    ColumnType="VARCHAR2"
+    SQLType="VARCHAR"
+    TableName="SUPPLIERS">
+    <DesignTime>
+      <Attr Name="_DisplaySize" Value="1"/>
+    </DesignTime>
+  </Attribute>
+  <Attribute
+    Name="Onetime"
+    Precision="1"
+    ColumnName="ONETIME"
+    Type="java.lang.String"
+    ColumnType="VARCHAR2"
+    SQLType="VARCHAR"
+    TableName="SUPPLIERS">
+    <DesignTime>
+      <Attr Name="_DisplaySize" Value="1"/>
+    </DesignTime>
+  </Attribute>
+  <Attribute
+    Name="Attribute1"
+    Precision="240"
+    ColumnName="ATTRIBUTE1"
+    Type="java.lang.String"
+    ColumnType="VARCHAR2"
+    SQLType="VARCHAR"
+    TableName="SUPPLIERS">
+    <DesignTime>
+      <Attr Name="_DisplaySize" Value="240"/>
+    </DesignTime>
+  </Attribute>
+  <Attribute
+    Name="Attribute2"
+    Precision="240"
+    ColumnName="ATTRIBUTE2"
+    Type="java.lang.String"
+    ColumnType="VARCHAR2"
+    SQLType="VARCHAR"
+    TableName="SUPPLIERS">
+    <DesignTime>
+      <Attr Name="_DisplaySize" Value="240"/>
+    </DesignTime>
+  </Attribute>
+  <Attribute
+    Name="Attribute3"
+    Precision="240"
+    ColumnName="ATTRIBUTE3"
+    Type="java.lang.String"
+    ColumnType="VARCHAR2"
+    SQLType="VARCHAR"
+    TableName="SUPPLIERS">
+    <DesignTime>
+      <Attr Name="_DisplaySize" Value="240"/>
+    </DesignTime>
+  </Attribute>
+  <Attribute
+    Name="Attribute4"
+    Precision="240"
+    ColumnName="ATTRIBUTE4"
+    Type="java.lang.String"
+    ColumnType="VARCHAR2"
+    SQLType="VARCHAR"
+    TableName="SUPPLIERS">
+    <DesignTime>
+      <Attr Name="_DisplaySize" Value="240"/>
+    </DesignTime>
+  </Attribute>
+  <Attribute
+    Name="Attribute5"
+    Precision="240"
+    ColumnName="ATTRIBUTE5"
+    Type="java.lang.String"
+    ColumnType="VARCHAR2"
+    SQLType="VARCHAR"
+    TableName="SUPPLIERS">
+    <DesignTime>
+      <Attr Name="_DisplaySize" Value="240"/>
+    </DesignTime>
+  </Attribute>
+  <Attribute
+    Name="Attribute6"
+    Precision="240"
+    ColumnName="ATTRIBUTE6"
+    Type="java.lang.String"
+    ColumnType="VARCHAR2"
+    SQLType="VARCHAR"
+    TableName="SUPPLIERS">
+    <DesignTime>
+      <Attr Name="_DisplaySize" Value="240"/>
+    </DesignTime>
+  </Attribute>
+  <Attribute
+    Name="Attribute7"
+    Precision="240"
+    ColumnName="ATTRIBUTE7"
+    Type="java.lang.String"
+    ColumnType="VARCHAR2"
+    SQLType="VARCHAR"
+    TableName="SUPPLIERS">
+    <DesignTime>
+      <Attr Name="_DisplaySize" Value="240"/>
+    </DesignTime>
+  </Attribute>
+  <Attribute
+    Name="Attribute8"
+    Precision="240"
+    ColumnName="ATTRIBUTE8"
+    Type="java.lang.String"
+    ColumnType="VARCHAR2"
+    SQLType="VARCHAR"
+    TableName="SUPPLIERS">
+    <DesignTime>
+      <Attr Name="_DisplaySize" Value="240"/>
+    </DesignTime>
+  </Attribute>
+  <Attribute
+    Name="Attribute9"
+    Precision="240"
+    ColumnName="ATTRIBUTE9"
+    Type="java.lang.String"
+    ColumnType="VARCHAR2"
+    SQLType="VARCHAR"
+    TableName="SUPPLIERS">
+    <DesignTime>
+      <Attr Name="_DisplaySize" Value="240"/>
+    </DesignTime>
+  </Attribute>
+  <Attribute
+    Name="Attribute10"
+    Precision="240"
+    ColumnName="ATTRIBUTE10"
+    Type="java.lang.String"
+    ColumnType="VARCHAR2"
+    SQLType="VARCHAR"
+    TableName="SUPPLIERS">
+    <DesignTime>
+      <Attr Name="_DisplaySize" Value="240"/>
+    </DesignTime>
+  </Attribute>
+  <Attribute
+    Name="OunId"
+    Precision="15"
+    Scale="0"
+    ColumnName="OUN_ID"
+    Type="oracle.jbo.domain.Number"
+    ColumnType="NUMBER"
+    SQLType="NUMERIC"
+    TableName="SUPPLIERS">
+    <DesignTime>
+      <Attr Name="_DisplaySize" Value="22"/>
+    </DesignTime>
+  </Attribute>
+  <AccessorAttribute
+    Name="Customers"
+    Association="com.perp.sasmodel.entities.CusSupFkAssoc"
+    AssociationEnd="com.perp.sasmodel.entities.CusSupFkAssoc.Customers"
+    AssociationOtherEnd="com.perp.sasmodel.entities.CusSupFkAssoc.Suppliers"
+    Type="oracle.jbo.RowIterator"
+    IsUpdateable="false"/>
+  <AccessorAttribute
+    Name="Employees"
+    Association="com.perp.sasmodel.entities.SupEmpFkAssoc"
+    AssociationEnd="com.perp.sasmodel.entities.SupEmpFkAssoc.Employees"
+    AssociationOtherEnd="com.perp.sasmodel.entities.SupEmpFkAssoc.Suppliers"
+    Type="oracle.jbo.server.EntityImpl"
+    IsUpdateable="true"/>
+  <AccessorAttribute
+    Name="OrganizationUnits"
+    Association="com.perp.sasmodel.entities.SupOunFkAssoc"
+    AssociationEnd="com.perp.sasmodel.entities.SupOunFkAssoc.OrganizationUnits"
+    AssociationOtherEnd="com.perp.sasmodel.entities.SupOunFkAssoc.Suppliers"
+    Type="oracle.jbo.server.EntityImpl"
+    IsUpdateable="true"/>
+  <Key
+    Name="Avcon351188Autho000">
+    <DesignTime>
+      <Attr Name="_DBObjectName" Value="AVCON_351188_AUTHO_000"/>
+      <Attr Name="_checkCondition"
+        Value="AUTHORIZATION_NOTARIZED IN ('Y', 'N')"/>
+      <Attr Name="_isCheck" Value="true"/>
+    </DesignTime>
+    <AttrArray Name="Attributes">
+      <Item
+        Value="com.perp.sasmodel.entities.Suppliers.AuthorizationNotarized"/>
+    </AttrArray>
+  </Key>
+  <Key
+    Name="Avcon351188InVi000">
+    <DesignTime>
+      <Attr Name="_DBObjectName" Value="AVCON_351188_IN_VI_000"/>
+      <Attr Name="_checkCondition" Value="IN_VIETNAM IN ('Y', 'N')"/>
+      <Attr Name="_isCheck" Value="true"/>
+    </DesignTime>
+    <AttrArray Name="Attributes">
+      <Item Value="com.perp.sasmodel.entities.Suppliers.InVietnam"/>
+    </AttrArray>
+  </Key>
+  <Key
+    Name="SupPk"
+    PrimaryKey="true">
+    <DesignTime>
+      <Attr Name="_DBObjectName" Value="SUP_PK"/>
+    </DesignTime>
+    <AttrArray Name="Attributes">
+      <Item Value="com.perp.sasmodel.entities.Suppliers.SupCode"/>
+    </AttrArray>
+  </Key>
+  <Key
+    Name="SupStatusChk">
+    <DesignTime>
+      <Attr Name="_DBObjectName" Value="SUP_STATUS_CHK"/>
+      <Attr Name="_checkCondition" Value="status in ('Y','N')"/>
+      <Attr Name="_isCheck" Value="true"/>
+    </DesignTime>
+    <AttrArray Name="Attributes">
+      <Item Value="com.perp.sasmodel.entities.Suppliers.Status"/>
+    </AttrArray>
+  </Key>
+  <Key
+    Name="SysC0037494">
+    <DesignTime>
+      <Attr Name="_DBObjectName" Value="SYS_C0037494"/>
+      <Attr Name="_checkCondition" Value='"SUP_CODE" IS NOT NULL'/>
+      <Attr Name="_isCheck" Value="true"/>
+    </DesignTime>
+    <AttrArray Name="Attributes">
+      <Item Value="com.perp.sasmodel.entities.Suppliers.SupCode"/>
+    </AttrArray>
+  </Key>
+  <Key
+    Name="SysC0037495">
+    <DesignTime>
+      <Attr Name="_DBObjectName" Value="SYS_C0037495"/>
+      <Attr Name="_checkCondition" Value='"NAME" IS NOT NULL'/>
+      <Attr Name="_isCheck" Value="true"/>
+    </DesignTime>
+    <AttrArray Name="Attributes">
+      <Item Value="com.perp.sasmodel.entities.Suppliers.Name"/>
+    </AttrArray>
+  </Key>
+  <Key
+    Name="SysC0037496">
+    <DesignTime>
+      <Attr Name="_DBObjectName" Value="SYS_C0037496"/>
+      <Attr Name="_checkCondition" Value='"IN_VIETNAM" IS NOT NULL'/>
+      <Attr Name="_isCheck" Value="true"/>
+    </DesignTime>
+    <AttrArray Name="Attributes">
+      <Item Value="com.perp.sasmodel.entities.Suppliers.InVietnam"/>
+    </AttrArray>
+  </Key>
+  <Key
+    Name="SysC0037497">
+    <DesignTime>
+      <Attr Name="_DBObjectName" Value="SYS_C0037497"/>
+      <Attr Name="_checkCondition" Value='"SUPPLIER_GROUP" IS NOT NULL'/>
+      <Attr Name="_isCheck" Value="true"/>
+    </DesignTime>
+    <AttrArray Name="Attributes">
+      <Item Value="com.perp.sasmodel.entities.Suppliers.SupplierGroup"/>
+    </AttrArray>
+  </Key>
+  <Key
+    Name="SysC0037498">
+    <DesignTime>
+      <Attr Name="_DBObjectName" Value="SYS_C0037498"/>
+      <Attr Name="_checkCondition" Value='"SUPPLIER_TYPE" IS NOT NULL'/>
+      <Attr Name="_isCheck" Value="true"/>
+    </DesignTime>
+    <AttrArray Name="Attributes">
+      <Item Value="com.perp.sasmodel.entities.Suppliers.SupplierType"/>
+    </AttrArray>
+  </Key>
+  <Key
+    Name="SysC0037499">
+    <DesignTime>
+      <Attr Name="_DBObjectName" Value="SYS_C0037499"/>
+      <Attr Name="_checkCondition" Value='"CREATE_DATE" IS NOT NULL'/>
+      <Attr Name="_isCheck" Value="true"/>
+    </DesignTime>
+    <AttrArray Name="Attributes">
+      <Item Value="com.perp.sasmodel.entities.Suppliers.CreateDate"/>
+    </AttrArray>
+  </Key>
+  <Key
+    Name="SysC0037500">
+    <DesignTime>
+      <Attr Name="_DBObjectName" Value="SYS_C0037500"/>
+      <Attr Name="_checkCondition" Value='"CREATED_BY" IS NOT NULL'/>
+      <Attr Name="_isCheck" Value="true"/>
+    </DesignTime>
+    <AttrArray Name="Attributes">
+      <Item Value="com.perp.sasmodel.entities.Suppliers.CreatedBy"/>
+    </AttrArray>
+  </Key>
+  <Key
+    Name="SupAcoDebitFk">
+    <DesignTime>
+      <Attr Name="_referencedKey" Value="ACO_PK"/>
+      <Attr Name="_isForeign" Value="true"/>
+      <Attr Name="_DBObjectName" Value="SUP_ACO_DEBIT_FK"/>
+    </DesignTime>
+    <AttrArray Name="Attributes">
+      <Item Value="com.perp.sasmodel.entities.Suppliers.AcoIdDebit"/>
+    </AttrArray>
+  </Key>
+  <Key
+    Name="SupAcoDepositeFk">
+    <DesignTime>
+      <Attr Name="_referencedKey" Value="ACO_PK"/>
+      <Attr Name="_isForeign" Value="true"/>
+      <Attr Name="_DBObjectName" Value="SUP_ACO_DEPOSITE_FK"/>
+    </DesignTime>
+    <AttrArray Name="Attributes">
+      <Item Value="com.perp.sasmodel.entities.Suppliers.AcoIdDeposite"/>
+    </AttrArray>
+  </Key>
+  <Key
+    Name="SupCurFk">
+    <DesignTime>
+      <Attr Name="_referencedKey" Value="CUR_PK"/>
+      <Attr Name="_isForeign" Value="true"/>
+      <Attr Name="_DBObjectName" Value="SUP_CUR_FK"/>
+    </DesignTime>
+    <AttrArray Name="Attributes">
+      <Item Value="com.perp.sasmodel.entities.Suppliers.CurCode"/>
+    </AttrArray>
+  </Key>
+  <Key
+    Name="SupEmpFk">
+    <DesignTime>
+      <Attr Name="_referencedKey" Value="EMP_PK"/>
+      <Attr Name="_isForeign" Value="true"/>
+      <Attr Name="_DBObjectName" Value="SUP_EMP_FK"/>
+    </DesignTime>
+    <AttrArray Name="Attributes">
+      <Item Value="com.perp.sasmodel.entities.Suppliers.EmpId"/>
+    </AttrArray>
+  </Key>
+  <Key
+    Name="SupOunFk">
+    <DesignTime>
+      <Attr Name="_referencedKey" Value="OUN_PK"/>
+      <Attr Name="_isForeign" Value="true"/>
+      <Attr Name="_DBObjectName" Value="SUP_OUN_FK"/>
+    </DesignTime>
+    <AttrArray Name="Attributes">
+      <Item Value="com.perp.sasmodel.entities.Suppliers.OunId"/>
+    </AttrArray>
+  </Key>
+  <Key
+    Name="SupPteFk">
+    <DesignTime>
+      <Attr Name="_referencedKey" Value="PTE_PK"/>
+      <Attr Name="_isForeign" Value="true"/>
+      <Attr Name="_DBObjectName" Value="SUP_PTE_FK"/>
+    </DesignTime>
+    <AttrArray Name="Attributes">
+      <Item Value="com.perp.sasmodel.entities.Suppliers.PteId"/>
+    </AttrArray>
+  </Key>
+</Entity>

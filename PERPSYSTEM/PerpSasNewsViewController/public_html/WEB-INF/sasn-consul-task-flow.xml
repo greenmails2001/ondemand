@@ -1,0 +1,40 @@
+<?xml version="1.0" encoding="windows-1252" ?>
+<adfc-config xmlns="http://xmlns.oracle.com/adf/controller" version="1.2">
+  <task-flow-definition id="sasn-consul-task-flow">
+    <default-activity id="__1">gate</default-activity>
+    <managed-bean id="__16">
+      <managed-bean-name id="__14">guestQuestion</managed-bean-name>
+      <managed-bean-class id="__17">pages.consul.GuestQuestion</managed-bean-class>
+      <managed-bean-scope id="__15">request</managed-bean-scope>
+    </managed-bean>
+    <router id="gate">
+      <case>
+        <expression>#{consulTaskFlowBean.taskFlow== 'consult'}</expression>
+        <outcome id="__10">consult</outcome>
+      </case>
+      <case>
+        <expression>#{consulTaskFlowBean.taskFlow== 'question'}</expression>
+        <outcome id="__13">question</outcome>
+      </case>
+      <default-outcome>consul</default-outcome>
+    </router>
+    <view id="consul">
+      <page>/pages/consul/consulFrag/consul.jsff</page>
+    </view>
+    <view id="question">
+      <page>/pages/consul/consulFrag/question.jsff</page>
+    </view>
+    <control-flow-rule id="__2">
+      <from-activity-id id="__3">gate</from-activity-id>
+      <control-flow-case id="__4">
+        <from-outcome id="__6">consult</from-outcome>
+        <to-activity-id id="__5">consul</to-activity-id>
+      </control-flow-case>
+      <control-flow-case id="__8">
+        <from-outcome id="__9">question</from-outcome>
+        <to-activity-id id="__7">question</to-activity-id>
+      </control-flow-case>
+    </control-flow-rule>
+    <use-page-fragments/>
+  </task-flow-definition>
+</adfc-config>

@@ -1,0 +1,97 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE ViewObject SYSTEM "jbo_03_01.dtd">
+<!---->
+<ViewObject
+  xmlns="http://xmlns.oracle.com/bc4j"
+  Name="SasUserRoles"
+  Version="11.1.1.56.60"
+  BindingStyle="OracleName"
+  CustomQuery="true"
+  RowClass="com.perp.sasmodel.views.sas.SasUserRolesRowImpl"
+  PageIterMode="Full"
+  UseGlueCode="false">
+  <DesignTime>
+    <Attr Name="_codeGenFlag2" Value="Access"/>
+    <Attr Name="_isExpertMode" Value="true"/>
+    <Attr Name="_isCodegen" Value="true"/>
+  </DesignTime>
+  <Variable
+    Name="p_Aus_Id"
+    Kind="where"
+    Type="java.lang.Long"/>
+  <Variable
+    Name="p_App_Code"
+    Kind="where"
+    Type="java.lang.String"/>
+  <SQLQuery>
+    <![CDATA[Select Uro.Gus_Id
+      ,Uro.Aus_Id
+      ,Gus.Name
+      ,Gus.Description
+      ,Gus.App_Code
+From   User_Roles  Uro
+      ,Group_Users Gus
+Where  Uro.Gus_Id = Gus.Gus_Id
+and Uro.Aus_Id = :p_Aus_Id
+and Gus.App_Code = :p_App_Code]]>
+  </SQLQuery>
+  <EntityUsage
+    Name="UserRoles"
+    Entity="com.perp.sasmodel.entities.UserRoles"/>
+  <ViewAttribute
+    Name="GusId"
+    IsNotNull="true"
+    PrecisionRule="true"
+    EntityAttrName="GusId"
+    EntityUsage="UserRoles"
+    AliasName="GUS_ID"/>
+  <ViewAttribute
+    Name="AusId"
+    IsNotNull="true"
+    PrecisionRule="true"
+    EntityAttrName="AusId"
+    EntityUsage="UserRoles"
+    AliasName="AUS_ID"/>
+  <ViewAttribute
+    Name="Name"
+    IsUpdateable="false"
+    IsPersistent="false"
+    IsNotNull="true"
+    PrecisionRule="true"
+    Precision="100"
+    Type="java.lang.String"
+    ColumnType="VARCHAR2"
+    AliasName="NAME"
+    Expression="NAME"
+    SQLType="VARCHAR">
+    <DesignTime>
+      <Attr Name="_DisplaySize" Value="100"/>
+    </DesignTime>
+  </ViewAttribute>
+  <ViewAttribute
+    Name="Description"
+    PrecisionRule="true"
+    EntityAttrName="Description"
+    EntityUsage="UserRoles"
+    AliasName="DESCRIPTION"/>
+  <ViewAttribute
+    Name="AppCode"
+    IsUpdateable="false"
+    IsPersistent="false"
+    PrecisionRule="true"
+    Precision="30"
+    Type="java.lang.String"
+    ColumnType="VARCHAR2"
+    AliasName="APP_CODE"
+    Expression="APP_CODE"
+    SQLType="VARCHAR">
+    <DesignTime>
+      <Attr Name="_DisplaySize" Value="30"/>
+    </DesignTime>
+  </ViewAttribute>
+  <ViewLinkAccessor
+    Name="SasMenusRoot"
+    ViewLink="com.perp.sasmodel.views.sas.SasMenusRoot_SasUserRoles"
+    Type="oracle.jbo.RowIterator"
+    IsUpdateable="false"/>
+</ViewObject>

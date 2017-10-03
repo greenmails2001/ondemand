@@ -1,0 +1,38 @@
+<?xml version="1.0" encoding="windows-1252" ?>
+<!DOCTYPE ViewLink SYSTEM "jbo_03_01.dtd">
+<!---->
+<ViewLink
+  xmlns="http://xmlns.oracle.com/bc4j"
+  Name="Gro_Cce"
+  Version="11.1.1.56.60"
+  EntityAssociation="com.perp.sasmodel.entities.GroCceFkAssoc">
+  <DesignTime>
+    <Attr Name="_isCodegen" Value="true"/>
+  </DesignTime>
+  <ViewLinkDefEnd
+    Name="CostCenters"
+    Cardinality="1"
+    Owner="com.perp.sasmodel.views.adv.CostCenters"
+    Source="true">
+    <DesignTime>
+      <Attr Name="_finderName" Value="CostCenters"/>
+      <Attr Name="_isUpdateable" Value="true"/>
+      <Attr Name="_minCardinality" Value="1"/>
+    </DesignTime>
+    <AttrArray Name="Attributes">
+      <Item Value="com.perp.sasmodel.views.adv.CostCenters.CceId"/>
+    </AttrArray>
+  </ViewLinkDefEnd>
+  <ViewLinkDefEnd
+    Name="Groups"
+    Cardinality="-1"
+    Owner="com.perp.sasmodel.views.adv.Groups">
+    <DesignTime>
+      <Attr Name="_finderName" Value="Groups"/>
+      <Attr Name="_isUpdateable" Value="true"/>
+    </DesignTime>
+    <AttrArray Name="Attributes">
+      <Item Value="com.perp.sasmodel.views.adv.Groups.CceId"/>
+    </AttrArray>
+  </ViewLinkDefEnd>
+</ViewLink>

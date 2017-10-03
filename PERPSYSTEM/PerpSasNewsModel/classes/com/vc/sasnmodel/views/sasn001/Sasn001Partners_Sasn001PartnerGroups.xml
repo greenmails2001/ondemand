@@ -1,0 +1,39 @@
+<?xml version="1.0" encoding="windows-1252" ?>
+<!DOCTYPE ViewLink SYSTEM "jbo_03_01.dtd">
+<!---->
+<ViewLink
+  xmlns="http://xmlns.oracle.com/bc4j"
+  Name="Sasn001Partners_Sasn001PartnerGroups"
+  Version="11.1.1.55.36"
+  EntityAssociation="com.vc.sasnmodel.entities.ParPgrFkAssoc">
+  <DesignTime>
+    <Attr Name="_isCodegen" Value="true"/>
+  </DesignTime>
+  <ViewLinkDefEnd
+    Name="Sasn001PartnerGroups"
+    Cardinality="1"
+    Owner="com.vc.sasnmodel.views.sasn001.Sasn001PartnerGroups"
+    Source="true">
+    <DesignTime>
+      <Attr Name="_accessor" Value="true"/>
+      <Attr Name="_finderName" Value="Sasn001PartnerGroups"/>
+      <Attr Name="_isUpdateable" Value="true"/>
+      <Attr Name="_minCardinality" Value="1"/>
+    </DesignTime>
+    <AttrArray Name="Attributes">
+      <Item Value="com.vc.sasnmodel.views.sasn001.Sasn001PartnerGroups.PgrId"/>
+    </AttrArray>
+  </ViewLinkDefEnd>
+  <ViewLinkDefEnd
+    Name="Sasn001Partners"
+    Cardinality="-1"
+    Owner="com.vc.sasnmodel.views.sasn001.Sasn001Partners">
+    <DesignTime>
+      <Attr Name="_finderName" Value="Sasn001Partners"/>
+      <Attr Name="_isUpdateable" Value="true"/>
+    </DesignTime>
+    <AttrArray Name="Attributes">
+      <Item Value="com.vc.sasnmodel.views.sasn001.Sasn001Partners.PgrId"/>
+    </AttrArray>
+  </ViewLinkDefEnd>
+</ViewLink>

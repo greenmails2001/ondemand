@@ -1,0 +1,40 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE ViewLink SYSTEM "jbo_03_01.dtd">
+<!---->
+<ViewLink
+  xmlns="http://xmlns.oracle.com/bc4j"
+  Name="Sasem001Environments_Sasem001SubscriptionViewDetails"
+  Version="11.1.1.51.88"
+  EntityAssociation="com.perp.sasenvmodel.entities.SvdEnvFkAssoc">
+  <DesignTime>
+    <Attr Name="_isCodegen" Value="true"/>
+  </DesignTime>
+  <ViewLinkDefEnd
+    Name="Sasem001SubscriptionViewDetails"
+    Cardinality="1"
+    Owner="com.perp.sasenvmodel.views.sasem001.Sasem001SubscriptionViewDetails"
+    Source="true">
+    <DesignTime>
+      <Attr Name="_accessor" Value="true"/>
+      <Attr Name="_finderName" Value="Sasem001SubscriptionViewDetails"/>
+      <Attr Name="_isUpdateable" Value="true"/>
+    </DesignTime>
+    <AttrArray Name="Attributes">
+      <Item
+        Value="com.perp.sasenvmodel.views.sasem001.Sasem001SubscriptionViewDetails.SubId"/>
+    </AttrArray>
+  </ViewLinkDefEnd>
+  <ViewLinkDefEnd
+    Name="Sasem001Environments"
+    Cardinality="-1"
+    Owner="com.perp.sasenvmodel.views.sasem001.Sasem001Environments">
+    <DesignTime>
+      <Attr Name="_finderName" Value="Sasem001Environments"/>
+      <Attr Name="_isUpdateable" Value="true"/>
+    </DesignTime>
+    <AttrArray Name="Attributes">
+      <Item
+        Value="com.perp.sasenvmodel.views.sasem001.Sasem001Environments.SubId"/>
+    </AttrArray>
+  </ViewLinkDefEnd>
+</ViewLink>

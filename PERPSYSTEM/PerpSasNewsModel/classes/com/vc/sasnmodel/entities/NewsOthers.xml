@@ -1,0 +1,133 @@
+<?xml version="1.0" encoding="windows-1252" ?>
+<!DOCTYPE Entity SYSTEM "jbo_03_01.dtd">
+<!---->
+<Entity
+  xmlns="http://xmlns.oracle.com/bc4j"
+  Name="NewsOthers"
+  Version="11.1.1.56.60"
+  DBObjectType="table"
+  DBObjectName="NEWS_OTHERS"
+  AliasName="NewsOthers"
+  BindingStyle="OracleName"
+  UseGlueCode="false"
+  RowClass="com.vc.sasnmodel.entities.NewsOthersImpl">
+  <DesignTime>
+    <Attr Name="_codeGenFlag2" Value="Access|DML"/>
+    <AttrArray Name="_publishEvents"/>
+    <Attr Name="_isCodegen" Value="true"/>
+  </DesignTime>
+  <Attribute
+    Name="NotId"
+    IsNotNull="true"
+    ColumnName="NOT_ID"
+    SQLType="NUMERIC"
+    Type="oracle.jbo.domain.Number"
+    ColumnType="NUMBER"
+    TableName="NEWS_OTHERS"
+    PrimaryKey="true">
+    <DesignTime>
+      <Attr Name="_DisplaySize" Value="22"/>
+    </DesignTime>
+  </Attribute>
+  <Attribute
+    Name="NotNumber"
+    IsUnique="true"
+    IsNotNull="true"
+    Precision="30"
+    ColumnName="NOT_NUMBER"
+    SQLType="VARCHAR"
+    Type="java.lang.String"
+    ColumnType="VARCHAR2"
+    TableName="NEWS_OTHERS">
+    <DesignTime>
+      <Attr Name="_DisplaySize" Value="30"/>
+    </DesignTime>
+  </Attribute>
+  <Attribute
+    Name="Title"
+    IsNotNull="true"
+    Precision="400"
+    ColumnName="TITLE"
+    SQLType="VARCHAR"
+    Type="java.lang.String"
+    ColumnType="VARCHAR2"
+    TableName="NEWS_OTHERS">
+    <DesignTime>
+      <Attr Name="_DisplaySize" Value="400"/>
+    </DesignTime>
+  </Attribute>
+  <Attribute
+    Name="Content"
+    IsQueriable="false"
+    IsNotNull="true"
+    ColumnName="CONTENT"
+    SQLType="BLOB"
+    Type="oracle.jbo.domain.ClobDomain"
+    ColumnType="CLOB"
+    TableName="NEWS_OTHERS"/>
+  <Attribute
+    Name="Description"
+    Precision="4000"
+    ColumnName="DESCRIPTION"
+    SQLType="VARCHAR"
+    Type="java.lang.String"
+    ColumnType="VARCHAR2"
+    TableName="NEWS_OTHERS">
+    <DesignTime>
+      <Attr Name="_DisplaySize" Value="4000"/>
+    </DesignTime>
+  </Attribute>
+  <Key
+    Name="NotPk"
+    PrimaryKey="true">
+    <DesignTime>
+      <Attr Name="_DBObjectName" Value="NOT_PK"/>
+    </DesignTime>
+    <AttrArray Name="Attributes">
+      <Item Value="com.vc.sasnmodel.entities.NewsOthers.NotId"/>
+    </AttrArray>
+  </Key>
+  <Key
+    Name="NotUk">
+    <DesignTime>
+      <Attr Name="_isUnique" Value="true"/>
+      <Attr Name="_DBObjectName" Value="NOT_UK"/>
+    </DesignTime>
+    <AttrArray Name="Attributes">
+      <Item Value="com.vc.sasnmodel.entities.NewsOthers.NotNumber"/>
+    </AttrArray>
+  </Key>
+  <Key
+    Name="SysC0048625">
+    <DesignTime>
+      <Attr Name="_DBObjectName" Value="SYS_C0048625"/>
+      <Attr Name="_checkCondition" Value='"NOT_NUMBER" IS NOT NULL'/>
+      <Attr Name="_isCheck" Value="true"/>
+    </DesignTime>
+    <AttrArray Name="Attributes">
+      <Item Value="com.vc.sasnmodel.entities.NewsOthers.NotNumber"/>
+    </AttrArray>
+  </Key>
+  <Key
+    Name="SysC0048626">
+    <DesignTime>
+      <Attr Name="_DBObjectName" Value="SYS_C0048626"/>
+      <Attr Name="_checkCondition" Value='"TITLE" IS NOT NULL'/>
+      <Attr Name="_isCheck" Value="true"/>
+    </DesignTime>
+    <AttrArray Name="Attributes">
+      <Item Value="com.vc.sasnmodel.entities.NewsOthers.Title"/>
+    </AttrArray>
+  </Key>
+  <Key
+    Name="SysC0048627">
+    <DesignTime>
+      <Attr Name="_DBObjectName" Value="SYS_C0048627"/>
+      <Attr Name="_checkCondition" Value='"CONTENT" IS NOT NULL'/>
+      <Attr Name="_isCheck" Value="true"/>
+    </DesignTime>
+    <AttrArray Name="Attributes">
+      <Item Value="com.vc.sasnmodel.entities.NewsOthers.Content"/>
+    </AttrArray>
+  </Key>
+</Entity>

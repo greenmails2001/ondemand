@@ -1,0 +1,314 @@
+<?xml version='1.0' encoding='UTF-8'?>
+<jsp:root xmlns:jsp="http://java.sun.com/JSP/Page" version="2.1" xmlns:af="http://xmlns.oracle.com/adf/faces/rich"
+          xmlns:f="http://java.sun.com/jsf/core" xmlns:h="http://java.sun.com/jsf/html" xmlns:c="http://java.sun.com/jsp/jstl/core">
+  <c:set var="perpsasnewsviewcontrollerBundle1" value="#{adfBundle['com.vc.sasn.PerpSasNewsViewControllerBundle']}"/>
+  <c:set var="perpsasnewsviewcontrollerBundle" value="#{adfBundle['com.vc.sasn.Introduction']}"/>
+  <af:resource type="javascript">
+    function runDemoMovie(e) {
+        try {
+            var source = e.getSource();
+            var fileName = source.getProperty("fileName");// AdfPage.PAGE.findComponent("demoIframeID"); 
+            var iframe = document.getElementById("demoIframeID");
+            iframe.src = "../videodemo/roles/" + fileName;
+        }
+        catch (ex) {
+            alert("ex :" + ex);
+        }
+    }
+  </af:resource>
+  <af:panelTabbed id="intro" styleClass="AFVisualRoot" clientComponent="true">
+    <af:showDetailItem text="#{perpsasnewsviewcontrollerBundle['tab.perpondemand']}" id="vbiscloud" stretchChildren="first">
+      <af:panelSplitter id="ps4" splitterPosition="287">
+        <f:facet name="first">
+          <af:panelBox id="pb1" text="Gioi thieu" showDisclosure="false" showHeader="never" styleClass="AFStretchWidth">
+            <f:facet name="toolbar"/>
+            <af:panelGroupLayout id="pgl1" layout="scroll">
+              <af:panelGroupLayout id="pgl7" layout="vertical" inlineStyle="padding:5px;" styleClass="AFStrecthWidth">
+                <af:iterator id="i2" value="#{bindings.Sasn01Introductions.collectionModel}" var="row">
+                  <af:panelGroupLayout id="pgl5" layout="vertical" inlineStyle="padding:2.0px;">
+                    <af:commandImageLink text="#{row.Title}" id="cl2" actionListener="#{bindings.setCurrentRowWithKey.execute}"
+                                         partialSubmit="true" icon="/images/arrow-single-right-green.png"/>
+                  </af:panelGroupLayout>
+                </af:iterator>
+              </af:panelGroupLayout>
+            </af:panelGroupLayout>
+          </af:panelBox>
+        </f:facet>
+        <f:facet name="second">
+          <af:panelBox text="PanelBox1" id="pb7" showHeader="never" partialTriggers="i2:cl2">
+            <f:facet name="toolbar"/>
+            <af:panelGroupLayout layout="scroll" xmlns:af="http://xmlns.oracle.com/adf/faces/rich" id="pgl8" halign="center">
+              <af:panelGroupLayout id="pgl6" layout="horizontal" inlineStyle="text-align:left; padding:5px;" halign="left" valign="top">
+                <af:panelGroupLayout id="pgl9" layout="vertical">
+                  <af:outputText value="#{bindings.Title.inputValue}" id="ot3" inlineStyle="font-size:larger; font-weight:bold;"
+                                 rendered="false"/>
+                  <af:richTextEditor id="rte1" readOnly="true" value="  #{bindings.Content.inputValue}" columns="110" simple="true"
+                                     inlineStyle="text-align:justify;"/>
+                </af:panelGroupLayout>
+              </af:panelGroupLayout>
+            </af:panelGroupLayout>
+          </af:panelBox>
+        </f:facet>
+      </af:panelSplitter>
+      <f:facet name="toolbar"/>
+    </af:showDetailItem>
+    <!--
+    <af:showDetailItem text="#{perpsasnewsviewcontrollerBundle['tab.perpondemand']}" id="sdi2" stretchChildren="first"
+                       disclosed="#{index.subBookmark.subTab=='perpondemand'}" rendered="false">
+      <af:panelSplitter id="ps3" splitterPosition="364" disabled="true">
+        <f:facet name="first">
+          <af:panelAccordion id="pa1">
+            <af:showDetailItem id="sdi5" stretchChildren="first">
+              <af:panelBox text="San pham" id="pb4" showHeader="never">
+                <f:facet name="toolbar"/>
+                <af:panelGroupLayout id="pgl3" layout="scroll">
+                  <af:panelGroupLayout id="pgl4" layout="vertical" inlineStyle="padding:5px; width:320.0px;">
+                    <af:iterator id="i3" value="#{bindings.Sasn02C01Products.collectionModel}" var="row">
+                      <af:showDetail disclosed="true" id="sd1" disclosedText="#{row.Title}" inlineStyle="text-align:justify; padding:5px;">
+                        <af:outputText value="#{row.ShortContent}" id="ot1"/>
+                        <af:commandLink text="Chi tiet >>" id="cl1" partialSubmit="true"
+                                        actionListener="#{bindings.setCurrentRowWithKey1.execute}"
+                                        disabled="#{!bindings.setCurrentRowWithKey1.enabled}"/>
+                      </af:showDetail>
+                    </af:iterator>
+                  </af:panelGroupLayout>
+                </af:panelGroupLayout>
+              </af:panelBox>
+            </af:showDetailItem>
+          </af:panelAccordion>
+        </f:facet>
+        <f:facet name="second">
+          <af:panelHeader text=" " id="ph10" styleClass="AFStretchWidth" partialTriggers="i3:cl1">
+            <af:panelBox text="PanelBox1" id="panelBox9" showHeader="never">
+              <f:facet name="toolbar"/>
+              <af:panelGroupLayout layout="scroll" xmlns:af="http://xmlns.oracle.com/adf/faces/rich" id="panelGroupLayout148"
+                                   halign="center">
+                <af:panelGroupLayout id="pgl10" layout="horizontal">
+                  <af:panelGroupLayout id="panelGroupLayout149" layout="vertical" inlineStyle="text-align:left; padding:5px;">
+                    <af:outputText value="#{bindings.Title1.inputValue}" id="ot4" inlineStyle="font-size:larger; font-weight:bolder;"/>
+                    <af:spacer width="10" height="10" id="s2"/>
+                    <af:richTextEditor id="richTextEditor3" readOnly="true" columns="100" simple="true" inlineStyle="text-align:justify;"
+                                       value="#{bindings.Content1.inputValue}"/>
+                  </af:panelGroupLayout>
+                </af:panelGroupLayout>
+              </af:panelGroupLayout>
+            </af:panelBox>
+          </af:panelHeader>
+        </f:facet>
+      </af:panelSplitter>
+    </af:showDetailItem>
+    -->
+    <af:showDetailItem text="#{perpsasnewsviewcontrollerBundle['tab.architecture']}" id="sdi7" stretchChildren="first">
+      <af:panelBox id="pb6" showDisclosure="false" showHeader="always" styleClass="AFStretchWidth">
+        <f:facet name="toolbar"/>
+        <af:panelGroupLayout id="pgl2" layout="scroll" styleClass="AFStretchWidth">
+          <af:panelGroupLayout id="pgl3" styleClass="AFStretchWidth" layout="horizontal" halign="left" valign="top"
+                               inlineStyle="padding:10px;">
+            <af:panelGroupLayout id="pgl4" styleClass="AFStretchWidth" layout="vertical">
+              <af:richTextEditor id="rte3" readOnly="true" styleClass="AFStretchWidth" value="#{architechBean.newsOthers.content}"/>
+            </af:panelGroupLayout>
+          </af:panelGroupLayout>
+          <!--
+          <af:outputText value="VBISCloud   có hệ thống kiến trúc liên kết chặt chẽ ,với những ưu điểm vượt trội :" id="ot2"
+                         inlineStyle="font-size:medium;"/>
+          <af:outputText value="-	Giảm tổng chi phí đầu tư." id="ot1"/>
+          <af:outputText value="- Thời gian triển khai nhanh hơn." id="ot4"/>
+          <af:outputText value="-	Giảm chi phí bảo dưỡng và hỗ trợ hệ thống." id="ot9"/>
+          <af:outputText value="-	Triển khai trong phạm vi toàn Tổng công ty." id="ot10"/>
+          <af:outputText value="-	Truy cập ở mọi lúc, mọi nơi." id="ot11"/>
+          <af:outputText value="-	Tích hợp tốt hơn với các hệ thống khác." id="ot12"/>
+          <af:image source="/images/VBISCloud_Architect.png" shortDesc="perpmodel image" id="i1" inlineStyle="padding:30px;"></af:image>
+          -->
+        </af:panelGroupLayout>
+      </af:panelBox>
+    </af:showDetailItem>
+    <af:showDetailItem text="#{perpsasnewsviewcontrollerBundle['tab.role']}" id="sdi1" stretchChildren="first">
+      <af:panelSplitter id="ps1" splitterPosition="257">
+        <f:facet name="first">
+          <af:panelBox id="pb2" showDisclosure="false" showHeader="always">
+            <f:facet name="toolbar"/>
+            <af:panelGroupLayout id="pgl11" layout="scroll">
+              <af:panelGroupLayout id="pgl12" layout="vertical" inlineStyle="padding:15px;">
+                <h:panelGrid columns="2" id="pg1" cellpadding="5" cellspacing="5">
+                  <af:panelGroupLayout id="pgl13" inlineStyle="padding:3px;">
+                    <af:commandImageLink id="cil1" icon="/images/role1_out.png" partialSubmit="true" clientComponent="true">
+                      <af:clientAttribute value="role1.html" name="fileName"/>
+                      <af:clientListener type="action" method="runDemoMovie"/>
+                    </af:commandImageLink>
+                  </af:panelGroupLayout>
+                  <af:panelGroupLayout id="panelGroupLayout3" inlineStyle="padding:3px;">
+                    <af:commandImageLink id="commandImageLink1" icon="/images/role2_out.png" partialSubmit="true" clientComponent="true">
+                      <af:clientAttribute value="role2.html" name="fileName"/>
+                      <af:clientListener type="action" method="runDemoMovie"/>
+                    </af:commandImageLink>
+                  </af:panelGroupLayout>
+                  <af:panelGroupLayout id="panelGroupLayout4" inlineStyle="padding:3px;">
+                    <af:commandImageLink id="commandImageLink2" icon="/images/role3_out.png" partialSubmit="true" clientComponent="true">
+                      <af:clientAttribute value="role3.html" name="fileName"/>
+                      <af:clientListener type="action" method="runDemoMovie"/>
+                    </af:commandImageLink>
+                  </af:panelGroupLayout>
+                  <af:panelGroupLayout id="panelGroupLayout5" inlineStyle="padding:3px;">
+                    <af:commandImageLink id="commandImageLink3" icon="/images/role4_out.png" partialSubmit="true" clientComponent="true">
+                      <af:clientAttribute value="role4.html" name="fileName"/>
+                      <af:clientListener type="action" method="runDemoMovie"/>
+                    </af:commandImageLink>
+                  </af:panelGroupLayout>
+                  <af:panelGroupLayout id="panelGroupLayout6" inlineStyle="padding:3px;">
+                    <af:commandImageLink id="commandImageLink4" icon="/images/role5_out.png" partialSubmit="true" clientComponent="true">
+                      <af:clientAttribute value="role5.html" name="fileName"/>
+                      <af:clientListener type="action" method="runDemoMovie"/>
+                    </af:commandImageLink>
+                  </af:panelGroupLayout>
+                  <af:panelGroupLayout id="panelGroupLayout14" inlineStyle="padding:3px;">
+                    <af:commandImageLink id="commandImageLink5" icon="/images/role6_out.png" partialSubmit="true" clientComponent="true">
+                      <af:clientAttribute value="role6.html" name="fileName"/>
+                      <af:clientListener type="action" method="runDemoMovie"/>
+                    </af:commandImageLink>
+                  </af:panelGroupLayout>
+                </h:panelGrid>
+              </af:panelGroupLayout>
+            </af:panelGroupLayout>
+          </af:panelBox>
+        </f:facet>
+        <f:facet name="second">
+          <af:panelBox text=" " id="pb5" showHeader="always" showDisclosure="false">
+            <f:facet name="toolbar">
+              <af:toolbar id="t1" rendered="#{sasnSessionLoginObject.sasnAdmin}">
+                <af:commandImageLink id="commandImageLink6" icon="/images/edit.png" rendered="false">
+                  <f:attribute name="prodId" value="#{bindings.ProdId.inputValue}"/>
+                </af:commandImageLink>
+              </af:toolbar>
+            </f:facet>
+            <af:panelGroupLayout id="pgl14" layout="scroll" halign="center">
+              <af:panelGroupLayout id="pgl15" layout="vertical" inlineStyle="padding:30px;">
+                <f:verbatim>
+                  <![CDATA[           
+                         <iframe id="demoIframeID" src ="../videodemo/roles/role1.html" width="100%"  height="300" frameborder="0">
+                            <p>Your browser does not support iframes.</p>                            
+                          </iframe>
+                      ]]>
+                </f:verbatim>
+              </af:panelGroupLayout>
+            </af:panelGroupLayout>
+          </af:panelBox>
+        </f:facet>
+      </af:panelSplitter>
+    </af:showDetailItem>
+    <af:showDetailItem text="#{perpsasnewsviewcontrollerBundle['tab.history']}" id="sdi3" stretchChildren="first"
+                       styleClass="AFStretchWidth">
+      <af:panelSplitter id="ps3" splitterPosition="690">
+        <f:facet name="first">
+          <af:panelBox id="pb3" showDisclosure="false" showHeader="always" styleClass="AFStretchWidth">
+            <f:facet name="toolbar">
+              <af:toolbar id="toolbar1" rendered="#{sasnSessionLoginObject.sasnAdmin}">
+                <af:commandImageLink id="refresh5" icon="/images/refresh.png" actionListener="#{indexBean.editNewsOthersActionListener}"
+                                     partialSubmit="true"/>
+                <af:spacer width="10" height="10" id="s6"/>
+                <af:commandImageLink id="commandImageLink7" icon="/images/edit.png"
+                                     actionListener="#{indexBean.editNewsOthersActionListener}" partialSubmit="true">
+                  <f:attribute name="notNumber" value="HISTORY"/>
+                </af:commandImageLink>
+              </af:toolbar>
+            </f:facet>
+            <af:panelGroupLayout id="pgl16" styleClass="AFStretchWidth" layout="scroll">
+              <af:richTextEditor id="rte2" readOnly="true" value="#{c01NewsOthers.newsOthers.content}" styleClass="AFStretchWidth"
+                                 columns="100"/>
+            </af:panelGroupLayout>
+          </af:panelBox>
+        </f:facet>
+        <f:facet name="second">
+          <af:panelGroupLayout layout="scroll" xmlns:af="http://xmlns.oracle.com/adf/faces/rich" id="pgl10">
+            <af:panelGroupLayout id="pgl17" layout="vertical">
+              <af:panelBox id="panelBox1" showHeader="always" showDisclosure="false" text="Liên hệ trực tiếp">
+                <f:facet name="toolbar"/>
+                <af:panelGroupLayout id="panelGroupLayout15" layout="scroll">
+                  <af:panelGroupLayout id="panelGroupLayout16" layout="vertical" inlineStyle="padding:10px;">
+                    <af:panelGroupLayout id="panelGroupLayout17" layout="vertical" halign="left" valign="top">
+                      <af:panelGroupLayout id="panelGroupLayout18" layout="horizontal" valign="top">
+                        <af:image source="/images/logoVbis.png" shortDesc="logo" id="image2"/>
+                        <af:panelGroupLayout id="panelGroupLayout19" layout="vertical" inlineStyle="padding:5px;">
+                          <af:outputText value="#{perpsasnewsviewcontrollerBundle.PERP_VN}" id="outputText5"
+                                         inlineStyle="font-size:larger;"/>
+                          <af:outputText value="#{perpsasnewsviewcontrollerBundle1.PERP_EN}" id="outputText10"
+                                         inlineStyle="font-size:larger;"/>
+                        </af:panelGroupLayout>
+                      </af:panelGroupLayout>
+                    </af:panelGroupLayout>
+                    <af:spacer width="10" height="10" id="spacer1"/>
+                    <af:panelGroupLayout id="panelGroupLayout20" layout="vertical" inlineStyle="padding:5px;">
+                      <af:panelGroupLayout id="panelGroupLayout21" layout="vertical">
+                        <af:showDetail disclosed="true" id="showDetail2" disclosedText="Trụ sở Miền Nam">
+                          <af:panelGroupLayout id="panelGroupLayout22" layout="vertical">
+                            <af:outputText value="76 Cách Mạng Tháng 8, Phường 6, Quận 3, TP. Hồ Chí Minh" id="outputText11"
+                                           inlineStyle="font-size:larger;"/>
+                            <af:outputText value="Tel : (08) 38481882" id="outputText12"
+                                           inlineStyle="font-size:larger;"/>
+                            <af:outputText value="Email: contact@perp.vn" id="ot111" inlineStyle="font-size:larger;"/>
+                          </af:panelGroupLayout>
+                        </af:showDetail>
+                      </af:panelGroupLayout>
+                      <af:panelGroupLayout id="panelGroupLayout23" layout="vertical">
+                        <af:showDetail disclosed="true" id="showDetail3" disclosedText="Chi nhánh Miền Bắc">
+                          <af:panelGroupLayout id="panelGroupLayout24" layout="vertical">
+                            <af:outputText value="A9-01, tầng 9, tòa nhà CT2" id="outputText13" inlineStyle="font-size:larger;"/>
+                            <af:outputText value="Tô Hiệu, Phường Hà Cầu, Quận Hà Đông, TP. Hà Nội" id="outputText14"
+                                           inlineStyle="font-size:larger;"/>
+                            <af:outputText value="Tel : (04) 363 8629" id="outputText15" inlineStyle="font-size:larger;"/>
+                            <af:outputText value="Email: contact@perp.vn" id="ot6" inlineStyle="font-size:larger;"/>
+                          </af:panelGroupLayout>
+                        </af:showDetail>
+                      </af:panelGroupLayout>
+                    </af:panelGroupLayout>
+                    <af:spacer width="10" height="10" id="spacer3"/>
+                  </af:panelGroupLayout>
+                </af:panelGroupLayout>
+              </af:panelBox>
+              <af:panelBox text="Liên hệ trực tuyến" id="pb8" showDisclosure="false" styleClass="AFStretchWidth">
+                <f:facet name="toolbar"/>
+                <p>
+                  <af:outputText value="Bạn có thể liên hệ với chúng tôi bằng cách điền thông tin vào form dưới đây" id="ot7"
+                                 inlineStyle="color:blue; font-size:small;"/>
+                </p>
+                <p>
+                  <af:outputText value="Bạn vui lòng điền đủ các trường có dấu (*)." id="ot8" inlineStyle="color:red; font-size:small;"/>
+                </p>
+                <af:panelStretchLayout id="psl1" styleClass="AFStretchWidth" inlineStyle="height:497px;">
+                  <f:facet name="center">
+                    <af:panelGroupLayout layout="scroll" xmlns:af="http://xmlns.oracle.com/adf/faces/rich" id="pg24" halign="center"
+                                         styleClass="AFStretchWidth">
+                      <af:panelFormLayout id="pfl2">
+                        <af:inputText label="Tên của bạn" id="it4" showRequired="true" value="#{contactInfos.contactName}"/>
+                        <af:inputText label="Công ty" id="it5" columns="60" showRequired="true" value="#{contactInfos.companyName}"/>
+                        <af:inputText label="Địa chỉ" id="it6" columns="60" value="#{contactInfos.address}"/>
+                        <af:inputText label="Số điện thoại" id="it7" showRequired="true" value="#{contactInfos.phoneNumber}"/>
+                        <af:inputText label="Email" id="it8" showRequired="true" value="#{contactInfos.email}"/>
+                        <af:richTextEditor label="Nội dung liên hệ" id="rte22" showRequired="true" value="#{contactInfos.content}"
+                                           columns="60"/>
+                        <af:panelGroupLayout id="pfl3" valign="middle">
+                          <af:image source="/captchaservlet" shortDesc="CAPTCHA" id="i22" inlineStyle="width:200px; height:50px;"
+                                    partialTriggers="cb2"/>
+                          <af:commandButton id="cb2" partialSubmit="true" shortDesc="Refresh Captcha" text="Refresh"/>
+                        </af:panelGroupLayout>
+                        <af:inputText label="Mã xác nhận" id="it9" showRequired="true" value="#{contactInfos.confirmCode}" columns="15"/>
+                      </af:panelFormLayout>
+                      <af:spacer width="10" height="10" id="s25"/>
+                      <af:commandButton text="Gửi yêu cầu" id="cb1" actionListener="#{contactInfos.contactActionListener}"
+                                        partialSubmit="true"/>
+                    </af:panelGroupLayout>
+                  </f:facet>
+                </af:panelStretchLayout>
+              </af:panelBox>
+            </af:panelGroupLayout>
+          </af:panelGroupLayout>
+        </f:facet>
+      </af:panelSplitter>
+    </af:showDetailItem>
+    <af:showDetailItem text="#{perpsasnewsviewcontrollerBundle['tab.about']}" id="sdiContact" stretchChildren="first" rendered="false">
+      <af:panelSplitter id="ps2" splitterPosition="537">
+        <f:facet name="first"/>
+        <f:facet name="second"/>
+      </af:panelSplitter>
+    </af:showDetailItem>
+  </af:panelTabbed>
+</jsp:root>

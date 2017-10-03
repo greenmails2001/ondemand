@@ -1,0 +1,89 @@
+<?xml version="1.0" encoding="windows-1252" ?>
+<!DOCTYPE ViewObject SYSTEM "jbo_03_01.dtd">
+<!---->
+<ViewObject
+  xmlns="http://xmlns.oracle.com/bc4j"
+  Name="DiagramProcessView"
+  Version="11.1.1.56.60"
+  SelectList="DiagramProcesses.DPR_ID, 
+       DiagramProcesses.NAME, 
+       DiagramProcesses.SHORT_DESC, 
+       DiagramProcesses.DESCRIPTION, 
+       DiagramProcesses.IMAGE_PATH, 
+       DiagramProcesses.ORDER_NO, 
+       DiagramProcesses.APP_CODE"
+  FromList="DIAGRAM_PROCESSES DiagramProcesses"
+  OrderBy="DiagramProcesses.ORDER_NO"
+  BindingStyle="OracleName"
+  CustomQuery="false"
+  RowClass="com.perp.sasmodel.views.sas.DiagramProcessViewRowImpl"
+  ComponentClass="com.perp.sasmodel.views.sas.DiagramProcessViewImpl"
+  PageIterMode="Full"
+  UseGlueCode="false"
+  Where="((DiagramProcesses.APP_CODE = :p_App_Code) Or DiagramProcesses.APP_CODE Is Null)">
+  <DesignTime>
+    <Attr Name="_codeGenFlag2" Value="Access|Coll|VarAccess"/>
+    <Attr Name="_isCodegen" Value="true"/>
+  </DesignTime>
+  <Variable
+    Name="p_App_Code"
+    Kind="where"
+    Type="java.lang.String"/>
+  <EntityUsage
+    Name="DiagramProcesses"
+    Entity="com.perp.sasmodel.entities.DiagramProcesses"/>
+  <ViewAttribute
+    Name="DprId"
+    IsNotNull="true"
+    PrecisionRule="true"
+    EntityAttrName="DprId"
+    EntityUsage="DiagramProcesses"
+    AliasName="DPR_ID"/>
+  <ViewAttribute
+    Name="Name"
+    PrecisionRule="true"
+    EntityAttrName="Name"
+    EntityUsage="DiagramProcesses"
+    AliasName="NAME">
+    <Properties>
+      <SchemaBasedProperties>
+        <LABEL
+          ResId="com.perp.sasmodel.views.sas.DiagramProcessView.Name_LABEL"/>
+      </SchemaBasedProperties>
+    </Properties>
+  </ViewAttribute>
+  <ViewAttribute
+    Name="ShortDesc"
+    PrecisionRule="true"
+    EntityAttrName="ShortDesc"
+    EntityUsage="DiagramProcesses"
+    AliasName="SHORT_DESC"/>
+  <ViewAttribute
+    Name="Description"
+    PrecisionRule="true"
+    EntityAttrName="Description"
+    EntityUsage="DiagramProcesses"
+    AliasName="DESCRIPTION"/>
+  <ViewAttribute
+    Name="ImagePath"
+    PrecisionRule="true"
+    EntityAttrName="ImagePath"
+    EntityUsage="DiagramProcesses"
+    AliasName="IMAGE_PATH"/>
+  <ViewAttribute
+    Name="OrderNo"
+    PrecisionRule="true"
+    EntityAttrName="OrderNo"
+    EntityUsage="DiagramProcesses"
+    AliasName="ORDER_NO"/>
+  <ViewAttribute
+    Name="AppCode"
+    PrecisionRule="true"
+    EntityAttrName="AppCode"
+    EntityUsage="DiagramProcesses"
+    AliasName="APP_CODE"/>
+  <ResourceBundle>
+    <PropertiesBundle
+      PropertiesFile="com.perp.sasmodel.PerpSasModelBundle"/>
+  </ResourceBundle>
+</ViewObject>

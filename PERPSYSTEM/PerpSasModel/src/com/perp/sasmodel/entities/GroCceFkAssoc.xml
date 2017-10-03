@@ -1,0 +1,40 @@
+<?xml version="1.0" encoding="windows-1252" ?>
+<!DOCTYPE Association SYSTEM "jbo_03_01.dtd">
+<!---->
+<Association
+  xmlns="http://xmlns.oracle.com/bc4j"
+  Name="GroCceFkAssoc"
+  Version="11.1.1.56.60">
+  <DesignTime>
+    <Attr Name="_isCodegen" Value="true"/>
+  </DesignTime>
+  <AssociationEnd
+    Name="CostCenters"
+    Cardinality="1"
+    Source="true"
+    Owner="com.perp.sasmodel.entities.CostCenters"
+    LockLevel="NONE">
+    <DesignTime>
+      <Attr Name="_aggregation" Value="0"/>
+      <Attr Name="_finderName" Value="CostCenters"/>
+      <Attr Name="_isUpdateable" Value="true"/>
+      <Attr Name="_minCardinality" Value="1"/>
+    </DesignTime>
+    <AttrArray Name="Attributes">
+      <Item Value="com.perp.sasmodel.entities.CostCenters.CceId"/>
+    </AttrArray>
+  </AssociationEnd>
+  <AssociationEnd
+    Name="Groups"
+    Cardinality="-1"
+    Owner="com.perp.sasmodel.entities.Groups">
+    <DesignTime>
+      <Attr Name="_aggregation" Value="0"/>
+      <Attr Name="_finderName" Value="Groups"/>
+      <Attr Name="_isUpdateable" Value="true"/>
+    </DesignTime>
+    <AttrArray Name="Attributes">
+      <Item Value="com.perp.sasmodel.entities.Groups.CceId"/>
+    </AttrArray>
+  </AssociationEnd>
+</Association>

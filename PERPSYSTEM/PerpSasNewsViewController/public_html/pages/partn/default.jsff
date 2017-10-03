@@ -1,0 +1,156 @@
+<?xml version='1.0' encoding='UTF-8'?>
+<jsp:root xmlns:jsp="http://java.sun.com/JSP/Page" version="2.1" xmlns:af="http://xmlns.oracle.com/adf/faces/rich"
+          xmlns:f="http://java.sun.com/jsf/core" xmlns:c="http://java.sun.com/jsp/jstl/core">
+  <af:group id="g3">
+    <c:set var="perpsasnewsviewcontrollerBundle" value="#{adfBundle['com.vc.sasn.Partner']}"/>
+  </af:group>
+  <af:panelTabbed id="partner" styleClass="AFVisualRoot">
+    <af:showDetailItem text="#{perpsasnewsviewcontrollerBundle['tab.partner']}" id="showDetailItem9" stretchChildren="first">
+      <af:panelSplitter id="panelSplitter2" splitterPosition="262">
+        <f:facet name="first">
+          <af:panelBox text="#{perpsasnewsviewcontrollerBundle['tab.partner.partnerType']}" id="pb3" showDisclosure="false"
+                       showHeader="never">
+            <f:facet name="toolbar"/>
+            <af:panelGroupLayout id="pgl1" layout="scroll">
+              <af:panelGroupLayout id="pgl7" layout="vertical" inlineStyle="padding:5px;">
+                <af:iterator id="i2" value="#{bindings.Sasn06PartnerGroups.collectionModel}" var="row">
+                  <af:panelGroupLayout id="pgl5" layout="vertical" inlineStyle="padding:2.0px;">
+                    <af:commandImageLink text="#{row.PgrName}" id="pgrNameLink" partialSubmit="true"
+                                         actionListener="#{bindings.setCurrentRowWithKey.execute}"
+                                         icon="/images/arrow-single-right-green.png"/>
+                  </af:panelGroupLayout>
+                </af:iterator>
+              </af:panelGroupLayout>
+            </af:panelGroupLayout>
+          </af:panelBox>
+        </f:facet>
+        <f:facet name="second">
+          <af:panelBox id="pb7" showDisclosure="false" showHeader="never">
+            <f:facet name="toolbar"/>
+            <af:panelGroupLayout layout="scroll" xmlns:af="http://xmlns.oracle.com/adf/faces/rich" id="pgl8" halign="center">
+              <af:panelGroupLayout id="pgl12" layout="vertical" halign="left" inlineStyle="width:650px;text-align:left;" valign="top">
+                <af:iterator id="i4" value="#{bindings.Sasn06PartnersListInPartnerGroups.collectionModel}" var="row">
+                  <af:panelGroupLayout id="pgl10" layout="vertical" valign="top" halign="left">
+                    <af:panelGroupLayout id="pgl11" halign="left">
+                      <af:outputText value="#{row.CompanyName}" id="ot1" inlineStyle="font-size:larger;"/>
+                    </af:panelGroupLayout>
+                    <af:spacer width="10" height="10" id="s6"/>
+                    <af:panelGroupLayout id="pgl13" layout="horizontal" halign="left" valign="top" inlineStyle="text-align:left;">
+                      <af:panelGroupLayout id="pgl15" inlineStyle="width:230px;height:140px;" halign="left" valign="top"
+                                           layout="horizontal">
+                        <af:image source="images/generated/partners/#{row.parId}.jpg" shortDesc="image" id="i5"/>
+                      </af:panelGroupLayout>
+                      <af:spacer width="10" height="10" id="s7"/>
+                      <af:panelGroupLayout id="pgl14" layout="vertical" inlineStyle="border-width:1px; text-align:left;" halign="left"
+                                           valign="top">
+                        <af:panelGroupLayout id="pgl17" layout="horizontal" valign="top" halign="left"
+                                             rendered="#{row.CompanyAddress !=null}">
+                          <af:outputText value="#{perpsasnewsviewcontrollerBundle['tab.partner.companyAddress']}" id="ot4"
+                                         inlineStyle="font-weight:bold;"/>
+                          <af:spacer width="10" height="10" id="s4"/>
+                          <af:outputText value="#{row.CompanyAddress}" id="ot13"/>
+                        </af:panelGroupLayout>
+                        <af:panelGroupLayout id="panelGroupLayout2" layout="horizontal" valign="top" halign="left"
+                                             rendered="#{row.CompanyTelephone !=null}">
+                          <af:outputText value="#{perpsasnewsviewcontrollerBundle['tab.partner.companyTelephone']}" id="ot6"
+                                         inlineStyle="font-weight:bold;"/>
+                          <af:spacer width="10" height="10" id="s5"/>
+                          <af:outputText value="#{row.CompanyTelephone}" id="ot2"/>
+                        </af:panelGroupLayout>
+                        <af:panelGroupLayout id="panelGroupLayout5" layout="horizontal" valign="top" halign="left"
+                                             rendered="#{row.CompanyFax!=null}">
+                          <af:outputText value="#{perpsasnewsviewcontrollerBundle['tab.partner.companyFax']}" id="ot7"
+                                         inlineStyle="font-weight:bold;"/>
+                          <af:spacer width="10" height="10" id="s9"/>
+                          <af:outputText value="#{row.CompanyFax}" id="ot5"/>
+                        </af:panelGroupLayout>
+                        <af:panelGroupLayout id="panelGroupLayout6" layout="horizontal" valign="top" halign="left"
+                                             rendered="#{row.CompanyEmail != null}">
+                          <af:outputText value="#{perpsasnewsviewcontrollerBundle['tab.partner.companyEmail']}" id="ot8"
+                                         inlineStyle="font-weight:bold;"/>
+                          <af:spacer width="10" height="10" id="s3"/>
+                          <af:outputText value="#{row.CompanyEmail}" id="ot14"/>
+                        </af:panelGroupLayout>
+                        <af:panelGroupLayout id="panelGroupLayout7" layout="horizontal" valign="top" halign="left"
+                                             rendered="#{row.CompanyWebsite !=null}">
+                          <af:outputText value="#{perpsasnewsviewcontrollerBundle['tab.partner.companyWebsite']}" id="ot9"
+                                         inlineStyle="font-weight:bold;"/>
+                          <af:spacer width="10" height="10" id="s11"/>
+                          <af:goLink text="#{row.CompanyWebsite}" id="gl1" targetFrame="_blank" destination="#{row.CompanyWebsite}"
+                                     clientComponent="true"/>
+                        </af:panelGroupLayout>
+                        <af:panelGroupLayout id="panelGroupLayout8" layout="horizontal" valign="top" halign="left"
+                                             rendered=" #{row.ContactPersonName != null}">
+                          <af:outputText value="#{perpsasnewsviewcontrollerBundle['tab.partner.contactPersonName']}" id="ot10"
+                                         inlineStyle="font-weight:bold;"/>
+                          <af:spacer width="10" height="10" id="s12"/>
+                          <af:outputText value="#{row.ContactPersonName}" id="outputText3"/>
+                        </af:panelGroupLayout>
+                        <af:panelGroupLayout id="panelGroupLayout9" layout="horizontal" valign="top" halign="left"
+                                             rendered=" #{row.ContactPersonPosition != null}">
+                          <af:outputText value="#{perpsasnewsviewcontrollerBundle['tab.partner.contactPersonPosition']}" id="ot11"
+                                         inlineStyle="font-weight:bold;"/>
+                          <af:spacer width="10" height="10" id="s13"/>
+                          <af:outputText value="#{row.ContactPersonPosition}" id="outputText4"/>
+                        </af:panelGroupLayout>
+                        <af:panelGroupLayout id="panelGroupLayout10" layout="horizontal" valign="top" halign="left"
+                                             rendered="#{row.ContactPersonTelephone != null}">
+                          <af:outputText value="#{perpsasnewsviewcontrollerBundle['tab.partner.contactPersonTelephone']}" id="ot12"
+                                         inlineStyle="font-weight:bold;"/>
+                          <af:spacer width="10" height="10" id="s14"/>
+                          <af:outputText value="#{row.ContactPersonTelephone}" id="outputText1"/>
+                        </af:panelGroupLayout>
+                        <af:panelGroupLayout id="panelGroupLayout11" layout="horizontal" valign="top" halign="left"
+                                             rendered="#{row.ContactPersonEmail != null}">
+                          <af:outputText value="#{perpsasnewsviewcontrollerBundle['tab.partner.contactPersonEmail']}" id="ot15"
+                                         inlineStyle="font-weight:bold;"/>
+                          <af:spacer width="10" height="10" id="s15"/>
+                          <af:outputText value="#{row.ContactPersonEmail}" id="outputText2"/>
+                        </af:panelGroupLayout>
+                      </af:panelGroupLayout>
+                    </af:panelGroupLayout>
+                    <af:panelGroupLayout id="panelGroupLayout3" layout="vertical" halign="right" styleClass="AFStretchWidth" valign="top">
+                      <af:panelGroupLayout id="panelGroupLayout4" layout="horizontal" rendered="#{sasnSessionLoginObject.sasnAdmin}">
+                        <af:spacer width="10" height="10" id="spacer1"/>
+                        <af:commandImageLink id="cil1" icon="/images/edit.png" actionListener="#{partnBean.editItemActionListener}">
+                          <f:attribute name="itemId" value="#{row.ParId}"/>
+                        </af:commandImageLink>
+                        <af:spacer width="10" height="10" id="spacer2"/>
+                        <af:commandImageLink id="cil2" icon="/images/delete.png"
+                                             actionListener="#{partnBean.showConfirmDelItemActionListener}">
+                          <f:attribute name="itemId" value="#{row.ParId}"/>
+                        </af:commandImageLink>
+                        <af:spacer width="10" height="10" id="spacer3"/>
+                      </af:panelGroupLayout>
+                    </af:panelGroupLayout>
+                  </af:panelGroupLayout>
+                  <af:spacer width="10" height="10" id="s8"/>
+                </af:iterator>
+              </af:panelGroupLayout>
+            </af:panelGroupLayout>
+          </af:panelBox>
+        </f:facet>
+      </af:panelSplitter>
+    </af:showDetailItem>
+    <af:showDetailItem text="#{perpsasnewsviewcontrollerBundle['tab.findpartner']}" id="showDetailItem12">
+      <af:panelBox id="pb1" showHeader="always" showDisclosure="false">
+        <f:facet name="toolbar"/>
+        <af:panelGroupLayout id="pgl2" layout="scroll">
+          <af:panelGroupLayout id="pgl3" layout="horizontal" halign="left" valign="top">
+            <af:panelGroupLayout id="pgl4" layout="vertical" inlineStyle="padding:10px; width:370px;">
+              <af:image source="/images/findpartner.png" id="i1" shortDesc="find partner img"/>
+            </af:panelGroupLayout>
+            <af:panelGroupLayout id="pgl6" layout="vertical" inlineStyle="padding:5px;">
+              <af:panelGroupLayout id="pgl9" layout="vertical">
+                <af:outputText value="#{c01NewsOthers.newsOthers.title}" id="ot3" inlineStyle="font-size:larger; font-weight:bold;"/>
+              </af:panelGroupLayout>
+              <af:spacer width="10" height="10" id="s1"/>
+              <af:spacer width="10" height="10" id="s2"/>
+              <af:richTextEditor id="rte1" readOnly="true" value="#{c01NewsOthers.newsOthers.content}"/>
+            </af:panelGroupLayout>
+          </af:panelGroupLayout>
+        </af:panelGroupLayout>
+      </af:panelBox>
+    </af:showDetailItem>
+  </af:panelTabbed>
+</jsp:root>

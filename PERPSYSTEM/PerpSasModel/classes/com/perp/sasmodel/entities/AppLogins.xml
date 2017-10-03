@@ -1,0 +1,185 @@
+<?xml version="1.0" encoding="windows-1252" ?>
+<!DOCTYPE Entity SYSTEM "jbo_03_01.dtd">
+<!---->
+<Entity
+  xmlns="http://xmlns.oracle.com/bc4j"
+  Name="AppLogins"
+  Version="11.1.1.56.60"
+  DBObjectType="table"
+  DBObjectName="APP_LOGINS"
+  AliasName="AppLogins"
+  BindingStyle="OracleName"
+  UseGlueCode="false">
+  <DesignTime>
+    <AttrArray Name="_publishEvents"/>
+  </DesignTime>
+  <Attribute
+    Name="AloId"
+    IsNotNull="true"
+    Precision="15"
+    Scale="0"
+    ColumnName="ALO_ID"
+    SQLType="NUMERIC"
+    Type="oracle.jbo.domain.Number"
+    ColumnType="NUMBER"
+    TableName="APP_LOGINS"
+    PrimaryKey="true">
+    <DesignTime>
+      <Attr Name="_DisplaySize" Value="22"/>
+    </DesignTime>
+  </Attribute>
+  <Attribute
+    Name="UserName"
+    IsNotNull="true"
+    Precision="20"
+    ColumnName="USER_NAME"
+    SQLType="VARCHAR"
+    Type="java.lang.String"
+    ColumnType="VARCHAR2"
+    TableName="APP_LOGINS">
+    <DesignTime>
+      <Attr Name="_DisplaySize" Value="20"/>
+    </DesignTime>
+    <Properties>
+      <SchemaBasedProperties>
+        <LABEL
+          ResId="com.perp.sasmodel.entities.AppLogins.UserName_LABEL"/>
+      </SchemaBasedProperties>
+    </Properties>
+  </Attribute>
+  <Attribute
+    Name="EnvId"
+    Precision="20"
+    ColumnName="ENV_ID"
+    SQLType="VARCHAR"
+    Type="java.lang.String"
+    ColumnType="VARCHAR2"
+    TableName="APP_LOGINS">
+    <DesignTime>
+      <Attr Name="_DisplaySize" Value="20"/>
+    </DesignTime>
+  </Attribute>
+  <Attribute
+    Name="LoginAt"
+    IsNotNull="true"
+    ColumnName="LOGIN_AT"
+    SQLType="TIMESTAMP"
+    Type="oracle.jbo.domain.Date"
+    ColumnType="DATE"
+    TableName="APP_LOGINS">
+    <DesignTime>
+      <Attr Name="_DisplaySize" Value="7"/>
+    </DesignTime>
+    <Properties>
+      <SchemaBasedProperties>
+        <FMT_FORMATTER
+          ResId="com.perp.sasmodel.entities.AppLogins.LoginAt_FMT_FORMATTER"/>
+        <FMT_FORMAT
+          ResId="com.perp.sasmodel.entities.AppLogins.LoginAt_FMT_FORMAT"/>
+        <LABEL
+          ResId="com.perp.sasmodel.entities.AppLogins.LoginAt_LABEL"/>
+      </SchemaBasedProperties>
+    </Properties>
+  </Attribute>
+  <Attribute
+    Name="IpAddress"
+    Precision="50"
+    ColumnName="IP_ADDRESS"
+    SQLType="VARCHAR"
+    Type="java.lang.String"
+    ColumnType="VARCHAR2"
+    TableName="APP_LOGINS">
+    <DesignTime>
+      <Attr Name="_DisplaySize" Value="50"/>
+    </DesignTime>
+    <Properties>
+      <SchemaBasedProperties>
+        <LABEL
+          ResId="com.perp.sasmodel.entities.AppLogins.IpAddress_LABEL"/>
+      </SchemaBasedProperties>
+    </Properties>
+  </Attribute>
+  <Attribute
+    Name="Browser"
+    Precision="200"
+    ColumnName="BROWSER"
+    SQLType="VARCHAR"
+    Type="java.lang.String"
+    ColumnType="VARCHAR2"
+    TableName="APP_LOGINS">
+    <DesignTime>
+      <Attr Name="_DisplaySize" Value="20"/>
+    </DesignTime>
+    <Properties>
+      <SchemaBasedProperties>
+        <LABEL
+          ResId="com.perp.sasmodel.entities.AppLogins.Browser_LABEL"/>
+      </SchemaBasedProperties>
+    </Properties>
+  </Attribute>
+  <Attribute
+    Name="Country"
+    Precision="100"
+    ColumnName="COUNTRY"
+    SQLType="VARCHAR"
+    Type="java.lang.String"
+    ColumnType="VARCHAR2"
+    TableName="APP_LOGINS">
+    <DesignTime>
+      <Attr Name="_DisplaySize" Value="100"/>
+    </DesignTime>
+    <Properties>
+      <SchemaBasedProperties>
+        <LABEL
+          ResId="com.perp.sasmodel.entities.AppLogins.Country_LABEL"/>
+      </SchemaBasedProperties>
+    </Properties>
+  </Attribute>
+  <Key
+    Name="AppLoginsPk"
+    PrimaryKey="true">
+    <DesignTime>
+      <Attr Name="_DBObjectName" Value="APP_LOGINS_PK"/>
+    </DesignTime>
+    <AttrArray Name="Attributes">
+      <Item Value="com.perp.sasmodel.entities.AppLogins.AloId"/>
+    </AttrArray>
+  </Key>
+  <Key
+    Name="SysC00623613">
+    <DesignTime>
+      <Attr Name="_DBObjectName" Value="SYS_C00623613"/>
+      <Attr Name="_checkCondition" Value='"ALO_ID" IS NOT NULL'/>
+      <Attr Name="_isCheck" Value="true"/>
+    </DesignTime>
+    <AttrArray Name="Attributes">
+      <Item Value="com.perp.sasmodel.entities.AppLogins.AloId"/>
+    </AttrArray>
+  </Key>
+  <Key
+    Name="SysC00623614">
+    <DesignTime>
+      <Attr Name="_DBObjectName" Value="SYS_C00623614"/>
+      <Attr Name="_checkCondition" Value='"USER_NAME" IS NOT NULL'/>
+      <Attr Name="_isCheck" Value="true"/>
+    </DesignTime>
+    <AttrArray Name="Attributes">
+      <Item Value="com.perp.sasmodel.entities.AppLogins.UserName"/>
+    </AttrArray>
+  </Key>
+  <Key
+    Name="SysC00623615">
+    <DesignTime>
+      <Attr Name="_DBObjectName" Value="SYS_C00623615"/>
+      <Attr Name="_checkCondition" Value='"LOGIN_AT" IS NOT NULL'/>
+      <Attr Name="_isCheck" Value="true"/>
+    </DesignTime>
+    <AttrArray Name="Attributes">
+      <Item Value="com.perp.sasmodel.entities.AppLogins.LoginAt"/>
+    </AttrArray>
+  </Key>
+  <ResourceBundle>
+    <PropertiesBundle
+      PropertiesFile="com.perp.sasmodel.PerpSasModelBundle"/>
+  </ResourceBundle>
+</Entity>

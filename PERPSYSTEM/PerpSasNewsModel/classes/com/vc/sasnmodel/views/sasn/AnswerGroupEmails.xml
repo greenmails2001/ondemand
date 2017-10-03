@@ -1,0 +1,47 @@
+<?xml version="1.0" encoding="windows-1252" ?>
+<!DOCTYPE ViewObject SYSTEM "jbo_03_01.dtd">
+<!---->
+<ViewObject
+  xmlns="http://xmlns.oracle.com/bc4j"
+  Name="AnswerGroupEmails"
+  Version="11.1.1.56.60"
+  SelectList="AnswerGroupEmails.AGE_ID, 
+       AnswerGroupEmails.AGR_ID, 
+       AnswerGroupEmails.EMAIL"
+  FromList="ANSWER_GROUP_EMAILS AnswerGroupEmails"
+  BindingStyle="OracleName"
+  CustomQuery="false"
+  PageIterMode="Full"
+  UseGlueCode="false">
+  <DesignTime>
+    <Attr Name="_codeGenFlag2" Value="Access|VarAccess"/>
+  </DesignTime>
+  <EntityUsage
+    Name="AnswerGroupEmails"
+    Entity="com.vc.sasnmodel.entities.AnswerGroupEmails"/>
+  <ViewAttribute
+    Name="AgeId"
+    IsNotNull="true"
+    PrecisionRule="true"
+    EntityAttrName="AgeId"
+    EntityUsage="AnswerGroupEmails"
+    AliasName="AGE_ID"/>
+  <ViewAttribute
+    Name="AgrId"
+    PrecisionRule="true"
+    EntityAttrName="AgrId"
+    EntityUsage="AnswerGroupEmails"
+    AliasName="AGR_ID"/>
+  <ViewAttribute
+    Name="Email"
+    PrecisionRule="true"
+    EntityAttrName="Email"
+    EntityUsage="AnswerGroupEmails"
+    AliasName="EMAIL"/>
+  <ViewLinkAccessor
+    Name="AnswerGroups"
+    ViewLink="com.vc.sasnmodel.views.sasn.AnswerGroupEmails_AnswerGroups"
+    Type="oracle.jbo.Row"
+    Reversed="true"
+    IsUpdateable="false"/>
+</ViewObject>

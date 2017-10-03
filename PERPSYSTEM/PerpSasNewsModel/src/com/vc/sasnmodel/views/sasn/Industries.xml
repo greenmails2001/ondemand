@@ -1,0 +1,76 @@
+<?xml version="1.0" encoding="windows-1252" ?>
+<!DOCTYPE ViewObject SYSTEM "jbo_03_01.dtd">
+<!---->
+<ViewObject
+  xmlns="http://xmlns.oracle.com/bc4j"
+  Name="Industries"
+  Version="11.1.1.55.36"
+  SelectList="Industries.IND_ID, 
+       Industries.IND_NAME, 
+       Industries.CREATE_DATE, 
+       Industries.CREATED_BY, 
+       Industries.MODIFY_DATE, 
+       Industries.MODIFIED_BY, 
+       Industries.DESCRIPTION"
+  FromList="INDUSTRIES Industries"
+  BindingStyle="OracleName"
+  CustomQuery="false"
+  PageIterMode="Full"
+  UseGlueCode="false">
+  <DesignTime>
+    <Attr Name="_codeGenFlag2" Value="Access|VarAccess"/>
+  </DesignTime>
+  <EntityUsage
+    Name="Industries"
+    Entity="com.vc.sasnmodel.entities.Industries"/>
+  <ViewAttribute
+    Name="IndId"
+    IsNotNull="true"
+    PrecisionRule="true"
+    EntityAttrName="IndId"
+    EntityUsage="Industries"
+    AliasName="IND_ID"/>
+  <ViewAttribute
+    Name="IndName"
+    PrecisionRule="true"
+    EntityAttrName="IndName"
+    EntityUsage="Industries"
+    AliasName="IND_NAME"/>
+  <ViewAttribute
+    Name="CreateDate"
+    IsNotNull="true"
+    PrecisionRule="true"
+    EntityAttrName="CreateDate"
+    EntityUsage="Industries"
+    AliasName="CREATE_DATE"/>
+  <ViewAttribute
+    Name="CreatedBy"
+    IsNotNull="true"
+    PrecisionRule="true"
+    EntityAttrName="CreatedBy"
+    EntityUsage="Industries"
+    AliasName="CREATED_BY"/>
+  <ViewAttribute
+    Name="ModifyDate"
+    PrecisionRule="true"
+    EntityAttrName="ModifyDate"
+    EntityUsage="Industries"
+    AliasName="MODIFY_DATE"/>
+  <ViewAttribute
+    Name="ModifiedBy"
+    PrecisionRule="true"
+    EntityAttrName="ModifiedBy"
+    EntityUsage="Industries"
+    AliasName="MODIFIED_BY"/>
+  <ViewAttribute
+    Name="Description"
+    PrecisionRule="true"
+    EntityAttrName="Description"
+    EntityUsage="Industries"
+    AliasName="DESCRIPTION"/>
+  <ViewLinkAccessor
+    Name="Customers"
+    ViewLink="com.vc.sasnmodel.views.sasn.Customers_Industries"
+    Type="oracle.jbo.RowIterator"
+    IsUpdateable="false"/>
+</ViewObject>

@@ -1,0 +1,228 @@
+<?xml version="1.0" encoding="windows-1252" ?>
+<!DOCTYPE Entity SYSTEM "jbo_03_01.dtd">
+<!---->
+<Entity
+  xmlns="http://xmlns.oracle.com/bc4j"
+  Name="Consultants"
+  Version="11.1.1.56.60"
+  DBObjectType="table"
+  DBObjectName="CONSULTANTS"
+  AliasName="Consultants"
+  BindingStyle="OracleName"
+  UseGlueCode="false"
+  RowClass="com.vc.sasnmodel.entities.ConsultantsImpl">
+  <DesignTime>
+    <Attr Name="_codeGenFlag2" Value="Access|DML"/>
+    <AttrArray Name="_publishEvents"/>
+    <Attr Name="_isCodegen" Value="true"/>
+  </DesignTime>
+  <Attribute
+    Name="ConId"
+    ColumnName="CON_ID"
+    SQLType="NUMERIC"
+    Type="oracle.jbo.domain.Number"
+    ColumnType="NUMBER"
+    TableName="CONSULTANTS"
+    PrimaryKey="true">
+    <DesignTime>
+      <Attr Name="_DisplaySize" Value="22"/>
+    </DesignTime>
+  </Attribute>
+  <Attribute
+    Name="CcaId"
+    IsNotNull="true"
+    ColumnName="CCA_ID"
+    SQLType="NUMERIC"
+    Type="oracle.jbo.domain.Number"
+    ColumnType="NUMBER"
+    TableName="CONSULTANTS">
+    <DesignTime>
+      <Attr Name="_DisplaySize" Value="22"/>
+    </DesignTime>
+  </Attribute>
+  <Attribute
+    Name="Question"
+    IsNotNull="true"
+    Precision="4000"
+    ColumnName="QUESTION"
+    SQLType="VARCHAR"
+    Type="java.lang.String"
+    ColumnType="VARCHAR2"
+    TableName="CONSULTANTS">
+    <DesignTime>
+      <Attr Name="_DisplaySize" Value="4000"/>
+    </DesignTime>
+  </Attribute>
+  <Attribute
+    Name="Answer"
+    IsQueriable="false"
+    IsNotNull="true"
+    ColumnName="ANSWER"
+    SQLType="CLOB"
+    Type="oracle.jbo.domain.ClobDomain"
+    ColumnType="CLOB"
+    TableName="CONSULTANTS"/>
+  <Attribute
+    Name="CreateDate"
+    ColumnName="CREATE_DATE"
+    SQLType="TIMESTAMP"
+    Type="oracle.jbo.domain.Date"
+    ColumnType="DATE"
+    TableName="CONSULTANTS">
+    <DesignTime>
+      <Attr Name="_DisplaySize" Value="7"/>
+    </DesignTime>
+  </Attribute>
+  <Attribute
+    Name="CreatedBy"
+    IsNotNull="true"
+    Precision="30"
+    ColumnName="CREATED_BY"
+    SQLType="VARCHAR"
+    Type="java.lang.String"
+    ColumnType="VARCHAR2"
+    TableName="CONSULTANTS">
+    <DesignTime>
+      <Attr Name="_DisplaySize" Value="30"/>
+    </DesignTime>
+  </Attribute>
+  <Attribute
+    Name="ModifyDate"
+    ColumnName="MODIFY_DATE"
+    SQLType="TIMESTAMP"
+    Type="oracle.jbo.domain.Date"
+    ColumnType="DATE"
+    TableName="CONSULTANTS">
+    <DesignTime>
+      <Attr Name="_DisplaySize" Value="7"/>
+    </DesignTime>
+  </Attribute>
+  <Attribute
+    Name="ModifiedBy"
+    Precision="30"
+    ColumnName="MODIFIED_BY"
+    SQLType="VARCHAR"
+    Type="java.lang.String"
+    ColumnType="VARCHAR2"
+    TableName="CONSULTANTS">
+    <DesignTime>
+      <Attr Name="_DisplaySize" Value="30"/>
+    </DesignTime>
+  </Attribute>
+  <Attribute
+    Name="Description"
+    Precision="4000"
+    ColumnName="DESCRIPTION"
+    SQLType="VARCHAR"
+    Type="java.lang.String"
+    ColumnType="VARCHAR2"
+    TableName="CONSULTANTS">
+    <DesignTime>
+      <Attr Name="_DisplaySize" Value="4000"/>
+    </DesignTime>
+  </Attribute>
+  <Attribute
+    Name="ShortAnswer"
+    Precision="4000"
+    ColumnName="SHORT_ANSWER"
+    SQLType="VARCHAR"
+    Type="java.lang.String"
+    ColumnType="VARCHAR2"
+    TableName="CONSULTANTS">
+    <DesignTime>
+      <Attr Name="_DisplaySize" Value="4000"/>
+    </DesignTime>
+  </Attribute>
+  <Attribute
+    Name="PriorityOrder"
+    ColumnName="PRIORITY_ORDER"
+    SQLType="NUMERIC"
+    Type="oracle.jbo.domain.Number"
+    ColumnType="NUMBER"
+    TableName="CONSULTANTS">
+    <DesignTime>
+      <Attr Name="_DisplaySize" Value="22"/>
+    </DesignTime>
+  </Attribute>
+  <AccessorAttribute
+    Name="ConsultantCategories"
+    Association="com.vc.sasnmodel.entities.ConCcaFkAssoc"
+    AssociationEnd="com.vc.sasnmodel.entities.ConCcaFkAssoc.ConsultantCategories"
+    AssociationOtherEnd="com.vc.sasnmodel.entities.ConCcaFkAssoc.Consultants"
+    Type="oracle.jbo.server.EntityImpl"
+    IsUpdateable="true"/>
+  <Key
+    Name="ConPk"
+    PrimaryKey="true">
+    <DesignTime>
+      <Attr Name="_DBObjectName" Value="CON_PK"/>
+    </DesignTime>
+    <AttrArray Name="Attributes">
+      <Item Value="com.vc.sasnmodel.entities.Consultants.ConId"/>
+    </AttrArray>
+  </Key>
+  <Key
+    Name="SysC0031403">
+    <DesignTime>
+      <Attr Name="_DBObjectName" Value="SYS_C0031403"/>
+      <Attr Name="_checkCondition" Value='"CREATE_DATE" IS NOT NULL'/>
+      <Attr Name="_isCheck" Value="true"/>
+    </DesignTime>
+    <AttrArray Name="Attributes"/>
+  </Key>
+  <Key
+    Name="SysC0031404">
+    <DesignTime>
+      <Attr Name="_DBObjectName" Value="SYS_C0031404"/>
+      <Attr Name="_checkCondition" Value='"CREATED_BY" IS NOT NULL'/>
+      <Attr Name="_isCheck" Value="true"/>
+    </DesignTime>
+    <AttrArray Name="Attributes">
+      <Item Value="com.vc.sasnmodel.entities.Consultants.CreatedBy"/>
+    </AttrArray>
+  </Key>
+  <Key
+    Name="SysC0031407">
+    <DesignTime>
+      <Attr Name="_DBObjectName" Value="SYS_C0031407"/>
+      <Attr Name="_checkCondition" Value='"CCA_ID" IS NOT NULL'/>
+      <Attr Name="_isCheck" Value="true"/>
+    </DesignTime>
+    <AttrArray Name="Attributes">
+      <Item Value="com.vc.sasnmodel.entities.Consultants.CcaId"/>
+    </AttrArray>
+  </Key>
+  <Key
+    Name="SysC0031408">
+    <DesignTime>
+      <Attr Name="_DBObjectName" Value="SYS_C0031408"/>
+      <Attr Name="_checkCondition" Value='"QUESTION" IS NOT NULL'/>
+      <Attr Name="_isCheck" Value="true"/>
+    </DesignTime>
+    <AttrArray Name="Attributes">
+      <Item Value="com.vc.sasnmodel.entities.Consultants.Question"/>
+    </AttrArray>
+  </Key>
+  <Key
+    Name="SysC0031409">
+    <DesignTime>
+      <Attr Name="_DBObjectName" Value="SYS_C0031409"/>
+      <Attr Name="_checkCondition" Value='"ANSWER" IS NOT NULL'/>
+      <Attr Name="_isCheck" Value="true"/>
+    </DesignTime>
+    <AttrArray Name="Attributes">
+      <Item Value="com.vc.sasnmodel.entities.Consultants.Answer"/>
+    </AttrArray>
+  </Key>
+  <Key
+    Name="ConCcaFk">
+    <DesignTime>
+      <Attr Name="_referencedKey" Value="CCA_PK"/>
+      <Attr Name="_isForeign" Value="true"/>
+      <Attr Name="_DBObjectName" Value="CON_CCA_FK"/>
+    </DesignTime>
+    <AttrArray Name="Attributes">
+      <Item Value="com.vc.sasnmodel.entities.Consultants.CcaId"/>
+    </AttrArray>
+  </Key>
+</Entity>

@@ -1,0 +1,49 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<pageDefinition xmlns="http://xmlns.oracle.com/adfm/uimodel" version="11.1.1.56.60" id="consulPageDef" Package="pages.consul.consulFrag">
+  <parameters/>
+  <executables>
+    <variableIterator id="variables"/>
+    <invokeAction id="showConsultantByCcaId" Binds="prepareToShowConsultantByCcaId" Refresh="ifNeeded"/>
+    <iterator Binds="Sasn03ConsultantsListInConsultantCategories" RangeSize="25" DataControl="PerpSasNewsAppModuleDataControl"
+              id="Sasn03ConsultantsListInConsultantCategoriesIterator"/>
+  </executables>
+  <bindings>
+    <methodAction id="prepareToShowConsultantByCcaId" InstanceName="PerpSasNewsAppModuleDataControl.dataProvider"
+                  DataControl="PerpSasNewsAppModuleDataControl" RequiresUpdateModel="true" Action="invokeMethod"
+                  MethodName="prepareToShowConsultantByCcaId" IsViewObjectMethod="false">
+      <NamedData NDName="CcaId" NDValue="#{consulTaskFlowBean.ccaId}" NDType="oracle.jbo.domain.Number"/>
+    </methodAction>
+    <tree IterBinding="Sasn03ConsultantsListInConsultantCategoriesIterator" id="Sasn03ConsultantsListInConsultantCategories">
+      <nodeDefinition DefName="com.vc.sasnmodel.views.sasn.Consultants" Name="Sasn03ConsultantsListInConsultantCategories0">
+        <AttrNames>
+          <Item Value="ConId"/>
+          <Item Value="Answer"/>
+          <Item Value="CcaId"/>
+          <Item Value="CreateDate"/>
+          <Item Value="CreatedBy"/>
+          <Item Value="Description"/>
+          <Item Value="ModifiedBy"/>
+          <Item Value="ModifyDate"/>
+          <Item Value="PriorityOrder"/>
+          <Item Value="Question"/>
+          <Item Value="ShortAnswer"/>
+        </AttrNames>
+      </nodeDefinition>
+    </tree>
+    <attributeValues IterBinding="Sasn03ConsultantsListInConsultantCategoriesIterator" id="Question">
+      <AttrNames>
+        <Item Value="Question"/>
+      </AttrNames>
+    </attributeValues>
+    <attributeValues IterBinding="Sasn03ConsultantsListInConsultantCategoriesIterator" id="Answer">
+      <AttrNames>
+        <Item Value="Answer"/>
+      </AttrNames>
+    </attributeValues>
+    <action IterBinding="Sasn03ConsultantsListInConsultantCategoriesIterator" id="setCurrentRowWithKey"
+            InstanceName="PerpSasNewsAppModuleDataControl.Sasn03ConsultantsListInConsultantCategories"
+            DataControl="PerpSasNewsAppModuleDataControl" RequiresUpdateModel="false" Action="setCurrentRowWithKey">
+      <NamedData NDName="rowKey" NDValue="#{row.rowKeyStr}" NDType="java.lang.String"/>
+    </action>
+  </bindings>
+</pageDefinition>

@@ -1,0 +1,25 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<adfc-config xmlns="http://xmlns.oracle.com/adf/controller" version="1.2">
+  <view id="sasea001">
+    <page>/pages/sasea/sasea001/sasea001.jspx</page>
+  </view>
+  <view id="login">
+    <page>/pages/sasea/login/login.jspx</page>
+  </view>
+  <managed-bean>
+    <managed-bean-name>sasea001</managed-bean-name>
+    <managed-bean-class>com.perp.saseaviewcontroller.backing.sasea001.Sasea001</managed-bean-class>
+    <managed-bean-scope>request</managed-bean-scope>
+  </managed-bean>
+  <managed-bean>
+    <managed-bean-name>sasea001SubscriptionValidator</managed-bean-name>
+    <managed-bean-class>com.perp.saseaviewcontroller.backing.sasea001.validator.Sasea001SubscriptionValidator</managed-bean-class>
+    <managed-bean-scope>request</managed-bean-scope>
+  </managed-bean>
+  <managed-bean>
+    <managed-bean-name>testting</managed-bean-name>
+    <managed-bean-class>com.perp.saseaviewcontroller.backing.testting.Testting</managed-bean-class>
+    <managed-bean-scope>backingBean</managed-bean-scope>
+    <!--oracle-jdev-comment:managed-bean-jsp-link:1pages/sasea/testting/testting.jspx-->
+  </managed-bean>
+</adfc-config>

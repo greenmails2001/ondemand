@@ -1,0 +1,85 @@
+<?xml version="1.0" encoding="windows-1252" ?>
+<!DOCTYPE Entity SYSTEM "jbo_03_01.dtd">
+<!---->
+<Entity
+  xmlns="http://xmlns.oracle.com/bc4j"
+  Name="AnswerGroups"
+  Version="11.1.1.56.60"
+  DBObjectType="table"
+  DBObjectName="ANSWER_GROUPS"
+  AliasName="AnswerGroups"
+  BindingStyle="OracleName"
+  UseGlueCode="false">
+  <DesignTime>
+    <Attr Name="_codeGenFlag2" Value="Access"/>
+    <AttrArray Name="_publishEvents"/>
+  </DesignTime>
+  <Attribute
+    Name="AgrId"
+    IsNotNull="true"
+    ColumnName="AGR_ID"
+    SQLType="NUMERIC"
+    Type="oracle.jbo.domain.Number"
+    ColumnType="NUMBER"
+    TableName="ANSWER_GROUPS"
+    PrimaryKey="true">
+    <DesignTime>
+      <Attr Name="_DisplaySize" Value="22"/>
+    </DesignTime>
+  </Attribute>
+  <Attribute
+    Name="Name"
+    Precision="100"
+    ColumnName="NAME"
+    SQLType="VARCHAR"
+    Type="java.lang.String"
+    ColumnType="VARCHAR2"
+    TableName="ANSWER_GROUPS">
+    <DesignTime>
+      <Attr Name="_DisplaySize" Value="100"/>
+    </DesignTime>
+  </Attribute>
+  <Attribute
+    Name="Description"
+    Precision="4000"
+    ColumnName="DESCRIPTION"
+    SQLType="VARCHAR"
+    Type="java.lang.String"
+    ColumnType="VARCHAR2"
+    TableName="ANSWER_GROUPS">
+    <DesignTime>
+      <Attr Name="_DisplaySize" Value="4000"/>
+    </DesignTime>
+  </Attribute>
+  <AccessorAttribute
+    Name="AnswerGroupEmails"
+    Association="com.vc.sasnmodel.entities.AgeAgrFkAssoc"
+    AssociationEnd="com.vc.sasnmodel.entities.AgeAgrFkAssoc.AnswerGroupEmails"
+    AssociationOtherEnd="com.vc.sasnmodel.entities.AgeAgrFkAssoc.AnswerGroups"
+    Type="oracle.jbo.RowIterator"
+    IsUpdateable="false"/>
+  <AccessorAttribute
+    Name="GuestQuestions"
+    Association="com.vc.sasnmodel.entities.GquAgrPkAssoc"
+    AssociationEnd="com.vc.sasnmodel.entities.GquAgrPkAssoc.GuestQuestions"
+    AssociationOtherEnd="com.vc.sasnmodel.entities.GquAgrPkAssoc.AnswerGroups"
+    Type="oracle.jbo.RowIterator"
+    IsUpdateable="false"/>
+  <AccessorAttribute
+    Name="OnlineHelps"
+    Association="com.vc.sasnmodel.entities.OheAgrFkAssoc"
+    AssociationEnd="com.vc.sasnmodel.entities.OheAgrFkAssoc.OnlineHelps"
+    AssociationOtherEnd="com.vc.sasnmodel.entities.OheAgrFkAssoc.AnswerGroups"
+    Type="oracle.jbo.RowIterator"
+    IsUpdateable="false"/>
+  <Key
+    Name="AgrPk"
+    PrimaryKey="true">
+    <DesignTime>
+      <Attr Name="_DBObjectName" Value="AGR_PK"/>
+    </DesignTime>
+    <AttrArray Name="Attributes">
+      <Item Value="com.vc.sasnmodel.entities.AnswerGroups.AgrId"/>
+    </AttrArray>
+  </Key>
+</Entity>

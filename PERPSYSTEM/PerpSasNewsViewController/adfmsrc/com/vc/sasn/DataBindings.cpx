@@ -1,0 +1,70 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<Application xmlns="http://xmlns.oracle.com/adfm/application"
+             version="11.1.1.55.36" id="DataBindings" SeparateXMLFiles="false"
+             Package="com.vc.sasn" ClientType="Generic">
+  <definitionFactories>
+    <factory nameSpace="http://xmlns.oracle.com/adf/controller/binding"
+             className="oracle.adf.controller.internal.binding.TaskFlowBindingDefFactoryImpl"/>
+    <dtfactory className="oracle.adf.controller.internal.dtrt.binding.BindingDTObjectFactory"/>
+  </definitionFactories>
+  <pageMap>
+    <page path="/index.jspx" usageId="com_vc_sasn_indexPageDef"/>
+    <page path="/pages/intro/default.jsff"
+          usageId="com_vc_sasn_defaultPageDef"/>
+    <page path="/pages/prod/default.jsff"
+          usageId="com_vc_sasn_defaultPageDef1"/>
+    <page path="/pages/consul/default.jsff"
+          usageId="com_vc_sasn_defaultPageDef2"/>
+    <page path="/test.jspx" usageId="com_vc_sasn_testPageDef"/>
+   
+    <page path="/pages/serv/default.jsff"
+          usageId="com_vc_sasn_defaultPageDef4"/>
+    <page path="/pages/partn/default.jsff"
+          usageId="com_vc_sasn_defaultPageDef5"/>
+    <page path="/pages/cust/default.jsff"
+          usageId="com_vc_sasn_defaultPageDef6"/>
+    <page path="/testting.jspx" usageId="com_vc_sasn_testtingPageDef"/>
+    <page path="/pages/news/view1.jsff" usageId="com_vc_sasn_view1PageDef"/>
+    <page path="/pages/news/default.jsff"
+          usageId="com_vc_sasn_defaultPageDef3"/>
+    <page path="/admin.jspx" usageId="com_vc_sasn_adminPageDef"/>
+    <page path="/pages/admin/news.jsff" usageId="com_vc_sasn_newsPageDef"/>
+    <page path="/pages/consul/consulFrag/consul.jsff" usageId="com_vc_sasn_consulPageDef"/>
+    <page path="/pages/consul/consulFrag/question.jsff" usageId="com_vc_sasn_questionPageDef"/>
+  </pageMap>
+  <pageDefinitionUsages>
+    <page id="com_vc_sasn_indexPageDef"
+          path="com.vc.sasn.pageDefs.indexPageDef"/>
+    <page id="com_vc_sasn_defaultPageDef" path="pages.intro.defaultPageDef"/>
+    <page id="com_vc_sasn_defaultPageDef1" path="pages.prod.defaultPageDef"/>
+    <page id="com_vc_sasn_defaultPageDef2" path="pages.consul.defaultPageDef"/>
+    <page id="com_vc_sasn_testPageDef" path="com.vc.sasn.pageDefs.testPageDef"/>
+   
+    <page id="com_vc_sasn_defaultPageDef4" path="pages.serv.defaultPageDef"/>
+    <page id="com_vc_sasn_defaultPageDef5" path="pages.partn.defaultPageDef"/>
+    <page id="com_vc_sasn_defaultPageDef6" path="pages.cust.defaultPageDef"/>
+    <page id="com_vc_sasn_testtingPageDef"
+          path="com.vc.sasn.pageDefs.testtingPageDef"/>
+    <page id="com_vc_sasn_view1PageDef" path="pages.news.view1PageDef"/>
+    <page id="com_vc_sasn_defaultPageDef3" path="pages.news.defaultPageDef"/>
+    <page id="com_vc_sasn_adminPageDef" path="com.vc.sasn.pageDefs.adminPageDef"/>
+    <page id="com_vc_sasn_newsPageDef" path="pages.admin.newsPageDef"/>
+    <page id="com_vc_sasn_consulPageDef" path="pages.consul.consulFrag.consulPageDef"/>
+    <page id="com_vc_sasn_questionPageDef" path="pages.consul.consulFrag.questionPageDef"/>
+  </pageDefinitionUsages>
+  <dataControlUsages>
+    <BC4JDataControl id="PerpSasNewsAppModuleDataControl"
+                     Package="com.vc.sasnmodel"
+                     FactoryClass="oracle.adf.model.bc4j.DataControlFactoryImpl"
+                     SupportsTransactions="true" SupportsFindMode="true"
+                     SupportsRangesize="true" SupportsResetState="true"
+                     SupportsSortCollection="true"
+                     Configuration="PerpSasNewsAppModuleLocal"
+                     syncMode="Immediate"
+                     xmlns="http://xmlns.oracle.com/adfm/datacontrol"/>
+    <BC4JDataControl id="SasNewsAddminAppModuleDataControl" Package="com.vc.sasnmodel.views.admin"
+                     FactoryClass="oracle.adf.model.bc4j.DataControlFactoryImpl" SupportsTransactions="true" SupportsFindMode="true"
+                     SupportsRangesize="true" SupportsResetState="true" SupportsSortCollection="true"
+                     Configuration="SasNewsAddminAppModuleLocal" syncMode="Immediate" xmlns="http://xmlns.oracle.com/adfm/datacontrol"/>
+  </dataControlUsages>
+</Application>

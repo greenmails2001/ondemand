@@ -1,0 +1,42 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE Association SYSTEM "jbo_03_01.dtd">
+<!---->
+<Association
+  xmlns="http://xmlns.oracle.com/bc4j"
+  Name="AppMnuFkAssoc"
+  Version="11.1.1.51.88">
+  <DesignTime>
+    <Attr Name="_isCodegen" Value="true"/>
+  </DesignTime>
+  <AssociationEnd
+    Name="Applications"
+    Cardinality="1"
+    Source="true"
+    Owner="com.perp.sasmodel.entities.Applications">
+    <AttrArray Name="Attributes">
+      <Item Value="com.perp.sasmodel.entities.Applications.AppCode"/>
+    </AttrArray>
+    <DesignTime>
+      <Attr Name="_aggregation" Value="0"/>
+      <Attr Name="_finderName" Value="Applications"/>
+      <Attr Name="_foreignKey"
+        Value="com.perp.sasmodel.entities.Applications.AppPk"/>
+      <Attr Name="_isUpdateable" Value="true"/>
+    </DesignTime>
+  </AssociationEnd>
+  <AssociationEnd
+    Name="Menus"
+    Cardinality="-1"
+    Owner="com.perp.sasmodel.entities.Menus">
+    <AttrArray Name="Attributes">
+      <Item Value="com.perp.sasmodel.entities.Menus.AppCode"/>
+    </AttrArray>
+    <DesignTime>
+      <Attr Name="_aggregation" Value="0"/>
+      <Attr Name="_finderName" Value="Menus"/>
+      <Attr Name="_foreignKey"
+        Value="com.perp.sasmodel.entities.Menus.AppMnuFk"/>
+      <Attr Name="_isUpdateable" Value="true"/>
+    </DesignTime>
+  </AssociationEnd>
+</Association>

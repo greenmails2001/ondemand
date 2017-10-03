@@ -1,0 +1,181 @@
+<?xml version="1.0" encoding="windows-1252" ?>
+<!DOCTYPE Entity SYSTEM "jbo_03_01.dtd">
+<!---->
+<Entity
+  xmlns="http://xmlns.oracle.com/bc4j"
+  Name="Services"
+  Version="11.1.1.56.60"
+  DBObjectType="table"
+  DBObjectName="SERVICES"
+  AliasName="Services"
+  BindingStyle="OracleName"
+  UseGlueCode="false"
+  RowClass="com.vc.sasnmodel.entities.ServicesImpl">
+  <DesignTime>
+    <Attr Name="_codeGenFlag2" Value="Access|DML"/>
+    <AttrArray Name="_publishEvents"/>
+    <Attr Name="_isCodegen" Value="true"/>
+  </DesignTime>
+  <Attribute
+    Name="SerId"
+    ColumnName="SER_ID"
+    SQLType="NUMERIC"
+    Type="oracle.jbo.domain.Number"
+    ColumnType="NUMBER"
+    TableName="SERVICES"
+    PrimaryKey="true">
+    <DesignTime>
+      <Attr Name="_DisplaySize" Value="22"/>
+    </DesignTime>
+  </Attribute>
+  <Attribute
+    Name="Title"
+    Precision="400"
+    ColumnName="TITLE"
+    SQLType="VARCHAR"
+    Type="java.lang.String"
+    ColumnType="VARCHAR2"
+    TableName="SERVICES">
+    <DesignTime>
+      <Attr Name="_DisplaySize" Value="400"/>
+    </DesignTime>
+  </Attribute>
+  <Attribute
+    Name="Content"
+    IsQueriable="false"
+    ColumnName="CONTENT"
+    SQLType="CLOB"
+    Type="oracle.jbo.domain.ClobDomain"
+    ColumnType="CLOB"
+    TableName="SERVICES"/>
+  <Attribute
+    Name="CreateDate"
+    ColumnName="CREATE_DATE"
+    SQLType="TIMESTAMP"
+    Type="oracle.jbo.domain.Date"
+    ColumnType="DATE"
+    TableName="SERVICES">
+    <DesignTime>
+      <Attr Name="_DisplaySize" Value="7"/>
+    </DesignTime>
+  </Attribute>
+  <Attribute
+    Name="CreatedBy"
+    Precision="30"
+    ColumnName="CREATED_BY"
+    SQLType="VARCHAR"
+    Type="java.lang.String"
+    ColumnType="VARCHAR2"
+    TableName="SERVICES">
+    <DesignTime>
+      <Attr Name="_DisplaySize" Value="30"/>
+    </DesignTime>
+  </Attribute>
+  <Attribute
+    Name="ModifyDate"
+    ColumnName="MODIFY_DATE"
+    SQLType="TIMESTAMP"
+    Type="oracle.jbo.domain.Date"
+    ColumnType="DATE"
+    TableName="SERVICES">
+    <DesignTime>
+      <Attr Name="_DisplaySize" Value="7"/>
+    </DesignTime>
+  </Attribute>
+  <Attribute
+    Name="ModifiedBy"
+    Precision="30"
+    ColumnName="MODIFIED_BY"
+    SQLType="VARCHAR"
+    Type="java.lang.String"
+    ColumnType="VARCHAR2"
+    TableName="SERVICES">
+    <DesignTime>
+      <Attr Name="_DisplaySize" Value="30"/>
+    </DesignTime>
+  </Attribute>
+  <Attribute
+    Name="Description"
+    Precision="4000"
+    ColumnName="DESCRIPTION"
+    SQLType="VARCHAR"
+    Type="java.lang.String"
+    ColumnType="VARCHAR2"
+    TableName="SERVICES">
+    <DesignTime>
+      <Attr Name="_DisplaySize" Value="4000"/>
+    </DesignTime>
+  </Attribute>
+  <Attribute
+    Name="PriorityOrder"
+    ColumnName="PRIORITY_ORDER"
+    SQLType="NUMERIC"
+    Type="oracle.jbo.domain.Number"
+    ColumnType="NUMBER"
+    TableName="SERVICES"
+    RetrievedOnInsert="true">
+    <DesignTime>
+      <Attr Name="_DisplaySize" Value="22"/>
+    </DesignTime>
+  </Attribute>
+  <Attribute
+    Name="SerIdChildOf"
+    ColumnName="SER_ID_CHILD_OF"
+    SQLType="NUMERIC"
+    Type="oracle.jbo.domain.Number"
+    ColumnType="NUMBER"
+    TableName="SERVICES">
+    <DesignTime>
+      <Attr Name="_DisplaySize" Value="22"/>
+    </DesignTime>
+  </Attribute>
+  <AccessorAttribute
+    Name="SerIdChildOfServices"
+    Association="com.vc.sasnmodel.entities.SerSerFkAssoc"
+    AssociationEnd="com.vc.sasnmodel.entities.SerSerFkAssoc.SerIdChildOfServices"
+    AssociationOtherEnd="com.vc.sasnmodel.entities.SerSerFkAssoc.Services"
+    Type="oracle.jbo.RowIterator"
+    IsUpdateable="false"/>
+  <AccessorAttribute
+    Name="Services"
+    Association="com.vc.sasnmodel.entities.SerSerFkAssoc"
+    AssociationEnd="com.vc.sasnmodel.entities.SerSerFkAssoc.Services"
+    AssociationOtherEnd="com.vc.sasnmodel.entities.SerSerFkAssoc.SerIdChildOfServices"
+    Type="com.vc.sasnmodel.entities.ServicesImpl"
+    IsUpdateable="true"/>
+  <ViewLinkAccessor
+    Name="ServicesRoot"
+    ViewLink="com.vc.sasnmodel.views.sasn.Services_ServicesRoot"
+    ViewLinkEnd="com.vc.sasnmodel.views.sasn.Services_ServicesRoot.ServicesRoot1"
+    ViewLinkOtherEnd="com.vc.sasnmodel.views.sasn.Services_ServicesRoot.Services"
+    Type="oracle.jbo.server.ViewRowImpl"
+    IsUpdateable="false"/>
+  <Key
+    Name="SerPk"
+    PrimaryKey="true">
+    <DesignTime>
+      <Attr Name="_DBObjectName" Value="SER_PK"/>
+    </DesignTime>
+    <AttrArray Name="Attributes">
+      <Item Value="com.vc.sasnmodel.entities.Services.SerId"/>
+    </AttrArray>
+  </Key>
+  <Key
+    Name="SysC0030797">
+    <DesignTime>
+      <Attr Name="_DBObjectName" Value="SYS_C0030797"/>
+      <Attr Name="_checkCondition" Value='"CREATE_DATE" IS NOT NULL'/>
+      <Attr Name="_isCheck" Value="true"/>
+    </DesignTime>
+    <AttrArray Name="Attributes"/>
+  </Key>
+  <Key
+    Name="SysC0030798">
+    <DesignTime>
+      <Attr Name="_DBObjectName" Value="SYS_C0030798"/>
+      <Attr Name="_checkCondition" Value='"CREATED_BY" IS NOT NULL'/>
+      <Attr Name="_isCheck" Value="true"/>
+    </DesignTime>
+    <AttrArray Name="Attributes"/>
+  </Key>
+</Entity>

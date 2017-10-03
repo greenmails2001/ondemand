@@ -1,0 +1,217 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE Entity SYSTEM "jbo_03_01.dtd">
+<!---->
+<Entity
+  xmlns="http://xmlns.oracle.com/bc4j"
+  Name="Environments"
+  Version="11.1.1.56.60"
+  DBObjectType="table"
+  DBObjectName="ENVIRONMENTS"
+  AliasName="Environments"
+  BindingStyle="OracleName"
+  UseGlueCode="false">
+  <DesignTime>
+    <Attr Name="_codeGenFlag2" Value="Access"/>
+    <AttrArray Name="_publishEvents"/>
+  </DesignTime>
+  <Attribute
+    Name="EnvId"
+    ColumnName="ENV_ID"
+    Type="oracle.jbo.domain.DBSequence"
+    ColumnType="NUMBER"
+    SQLType="NUMERIC"
+    TableName="ENVIRONMENTS"
+    PrimaryKey="true"
+    IsUpdateable="while_insert"
+    DefaultValue="@0"
+    RetrievedOnInsert="true">
+    <DesignTime>
+      <Attr Name="_DisplaySize" Value="22"/>
+    </DesignTime>
+  </Attribute>
+  <Attribute
+    Name="SubId"
+    ColumnName="SUB_ID"
+    Type="oracle.jbo.domain.Number"
+    ColumnType="NUMBER"
+    SQLType="NUMERIC"
+    TableName="ENVIRONMENTS">
+    <DesignTime>
+      <Attr Name="_DisplaySize" Value="22"/>
+    </DesignTime>
+  </Attribute>
+  <Attribute
+    Name="DbHost"
+    Precision="100"
+    ColumnName="DB_HOST"
+    Type="java.lang.String"
+    ColumnType="VARCHAR2"
+    SQLType="VARCHAR"
+    TableName="ENVIRONMENTS">
+    <DesignTime>
+      <Attr Name="_DisplaySize" Value="100"/>
+    </DesignTime>
+  </Attribute>
+  <Attribute
+    Name="DbPort"
+    Precision="5"
+    Scale="0"
+    ColumnName="DB_PORT"
+    Type="oracle.jbo.domain.Number"
+    ColumnType="NUMBER"
+    SQLType="NUMERIC"
+    TableName="ENVIRONMENTS">
+    <DesignTime>
+      <Attr Name="_DisplaySize" Value="22"/>
+    </DesignTime>
+  </Attribute>
+  <Attribute
+    Name="Sid"
+    Precision="30"
+    ColumnName="SID"
+    Type="java.lang.String"
+    ColumnType="VARCHAR2"
+    SQLType="VARCHAR"
+    TableName="ENVIRONMENTS">
+    <DesignTime>
+      <Attr Name="_DisplaySize" Value="30"/>
+    </DesignTime>
+  </Attribute>
+  <Attribute
+    Name="DbUser"
+    Precision="30"
+    ColumnName="DB_USER"
+    Type="java.lang.String"
+    ColumnType="VARCHAR2"
+    SQLType="VARCHAR"
+    TableName="ENVIRONMENTS">
+    <DesignTime>
+      <Attr Name="_DisplaySize" Value="30"/>
+    </DesignTime>
+  </Attribute>
+  <Attribute
+    Name="DbPwd"
+    Precision="30"
+    ColumnName="DB_PWD"
+    Type="java.lang.String"
+    ColumnType="VARCHAR2"
+    SQLType="VARCHAR"
+    TableName="ENVIRONMENTS">
+    <DesignTime>
+      <Attr Name="_DisplaySize" Value="30"/>
+    </DesignTime>
+  </Attribute>
+  <Attribute
+    Name="AppHost"
+    Precision="100"
+    ColumnName="APP_HOST"
+    Type="java.lang.String"
+    ColumnType="VARCHAR2"
+    SQLType="VARCHAR"
+    TableName="ENVIRONMENTS">
+    <DesignTime>
+      <Attr Name="_DisplaySize" Value="100"/>
+    </DesignTime>
+  </Attribute>
+  <Attribute
+    Name="AppPort"
+    Precision="3"
+    Scale="0"
+    ColumnName="APP_PORT"
+    Type="oracle.jbo.domain.Number"
+    ColumnType="NUMBER"
+    SQLType="NUMERIC"
+    TableName="ENVIRONMENTS">
+    <DesignTime>
+      <Attr Name="_DisplaySize" Value="22"/>
+    </DesignTime>
+  </Attribute>
+  <Attribute
+    Name="CurrentNumOfAppUser"
+    Precision="5"
+    Scale="0"
+    ColumnName="CURRENT_NUM_OF_APP_USER"
+    Type="oracle.jbo.domain.Number"
+    ColumnType="NUMBER"
+    SQLType="NUMERIC"
+    TableName="ENVIRONMENTS">
+    <DesignTime>
+      <Attr Name="_DisplaySize" Value="22"/>
+    </DesignTime>
+  </Attribute>
+  <Attribute
+    Name="SetupDate"
+    IsNotNull="true"
+    ColumnName="SETUP_DATE"
+    Type="oracle.jbo.domain.Date"
+    ColumnType="DATE"
+    SQLType="TIMESTAMP"
+    TableName="ENVIRONMENTS">
+    <DesignTime>
+      <Attr Name="_DisplaySize" Value="7"/>
+    </DesignTime>
+  </Attribute>
+  <Attribute
+    Name="RemovedDate"
+    ColumnName="REMOVED_DATE"
+    Type="oracle.jbo.domain.Date"
+    ColumnType="DATE"
+    SQLType="TIMESTAMP"
+    TableName="ENVIRONMENTS">
+    <DesignTime>
+      <Attr Name="_DisplaySize" Value="7"/>
+    </DesignTime>
+  </Attribute>
+  <Attribute
+    Name="Descriptions"
+    Precision="4000"
+    ColumnName="DESCRIPTIONS"
+    Type="java.lang.String"
+    ColumnType="VARCHAR2"
+    SQLType="VARCHAR"
+    TableName="ENVIRONMENTS">
+    <DesignTime>
+      <Attr Name="_DisplaySize" Value="4000"/>
+    </DesignTime>
+  </Attribute>
+  <Attribute
+    Name="JdbcUrl"
+    Precision="240"
+    ColumnName="JDBC_URL"
+    SQLType="VARCHAR"
+    Type="java.lang.String"
+    ColumnType="VARCHAR2"
+    TableName="ENVIRONMENTS">
+    <DesignTime>
+      <Attr Name="_DisplaySize" Value="240"/>
+    </DesignTime>
+  </Attribute>
+  <AccessorAttribute
+    Name="SubscriptionViewDetails"
+    Association="com.perp.sasenvmodel.entities.SvdEnvFkAssoc"
+    AssociationEnd="com.perp.sasenvmodel.entities.SvdEnvFkAssoc.SubscriptionViewDetails"
+    AssociationOtherEnd="com.perp.sasenvmodel.entities.SvdEnvFkAssoc.Environments"
+    Type="oracle.jbo.server.EntityImpl"
+    IsUpdateable="true"/>
+  <Key
+    Name="EnvPk"
+    PrimaryKey="true">
+    <DesignTime>
+      <Attr Name="_DBObjectName" Value="ENV_PK"/>
+    </DesignTime>
+    <AttrArray Name="Attributes">
+      <Item Value="com.perp.sasenvmodel.entities.Environments.EnvId"/>
+    </AttrArray>
+  </Key>
+  <Key
+    Name="SysC0051855">
+    <DesignTime>
+      <Attr Name="_DBObjectName" Value="SYS_C0051855"/>
+      <Attr Name="_checkCondition" Value='"SETUP_DATE" IS NOT NULL'/>
+      <Attr Name="_isCheck" Value="true"/>
+    </DesignTime>
+    <AttrArray Name="Attributes">
+      <Item Value="com.perp.sasenvmodel.entities.Environments.SetupDate"/>
+    </AttrArray>
+  </Key>
+</Entity>

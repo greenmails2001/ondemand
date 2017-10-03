@@ -1,0 +1,107 @@
+<?xml version="1.0" encoding="windows-1252" ?>
+<adfc-config xmlns="http://xmlns.oracle.com/adf/controller" version="1.2">
+  <view id="index">
+    <page>/index.jspx</page>
+  </view>
+  <view id="genImg">
+    <page>/genImg.jspx</page>
+  </view>
+  <view id="testting">
+    <page>/testting.jspx</page>
+  </view>
+  <view id="login">
+    <page>/login.jspx</page>
+  </view>
+  <view id="admin">
+    <page>/admin.jspx</page>
+  </view>
+  <control-flow-rule id="__25">
+    <from-activity-id id="__26">login</from-activity-id>
+    <control-flow-case id="__28">
+      <from-outcome id="__29">index</from-outcome>
+      <to-activity-id id="__27">index</to-activity-id>
+    </control-flow-case>
+  </control-flow-rule>
+  <control-flow-rule id="__65">
+    <from-activity-id id="__66">admin</from-activity-id>
+    <control-flow-case id="__67">
+      <from-outcome id="__69">sasnews</from-outcome>
+      <to-activity-id id="__68">index</to-activity-id>
+    </control-flow-case>
+  </control-flow-rule>
+  <managed-bean id="__12">
+    <managed-bean-name id="__13">generateImageFromBlobs</managed-bean-name>
+    <managed-bean-class id="__14">com.vc.sasn.GenerateImageFromBlobs</managed-bean-class>
+    <managed-bean-scope id="__11">request</managed-bean-scope>
+  </managed-bean>
+  <managed-bean id="__22">
+    <managed-bean-name id="__19">testting</managed-bean-name>
+    <managed-bean-class id="__21">com.vc.sasn.Testting</managed-bean-class>
+    <managed-bean-scope id="__20">request</managed-bean-scope>
+  </managed-bean>
+  <managed-bean id="__17">
+    <managed-bean-name id="__15">sasnSessionLoginObject</managed-bean-name>
+    <managed-bean-class id="__16">com.perp.beans.SasnSessionLoginObject</managed-bean-class>
+    <managed-bean-scope id="__18">session</managed-bean-scope>
+  </managed-bean>
+  <managed-bean id="__4">
+    <managed-bean-name id="__1">sasnAdminLogin</managed-bean-name>
+    <managed-bean-class id="__2">com.vc.sasn.SasnAdminLogin</managed-bean-class>
+    <managed-bean-scope id="__3">request</managed-bean-scope>
+  </managed-bean>
+  <managed-bean id="__7">
+    <managed-bean-name id="__8">onlineHelp</managed-bean-name>
+    <managed-bean-class id="__6">pages.consul.OnlineHelp</managed-bean-class>
+    <managed-bean-scope id="__5">request</managed-bean-scope>
+  </managed-bean>
+  <managed-bean id="__23">
+    <managed-bean-name id="__24">c01NewsOthers</managed-bean-name>
+    <managed-bean-class id="__9">com.vc.sasn.beans.NewsOthersBean</managed-bean-class>
+    <managed-bean-scope id="__10">request</managed-bean-scope>
+  </managed-bean>
+  <managed-bean id="__33">
+    <managed-bean-name id="__32">urlValidator</managed-bean-name>
+    <managed-bean-class id="__31">com.vc.sasn.validators.UrlValidator</managed-bean-class>
+    <managed-bean-scope id="__30">request</managed-bean-scope>
+  </managed-bean>
+  <managed-bean id="__34">
+    <managed-bean-name id="__35">index</managed-bean-name>
+    <managed-bean-class id="__36">com.vc.sasn.bookmarks.Index</managed-bean-class>
+    <managed-bean-scope id="__37">request</managed-bean-scope>
+    <managed-property id="__39">
+      <property-name id="__38">bookmark</property-name>
+      <property-class>java.lang.String</property-class>
+      <value id="__40">#{param.bookmark}</value>
+    </managed-property>
+  </managed-bean>
+  <managed-bean id="__42">
+    <managed-bean-name id="__43">roleVideoDemoBean</managed-bean-name>
+    <managed-bean-class id="__41">com.vc.sasn.beans.RoleVideoDemoBean</managed-bean-class>
+    <managed-bean-scope id="__44">request</managed-bean-scope>
+  </managed-bean>
+  <managed-bean id="__47">
+    <managed-bean-name id="__46">indexBean</managed-bean-name>
+    <managed-bean-class id="__48">com.vc.sasn.beans.IndexBean</managed-bean-class>
+    <managed-bean-scope id="__45">session</managed-bean-scope>
+  </managed-bean>
+  <managed-bean id="__53">
+    <managed-bean-name id="__56">contactInfos</managed-bean-name>
+    <managed-bean-class id="__55">com.vc.sasn.beans.ContactInfos</managed-bean-class>
+    <managed-bean-scope id="__54">request</managed-bean-scope>
+  </managed-bean>
+  <managed-bean id="__62">
+    <managed-bean-name id="__64">adminBackingBean</managed-bean-name>
+    <managed-bean-class id="__61">com.vc.sasn.beans.AdminBackingBean</managed-bean-class>
+    <managed-bean-scope id="__63">request</managed-bean-scope>
+  </managed-bean>
+  <managed-bean id="__52">
+    <managed-bean-name id="__51">architechBean</managed-bean-name>
+    <managed-bean-class id="__49">com.vc.sasn.beans.ArchitechBean</managed-bean-class>
+    <managed-bean-scope id="__50">request</managed-bean-scope>
+  </managed-bean>
+  <managed-bean id="__58">
+    <managed-bean-name id="__59">consulTaskFlowBean</managed-bean-name>
+    <managed-bean-class id="__60">com.vc.sasn.beans.ConsulTaskFlowBean</managed-bean-class>
+    <managed-bean-scope id="__57">request</managed-bean-scope>
+  </managed-bean>
+</adfc-config>

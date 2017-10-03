@@ -1,0 +1,42 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE Association SYSTEM "jbo_03_01.dtd">
+<!---->
+<Association
+  xmlns="http://xmlns.oracle.com/bc4j"
+  Name="RespMenFkAssoc"
+  Version="11.1.1.51.88">
+  <DesignTime>
+    <Attr Name="_isCodegen" Value="true"/>
+  </DesignTime>
+  <AssociationEnd
+    Name="Menus"
+    Cardinality="1"
+    Source="true"
+    Owner="com.perp.sasmodel.entities.Menus">
+    <AttrArray Name="Attributes">
+      <Item Value="com.perp.sasmodel.entities.Menus.MenId"/>
+    </AttrArray>
+    <DesignTime>
+      <Attr Name="_aggregation" Value="0"/>
+      <Attr Name="_finderName" Value="Menus"/>
+      <Attr Name="_foreignKey" Value="com.perp.sasmodel.entities.Menus.MenPk"/>
+      <Attr Name="_isUpdateable" Value="true"/>
+      <Attr Name="_minCardinality" Value="1"/>
+    </DesignTime>
+  </AssociationEnd>
+  <AssociationEnd
+    Name="Responsibilities"
+    Cardinality="-1"
+    Owner="com.perp.sasmodel.entities.Responsibilities">
+    <AttrArray Name="Attributes">
+      <Item Value="com.perp.sasmodel.entities.Responsibilities.MenId"/>
+    </AttrArray>
+    <DesignTime>
+      <Attr Name="_aggregation" Value="0"/>
+      <Attr Name="_finderName" Value="Responsibilities"/>
+      <Attr Name="_foreignKey"
+        Value="com.perp.sasmodel.entities.Responsibilities.RespMenFk"/>
+      <Attr Name="_isUpdateable" Value="true"/>
+    </DesignTime>
+  </AssociationEnd>
+</Association>

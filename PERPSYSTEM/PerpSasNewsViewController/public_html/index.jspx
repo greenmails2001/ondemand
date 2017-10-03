@@ -1,0 +1,131 @@
+<?xml version='1.0' encoding='UTF-8'?>
+<jsp:root xmlns:jsp="http://java.sun.com/JSP/Page" version="2.1" xmlns:f="http://java.sun.com/jsf/core"
+          xmlns:af="http://xmlns.oracle.com/adf/faces/rich" xmlns:c="http://java.sun.com/jsp/jstl/core">
+  <jsp:directive.page contentType="text/html;charset=UTF-8"/>
+  <c:set var="perpsasnewsviewcontrollerBundle" value="#{adfBundle['com.vc.sasn.PerpSasNewsViewControllerBundle']}"/>
+  <f:view beforePhase="#{indexBean.onPageLoad}">
+    <af:document id="d1" title="VBISCloud">
+      <af:resource type="javascript" source="/index.js"/>
+      <af:form id="f1" usesUpload="true">       
+        <af:popup id="newsOthersPopupID">
+          <af:dialog id="d2" dialogListener="#{indexBean.saveNewsOthersDialogListener}">
+            <af:panelFormLayout id="pfl1" rows="4" fieldWidth="120" labelWidth="120">
+              <af:inputText label="Ma so" id="it1" columns="80" value="#{indexBean.newsOthersBean.notNumber}" required="true"/>
+              <af:inputText label="Tieu de" id="it2" columns="80" value="#{indexBean.newsOthersBean.title}" required="true"/>
+              <af:inputText label="Mo ta" id="it3" columns="80" rows="2" value="#{indexBean.newsOthersBean.description}"/>
+              <af:richTextEditor id="rte1" columns="100" rows="10" value="#{indexBean.newsOthersBean.content}"
+                                 converter="oracle.genericDomain" required="true"/>
+            </af:panelFormLayout>
+          </af:dialog>
+        </af:popup>
+        <af:decorativeBox id="pt_db1" theme="dark" styleClass="AFVisualRoot">
+          <f:facet name="center">
+            <af:panelSplitter id="ps1" orientation="vertical" splitterPosition="12" disabled="true">
+              <f:facet name="first">
+                <af:panelGroupLayout id="pt_pgl1" layout="vertical" styleClass="AFStretchWidth" halign="right">
+                  <af:panelGroupLayout id="pgl1" layout="horizontal">                 
+                    <af:commandLink text="Home" id="cl2" actionListener="#{indexBean.goHomeActionListener}" partialSubmit="true"/>
+                    <af:commandLink text="Download" id="cl1" actionListener="#{indexBean.goConsutantDownloadActionListener}"
+                                    partialSubmit="true"/>
+                    <af:commandLink text="Forum" id="cl4" partialSubmit="true" actionListener="#{indexBean.goForumActionListener}"></af:commandLink>
+                    <af:commandLink text="Contact" id="cl6" actionListener="#{indexBean.goContactActionListener}" partialSubmit="true"/>
+                    <af:commandLink text="Help" id="cl3" actionListener="#{indexBean.goConsultantHelpActionListener}" partialSubmit="true"/>
+                    <!--<af:commandLink text="Sign In" id="cl5" partialSubmit="true" actionListener="#{indexBean.goSignInPerpsas}">-->
+                    <af:goLink text="Sign In" id="glSignIn" targetFrame="_blank" destination="http://www.vbiscloud.com/perpsas"/>
+                    <af:spacer width="10" height="10" id="s7"/>
+                    <f:facet name="separator">
+                      <af:spacer width="10" height="10" id="s1"/>
+                    </f:facet>
+                  </af:panelGroupLayout>
+                </af:panelGroupLayout>
+              </f:facet>
+              <f:facet name="second">
+                <af:decorativeBox id="db1" theme="light">
+                  <f:facet name="center">
+                    <af:panelSplitter id="ps2" orientation="vertical" splitterPosition="84" disabled="true">
+                      <f:facet name="first">
+                        <af:panelGroupLayout layout="vertical" xmlns:af="http://xmlns.oracle.com/adf/faces/rich" id="pgl9"
+                                             clientComponent="false">
+                          <af:panelBorderLayout id="pbl2" inlineStyle="height:82px;" clientComponent="false">
+                            <f:facet name="start">
+                              <af:image source="/images/vc_logo02.png" shortDesc="logo" id="i1" clientComponent="false"></af:image>
+                            </f:facet>
+                            <af:spacer width="10" height="10" id="s2"/>
+                            <f:facet name="end">
+                              <af:image source="/images/VBISCloud02.png" id="i3" shortDesc="cloud" clientComponent="false"
+                                        inlineStyle="height:85px; width:294px;"/>
+                            </f:facet>
+                          </af:panelBorderLayout>
+                        </af:panelGroupLayout>
+                      </f:facet>
+                      <f:facet name="second">
+                        <af:panelTabbed id="pt1" partialTriggers="cl2 cl1 cl3 cl6">
+                          <af:showDetailItem text="#{perpsasnewsviewcontrollerBundle['sasn.page.index.tab.introduction']}"
+                                             id="introduction" stretchChildren="first">
+                            <af:panelHeader text="#{perpsasnewsviewcontrollerBundle['sasn.page.index.tab.introduction.subtitle']}" id="ph1"
+                                            icon="/images/introduction.png">
+                              <af:region value="#{bindings.sasnintro1.regionModel}" id="r1"/>
+                            </af:panelHeader>
+                          </af:showDetailItem>
+                          <af:showDetailItem text="#{perpsasnewsviewcontrollerBundle['sasn.page.index.tab.product']}" id="product"
+                                             clientComponent="true" stretchChildren="first">
+                            <af:panelHeader text="#{perpsasnewsviewcontrollerBundle['sasn.page.index.tab.product.subtitle']}" id="ph7"
+                                            icon="/images/product.png">
+                              <af:region value="#{bindings.sasnprod1.regionModel}" id="r2"/>
+                            </af:panelHeader>
+                          </af:showDetailItem>
+                          <af:showDetailItem text="#{perpsasnewsviewcontrollerBundle['sasn.page.index.tab.service']}" id="service"
+                                             stretchChildren="first" clientComponent="true">
+                            <af:panelHeader text="#{perpsasnewsviewcontrollerBundle['sasn.page.index.tab.service.subtitle']}" id="ph2"
+                                            icon="/images/service.png">
+                              <af:region value="#{bindings.sasnserv1.regionModel}" id="r3"/>
+                            </af:panelHeader>
+                          </af:showDetailItem>
+                          <af:showDetailItem text="#{perpsasnewsviewcontrollerBundle['sasn.page.index.tab.partner']}" id="partner"
+                                             clientComponent="true" stretchChildren="first">
+                            <af:panelHeader text="#{perpsasnewsviewcontrollerBundle['sasn.page.index.tab.partner.subtitle']}" id="ph3"
+                                            icon="/images/partner.png">
+                              <af:region value="#{bindings.sasnpartn1.regionModel}" id="r4"/>
+                            </af:panelHeader>
+                          </af:showDetailItem>
+                          <af:showDetailItem text="#{perpsasnewsviewcontrollerBundle['sasn.page.index.tab.customer']}" id="customer"
+                                             clientComponent="true" stretchChildren="first">
+                            <af:panelHeader text="#{perpsasnewsviewcontrollerBundle['sasn.page.index.tab.customer.subtitle']}" id="ph4"
+                                            icon="/images/customer.png">
+                              <af:region value="#{bindings.sanscust1.regionModel}" id="r5"/>
+                            </af:panelHeader>
+                          </af:showDetailItem>
+                          <af:showDetailItem text="#{perpsasnewsviewcontrollerBundle['sasn.page.index.tab.news']}" id="news"
+                                             clientComponent="true" stretchChildren="first">
+                            <af:panelHeader text="#{perpsasnewsviewcontrollerBundle['sasn.page.index.tab.news.subtitle']}" id="ph5"
+                                            icon="/images/news.png">
+                              <af:region value="#{bindings.sasnnews1.regionModel}" id="r6"/>
+                            </af:panelHeader>
+                          </af:showDetailItem>
+                          <af:showDetailItem text="#{perpsasnewsviewcontrollerBundle['sasn.page.index.tab.consultant']}" id="consultant"
+                                             stretchChildren="first">
+                            <af:panelHeader text="#{perpsasnewsviewcontrollerBundle['sasn.page.index.tab.consultant.subtitle']}" id="ph6"
+                                            icon="/images/consultant.png">
+                              <af:region value="#{bindings.sasnconsul1.regionModel}" id="r7"/>
+                            </af:panelHeader>
+                          </af:showDetailItem>
+                          <af:showDetailItem text="#{perpsasnewsviewcontrollerBundle['sasn.page.index.tab.system']}" id="system"
+                                             clientComponent="true" stretchChildren="first">
+                            <af:panelHeader text="#{perpsasnewsviewcontrollerBundle['sasn.page.index.tab.system.subtitle']}"
+                                            id="panelHeader1" icon="/images/consultant.png">
+                              <af:region value="#{bindings.sasnsys1.regionModel}" id="r8"/>
+                            </af:panelHeader>
+                          </af:showDetailItem>
+                        </af:panelTabbed>
+                      </f:facet>
+                    </af:panelSplitter>
+                  </f:facet>
+                </af:decorativeBox>
+              </f:facet>
+            </af:panelSplitter>
+          </f:facet>
+        </af:decorativeBox>
+      </af:form>
+    </af:document>
+  </f:view>
+</jsp:root>

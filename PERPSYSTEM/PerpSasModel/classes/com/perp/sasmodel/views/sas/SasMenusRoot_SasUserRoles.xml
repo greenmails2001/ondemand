@@ -1,0 +1,39 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE ViewLink SYSTEM "jbo_03_01.dtd">
+<!---->
+<ViewLink
+  xmlns="http://xmlns.oracle.com/bc4j"
+  Name="SasMenusRoot_SasUserRoles"
+  Version="11.1.1.56.60">
+  <DesignTime>
+    <Attr Name="_isCodegen" Value="true"/>
+  </DesignTime>
+  <ViewLinkDefEnd
+    Name="Sas001aUserRoles"
+    Cardinality="1"
+    Owner="com.perp.sasmodel.views.sas.SasUserRoles"
+    Source="true">
+    <DesignTime>
+      <Attr Name="_accessor" Value="true"/>
+      <Attr Name="_finderName" Value="Sas001aUserRoles"/>
+      <Attr Name="_isUpdateable" Value="true"/>
+    </DesignTime>
+    <AttrArray Name="Attributes">
+      <Item Value="com.perp.sasmodel.views.sas.SasUserRoles.AppCode"/>
+      <Item Value="com.perp.sasmodel.views.sas.SasUserRoles.GusId"/>
+    </AttrArray>
+  </ViewLinkDefEnd>
+  <ViewLinkDefEnd
+    Name="SasMenusRoot"
+    Cardinality="-1"
+    Owner="com.perp.sasmodel.views.sas.SasMenusRoot">
+    <DesignTime>
+      <Attr Name="_finderName" Value="SasMenusRoot"/>
+      <Attr Name="_isUpdateable" Value="true"/>
+    </DesignTime>
+    <AttrArray Name="Attributes">
+      <Item Value="com.perp.sasmodel.views.sas.SasMenusRoot.AppCode"/>
+      <Item Value="com.perp.sasmodel.views.sas.SasMenusRoot.GusId"/>
+    </AttrArray>
+  </ViewLinkDefEnd>
+</ViewLink>

@@ -1,0 +1,70 @@
+<?xml version="1.0" encoding="windows-1252" ?>
+<!DOCTYPE ViewObject SYSTEM "jbo_03_01.dtd">
+<!---->
+<ViewObject
+  xmlns="http://xmlns.oracle.com/bc4j"
+  Name="DocumentCategoriesRoot"
+  Version="11.1.1.56.60"
+  SelectList="DocumentCategories.DCA_CODE, 
+       DocumentCategories.DCA_ID, 
+       DocumentCategories.DCA_ID_CHILD_OF, 
+       DocumentCategories.PRIORITY_ORDER, 
+       DocumentCategories.SHORT_CONTENT, 
+       DocumentCategories.TITLE"
+  FromList="DOCUMENT_CATEGORIES DocumentCategories"
+  Where="DocumentCategories.DCA_ID_CHILD_OF Is Null"
+  OrderBy="DocumentCategories.PRIORITY_ORDER desc"
+  BindingStyle="OracleName"
+  CustomQuery="false"
+  PageIterMode="Full"
+  UseGlueCode="false">
+  <DesignTime>
+    <Attr Name="_codeGenFlag2" Value="Access|VarAccess"/>
+  </DesignTime>
+  <EntityUsage
+    Name="DocumentCategories"
+    Entity="com.vc.sasnmodel.entities.DocumentCategories"/>
+  <ViewAttribute
+    Name="DcaCode"
+    PrecisionRule="true"
+    EntityAttrName="DcaCode"
+    EntityUsage="DocumentCategories"
+    AliasName="DCA_CODE"/>
+  <ViewAttribute
+    Name="DcaId"
+    IsNotNull="true"
+    PrecisionRule="true"
+    EntityAttrName="DcaId"
+    EntityUsage="DocumentCategories"
+    AliasName="DCA_ID"/>
+  <ViewAttribute
+    Name="DcaIdChildOf"
+    PrecisionRule="true"
+    EntityAttrName="DcaIdChildOf"
+    EntityUsage="DocumentCategories"
+    AliasName="DCA_ID_CHILD_OF"/>
+  <ViewAttribute
+    Name="PriorityOrder"
+    IsNotNull="true"
+    PrecisionRule="true"
+    EntityAttrName="PriorityOrder"
+    EntityUsage="DocumentCategories"
+    AliasName="PRIORITY_ORDER"/>
+  <ViewAttribute
+    Name="ShortContent"
+    PrecisionRule="true"
+    EntityAttrName="ShortContent"
+    EntityUsage="DocumentCategories"
+    AliasName="SHORT_CONTENT"/>
+  <ViewAttribute
+    Name="Title"
+    PrecisionRule="true"
+    EntityAttrName="Title"
+    EntityUsage="DocumentCategories"
+    AliasName="TITLE"/>
+  <ViewLinkAccessor
+    Name="DocumentCategories1"
+    ViewLink="com.vc.sasnmodel.views.sasn.DocumentCategories_DocumentCategoriesRoot"
+    Type="oracle.jbo.RowIterator"
+    IsUpdateable="false"/>
+</ViewObject>

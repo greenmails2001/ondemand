@@ -1,0 +1,24 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<Application xmlns="http://xmlns.oracle.com/adfm/application"
+             version="11.1.1.51.88" id="DataBindings" SeparateXMLFiles="false"
+             Package="com.perp.saseaviewcontroller" ClientType="Generic">
+  <pageMap>
+    <page path="/pages/sasea/sasea001/sasea001.jspx"
+          usageId="com_perp_saseaviewcontroller_sasea001PageDef"/>
+  </pageMap>
+  <pageDefinitionUsages>
+    <page id="com_perp_saseaviewcontroller_sasea001PageDef"
+          path="pages.sasea.sasea001.sasea001PageDef"/>
+  </pageDefinitionUsages>
+  <dataControlUsages>
+    <BC4JDataControl id="PerpSasEnvAppModuleDataControl"
+                     Package="com.perp.sasenvmodel"
+                     FactoryClass="oracle.adf.model.bc4j.DataControlFactoryImpl"
+                     SupportsTransactions="true" SupportsFindMode="true"
+                     SupportsRangesize="true" SupportsResetState="true"
+                     SupportsSortCollection="true"
+                     Configuration="PerpSasEnvAppModuleLocal"
+                     syncMode="Immediate"
+                     xmlns="http://xmlns.oracle.com/adfm/datacontrol"/>
+  </dataControlUsages>
+</Application>

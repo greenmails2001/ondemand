@@ -1,0 +1,151 @@
+<?xml version='1.0' encoding='UTF-8'?>
+<jsp:root xmlns:jsp="http://java.sun.com/JSP/Page" version="2.1" xmlns:af="http://xmlns.oracle.com/adf/faces/rich"
+          xmlns:f="http://java.sun.com/jsf/core" xmlns:c="http://java.sun.com/jsp/jstl/core" xmlns:h="http://java.sun.com/jsf/html">
+  <af:group id="g2">
+    <c:set var="perpsasnewsviewcontrollerBundle" value="#{adfBundle['com.vc.sasn.Product']}"/>
+  </af:group>
+  <af:panelTabbed id="prod" styleClass="AFVisualRoot">
+    <af:showDetailItem text="#{perpsasnewsviewcontrollerBundle['tab.VBISCloud']}" id="sdi6" stretchChildren="first">
+      <af:panelSplitter id="ps5" splitterPosition="288">
+        <f:facet name="first">
+          <af:panelBox id="pb5" showDisclosure="false">
+            <f:facet name="toolbar"/>
+            <af:panelGroupLayout id="pgl7" layout="scroll">
+              <af:iterator id="i1" value="#{bindings.Sasn02C01Products.collectionModel}" var="row">
+                <af:panelGroupLayout id="pgl12" inlineStyle="padding:5px;" layout="horizontal" halign="left" valign="top">
+                  <af:commandLink id="cl2" actionListener="#{bindings.setCurrentRowWithKey.execute}">
+                    <af:image source="/images/#{row.ProCode}2.png" shortDesc="icon" id="i2"/>
+                  </af:commandLink>
+                  <af:showDetail disclosed="true" id="sd2" disclosedText="#{row.Title}" undisclosedText="#{row.Title}">
+                    <af:panelGroupLayout id="pgl13" layout="vertical">
+                      <af:commandLink text="Name : #{row.ProCode}" id="cl1" partialSubmit="true"
+                                      actionListener="#{bindings.setCurrentRowWithKey.execute}"/>
+                    </af:panelGroupLayout>
+                  </af:showDetail>
+                </af:panelGroupLayout>
+              </af:iterator>
+            </af:panelGroupLayout>
+          </af:panelBox>
+        </f:facet>
+        <f:facet name="second">
+          <af:panelBox text="#{bindings.Title.inputValue}" id="panelBox10" showHeader="never" partialTriggers="i1:cl1"
+                       showDisclosure="false">
+            <f:facet name="toolbar"/>
+            <af:panelGroupLayout layout="scroll" xmlns:af="http://xmlns.oracle.com/adf/faces/rich" id="panelGroupLayout150" halign="center"
+                                 valign="top">
+              <af:panelGroupLayout id="pgl1" layout="vertical">
+                <af:panelGroupLayout id="panelGroupLayout151" layout="horizontal" inlineStyle="text-align:left; padding:5px;" valign="top">
+                  <af:richTextEditor id="richTextEditor4" readOnly="true" value=" #{bindings.Content.inputValue}" columns="110"
+                                     simple="true" inlineStyle="text-align:justify;"/>
+                </af:panelGroupLayout>
+              </af:panelGroupLayout>
+              <af:popup id="prodPopup" binding="#{prodBean.prodPopup}">
+                <af:dialog id="d1" inlineStyle="width:650px; height:400.0px;" type="none">
+                  <af:panelStretchLayout id="psl1" styleClass="AFStretchWidth" topHeight="100px">
+                    <f:facet name="center">
+                      <af:panelGroupLayout layout="vertical" xmlns:af="http://xmlns.oracle.com/adf/faces/rich" id="panelGroupLayout1"
+                                           valign="top" halign="left">
+                        <af:richTextEditor id="rte23" label="content" rows="8" simple="true" columns="115"
+                                           inlineStyle="height:100px;font-family: Arial,Verdana,SansSerif; "
+                                           converter="oracle.genericDomain" value="#{bindings.Content.inputValue}"/>
+                      </af:panelGroupLayout>
+                    </f:facet>
+                    <f:facet name="top">
+                      <af:panelGroupLayout id="pgl3" layout="vertical">
+                        <af:panelFormLayout id="panelFormLayout1" labelAlignment="top" maxColumns="1" fieldWidth="400" labelWidth="1">
+                          <af:inputText value="#{bindings.Title.inputValue}" label="#{bindings.Title.hints.label}"
+                                        required="#{bindings.Title.hints.mandatory}" maximumLength="#{bindings.Title.hints.precision}"
+                                        shortDesc="#{bindings.Title.hints.tooltip}" id="it4" columns="110">
+                            <f:validator binding="#{bindings.Title.validator}"/>
+                          </af:inputText>
+                          <af:inputText value="#{bindings.Description.inputValue}" label="#{bindings.Description.hints.label}"
+                                        required="#{bindings.Description.hints.mandatory}" columns="110"
+                                        maximumLength="#{bindings.Description.hints.precision}"
+                                        shortDesc="#{bindings.Description.hints.tooltip}" id="it5" rows="2">
+                            <f:validator binding="#{bindings.Description.validator}"/>
+                          </af:inputText>
+                        </af:panelFormLayout>
+                      </af:panelGroupLayout>
+                    </f:facet>
+                  </af:panelStretchLayout>
+                  <f:facet name="buttonBar">
+                    <af:group id="g1">
+                      <af:commandButton text="Save" id="saveBt" partialSubmit="true" actionListener="#{prodBean.saveProdActionListener}"/>
+                      <af:commandButton text="Cancel" id="cancelButton" partialSubmit="true" immediate="true"
+                                        actionListener="#{prodBean.cancelProdActionListener}">
+                        <af:resetActionListener/>
+                      </af:commandButton>
+                    </af:group>
+                  </f:facet>
+                </af:dialog>
+              </af:popup>
+            </af:panelGroupLayout>
+          </af:panelBox>
+        </f:facet>
+      </af:panelSplitter>
+    </af:showDetailItem>
+    <af:showDetailItem text="#{perpsasnewsviewcontrollerBundle['tab.othersproduct']}" id="showDetailItem7" stretchChildren="first">
+      <af:panelSplitter id="ps1" splitterPosition="269">
+        <f:facet name="first">
+          <af:panelBox text="PanelBox3" id="pb2" showDisclosure="false" showHeader="never">
+            <f:facet name="toolbar"/>
+            <af:panelGroupLayout id="pgl4" layout="scroll">
+              <af:outputText value="#{perpsasnewsviewcontrollerBundle.otherproductsIntro}" id="ot1"
+                             inlineStyle="font-size:14.0px;"/>
+              <af:panelGroupLayout id="pgl5" layout="vertical" inlineStyle="padding:3px;">
+                <af:iterator id="i3" value="#{bindings.Sasn13C02Products.collectionModel}" var="row">
+                  <af:panelGroupLayout id="pgl2" layout="vertical" inlineStyle="padding:2px;">
+                    <af:commandImageLink text="#{row.Title}" id="cl3" inlineStyle="font-weight:bold;"
+                                         actionListener="#{bindings.setCurrentRowWithKey1.execute}" partialSubmit="true"
+                                         icon="/images/arrow-single-right-green.png"/>
+                    <af:panelGroupLayout id="pgl6" layout="vertical" inlineStyle="text-align:justify;padding:3px;">
+                      <af:outputText value="#{row.ShortContent}" id="ot15" inlineStyle="font-style:italic; "/>
+                    </af:panelGroupLayout>
+                  </af:panelGroupLayout>
+                </af:iterator>
+              </af:panelGroupLayout>
+            </af:panelGroupLayout>
+          </af:panelBox>
+        </f:facet>
+        <f:facet name="second">
+          <af:panelBox text="#{bindings.Title1.inputValue}" id="pb1" showHeader="never" partialTriggers="i3:cl3" showDisclosure="false">
+            <f:facet name="toolbar"/>
+            <af:panelGroupLayout layout="scroll" xmlns:af="http://xmlns.oracle.com/adf/faces/rich" id="panelGroupLayout2" halign="center"
+                                 valign="top">
+              <af:panelGroupLayout id="panelGroupLayout3" layout="vertical">
+                <af:panelGroupLayout id="panelGroupLayout4" layout="horizontal" inlineStyle="text-align:left; padding:5px;" valign="top">
+                  <af:richTextEditor id="richTextEditor1" readOnly="true" value="#{bindings.Content1.inputValue}" columns="110"
+                                     simple="true" inlineStyle="text-align:justify;"/>
+                  <!-- <af:panelFormLayout id="panelFormLayout2" rendered="false">
+                      <af:panelLabelAndMessage label="#{bindings.ProId.hints.label}" id="panelLabelAndMessage1">
+                        <af:outputText value="#{bindings.ProId.inputValue}" id="outputText1">
+                          <af:convertNumber groupingUsed="false" pattern="#{bindings.ProId.format}"/>
+                        </af:outputText>
+                      </af:panelLabelAndMessage>
+                      <af:panelLabelAndMessage label="#{bindings.Title.hints.label}" id="panelLabelAndMessage2">
+                        <af:outputText value="#{bindings.Title.inputValue}" id="outputText2"/>
+                      </af:panelLabelAndMessage>
+                      <af:panelLabelAndMessage label="#{bindings.ShortContent.hints.label}" id="panelLabelAndMessage3">
+                        <af:outputText value="#{bindings.ShortContent.inputValue}" id="outputText3"/>
+                      </af:panelLabelAndMessage>
+                      <af:panelLabelAndMessage label="#{bindings.Content.hints.label}" id="panelLabelAndMessage4">
+                        <af:outputText value="#{bindings.Content.inputValue}" id="outputText4"/>
+                      </af:panelLabelAndMessage>
+                      <af:panelLabelAndMessage label="#{bindings.Description.hints.label}" id="panelLabelAndMessage5">
+                        <af:outputText value="#{bindings.Description.inputValue}" id="outputText5"/>
+                      </af:panelLabelAndMessage>
+                      <af:panelLabelAndMessage label="#{bindings.PcaId.hints.label}" id="panelLabelAndMessage6">
+                        <af:outputText value="#{bindings.PcaId.inputValue}" id="outputText6">
+                          <af:convertNumber groupingUsed="false" pattern="#{bindings.PcaId.format}"/>
+                        </af:outputText>
+                      </af:panelLabelAndMessage>
+                    </af:panelFormLayout>-->
+                </af:panelGroupLayout>
+              </af:panelGroupLayout>
+            </af:panelGroupLayout>
+          </af:panelBox>
+        </f:facet>
+      </af:panelSplitter>
+    </af:showDetailItem>
+  </af:panelTabbed>
+</jsp:root>

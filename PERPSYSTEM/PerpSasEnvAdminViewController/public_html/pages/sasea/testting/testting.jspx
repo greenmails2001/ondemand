@@ -1,0 +1,18 @@
+<?xml version='1.0' encoding='UTF-8'?>
+<jsp:root xmlns:jsp="http://java.sun.com/JSP/Page" version="2.1"
+          xmlns:f="http://java.sun.com/jsf/core"
+          xmlns:h="http://java.sun.com/jsf/html"
+          xmlns:af="http://xmlns.oracle.com/adf/faces/rich">
+  <jsp:directive.page contentType="text/html;charset=UTF-8"/>
+  <f:view>
+    <af:document binding="#{backingBeanScope.testting.document1}"
+                 id="document1">
+      <af:form binding="#{backingBeanScope.testting.form1}" id="form1">
+        <af:inputText label="Label 1"
+                      binding="#{backingBeanScope.testting.inputText1}"
+                      id="inputText1"/>
+      </af:form>
+    </af:document>
+  </f:view>
+  <!--oracle-jdev-comment:auto-binding-backing-bean-name:testting-->
+</jsp:root>

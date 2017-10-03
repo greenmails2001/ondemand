@@ -1,0 +1,677 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE Entity SYSTEM "jbo_03_01.dtd">
+<!---->
+<Entity
+  xmlns="http://xmlns.oracle.com/bc4j"
+  Name="OrganizationUnits"
+  Version="11.1.1.56.60"
+  DBObjectType="table"
+  DBObjectName="ORGANIZATION_UNITS"
+  AliasName="OrganizationUnits"
+  BindingStyle="OracleName"
+  UseGlueCode="false">
+  <DesignTime>
+    <Attr Name="_codeGenFlag2" Value="Access"/>
+    <AttrArray Name="_publishEvents"/>
+  </DesignTime>
+  <Attribute
+    Name="OunId"
+    IsNotNull="true"
+    Precision="15"
+    Scale="0"
+    ColumnName="OUN_ID"
+    Type="oracle.jbo.domain.Number"
+    ColumnType="NUMBER"
+    SQLType="NUMERIC"
+    TableName="ORGANIZATION_UNITS"
+    PrimaryKey="true">
+    <DesignTime>
+      <Attr Name="_DisplaySize" Value="22"/>
+    </DesignTime>
+  </Attribute>
+  <Attribute
+    Name="OunNumber"
+    IsUnique="true"
+    IsNotNull="true"
+    Precision="20"
+    ColumnName="OUN_NUMBER"
+    Type="java.lang.String"
+    ColumnType="VARCHAR2"
+    SQLType="VARCHAR"
+    TableName="ORGANIZATION_UNITS">
+    <DesignTime>
+      <Attr Name="_DisplaySize" Value="20"/>
+    </DesignTime>
+  </Attribute>
+  <Attribute
+    Name="OunType"
+    IsNotNull="true"
+    Precision="2"
+    ColumnName="OUN_TYPE"
+    Type="java.lang.String"
+    ColumnType="VARCHAR2"
+    SQLType="VARCHAR"
+    TableName="ORGANIZATION_UNITS">
+    <DesignTime>
+      <Attr Name="_DisplaySize" Value="2"/>
+    </DesignTime>
+  </Attribute>
+  <Attribute
+    Name="Name"
+    IsNotNull="true"
+    Precision="100"
+    ColumnName="NAME"
+    Type="java.lang.String"
+    ColumnType="VARCHAR2"
+    SQLType="VARCHAR"
+    TableName="ORGANIZATION_UNITS">
+    <DesignTime>
+      <Attr Name="_DisplaySize" Value="100"/>
+    </DesignTime>
+  </Attribute>
+  <Attribute
+    Name="ExternalFlag"
+    IsNotNull="true"
+    Precision="1"
+    ColumnName="EXTERNAL_FLAG"
+    Type="java.lang.String"
+    ColumnType="VARCHAR2"
+    SQLType="VARCHAR"
+    TableName="ORGANIZATION_UNITS">
+    <DesignTime>
+      <Attr Name="_DisplaySize" Value="1"/>
+    </DesignTime>
+  </Attribute>
+  <Attribute
+    Name="OpsFlag"
+    IsNotNull="true"
+    Precision="1"
+    ColumnName="OPS_FLAG"
+    Type="java.lang.String"
+    ColumnType="VARCHAR2"
+    SQLType="VARCHAR"
+    TableName="ORGANIZATION_UNITS">
+    <DesignTime>
+      <Attr Name="_DisplaySize" Value="1"/>
+    </DesignTime>
+  </Attribute>
+  <Attribute
+    Name="Country"
+    IsNotNull="true"
+    Precision="50"
+    ColumnName="COUNTRY"
+    Type="java.lang.String"
+    ColumnType="VARCHAR2"
+    SQLType="VARCHAR"
+    TableName="ORGANIZATION_UNITS">
+    <DesignTime>
+      <Attr Name="_DisplaySize" Value="50"/>
+    </DesignTime>
+  </Attribute>
+  <Attribute
+    Name="OunIdChildOf"
+    Precision="15"
+    Scale="0"
+    ColumnName="OUN_ID_CHILD_OF"
+    Type="oracle.jbo.domain.Number"
+    ColumnType="NUMBER"
+    SQLType="NUMERIC"
+    TableName="ORGANIZATION_UNITS">
+    <DesignTime>
+      <Attr Name="_DisplaySize" Value="22"/>
+    </DesignTime>
+  </Attribute>
+  <Attribute
+    Name="Province"
+    Precision="30"
+    ColumnName="PROVINCE"
+    Type="java.lang.String"
+    ColumnType="VARCHAR2"
+    SQLType="VARCHAR"
+    TableName="ORGANIZATION_UNITS">
+    <DesignTime>
+      <Attr Name="_DisplaySize" Value="30"/>
+    </DesignTime>
+  </Attribute>
+  <Attribute
+    Name="Address"
+    Precision="100"
+    ColumnName="ADDRESS"
+    Type="java.lang.String"
+    ColumnType="VARCHAR2"
+    SQLType="VARCHAR"
+    TableName="ORGANIZATION_UNITS">
+    <DesignTime>
+      <Attr Name="_DisplaySize" Value="100"/>
+    </DesignTime>
+  </Attribute>
+  <Attribute
+    Name="EffectiveDateFrom"
+    IsNotNull="true"
+    ColumnName="EFFECTIVE_DATE_FROM"
+    Type="oracle.jbo.domain.Date"
+    ColumnType="DATE"
+    SQLType="TIMESTAMP"
+    TableName="ORGANIZATION_UNITS">
+    <DesignTime>
+      <Attr Name="_DisplaySize" Value="7"/>
+    </DesignTime>
+  </Attribute>
+  <Attribute
+    Name="EffectiveDateTo"
+    ColumnName="EFFECTIVE_DATE_TO"
+    Type="oracle.jbo.domain.Date"
+    ColumnType="DATE"
+    SQLType="TIMESTAMP"
+    TableName="ORGANIZATION_UNITS">
+    <DesignTime>
+      <Attr Name="_DisplaySize" Value="7"/>
+    </DesignTime>
+  </Attribute>
+  <Attribute
+    Name="Description"
+    Precision="1000"
+    ColumnName="DESCRIPTION"
+    Type="java.lang.String"
+    ColumnType="VARCHAR2"
+    SQLType="VARCHAR"
+    TableName="ORGANIZATION_UNITS">
+    <DesignTime>
+      <Attr Name="_DisplaySize" Value="1000"/>
+    </DesignTime>
+  </Attribute>
+  <Attribute
+    Name="CreateDate"
+    IsNotNull="true"
+    ColumnName="CREATE_DATE"
+    Type="oracle.jbo.domain.Date"
+    ColumnType="DATE"
+    SQLType="TIMESTAMP"
+    TableName="ORGANIZATION_UNITS">
+    <DesignTime>
+      <Attr Name="_DisplaySize" Value="7"/>
+    </DesignTime>
+  </Attribute>
+  <Attribute
+    Name="CreatedBy"
+    IsNotNull="true"
+    Precision="30"
+    ColumnName="CREATED_BY"
+    Type="java.lang.String"
+    ColumnType="VARCHAR2"
+    SQLType="VARCHAR"
+    TableName="ORGANIZATION_UNITS">
+    <DesignTime>
+      <Attr Name="_DisplaySize" Value="30"/>
+    </DesignTime>
+  </Attribute>
+  <Attribute
+    Name="ModifyDate"
+    ColumnName="MODIFY_DATE"
+    Type="oracle.jbo.domain.Date"
+    ColumnType="DATE"
+    SQLType="TIMESTAMP"
+    TableName="ORGANIZATION_UNITS">
+    <DesignTime>
+      <Attr Name="_DisplaySize" Value="7"/>
+    </DesignTime>
+  </Attribute>
+  <Attribute
+    Name="ModifiedBy"
+    Precision="30"
+    ColumnName="MODIFIED_BY"
+    Type="java.lang.String"
+    ColumnType="VARCHAR2"
+    SQLType="VARCHAR"
+    TableName="ORGANIZATION_UNITS">
+    <DesignTime>
+      <Attr Name="_DisplaySize" Value="30"/>
+    </DesignTime>
+  </Attribute>
+  <Attribute
+    Name="EmpId"
+    Precision="20"
+    ColumnName="EMP_ID"
+    Type="java.lang.String"
+    ColumnType="VARCHAR2"
+    SQLType="VARCHAR"
+    TableName="ORGANIZATION_UNITS">
+    <DesignTime>
+      <Attr Name="_DisplaySize" Value="20"/>
+    </DesignTime>
+  </Attribute>
+  <Attribute
+    Name="Telephone"
+    Precision="20"
+    ColumnName="TELEPHONE"
+    Type="java.lang.String"
+    ColumnType="VARCHAR2"
+    SQLType="VARCHAR"
+    TableName="ORGANIZATION_UNITS">
+    <DesignTime>
+      <Attr Name="_DisplaySize" Value="20"/>
+    </DesignTime>
+  </Attribute>
+  <Attribute
+    Name="CceId"
+    Precision="10"
+    ColumnName="CCE_ID"
+    Type="java.lang.String"
+    ColumnType="VARCHAR2"
+    SQLType="VARCHAR"
+    TableName="ORGANIZATION_UNITS">
+    <DesignTime>
+      <Attr Name="_DisplaySize" Value="10"/>
+    </DesignTime>
+  </Attribute>
+  <Attribute
+    Name="HqFlag"
+    IsNotNull="true"
+    Precision="1"
+    ColumnName="HQ_FLAG"
+    Type="java.lang.String"
+    ColumnType="VARCHAR2"
+    SQLType="VARCHAR"
+    TableName="ORGANIZATION_UNITS">
+    <DesignTime>
+      <Attr Name="_DisplaySize" Value="1"/>
+    </DesignTime>
+  </Attribute>
+  <Attribute
+    Name="OunNumber2"
+    Precision="20"
+    ColumnName="OUN_NUMBER_2"
+    Type="java.lang.String"
+    ColumnType="VARCHAR2"
+    SQLType="VARCHAR"
+    TableName="ORGANIZATION_UNITS">
+    <DesignTime>
+      <Attr Name="_DisplaySize" Value="20"/>
+    </DesignTime>
+  </Attribute>
+  <Attribute
+    Name="HnBranch"
+    Precision="1"
+    ColumnName="HN_BRANCH"
+    Type="java.lang.String"
+    ColumnType="VARCHAR2"
+    SQLType="VARCHAR"
+    TableName="ORGANIZATION_UNITS">
+    <DesignTime>
+      <Attr Name="_DisplaySize" Value="1"/>
+    </DesignTime>
+  </Attribute>
+  <Attribute
+    Name="Attribute1"
+    Precision="240"
+    ColumnName="ATTRIBUTE1"
+    Type="java.lang.String"
+    ColumnType="VARCHAR2"
+    SQLType="VARCHAR"
+    TableName="ORGANIZATION_UNITS">
+    <DesignTime>
+      <Attr Name="_DisplaySize" Value="240"/>
+    </DesignTime>
+  </Attribute>
+  <Attribute
+    Name="Attribute2"
+    Precision="240"
+    ColumnName="ATTRIBUTE2"
+    Type="java.lang.String"
+    ColumnType="VARCHAR2"
+    SQLType="VARCHAR"
+    TableName="ORGANIZATION_UNITS">
+    <DesignTime>
+      <Attr Name="_DisplaySize" Value="240"/>
+    </DesignTime>
+  </Attribute>
+  <Attribute
+    Name="Attribute3"
+    Precision="240"
+    ColumnName="ATTRIBUTE3"
+    Type="java.lang.String"
+    ColumnType="VARCHAR2"
+    SQLType="VARCHAR"
+    TableName="ORGANIZATION_UNITS">
+    <DesignTime>
+      <Attr Name="_DisplaySize" Value="240"/>
+    </DesignTime>
+  </Attribute>
+  <Attribute
+    Name="Attribute4"
+    Precision="240"
+    ColumnName="ATTRIBUTE4"
+    Type="java.lang.String"
+    ColumnType="VARCHAR2"
+    SQLType="VARCHAR"
+    TableName="ORGANIZATION_UNITS">
+    <DesignTime>
+      <Attr Name="_DisplaySize" Value="240"/>
+    </DesignTime>
+  </Attribute>
+  <Attribute
+    Name="Attribute5"
+    Precision="240"
+    ColumnName="ATTRIBUTE5"
+    Type="java.lang.String"
+    ColumnType="VARCHAR2"
+    SQLType="VARCHAR"
+    TableName="ORGANIZATION_UNITS">
+    <DesignTime>
+      <Attr Name="_DisplaySize" Value="240"/>
+    </DesignTime>
+  </Attribute>
+  <Attribute
+    Name="Attribute6"
+    Precision="240"
+    ColumnName="ATTRIBUTE6"
+    Type="java.lang.String"
+    ColumnType="VARCHAR2"
+    SQLType="VARCHAR"
+    TableName="ORGANIZATION_UNITS">
+    <DesignTime>
+      <Attr Name="_DisplaySize" Value="240"/>
+    </DesignTime>
+  </Attribute>
+  <Attribute
+    Name="Attribute7"
+    Precision="240"
+    ColumnName="ATTRIBUTE7"
+    Type="java.lang.String"
+    ColumnType="VARCHAR2"
+    SQLType="VARCHAR"
+    TableName="ORGANIZATION_UNITS">
+    <DesignTime>
+      <Attr Name="_DisplaySize" Value="240"/>
+    </DesignTime>
+  </Attribute>
+  <Attribute
+    Name="Attribute8"
+    Precision="240"
+    ColumnName="ATTRIBUTE8"
+    Type="java.lang.String"
+    ColumnType="VARCHAR2"
+    SQLType="VARCHAR"
+    TableName="ORGANIZATION_UNITS">
+    <DesignTime>
+      <Attr Name="_DisplaySize" Value="240"/>
+    </DesignTime>
+  </Attribute>
+  <Attribute
+    Name="Attribute9"
+    Precision="240"
+    ColumnName="ATTRIBUTE9"
+    Type="java.lang.String"
+    ColumnType="VARCHAR2"
+    SQLType="VARCHAR"
+    TableName="ORGANIZATION_UNITS">
+    <DesignTime>
+      <Attr Name="_DisplaySize" Value="240"/>
+    </DesignTime>
+  </Attribute>
+  <Attribute
+    Name="Attribute10"
+    Precision="240"
+    ColumnName="ATTRIBUTE10"
+    Type="java.lang.String"
+    ColumnType="VARCHAR2"
+    SQLType="VARCHAR"
+    TableName="ORGANIZATION_UNITS">
+    <DesignTime>
+      <Attr Name="_DisplaySize" Value="240"/>
+    </DesignTime>
+  </Attribute>
+  <AccessorAttribute
+    Name="Customers"
+    Association="com.perp.sasmodel.entities.CusOunFkAssoc"
+    AssociationEnd="com.perp.sasmodel.entities.CusOunFkAssoc.Customers"
+    AssociationOtherEnd="com.perp.sasmodel.entities.CusOunFkAssoc.OrganizationUnits"
+    Type="oracle.jbo.RowIterator"
+    IsUpdateable="false"/>
+  <AccessorAttribute
+    Name="GroupUsers"
+    Association="com.perp.sasmodel.entities.OunGusFkAssoc"
+    AssociationEnd="com.perp.sasmodel.entities.OunGusFkAssoc.GroupUsers"
+    AssociationOtherEnd="com.perp.sasmodel.entities.OunGusFkAssoc.OrganizationUnits"
+    Type="oracle.jbo.RowIterator"
+    IsUpdateable="false"/>
+  <AccessorAttribute
+    Name="OrganizationUnits"
+    Association="com.perp.sasmodel.entities.OunOunFkAssoc"
+    AssociationEnd="com.perp.sasmodel.entities.OunOunFkAssoc.OrganizationUnits"
+    AssociationOtherEnd="com.perp.sasmodel.entities.OunOunFkAssoc.OunIdChildOfOrganizationUnits"
+    Type="oracle.jbo.RowIterator"
+    IsUpdateable="false"/>
+  <AccessorAttribute
+    Name="OunIdChildOfOrganizationUnits"
+    Association="com.perp.sasmodel.entities.OunOunFkAssoc"
+    AssociationEnd="com.perp.sasmodel.entities.OunOunFkAssoc.OunIdChildOfOrganizationUnits"
+    AssociationOtherEnd="com.perp.sasmodel.entities.OunOunFkAssoc.OrganizationUnits"
+    Type="oracle.jbo.server.EntityImpl"
+    IsUpdateable="true"/>
+  <AccessorAttribute
+    Name="Employees"
+    Association="com.perp.sasmodel.entities.OunEmpFkAssoc"
+    AssociationEnd="com.perp.sasmodel.entities.OunEmpFkAssoc.Employees"
+    AssociationOtherEnd="com.perp.sasmodel.entities.OunEmpFkAssoc.OrganizationUnits"
+    Type="oracle.jbo.server.EntityImpl"
+    IsUpdateable="true"/>
+  <AccessorAttribute
+    Name="Suppliers"
+    Association="com.perp.sasmodel.entities.SupOunFkAssoc"
+    AssociationEnd="com.perp.sasmodel.entities.SupOunFkAssoc.Suppliers"
+    AssociationOtherEnd="com.perp.sasmodel.entities.SupOunFkAssoc.OrganizationUnits"
+    Type="oracle.jbo.RowIterator"
+    IsUpdateable="false"/>
+  <AccessorAttribute
+    Name="CostCenters"
+    Association="com.perp.sasmodel.entities.OunCceFkAssoc"
+    AssociationEnd="com.perp.sasmodel.entities.OunCceFkAssoc.CostCenters"
+    AssociationOtherEnd="com.perp.sasmodel.entities.OunCceFkAssoc.OrganizationUnits"
+    Type="oracle.jbo.server.EntityImpl"
+    IsUpdateable="true"/>
+  <AccessorAttribute
+    Name="CostCenters1"
+    Association="com.perp.sasmodel.entities.CceOunFkAssoc"
+    AssociationEnd="com.perp.sasmodel.entities.CceOunFkAssoc.CostCenters1"
+    AssociationOtherEnd="com.perp.sasmodel.entities.CceOunFkAssoc.OrganizationUnits1"
+    Type="oracle.jbo.RowIterator"
+    IsUpdateable="false"/>
+  <Key
+    Name="Avcon351074Exter000">
+    <DesignTime>
+      <Attr Name="_DBObjectName" Value="AVCON_351074_EXTER_000"/>
+      <Attr Name="_checkCondition" Value="EXTERNAL_FLAG IN ('Y', 'N')"/>
+      <Attr Name="_isCheck" Value="true"/>
+    </DesignTime>
+    <AttrArray Name="Attributes">
+      <Item Value="com.perp.sasmodel.entities.OrganizationUnits.ExternalFlag"/>
+    </AttrArray>
+  </Key>
+  <Key
+    Name="Avcon351074OpsF000">
+    <DesignTime>
+      <Attr Name="_DBObjectName" Value="AVCON_351074_OPS_F_000"/>
+      <Attr Name="_checkCondition" Value="OPS_FLAG IN ('Y', 'N')"/>
+      <Attr Name="_isCheck" Value="true"/>
+    </DesignTime>
+    <AttrArray Name="Attributes">
+      <Item Value="com.perp.sasmodel.entities.OrganizationUnits.OpsFlag"/>
+    </AttrArray>
+  </Key>
+  <Key
+    Name="OunOunUk">
+    <DesignTime>
+      <Attr Name="_isUnique" Value="true"/>
+      <Attr Name="_DBObjectName" Value="OUN_OUN_UK"/>
+    </DesignTime>
+    <AttrArray Name="Attributes">
+      <Item Value="com.perp.sasmodel.entities.OrganizationUnits.OunNumber"/>
+    </AttrArray>
+  </Key>
+  <Key
+    Name="OunPk"
+    PrimaryKey="true">
+    <DesignTime>
+      <Attr Name="_DBObjectName" Value="OUN_PK"/>
+    </DesignTime>
+    <AttrArray Name="Attributes">
+      <Item Value="com.perp.sasmodel.entities.OrganizationUnits.OunId"/>
+    </AttrArray>
+  </Key>
+  <Key
+    Name="SysC0036135">
+    <DesignTime>
+      <Attr Name="_DBObjectName" Value="SYS_C0036135"/>
+      <Attr Name="_checkCondition" Value='"OUN_ID" IS NOT NULL'/>
+      <Attr Name="_isCheck" Value="true"/>
+    </DesignTime>
+    <AttrArray Name="Attributes">
+      <Item Value="com.perp.sasmodel.entities.OrganizationUnits.OunId"/>
+    </AttrArray>
+  </Key>
+  <Key
+    Name="SysC0036136">
+    <DesignTime>
+      <Attr Name="_DBObjectName" Value="SYS_C0036136"/>
+      <Attr Name="_checkCondition" Value='"OUN_NUMBER" IS NOT NULL'/>
+      <Attr Name="_isCheck" Value="true"/>
+    </DesignTime>
+    <AttrArray Name="Attributes">
+      <Item Value="com.perp.sasmodel.entities.OrganizationUnits.OunNumber"/>
+    </AttrArray>
+  </Key>
+  <Key
+    Name="SysC0036137">
+    <DesignTime>
+      <Attr Name="_DBObjectName" Value="SYS_C0036137"/>
+      <Attr Name="_checkCondition" Value='"OUN_TYPE" IS NOT NULL'/>
+      <Attr Name="_isCheck" Value="true"/>
+    </DesignTime>
+    <AttrArray Name="Attributes">
+      <Item Value="com.perp.sasmodel.entities.OrganizationUnits.OunType"/>
+    </AttrArray>
+  </Key>
+  <Key
+    Name="SysC0036138">
+    <DesignTime>
+      <Attr Name="_DBObjectName" Value="SYS_C0036138"/>
+      <Attr Name="_checkCondition" Value='"NAME" IS NOT NULL'/>
+      <Attr Name="_isCheck" Value="true"/>
+    </DesignTime>
+    <AttrArray Name="Attributes">
+      <Item Value="com.perp.sasmodel.entities.OrganizationUnits.Name"/>
+    </AttrArray>
+  </Key>
+  <Key
+    Name="SysC0036139">
+    <DesignTime>
+      <Attr Name="_DBObjectName" Value="SYS_C0036139"/>
+      <Attr Name="_checkCondition" Value='"EXTERNAL_FLAG" IS NOT NULL'/>
+      <Attr Name="_isCheck" Value="true"/>
+    </DesignTime>
+    <AttrArray Name="Attributes">
+      <Item Value="com.perp.sasmodel.entities.OrganizationUnits.ExternalFlag"/>
+    </AttrArray>
+  </Key>
+  <Key
+    Name="SysC0036140">
+    <DesignTime>
+      <Attr Name="_DBObjectName" Value="SYS_C0036140"/>
+      <Attr Name="_checkCondition" Value='"OPS_FLAG" IS NOT NULL'/>
+      <Attr Name="_isCheck" Value="true"/>
+    </DesignTime>
+    <AttrArray Name="Attributes">
+      <Item Value="com.perp.sasmodel.entities.OrganizationUnits.OpsFlag"/>
+    </AttrArray>
+  </Key>
+  <Key
+    Name="SysC0036141">
+    <DesignTime>
+      <Attr Name="_DBObjectName" Value="SYS_C0036141"/>
+      <Attr Name="_checkCondition" Value='"COUNTRY" IS NOT NULL'/>
+      <Attr Name="_isCheck" Value="true"/>
+    </DesignTime>
+    <AttrArray Name="Attributes">
+      <Item Value="com.perp.sasmodel.entities.OrganizationUnits.Country"/>
+    </AttrArray>
+  </Key>
+  <Key
+    Name="SysC0036142">
+    <DesignTime>
+      <Attr Name="_DBObjectName" Value="SYS_C0036142"/>
+      <Attr Name="_checkCondition" Value='"EFFECTIVE_DATE_FROM" IS NOT NULL'/>
+      <Attr Name="_isCheck" Value="true"/>
+    </DesignTime>
+    <AttrArray Name="Attributes">
+      <Item
+        Value="com.perp.sasmodel.entities.OrganizationUnits.EffectiveDateFrom"/>
+    </AttrArray>
+  </Key>
+  <Key
+    Name="SysC0036143">
+    <DesignTime>
+      <Attr Name="_DBObjectName" Value="SYS_C0036143"/>
+      <Attr Name="_checkCondition" Value='"CREATE_DATE" IS NOT NULL'/>
+      <Attr Name="_isCheck" Value="true"/>
+    </DesignTime>
+    <AttrArray Name="Attributes">
+      <Item Value="com.perp.sasmodel.entities.OrganizationUnits.CreateDate"/>
+    </AttrArray>
+  </Key>
+  <Key
+    Name="SysC0036144">
+    <DesignTime>
+      <Attr Name="_DBObjectName" Value="SYS_C0036144"/>
+      <Attr Name="_checkCondition" Value='"CREATED_BY" IS NOT NULL'/>
+      <Attr Name="_isCheck" Value="true"/>
+    </DesignTime>
+    <AttrArray Name="Attributes">
+      <Item Value="com.perp.sasmodel.entities.OrganizationUnits.CreatedBy"/>
+    </AttrArray>
+  </Key>
+  <Key
+    Name="SysC0036145">
+    <DesignTime>
+      <Attr Name="_DBObjectName" Value="SYS_C0036145"/>
+      <Attr Name="_checkCondition" Value='"HQ_FLAG" IS NOT NULL'/>
+      <Attr Name="_isCheck" Value="true"/>
+    </DesignTime>
+    <AttrArray Name="Attributes">
+      <Item Value="com.perp.sasmodel.entities.OrganizationUnits.HqFlag"/>
+    </AttrArray>
+  </Key>
+  <Key
+    Name="OunCceFk">
+    <DesignTime>
+      <Attr Name="_referencedKey" Value="CCE_PK"/>
+      <Attr Name="_isForeign" Value="true"/>
+      <Attr Name="_DBObjectName" Value="OUN_CCE_FK"/>
+    </DesignTime>
+    <AttrArray Name="Attributes">
+      <Item Value="com.perp.sasmodel.entities.OrganizationUnits.CceId"/>
+    </AttrArray>
+  </Key>
+  <Key
+    Name="OunEmpFk">
+    <DesignTime>
+      <Attr Name="_referencedKey" Value="EMP_PK"/>
+      <Attr Name="_isForeign" Value="true"/>
+      <Attr Name="_DBObjectName" Value="OUN_EMP_FK"/>
+    </DesignTime>
+    <AttrArray Name="Attributes">
+      <Item Value="com.perp.sasmodel.entities.OrganizationUnits.EmpId"/>
+    </AttrArray>
+  </Key>
+  <Key
+    Name="OunOunFk">
+    <DesignTime>
+      <Attr Name="_referencedKey" Value="OUN_PK"/>
+      <Attr Name="_isForeign" Value="true"/>
+      <Attr Name="_DBObjectName" Value="OUN_OUN_FK"/>
+    </DesignTime>
+    <AttrArray Name="Attributes">
+      <Item Value="com.perp.sasmodel.entities.OrganizationUnits.OunIdChildOf"/>
+    </AttrArray>
+  </Key>
+</Entity>

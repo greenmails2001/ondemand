@@ -1,0 +1,142 @@
+<?xml version="1.0" encoding="windows-1252" ?>
+<!DOCTYPE Entity SYSTEM "jbo_03_01.dtd">
+<!---->
+<Entity
+  xmlns="http://xmlns.oracle.com/bc4j"
+  Name="DocumentCategories"
+  Version="11.1.1.56.60"
+  DBObjectType="table"
+  DBObjectName="DOCUMENT_CATEGORIES"
+  AliasName="DocumentCategories"
+  BindingStyle="OracleName"
+  UseGlueCode="false">
+  <DesignTime>
+    <Attr Name="_codeGenFlag2" Value="Access"/>
+    <AttrArray Name="_publishEvents"/>
+  </DesignTime>
+  <Attribute
+    Name="DcaId"
+    IsNotNull="true"
+    ColumnName="DCA_ID"
+    SQLType="NUMERIC"
+    Type="oracle.jbo.domain.Number"
+    ColumnType="NUMBER"
+    TableName="DOCUMENT_CATEGORIES"
+    PrimaryKey="true">
+    <DesignTime>
+      <Attr Name="_DisplaySize" Value="22"/>
+    </DesignTime>
+  </Attribute>
+  <Attribute
+    Name="DcaCode"
+    IsUnique="true"
+    Precision="30"
+    ColumnName="DCA_CODE"
+    SQLType="VARCHAR"
+    Type="java.lang.String"
+    ColumnType="VARCHAR2"
+    TableName="DOCUMENT_CATEGORIES">
+    <DesignTime>
+      <Attr Name="_DisplaySize" Value="30"/>
+    </DesignTime>
+  </Attribute>
+  <Attribute
+    Name="Title"
+    Precision="400"
+    ColumnName="TITLE"
+    SQLType="VARCHAR"
+    Type="java.lang.String"
+    ColumnType="VARCHAR2"
+    TableName="DOCUMENT_CATEGORIES">
+    <DesignTime>
+      <Attr Name="_DisplaySize" Value="400"/>
+    </DesignTime>
+  </Attribute>
+  <Attribute
+    Name="ShortContent"
+    Precision="4000"
+    ColumnName="SHORT_CONTENT"
+    SQLType="VARCHAR"
+    Type="java.lang.String"
+    ColumnType="VARCHAR2"
+    TableName="DOCUMENT_CATEGORIES">
+    <DesignTime>
+      <Attr Name="_DisplaySize" Value="4000"/>
+    </DesignTime>
+  </Attribute>
+  <Attribute
+    Name="PriorityOrder"
+    IsNotNull="true"
+    ColumnName="PRIORITY_ORDER"
+    SQLType="NUMERIC"
+    Type="oracle.jbo.domain.Number"
+    ColumnType="NUMBER"
+    TableName="DOCUMENT_CATEGORIES">
+    <DesignTime>
+      <Attr Name="_DisplaySize" Value="22"/>
+    </DesignTime>
+  </Attribute>
+  <Attribute
+    Name="DcaIdChildOf"
+    ColumnName="DCA_ID_CHILD_OF"
+    SQLType="NUMERIC"
+    Type="oracle.jbo.domain.Number"
+    ColumnType="NUMBER"
+    TableName="DOCUMENT_CATEGORIES">
+    <DesignTime>
+      <Attr Name="_DisplaySize" Value="22"/>
+    </DesignTime>
+  </Attribute>
+  <AccessorAttribute
+    Name="DocumentDownloads"
+    Association="com.vc.sasnmodel.entities.DdoDcaFkAssoc"
+    AssociationEnd="com.vc.sasnmodel.entities.DdoDcaFkAssoc.DocumentDownloads"
+    AssociationOtherEnd="com.vc.sasnmodel.entities.DdoDcaFkAssoc.DocumentCategories"
+    Type="oracle.jbo.RowIterator"
+    IsUpdateable="false"/>
+  <AccessorAttribute
+    Name="DocumentCategories"
+    Association="com.vc.sasnmodel.entities.DcaDcaPkAssoc"
+    AssociationEnd="com.vc.sasnmodel.entities.DcaDcaPkAssoc.DocumentCategories"
+    AssociationOtherEnd="com.vc.sasnmodel.entities.DcaDcaPkAssoc.DcaIdChildOfDocumentCategories"
+    Type="oracle.jbo.RowIterator"
+    IsUpdateable="false"/>
+  <AccessorAttribute
+    Name="DcaIdChildOfDocumentCategories"
+    Association="com.vc.sasnmodel.entities.DcaDcaPkAssoc"
+    AssociationEnd="com.vc.sasnmodel.entities.DcaDcaPkAssoc.DcaIdChildOfDocumentCategories"
+    AssociationOtherEnd="com.vc.sasnmodel.entities.DcaDcaPkAssoc.DocumentCategories"
+    Type="oracle.jbo.server.EntityImpl"
+    IsUpdateable="true"/>
+  <Key
+    Name="DcaPk"
+    PrimaryKey="true">
+    <DesignTime>
+      <Attr Name="_DBObjectName" Value="DCA_PK"/>
+    </DesignTime>
+    <AttrArray Name="Attributes">
+      <Item Value="com.vc.sasnmodel.entities.DocumentCategories.DcaId"/>
+    </AttrArray>
+  </Key>
+  <Key
+    Name="DcaUk">
+    <DesignTime>
+      <Attr Name="_isUnique" Value="true"/>
+      <Attr Name="_DBObjectName" Value="DCA_UK"/>
+    </DesignTime>
+    <AttrArray Name="Attributes">
+      <Item Value="com.vc.sasnmodel.entities.DocumentCategories.DcaCode"/>
+    </AttrArray>
+  </Key>
+  <Key
+    Name="SysC0048803">
+    <DesignTime>
+      <Attr Name="_DBObjectName" Value="SYS_C0048803"/>
+      <Attr Name="_checkCondition" Value='"PRIORITY_ORDER" IS NOT NULL'/>
+      <Attr Name="_isCheck" Value="true"/>
+    </DesignTime>
+    <AttrArray Name="Attributes">
+      <Item Value="com.vc.sasnmodel.entities.DocumentCategories.PriorityOrder"/>
+    </AttrArray>
+  </Key>
+</Entity>

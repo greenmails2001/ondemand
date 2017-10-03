@@ -1,0 +1,39 @@
+.PortletHeaderLink, .xc6, .PortletSubHeaderLink, .xce, .xf0, .xfg, .xfh, .xfi, .xfj, .xfk, .xfm {
+    color: rgb(95, 91, 81); 
+}
+
+
+body {
+    color: rgb(95, 91, 81); 
+    font-size: 8.5px; 
+    font-family: Tahoma,Arial,Verdana,SansSerif; 
+    letter-spacing: 0.1pt;    
+}
+
+
+.AFLabelText, .xa, .xq, .xr, .xs, .xt, .xu, .xv, .xw, .xx, .xy, .xz, .x10, 
+     .x11, .x12, .x13, .x14, .x15, .portlet-form-label, .xd2, .portlet-icon-label,
+     .xd5, .portlet-dlg-icon-label, .xd6, .portlet-form-field-label, .xd7, .xg3,
+     .xua, .xub, .x10l, .xft, .x16a, .x16b , .text_orange_9bold {
+	color: #ff6600;
+	font-size: 9pt;
+	font-family: Arial, Verdana, SansSerif;
+	letter-spacing: 0.1pt;
+	font-weight: bold;
+}
+
+.xg0.p_AFReadOnly .xg4 {
+  font-size:8.5pt
+} 
+
+.xpp {
+    color:rgb(95, 91, 81);
+    font-family:Tahoma,Arial,Verdana,SansSerif; 
+    font-weight:normal;
+}
+
+a {
+   color:rgb(95, 91, 81); 
+}
+
+

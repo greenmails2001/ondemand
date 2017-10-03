@@ -1,0 +1,23 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<pageDefinition xmlns="http://xmlns.oracle.com/adfm/uimodel" version="11.1.1.56.60" id="questionPageDef" Package="pages.consul.consulFrag">
+  <parameters/>
+  <executables>
+    <variableIterator id="variables">
+      <variable Name="agrId" Type="oracle.jbo.domain.Number"/>
+    </variableIterator>
+    <iterator Binds="Sasn10AnswerGroups" RangeSize="-1" DataControl="PerpSasNewsAppModuleDataControl" id="Sasn10AnswerGroupsIterator"/>
+  </executables>
+  <bindings>
+    <list IterBinding="variables" id="AgrId" DTSupportsMRU="true" StaticList="false" ListIter="Sasn10AnswerGroupsIterator">
+      <AttrNames>
+        <Item Value="agrId"/>
+      </AttrNames>
+      <ListAttrNames>
+        <Item Value="AgrId"/>
+      </ListAttrNames>
+      <ListDisplayAttrNames>
+        <Item Value="Name"/>
+      </ListDisplayAttrNames>
+    </list>
+  </bindings>
+</pageDefinition>

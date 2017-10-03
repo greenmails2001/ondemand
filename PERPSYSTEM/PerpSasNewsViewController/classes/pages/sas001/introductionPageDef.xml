@@ -1,0 +1,39 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<pageDefinition xmlns="http://xmlns.oracle.com/adfm/uimodel"
+                version="11.1.1.55.36" id="introductionPageDef"
+                Package="pages.sas001">
+  <parameters/>
+  <executables>
+    <variableIterator id="variables"/>
+    <iterator Binds="Sasn001Introductions" RangeSize="25"
+              DataControl="PerpSasNewsAppModuleDataControl"
+              id="Sasn001IntroductionsIterator"/>
+  </executables>
+  <bindings>
+    <tree IterBinding="Sasn001IntroductionsIterator" id="Sasn001Introductions">
+      <nodeDefinition DefName="com.vc.sasnmodel.views.sasn001.Sasn001Introductions"
+                      Name="Sasn001Introductions0">
+        <AttrNames>
+          <Item Value="IntId"/>
+          <Item Value="Title"/>
+          <Item Value="Content"/>
+          <Item Value="CreateDate"/>
+          <Item Value="CreatedBy"/>
+          <Item Value="ModifyDate"/>
+          <Item Value="ModifiedBy"/>
+          <Item Value="Description"/>
+        </AttrNames>
+      </nodeDefinition>
+    </tree>
+    <attributeValues IterBinding="Sasn001IntroductionsIterator" id="Title">
+      <AttrNames>
+        <Item Value="Title"/>
+      </AttrNames>
+    </attributeValues>
+    <attributeValues IterBinding="Sasn001IntroductionsIterator" id="Content">
+      <AttrNames>
+        <Item Value="Content"/>
+      </AttrNames>
+    </attributeValues>
+  </bindings>
+</pageDefinition>

@@ -1,0 +1,126 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<pageDefinition xmlns="http://xmlns.oracle.com/adfm/uimodel"
+                version="11.1.1.55.36" id="defaultPageDef"
+                Package="pages.partn">
+  <parameters/>
+  <executables>
+    <variableIterator id="variables">
+      <variable Name="notNumber" Type="java.lang.String"
+                DefaultValue="FINDPARTNER"/>
+    </variableIterator>
+    <iterator Binds="Sasn06PartnerGroups" RangeSize="25"
+              DataControl="PerpSasNewsAppModuleDataControl"
+              id="Sasn06PartnerGroupsIterator"/>
+    <iterator Binds="Sasn06PartnersListInPartnerGroups" RangeSize="25"
+              DataControl="PerpSasNewsAppModuleDataControl"
+              id="Sasn06PartnersListInPartnerGroupsIterator"/>
+  </executables>
+  <bindings>
+    <tree IterBinding="Sasn06PartnerGroupsIterator" id="Sasn06PartnerGroups">
+      <nodeDefinition DefName="com.vc.sasnmodel.views.sasn.PartnerGroups"
+                      Name="Sasn06PartnerGroups0">
+        <AttrNames>
+          <Item Value="PgrId"/>
+          <Item Value="PgrName"/>
+        </AttrNames>
+      </nodeDefinition>
+    </tree>
+    <action IterBinding="Sasn06PartnerGroupsIterator" id="setCurrentRowWithKey"
+            RequiresUpdateModel="false" Action="setCurrentRowWithKey">
+      <NamedData NDName="rowKey" NDValue="#{row.rowKeyStr}"
+                 NDType="java.lang.String"/>
+    </action>
+    <tree IterBinding="Sasn06PartnersListInPartnerGroupsIterator"
+          id="Sasn06PartnersListInPartnerGroups">
+      <nodeDefinition DefName="com.vc.sasnmodel.views.sasn.Partners"
+                      Name="Sasn06PartnersListInPartnerGroups0">
+        <AttrNames>
+          <Item Value="ParId"/>
+          <Item Value="PgrId"/>
+          <Item Value="CompanyName"/>
+          <Item Value="CompanyAddress"/>
+          <Item Value="CompanyTelephone"/>
+          <Item Value="CompanyFax"/>
+          <Item Value="CompanyEmail"/>
+          <Item Value="CompanyWebsite"/>
+          <Item Value="ContactPersonName"/>
+          <Item Value="ContactPersonPosition"/>
+          <Item Value="ContactPersonTelephone"/>
+          <Item Value="ContactPersonEmail"/>
+          <Item Value="Description"/>
+        </AttrNames>
+      </nodeDefinition>
+    </tree>
+    <attributeValues IterBinding="Sasn06PartnerGroupsIterator" id="PgrName">
+      <AttrNames>
+        <Item Value="PgrName"/>
+      </AttrNames>
+    </attributeValues>
+    <attributeValues IterBinding="Sasn06PartnersListInPartnerGroupsIterator"
+                     id="CompanyName">
+      <AttrNames>
+        <Item Value="CompanyName"/>
+      </AttrNames>
+    </attributeValues>
+    <attributeValues IterBinding="Sasn06PartnersListInPartnerGroupsIterator"
+                     id="CompanyAddress">
+      <AttrNames>
+        <Item Value="CompanyAddress"/>
+      </AttrNames>
+    </attributeValues>
+    <attributeValues IterBinding="Sasn06PartnersListInPartnerGroupsIterator"
+                     id="CompanyTelephone">
+      <AttrNames>
+        <Item Value="CompanyTelephone"/>
+      </AttrNames>
+    </attributeValues>
+    <attributeValues IterBinding="Sasn06PartnersListInPartnerGroupsIterator"
+                     id="CompanyFax">
+      <AttrNames>
+        <Item Value="CompanyFax"/>
+      </AttrNames>
+    </attributeValues>
+    <attributeValues IterBinding="Sasn06PartnersListInPartnerGroupsIterator"
+                     id="CompanyEmail">
+      <AttrNames>
+        <Item Value="CompanyEmail"/>
+      </AttrNames>
+    </attributeValues>
+    <attributeValues IterBinding="Sasn06PartnersListInPartnerGroupsIterator"
+                     id="CompanyWebsite">
+      <AttrNames>
+        <Item Value="CompanyWebsite"/>
+      </AttrNames>
+    </attributeValues>
+    <attributeValues IterBinding="Sasn06PartnersListInPartnerGroupsIterator"
+                     id="ContactPersonName">
+      <AttrNames>
+        <Item Value="ContactPersonName"/>
+      </AttrNames>
+    </attributeValues>
+    <attributeValues IterBinding="Sasn06PartnersListInPartnerGroupsIterator"
+                     id="ContactPersonPosition">
+      <AttrNames>
+        <Item Value="ContactPersonPosition"/>
+      </AttrNames>
+    </attributeValues>
+    <attributeValues IterBinding="Sasn06PartnersListInPartnerGroupsIterator"
+                     id="ContactPersonTelephone">
+      <AttrNames>
+        <Item Value="ContactPersonTelephone"/>
+      </AttrNames>
+    </attributeValues>
+    <attributeValues IterBinding="Sasn06PartnersListInPartnerGroupsIterator"
+                     id="ContactPersonEmail">
+      <AttrNames>
+        <Item Value="ContactPersonEmail"/>
+      </AttrNames>
+    </attributeValues>
+    <attributeValues IterBinding="Sasn06PartnersListInPartnerGroupsIterator"
+                     id="Description">
+      <AttrNames>
+        <Item Value="Description"/>
+      </AttrNames>
+    </attributeValues>
+  </bindings>
+</pageDefinition>

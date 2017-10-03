@@ -1,0 +1,131 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<pageDefinition xmlns="http://xmlns.oracle.com/adfm/uimodel"
+                version="11.1.1.54.7" id="sasea001PageDef"
+                Package="pages.sasea.sasea001">
+  <parameters/>
+  <executables>
+    <iterator Binds="Sasem001Environments" RangeSize="25"
+              DataControl="PerpSasEnvAppModuleDataControl"
+              id="Sasem001EnvironmentsIterator"/>
+  </executables>
+  <bindings>
+    <tree IterBinding="Sasem001EnvironmentsIterator" id="Sasem001Environments">
+      <nodeDefinition DefName="com.perp.sasenvmodel.views.sasem001.Sasem001Environments"
+                      Name="Sasem001Environments0">
+        <AttrNames>
+          <Item Value="SetupDate"/>
+          <Item Value="DbHost"/>
+          <Item Value="DbPort"/>
+          <Item Value="Sid"/>
+          <Item Value="DbUser"/>
+          <Item Value="AppHost"/>
+          <Item Value="AppPort"/>
+          <Item Value="RemovedDate"/>
+          <Item Value="EnvId"/>
+          <Item Value="SubId"/>
+          <Item Value="DbPwd"/>
+          <Item Value="CurrentNumOfAppUser"/>
+          <Item Value="Descriptions"/>
+          <Item Value="JdbcUrl"/>
+        </AttrNames>
+        <Accessors>
+          <Item Value="Sasem001SubscriptionViewDetails"/>
+        </Accessors>
+      </nodeDefinition>
+      <nodeDefinition DefName="com.perp.sasenvmodel.views.sasem001.Sasem001SubscriptionViewDetails"
+                      Name="Sasem001Environments1">
+        <AttrNames>
+          <Item Value="SubId"/>
+          <Item Value="ActivatedCode"/>
+          <Item Value="FullName"/>
+          <Item Value="OrganizationName"/>
+          <Item Value="PackageCode"/>
+          <Item Value="PackageName"/>
+          <Item Value="RowID"/>
+        </AttrNames>
+      </nodeDefinition>
+    </tree>
+    <attributeValues IterBinding="Sasem001EnvironmentsIterator" id="EnvId">
+      <AttrNames>
+        <Item Value="EnvId"/>
+      </AttrNames>
+    </attributeValues>
+    <attributeValues IterBinding="Sasem001EnvironmentsIterator" id="SubId">
+      <AttrNames>
+        <Item Value="SubId"/>
+      </AttrNames>
+    </attributeValues>
+    <attributeValues IterBinding="Sasem001EnvironmentsIterator" id="DbHost">
+      <AttrNames>
+        <Item Value="DbHost"/>
+      </AttrNames>
+    </attributeValues>
+    <attributeValues IterBinding="Sasem001EnvironmentsIterator" id="DbPort">
+      <AttrNames>
+        <Item Value="DbPort"/>
+      </AttrNames>
+    </attributeValues>
+    <attributeValues IterBinding="Sasem001EnvironmentsIterator" id="Sid">
+      <AttrNames>
+        <Item Value="Sid"/>
+      </AttrNames>
+    </attributeValues>
+    <attributeValues IterBinding="Sasem001EnvironmentsIterator" id="DbUser">
+      <AttrNames>
+        <Item Value="DbUser"/>
+      </AttrNames>
+    </attributeValues>
+    <attributeValues IterBinding="Sasem001EnvironmentsIterator" id="DbPwd">
+      <AttrNames>
+        <Item Value="DbPwd"/>
+      </AttrNames>
+    </attributeValues>
+    <attributeValues IterBinding="Sasem001EnvironmentsIterator" id="AppHost">
+      <AttrNames>
+        <Item Value="AppHost"/>
+      </AttrNames>
+    </attributeValues>
+    <attributeValues IterBinding="Sasem001EnvironmentsIterator" id="AppPort">
+      <AttrNames>
+        <Item Value="AppPort"/>
+      </AttrNames>
+    </attributeValues>
+    <attributeValues IterBinding="Sasem001EnvironmentsIterator"
+                     id="CurrentNumOfAppUser">
+      <AttrNames>
+        <Item Value="CurrentNumOfAppUser"/>
+      </AttrNames>
+    </attributeValues>
+    <attributeValues IterBinding="Sasem001EnvironmentsIterator" id="SetupDate">
+      <AttrNames>
+        <Item Value="SetupDate"/>
+      </AttrNames>
+    </attributeValues>
+    <attributeValues IterBinding="Sasem001EnvironmentsIterator"
+                     id="RemovedDate">
+      <AttrNames>
+        <Item Value="RemovedDate"/>
+      </AttrNames>
+    </attributeValues>
+    <attributeValues IterBinding="Sasem001EnvironmentsIterator"
+                     id="Descriptions">
+      <AttrNames>
+        <Item Value="Descriptions"/>
+      </AttrNames>
+    </attributeValues>
+    <action id="Commit" RequiresUpdateModel="true" Action="commitTransaction"
+            DataControl="PerpSasEnvAppModuleDataControl"/>
+    <action id="Rollback" RequiresUpdateModel="false"
+            Action="rollbackTransaction"
+            DataControl="PerpSasEnvAppModuleDataControl"/>
+    <action IterBinding="Sasem001EnvironmentsIterator" id="Create"
+            RequiresUpdateModel="true" Action="createRow"/>
+    <action IterBinding="Sasem001EnvironmentsIterator" id="Delete"
+            RequiresUpdateModel="false" Action="removeCurrentRow"/>
+    <attributeValues IterBinding="Sasem001EnvironmentsIterator" id="JdbcUrl">
+      <AttrNames>
+        <Item Value="JdbcUrl"/>
+      </AttrNames>
+    </attributeValues>
+  </bindings>
+</pageDefinition>

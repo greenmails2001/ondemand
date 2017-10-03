@@ -1,0 +1,69 @@
+<?xml version="1.0" encoding="windows-1252" ?>
+<!DOCTYPE ViewObject SYSTEM "jbo_03_01.dtd">
+<!---->
+<ViewObject
+  xmlns="http://xmlns.oracle.com/bc4j"
+  Name="C01NewsOthers"
+  Version="11.1.1.56.60"
+  SelectList="NewsOthers.NOT_ID, 
+       NewsOthers.NOT_NUMBER, 
+       NewsOthers.TITLE, 
+       NewsOthers.CONTENT, 
+       NewsOthers.DESCRIPTION"
+  FromList="NEWS_OTHERS NewsOthers"
+  BindingStyle="OracleName"
+  CustomQuery="false"
+  PageIterMode="Full"
+  UseGlueCode="false"
+  Where="NewsOthers.NOT_NUMBER= :p_Not_Number"
+  RowClass="com.vc.sasnmodel.views.customize.C01NewsOthersRowImpl"
+  RowInterface="com.vc.sasnmodel.views.customize.common.C01NewsOthersRow"
+  ClientRowProxyName="com.vc.sasnmodel.views.customize.client.C01NewsOthersRowClient">
+  <DesignTime>
+    <Attr Name="_codeGenFlag2" Value="Access"/>
+    <Attr Name="_isCodegen" Value="true"/>
+  </DesignTime>
+  <Variable
+    Name="p_Not_Number"
+    Kind="where"
+    Type="java.lang.String"/>
+  <EntityUsage
+    Name="NewsOthers"
+    Entity="com.vc.sasnmodel.entities.NewsOthers"/>
+  <ViewAttribute
+    Name="NotId"
+    IsNotNull="true"
+    PrecisionRule="true"
+    EntityAttrName="NotId"
+    EntityUsage="NewsOthers"
+    AliasName="NOT_ID"/>
+  <ViewAttribute
+    Name="NotNumber"
+    IsUnique="true"
+    IsNotNull="true"
+    PrecisionRule="true"
+    EntityAttrName="NotNumber"
+    EntityUsage="NewsOthers"
+    AliasName="NOT_NUMBER"/>
+  <ViewAttribute
+    Name="Title"
+    IsNotNull="true"
+    PrecisionRule="true"
+    EntityAttrName="Title"
+    EntityUsage="NewsOthers"
+    AliasName="TITLE"/>
+  <ViewAttribute
+    Name="Content"
+    IsQueriable="false"
+    IsNotNull="true"
+    PrecisionRule="true"
+    EntityAttrName="Content"
+    EntityUsage="NewsOthers"
+    AliasName="CONTENT"/>
+  <ViewAttribute
+    Name="Description"
+    PrecisionRule="true"
+    EntityAttrName="Description"
+    EntityUsage="NewsOthers"
+    AliasName="DESCRIPTION"/>
+</ViewObject>

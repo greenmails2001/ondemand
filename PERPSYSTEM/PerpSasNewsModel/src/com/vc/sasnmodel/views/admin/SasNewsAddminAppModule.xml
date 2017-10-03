@@ -1,0 +1,24 @@
+<?xml version="1.0" encoding="windows-1252" ?>
+<!DOCTYPE AppModule SYSTEM "jbo_03_01.dtd">
+<!---->
+<AppModule
+  xmlns="http://xmlns.oracle.com/bc4j"
+  Name="SasNewsAddminAppModule"
+  Version="11.1.1.56.60"
+  ClearCacheOnRollback="true">
+  <DesignTime>
+    <Attr Name="_deployType" Value="0"/>
+  </DesignTime>
+  <ViewUsage
+    Name="NewsCategories1"
+    ViewObjectName="com.vc.sasnmodel.views.admin.NewsCategories"/>
+  <ViewUsage
+    Name="NewsVO1"
+    ViewObjectName="com.vc.sasnmodel.views.admin.NewsVO"/>
+  <ViewUsage
+    Name="LovNewsCategories1"
+    ViewObjectName="com.vc.sasnmodel.views.lovs.LovNewsCategories"/>
+  <ViewUsage
+    Name="LovImageResources1"
+    ViewObjectName="com.vc.sasnmodel.views.lovs.LovImageResources"/>
+</AppModule>

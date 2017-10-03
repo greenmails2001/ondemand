@@ -1,0 +1,34 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<pageDefinition xmlns="http://xmlns.oracle.com/adfm/uimodel"
+                version="11.1.1.55.36" id="indexPageDef"
+                Package="com.vc.sasn.pageDefs">
+  <parameters/>
+  <executables>
+    <variableIterator id="variables"/>
+    <taskFlow id="sasnintro1" taskFlowId="/WEB-INF/sasn-intro.xml#sasn-intro"
+              activation="deferred"
+              xmlns="http://xmlns.oracle.com/adf/controller/binding"/>
+    <taskFlow id="sasnprod1" taskFlowId="/WEB-INF/sasn-prod.xml#sasn-prod"
+              activation="deferred"
+              xmlns="http://xmlns.oracle.com/adf/controller/binding"/>
+    <taskFlow id="sasnserv1" taskFlowId="/WEB-INF/sasn-serv.xml#sasn-serv"
+              activation="deferred"
+              xmlns="http://xmlns.oracle.com/adf/controller/binding"/>
+    <taskFlow id="sasnpartn1" taskFlowId="/WEB-INF/sasn-partn.xml#sasn-partn"
+              activation="deferred"
+              xmlns="http://xmlns.oracle.com/adf/controller/binding"/>
+    <taskFlow id="sanscust1" taskFlowId="/WEB-INF/sans-cust.xml#sans-cust"
+              activation="deferred"
+              xmlns="http://xmlns.oracle.com/adf/controller/binding"/>
+    <taskFlow id="sasnnews1" taskFlowId="/WEB-INF/sasn-news.xml#sasn-news"
+              activation="deferred"
+              xmlns="http://xmlns.oracle.com/adf/controller/binding"/>
+    <taskFlow id="sasnsys1" taskFlowId="/WEB-INF/sasn-sys.xml#sasn-sys"
+              activation="deferred"
+              xmlns="http://xmlns.oracle.com/adf/controller/binding"/>
+    <taskFlow id="sasnconsul1" taskFlowId="/WEB-INF/sasn-consul.xml#sasn-consul"
+              activation="deferred"
+              xmlns="http://xmlns.oracle.com/adf/controller/binding"/>
+  </executables>
+  <bindings/>
+</pageDefinition>

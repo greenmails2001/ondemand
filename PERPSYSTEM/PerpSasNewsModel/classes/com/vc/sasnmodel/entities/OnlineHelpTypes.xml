@@ -1,0 +1,127 @@
+<?xml version="1.0" encoding="windows-1252" ?>
+<!DOCTYPE Entity SYSTEM "jbo_03_01.dtd">
+<!---->
+<Entity
+  xmlns="http://xmlns.oracle.com/bc4j"
+  Name="OnlineHelpTypes"
+  Version="11.1.1.56.60"
+  DBObjectType="table"
+  DBObjectName="ONLINE_HELP_TYPES"
+  AliasName="OnlineHelpTypes"
+  BindingStyle="OracleName"
+  UseGlueCode="false">
+  <DesignTime>
+    <Attr Name="_codeGenFlag2" Value="Access"/>
+    <AttrArray Name="_publishEvents"/>
+  </DesignTime>
+  <Attribute
+    Name="HelpType"
+    IsNotNull="true"
+    Precision="30"
+    ColumnName="HELP_TYPE"
+    SQLType="VARCHAR"
+    Type="java.lang.String"
+    ColumnType="VARCHAR2"
+    TableName="ONLINE_HELP_TYPES"
+    PrimaryKey="true">
+    <DesignTime>
+      <Attr Name="_DisplaySize" Value="30"/>
+    </DesignTime>
+  </Attribute>
+  <Attribute
+    Name="Name"
+    IsNotNull="true"
+    Precision="100"
+    ColumnName="NAME"
+    SQLType="VARCHAR"
+    Type="java.lang.String"
+    ColumnType="VARCHAR2"
+    TableName="ONLINE_HELP_TYPES">
+    <DesignTime>
+      <Attr Name="_DisplaySize" Value="100"/>
+    </DesignTime>
+  </Attribute>
+  <Attribute
+    Name="ImageIcon"
+    IsQueriable="false"
+    IsNotNull="true"
+    ColumnName="IMAGE_ICON"
+    SQLType="BLOB"
+    Type="oracle.jbo.domain.BlobDomain"
+    ColumnType="BLOB"
+    TableName="ONLINE_HELP_TYPES"/>
+  <Attribute
+    Name="ImageType"
+    IsNotNull="true"
+    Precision="10"
+    ColumnName="IMAGE_TYPE"
+    SQLType="VARCHAR"
+    Type="java.lang.String"
+    ColumnType="VARCHAR2"
+    TableName="ONLINE_HELP_TYPES">
+    <DesignTime>
+      <Attr Name="_DisplaySize" Value="10"/>
+    </DesignTime>
+  </Attribute>
+  <AccessorAttribute
+    Name="OnlineHelps"
+    Association="com.vc.sasnmodel.entities.OheOhtFkAssoc"
+    AssociationEnd="com.vc.sasnmodel.entities.OheOhtFkAssoc.OnlineHelps"
+    AssociationOtherEnd="com.vc.sasnmodel.entities.OheOhtFkAssoc.OnlineHelpTypes"
+    Type="oracle.jbo.RowIterator"
+    IsUpdateable="false"/>
+  <Key
+    Name="OhtPk"
+    PrimaryKey="true">
+    <DesignTime>
+      <Attr Name="_DBObjectName" Value="OHT_PK"/>
+    </DesignTime>
+    <AttrArray Name="Attributes">
+      <Item Value="com.vc.sasnmodel.entities.OnlineHelpTypes.HelpType"/>
+    </AttrArray>
+  </Key>
+  <Key
+    Name="SysC0048879">
+    <DesignTime>
+      <Attr Name="_DBObjectName" Value="SYS_C0048879"/>
+      <Attr Name="_checkCondition" Value='"HELP_TYPE" IS NOT NULL'/>
+      <Attr Name="_isCheck" Value="true"/>
+    </DesignTime>
+    <AttrArray Name="Attributes">
+      <Item Value="com.vc.sasnmodel.entities.OnlineHelpTypes.HelpType"/>
+    </AttrArray>
+  </Key>
+  <Key
+    Name="SysC0048880">
+    <DesignTime>
+      <Attr Name="_DBObjectName" Value="SYS_C0048880"/>
+      <Attr Name="_checkCondition" Value='"NAME" IS NOT NULL'/>
+      <Attr Name="_isCheck" Value="true"/>
+    </DesignTime>
+    <AttrArray Name="Attributes">
+      <Item Value="com.vc.sasnmodel.entities.OnlineHelpTypes.Name"/>
+    </AttrArray>
+  </Key>
+  <Key
+    Name="SysC0048881">
+    <DesignTime>
+      <Attr Name="_DBObjectName" Value="SYS_C0048881"/>
+      <Attr Name="_checkCondition" Value='"IMAGE_ICON" IS NOT NULL'/>
+      <Attr Name="_isCheck" Value="true"/>
+    </DesignTime>
+    <AttrArray Name="Attributes">
+      <Item Value="com.vc.sasnmodel.entities.OnlineHelpTypes.ImageIcon"/>
+    </AttrArray>
+  </Key>
+  <Key
+    Name="SysC0048882">
+    <DesignTime>
+      <Attr Name="_DBObjectName" Value="SYS_C0048882"/>
+      <Attr Name="_checkCondition" Value='"IMAGE_TYPE" IS NOT NULL'/>
+      <Attr Name="_isCheck" Value="true"/>
+    </DesignTime>
+    <AttrArray Name="Attributes">
+      <Item Value="com.vc.sasnmodel.entities.OnlineHelpTypes.ImageType"/>
+    </AttrArray>
+  </Key>
+</Entity>

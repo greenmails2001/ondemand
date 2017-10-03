@@ -1,0 +1,76 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE ViewObject SYSTEM "jbo_03_01.dtd">
+<!---->
+<ViewObject
+  xmlns="http://xmlns.oracle.com/bc4j"
+  Name="Sasem001SubscriptionViewDetails"
+  Version="11.1.1.51.88"
+  SelectList="SubscriptionViewDetails.SUB_ID, 
+       SubscriptionViewDetails.ACTIVATED_CODE, 
+       SubscriptionViewDetails.PACKAGE_CODE, 
+       SubscriptionViewDetails.PACKAGE_NAME, 
+       SubscriptionViewDetails.FULL_NAME, 
+       SubscriptionViewDetails.ORGANIZATION_NAME, 
+       SubscriptionViewDetails.ROWID"
+  FromList="SUBSCRIPTION_VIEW_DETAILS SubscriptionViewDetails"
+  BindingStyle="OracleName"
+  CustomQuery="false"
+  PageIterMode="Full"
+  UseGlueCode="false">
+  <DesignTime>
+    <Attr Name="_codeGenFlag2" Value="Access|VarAccess"/>
+  </DesignTime>
+  <EntityUsage
+    Name="SubscriptionViewDetails"
+    Entity="com.perp.sasenvmodel.entities.SubscriptionViewDetails"/>
+  <ViewAttribute
+    Name="SubId"
+    IsNotNull="true"
+    PrecisionRule="true"
+    EntityAttrName="SubId"
+    EntityUsage="SubscriptionViewDetails"
+    AliasName="SUB_ID"/>
+  <ViewAttribute
+    Name="ActivatedCode"
+    IsNotNull="true"
+    PrecisionRule="true"
+    EntityAttrName="ActivatedCode"
+    EntityUsage="SubscriptionViewDetails"
+    AliasName="ACTIVATED_CODE"/>
+  <ViewAttribute
+    Name="PackageCode"
+    PrecisionRule="true"
+    EntityAttrName="PackageCode"
+    EntityUsage="SubscriptionViewDetails"
+    AliasName="PACKAGE_CODE"/>
+  <ViewAttribute
+    Name="PackageName"
+    PrecisionRule="true"
+    EntityAttrName="PackageName"
+    EntityUsage="SubscriptionViewDetails"
+    AliasName="PACKAGE_NAME"/>
+  <ViewAttribute
+    Name="FullName"
+    PrecisionRule="true"
+    EntityAttrName="FullName"
+    EntityUsage="SubscriptionViewDetails"
+    AliasName="FULL_NAME"/>
+  <ViewAttribute
+    Name="OrganizationName"
+    PrecisionRule="true"
+    EntityAttrName="OrganizationName"
+    EntityUsage="SubscriptionViewDetails"
+    AliasName="ORGANIZATION_NAME"/>
+  <ViewAttribute
+    Name="RowID"
+    IsUpdateable="false"
+    PrecisionRule="true"
+    EntityAttrName="RowID"
+    EntityUsage="SubscriptionViewDetails"
+    AliasName="ROWID"/>
+  <ViewLinkAccessor
+    Name="Sasem001Environments"
+    ViewLink="com.perp.sasenvmodel.views.sasem001.Sasem001Environments_Sasem001SubscriptionViewDetails"
+    Type="oracle.jbo.RowIterator"
+    IsUpdateable="false"/>
+</ViewObject>

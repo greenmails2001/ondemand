@@ -1,0 +1,18 @@
+<?xml version = '1.0' encoding = 'UTF-8'?>
+<BC4JConfig version="11.1" xmlns="http://xmlns.oracle.com/bc4j/configuration">
+   <AppModuleConfigBag ApplicationName="com.vc.sasnmodel.PerpSasNewsAppModule">
+      <AppModuleConfig name="144403C8E58" jbo.project="com.vc.sasnmodel.PerpSasNewsModel" JDBCName="PerpSasNewsConnection" IsLazyLoadingTrue="true" ApplicationName="com.vc.sasnmodel.PerpSasNewsAppModule" DeployPlatform="LOCAL" java.naming.factory.initial="oracle.jbo.common.JboInitialContextFactory" BC4JConfigName="PerpSasNewsAppModuleLocal">
+         <Database jbo.TypeMapEntries="Oracle" jbo.SQLBuilder="Oracle"/>
+         <Security AppModuleJndiName="com.vc.sasnmodel.PerpSasNewsAppModule"/>
+         <Tester FullProxyInterfaceName="com.vc.sasnmodel.common.PerpSasNewsAppModule"/>
+         <Custom LastUsedConfiguration="PerpSasNewsAppModuleLocal"/>
+      </AppModuleConfig>
+   </AppModuleConfigBag>
+   <AppModuleConfigBag ApplicationName="com.vc.sasnmodel.views.admin.SasNewsAddminAppModule">
+      <AppModuleConfig name="144B5ACF011" IsLazyLoadingTrue="true" BC4JConfigName="SasNewsAddminAppModuleLocal" java.naming.factory.initial="oracle.jbo.common.JboInitialContextFactory" JDBCName="PerpSasNewsConnection" jbo.project="com.vc.sasnmodel.PerpSasNewsModel" ApplicationName="com.vc.sasnmodel.views.admin.SasNewsAddminAppModule" DeployPlatform="LOCAL">
+         <Database jbo.SQLBuilder="Oracle" jbo.TypeMapEntries="Oracle"/>
+         <Security AppModuleJndiName="com.vc.sasnmodel.views.admin.SasNewsAddminAppModule"/>
+         <Tester FullProxyInterfaceName="com.vc.sasnmodel.views.admin.common.SasNewsAddminAppModule"/>
+      </AppModuleConfig>
+   </AppModuleConfigBag>
+</BC4JConfig>

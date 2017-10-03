@@ -1,0 +1,48 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<pageDefinition xmlns="http://xmlns.oracle.com/adfm/uimodel"
+                version="11.1.1.55.36" id="testPageDef"
+                Package="com.vc.sasn.pageDefs">
+  <parameters/>
+  <executables>
+    <variableIterator id="variables"/>
+    <iterator Binds="Sasn04NewsCategories" RangeSize="25"
+              DataControl="PerpSasNewsAppModuleDataControl"
+              id="Sasn04NewsCategoriesIterator"/>
+  </executables>
+  <bindings>
+    <attributeValues IterBinding="Sasn04NewsCategoriesIterator" id="NcaId">
+      <AttrNames>
+        <Item Value="NcaId"/>
+      </AttrNames>
+    </attributeValues>
+    <attributeValues IterBinding="Sasn04NewsCategoriesIterator"
+                     id="NcaIdParent">
+      <AttrNames>
+        <Item Value="NcaIdParent"/>
+      </AttrNames>
+    </attributeValues>
+    <attributeValues IterBinding="Sasn04NewsCategoriesIterator" id="Title">
+      <AttrNames>
+        <Item Value="Title"/>
+      </AttrNames>
+    </attributeValues>
+    <attributeValues IterBinding="Sasn04NewsCategoriesIterator"
+                     id="Description">
+      <AttrNames>
+        <Item Value="Description"/>
+      </AttrNames>
+    </attributeValues>
+    <attributeValues IterBinding="Sasn04NewsCategoriesIterator"
+                     id="CategoryCode">
+      <AttrNames>
+        <Item Value="CategoryCode"/>
+      </AttrNames>
+    </attributeValues>
+    <attributeValues IterBinding="Sasn04NewsCategoriesIterator"
+                     id="PriorityOrder">
+      <AttrNames>
+        <Item Value="PriorityOrder"/>
+      </AttrNames>
+    </attributeValues>
+  </bindings>
+</pageDefinition>

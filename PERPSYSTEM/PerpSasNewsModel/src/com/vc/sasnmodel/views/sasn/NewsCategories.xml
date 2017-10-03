@@ -1,0 +1,71 @@
+<?xml version="1.0" encoding="windows-1252" ?>
+<!DOCTYPE ViewObject SYSTEM "jbo_03_01.dtd">
+<!---->
+<ViewObject
+  xmlns="http://xmlns.oracle.com/bc4j"
+  Name="NewsCategories"
+  Version="11.1.1.56.60"
+  SelectList="NewsCategories.NCA_ID, 
+       NewsCategories.NCA_ID_PARENT, 
+       NewsCategories.TITLE, 
+       NewsCategories.DESCRIPTION, 
+       NewsCategories.CATEGORY_CODE, 
+       NewsCategories.PRIORITY_ORDER"
+  FromList="NEWS_CATEGORIES NewsCategories"
+  BindingStyle="OracleName"
+  CustomQuery="false"
+  PageIterMode="Full"
+  UseGlueCode="false"
+  OrderBy="NewsCategories.PRIORITY_ORDER desc">
+  <DesignTime>
+    <Attr Name="_codeGenFlag2" Value="Access|VarAccess"/>
+  </DesignTime>
+  <EntityUsage
+    Name="NewsCategories"
+    Entity="com.vc.sasnmodel.entities.NewsCategories"/>
+  <ViewAttribute
+    Name="NcaId"
+    IsNotNull="true"
+    PrecisionRule="true"
+    EntityAttrName="NcaId"
+    EntityUsage="NewsCategories"
+    AliasName="NCA_ID"/>
+  <ViewAttribute
+    Name="NcaIdParent"
+    PrecisionRule="true"
+    EntityAttrName="NcaIdParent"
+    EntityUsage="NewsCategories"
+    AliasName="NCA_ID_PARENT"/>
+  <ViewAttribute
+    Name="Title"
+    IsNotNull="true"
+    PrecisionRule="true"
+    EntityAttrName="Title"
+    EntityUsage="NewsCategories"
+    AliasName="TITLE"/>
+  <ViewAttribute
+    Name="Description"
+    PrecisionRule="true"
+    EntityAttrName="Description"
+    EntityUsage="NewsCategories"
+    AliasName="DESCRIPTION"/>
+  <ViewAttribute
+    Name="CategoryCode"
+    IsUnique="true"
+    PrecisionRule="true"
+    EntityAttrName="CategoryCode"
+    EntityUsage="NewsCategories"
+    AliasName="CATEGORY_CODE"/>
+  <ViewAttribute
+    Name="PriorityOrder"
+    IsNotNull="true"
+    PrecisionRule="true"
+    EntityAttrName="PriorityOrder"
+    EntityUsage="NewsCategories"
+    AliasName="PRIORITY_ORDER"/>
+  <ViewLinkAccessor
+    Name="News"
+    ViewLink="com.vc.sasnmodel.views.sasn.News_NewsCategories"
+    Type="oracle.jbo.RowIterator"
+    IsUpdateable="false"/>
+</ViewObject>

@@ -1,0 +1,38 @@
+<?xml version='1.0' encoding='UTF-8'?>
+<jsp:root xmlns:jsp="http://java.sun.com/JSP/Page" version="2.1" xmlns:af="http://xmlns.oracle.com/adf/faces/rich"
+          xmlns:f="http://java.sun.com/jsf/core">
+  <af:panelBox id="pb1" showHeader="never" showDisclosure="false">
+    <f:facet name="toolbar"/>
+    <af:panelGroupLayout id="pgl1" layout="scroll">
+      <af:panelGroupLayout id="pgl2" layout="vertical" inlineStyle="padding:10px;">
+        <af:panelGroupLayout id="pgl3" layout="vertical">
+          <af:outputText value="Đăng ký sử dụng dịch vụ VBISCloud" id="ot1" inlineStyle="font-size:larger;"/>
+        </af:panelGroupLayout>
+        <af:panelGroupLayout id="pgl4" layout="vertical">
+          <af:panelList id="pl1">
+            <af:goLink text="http://www.vbiscloud.com/sasr" id="gl1" destination="http://www.vbiscloud.com/sasr"
+                       targetFrame="_blank"/>
+          </af:panelList>
+        </af:panelGroupLayout>
+        <af:spacer width="10" height="10" id="s1"/>
+        <af:panelGroupLayout id="panelGroupLayout1" layout="vertical">
+          <af:outputText value="Đăng nhập ứng dụng trong VBISCloud" id="outputText1" inlineStyle="font-size:larger;"/>
+        </af:panelGroupLayout>
+        <af:panelGroupLayout id="panelGroupLayout2" layout="vertical">
+          <af:panelList id="panelList1">
+            <af:goLink text="http://www.vbiscloud.com/perpsas" id="goLink1" destination="http://www.vbiscloud.com/perpsas" targetFrame="_blank"/>
+          </af:panelList>
+        </af:panelGroupLayout>
+        <af:spacer width="10" height="10" id="s2"/>
+        <af:panelGroupLayout id="panelGroupLayout3" layout="vertical">
+          <af:outputText value="Đăng nhập hệ thống quản lý issue VBISCloud" id="outputText3" inlineStyle="font-size:larger;"/>
+        </af:panelGroupLayout>
+        <af:panelGroupLayout id="panelGroupLayout4" layout="vertical">
+          <af:panelList id="panelList4">
+            <af:goLink text="http://support.vbiscloud.com" id="goLink4" destination="http://support.vbiscloud.com" targetFrame="_blank"/>
+          </af:panelList>
+        </af:panelGroupLayout>
+      </af:panelGroupLayout>
+    </af:panelGroupLayout>
+  </af:panelBox>
+</jsp:root>

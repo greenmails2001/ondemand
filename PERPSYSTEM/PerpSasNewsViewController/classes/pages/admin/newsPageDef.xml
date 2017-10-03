@@ -1,0 +1,128 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<pageDefinition xmlns="http://xmlns.oracle.com/adfm/uimodel" version="11.1.1.56.60" id="newsPageDef" Package="pages.admin">
+  <parameters/>
+  <executables>
+    <variableIterator id="variables"/>
+    <iterator Binds="NewsCategories1" RangeSize="25" DataControl="SasNewsAddminAppModuleDataControl" id="NewsCategories1Iterator"/>
+    <searchRegion Binds="NewsCategories1Iterator" Criteria="" Customizer="oracle.jbo.uicli.binding.JUSearchBindingCustomizer"
+                  id="NewsCategories1Query"/>
+    <iterator Binds="NewsVO1" RangeSize="25" DataControl="SasNewsAddminAppModuleDataControl" id="NewsVO1Iterator"/>
+    <searchRegion Binds="NewsVO1Iterator" Criteria="" Customizer="oracle.jbo.uicli.binding.JUSearchBindingCustomizer" id="NewsVO1Query"/>
+    <iterator Binds="LovNewsCategories1" RangeSize="-1" DataControl="SasNewsAddminAppModuleDataControl" id="LovNewsCategories1Iterator"/>
+    <iterator Binds="LovImageResources1" RangeSize="-1" DataControl="SasNewsAddminAppModuleDataControl" id="LovImageResources1Iterator"/>
+  </executables>
+  <bindings>
+    <tree IterBinding="NewsCategories1Iterator" id="NewsCategories1">
+      <nodeDefinition DefName="com.vc.sasnmodel.views.admin.NewsCategories" Name="NewsCategories10">
+        <AttrNames>
+          <Item Value="CategoryCode"/>
+          <Item Value="Title"/>
+          <Item Value="PriorityOrder"/>
+          <Item Value="Description"/>
+        </AttrNames>
+      </nodeDefinition>
+    </tree>
+    <attributeValues IterBinding="NewsCategories1Iterator" id="CategoryCode">
+      <AttrNames>
+        <Item Value="CategoryCode"/>
+      </AttrNames>
+    </attributeValues>
+    <attributeValues IterBinding="NewsCategories1Iterator" id="Title">
+      <AttrNames>
+        <Item Value="Title"/>
+      </AttrNames>
+    </attributeValues>
+    <attributeValues IterBinding="NewsCategories1Iterator" id="Description">
+      <AttrNames>
+        <Item Value="Description"/>
+      </AttrNames>
+    </attributeValues>
+    <attributeValues IterBinding="NewsCategories1Iterator" id="PriorityOrder">
+      <AttrNames>
+        <Item Value="PriorityOrder"/>
+      </AttrNames>
+    </attributeValues>
+    <tree IterBinding="NewsVO1Iterator" id="NewsVO1">
+      <nodeDefinition DefName="com.vc.sasnmodel.views.admin.NewsVO" Name="NewsVO10">
+        <AttrNames>
+          <Item Value="BookmarkCode"/>
+          <Item Value="Content"/>
+          <Item Value="NewsDate"/>
+          <Item Value="PriorityLevel"/>
+          <Item Value="ShortContent"/>
+          <Item Value="Title"/>
+        </AttrNames>
+      </nodeDefinition>
+    </tree>
+    <list StaticList="false" IterBinding="NewsVO1Iterator" ListIter="LovNewsCategories1Iterator" id="NcaId">
+      <AttrNames>
+        <Item Value="NcaId"/>
+      </AttrNames>
+      <ListAttrNames>
+        <Item Value="NcaId"/>
+      </ListAttrNames>
+      <ListDisplayAttrNames>
+        <Item Value="Title"/>
+      </ListDisplayAttrNames>
+    </list>
+    <attributeValues IterBinding="NewsVO1Iterator" id="BookmarkCode">
+      <AttrNames>
+        <Item Value="BookmarkCode"/>
+      </AttrNames>
+    </attributeValues>
+    <attributeValues IterBinding="NewsVO1Iterator" id="Title1">
+      <AttrNames>
+        <Item Value="Title"/>
+      </AttrNames>
+    </attributeValues>
+    <attributeValues IterBinding="NewsVO1Iterator" id="Content">
+      <AttrNames>
+        <Item Value="Content"/>
+      </AttrNames>
+    </attributeValues>
+    <attributeValues IterBinding="NewsVO1Iterator" id="ShortContent">
+      <AttrNames>
+        <Item Value="ShortContent"/>
+      </AttrNames>
+    </attributeValues>
+    <list StaticList="false" IterBinding="NewsVO1Iterator" ListIter="LovImageResources1Iterator" id="IreIdMedium">
+      <AttrNames>
+        <Item Value="IreIdMedium"/>
+      </AttrNames>
+      <ListAttrNames>
+        <Item Value="IreId"/>
+      </ListAttrNames>
+      <ListDisplayAttrNames>
+        <Item Value="Description"/>
+      </ListDisplayAttrNames>
+    </list>
+    <list StaticList="false" IterBinding="NewsVO1Iterator" ListIter="LovImageResources1Iterator" id="IreIdSmall">
+      <AttrNames>
+        <Item Value="IreIdSmall"/>
+      </AttrNames>
+      <ListAttrNames>
+        <Item Value="IreId"/>
+      </ListAttrNames>
+      <ListDisplayAttrNames>
+        <Item Value="Description"/>
+      </ListDisplayAttrNames>
+    </list>
+    <attributeValues IterBinding="NewsVO1Iterator" id="NewsDate">
+      <AttrNames>
+        <Item Value="NewsDate"/>
+      </AttrNames>
+    </attributeValues>
+    <attributeValues IterBinding="NewsVO1Iterator" id="PriorityLevel">
+      <AttrNames>
+        <Item Value="PriorityLevel"/>
+      </AttrNames>
+    </attributeValues>
+    <action id="Commit" RequiresUpdateModel="true" Action="commitTransaction" DataControl="SasNewsAddminAppModuleDataControl"/>
+    <action id="Rollback" RequiresUpdateModel="false" Action="rollbackTransaction" DataControl="SasNewsAddminAppModuleDataControl"/>
+    <action IterBinding="NewsVO1Iterator" id="CreateNews" InstanceName="SasNewsAddminAppModuleDataControl.NewsVO1"
+            DataControl="SasNewsAddminAppModuleDataControl" RequiresUpdateModel="true" Action="createRow"/>
+    <action IterBinding="NewsCategories1Iterator" id="Delete" RequiresUpdateModel="false" Action="removeCurrentRow"/>
+    <action IterBinding="NewsCategories1Iterator" id="CreateNewsCategory" InstanceName="SasNewsAddminAppModuleDataControl.NewsCategories1"
+            DataControl="SasNewsAddminAppModuleDataControl" RequiresUpdateModel="true" Action="createRow"/>
+  </bindings>
+</pageDefinition>

@@ -1,0 +1,43 @@
+<?xml version='1.0' encoding='UTF-8' ?>
+<!DOCTYPE JboProject SYSTEM "jbo_03_01.dtd">
+<!---->
+
+<JboProject
+   xmlns="http://xmlns.oracle.com/bc4j"
+   Name="PerpSasEnvModel"
+   Version="11.1.1.51.88"
+   SeparateXMLFiles="true"
+   PackageName="com.perp.sasenvmodel">
+   <DesignTime>
+      <Attr Name="_jprName" Value="../../../../PerpSasEnvModel.jpr"/>
+      <Attr Name="_appModuleNames0"
+         Value="com.perp.sasenvmodel.PerpSasEnvAppModule"/>
+      <Attr Name="_NamedConnection" Value="PerpSasEnvConnection"/>
+   </DesignTime>
+   <Containee
+      Name="entities"
+      FullName="com.perp.sasenvmodel.entities.entities"
+      ObjectType="JboPackage">
+      <DesignTime>
+         <Attr Name="_EO" Value="true"/>
+         <Attr Name="_AS" Value="true"/>
+      </DesignTime>
+   </Containee>
+   <Containee
+      Name="sasenvmodel"
+      FullName="com.perp.sasenvmodel.sasenvmodel"
+      ObjectType="JboPackage">
+      <DesignTime>
+         <Attr Name="_AM" Value="true"/>
+      </DesignTime>
+   </Containee>
+   <Containee
+      Name="sasem001"
+      FullName="com.perp.sasenvmodel.views.sasem001.sasem001"
+      ObjectType="JboPackage">
+      <DesignTime>
+         <Attr Name="_VO" Value="true"/>
+         <Attr Name="_VL" Value="true"/>
+      </DesignTime>
+   </Containee>
+</JboProject>

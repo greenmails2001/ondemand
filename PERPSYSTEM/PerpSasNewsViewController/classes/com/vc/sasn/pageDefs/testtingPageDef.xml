@@ -1,0 +1,29 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<pageDefinition xmlns="http://xmlns.oracle.com/adfm/uimodel"
+                version="11.1.1.56.60" id="testtingPageDef"
+                Package="com.vc.sasn.pageDefs">
+  <parameters/>
+  <executables>
+    <variableIterator id="variables">
+      <variable Name="notNumber" Type="java.lang.String"
+                DefaultValue="HISTORY11"/>
+      <variable Type="java.lang.String"
+                Name="generateImageFromBlobDatas_realPath" IsQueriable="false"/>
+    </variableIterator>
+  </executables>
+  <bindings>
+    <methodAction id="generateImageFromBlobDatas" RequiresUpdateModel="true"
+                  Action="invokeMethod" MethodName="generateImageFromBlobDatas"
+                  IsViewObjectMethod="false"
+                  DataControl="PerpSasNewsAppModuleDataControl"
+                  InstanceName="PerpSasNewsAppModuleDataControl.dataProvider">
+      <NamedData NDName="realPath" NDType="java.lang.String"
+                 NDValue="${bindings.generateImageFromBlobDatas_realPath}"/>
+    </methodAction>
+    <attributeValues IterBinding="variables" id="realPath">
+      <AttrNames>
+        <Item Value="generateImageFromBlobDatas_realPath"/>
+      </AttrNames>
+    </attributeValues>
+  </bindings>
+</pageDefinition>
