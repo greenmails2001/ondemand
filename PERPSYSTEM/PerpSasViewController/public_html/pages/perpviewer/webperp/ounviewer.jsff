@@ -1,8 +1,5 @@
 <?xml version='1.0' encoding='windows-1252'?>
-<jsp:root xmlns:jsp="http://java.sun.com/JSP/Page" version="2.1"
-          xmlns:f="http://java.sun.com/jsf/core"
-          xmlns:af="http://xmlns.oracle.com/adf/faces/rich"
-          xmlns:dvt="http://xmlns.oracle.com/dss/adf/faces">
+<ui:composition xmlns:f="http://java.sun.com/jsf/core" xmlns:af="http://xmlns.oracle.com/adf/faces/rich" xmlns:dvt="http://xmlns.oracle.com/dss/adf/faces" xmlns:ui="http://java.sun.com/jsf/facelets">
   <dvt:hierarchyViewer id="hierarchyViewer1" layout="hier_horz_left"
                        inlineStyle="width:100%;height:600px;"
                        value="#{bindings.Adv01OrganizationUnitsRoot.treeModel}"
@@ -34,4 +31,4 @@
       </f:facet>
     </dvt:node>
   </dvt:hierarchyViewer>
-</jsp:root>
+</ui:composition>

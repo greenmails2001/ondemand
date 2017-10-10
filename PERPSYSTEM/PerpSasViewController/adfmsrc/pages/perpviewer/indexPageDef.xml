@@ -27,6 +27,8 @@
     <iterator Binds="DiagramProcessView1" RangeSize="25"
               DataControl="PerpSasAppModuleDataControl"
               id="DiagramProcessView1Iterator"/>
+    <taskFlow id="module1taskflow11" taskFlowId="/WEB-INF/module1-task-flow1.xml#module1-task-flow1"
+              activation="deferred" xmlns="http://xmlns.oracle.com/adf/controller/binding"/>
   </executables>
   <bindings>
     <methodAction id="prepareToShowSasUserRoles" RequiresUpdateModel="true"

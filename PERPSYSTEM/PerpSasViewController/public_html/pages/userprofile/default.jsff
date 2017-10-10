@@ -1,2 +1,2 @@
 <?xml version='1.0' encoding='windows-1252'?>
-<jsp:root xmlns:jsp="http://java.sun.com/JSP/Page" version="2.1"></jsp:root>
+<ui:composition xmlns:ui="http://java.sun.com/jsf/facelets"></ui:composition>

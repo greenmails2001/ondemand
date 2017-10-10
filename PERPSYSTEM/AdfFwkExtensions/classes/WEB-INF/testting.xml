@@ -3,13 +3,13 @@
   <task-flow-definition id="testting">
     <default-activity>menutree</default-activity>
     <view id="treetable">
-      <page>/pages/testting/treetable.jspx</page>
+      <page>/pages/testting/treetable.jsf</page>
     </view>
     <view id="menutree">
-      <page>/pages/testting/menutree.jspx</page>
+      <page>/pages/testting/menutree.jsf</page>
     </view>
     <view id="test">
-      <page>/pages/testting/test.jspx</page>
+      <page>/pages/testting/test.jsf</page>
     </view>
   </task-flow-definition>
 </adfc-config>
