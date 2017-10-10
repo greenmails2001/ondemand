@@ -1,5 +1,5 @@
 package com.perp.sasviewcontroller.backing;
-
+//lanpq b?
 //import com.commit_consulting.oraformsfaces.component.component.Form;
 
 import com.oracle.adffwkextensions.faces.FacesUtils;
@@ -31,6 +31,7 @@ public class PerpViewerBacking {
 
     private String currentMenuName;
     private RichPopup oraformsfacesPopup;
+    //lanpq b?
     //private Form oraformsfaces;
 
     public void setCurrentMenuName(String currentMenuName) {

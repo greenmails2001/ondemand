@@ -137,5 +137,10 @@
         <Item Value="Name"/>
       </AttrNames>
     </attributeValues>
+    <attributeValues IterBinding="SasMenusRootX1Iterator" id="MenuLable">
+      <AttrNames>
+        <Item Value="MenuLable"/>
+      </AttrNames>
+    </attributeValues>
   </bindings>
 </pageDefinition>
