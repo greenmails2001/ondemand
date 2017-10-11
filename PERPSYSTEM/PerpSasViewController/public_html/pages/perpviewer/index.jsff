@@ -18,66 +18,70 @@
     <f:facet name="center">
       <af:panelSplitter id="ps1" splitterPosition="277">
         <f:facet name="first">
-          <af:panelGroupLayout id="pgl4" layout="vertical">
+          <af:panelBox text="#{perpsasviewcontrollerBundle['perpsas.sas001.perpviewer.selectRoleTitle']}"
+                       id="pb1" showDisclosure="false">
+            <f:facet name="toolbar"/>
             <af:panelCollection id="pc1">
               <f:facet name="menus"/>
               <f:facet name="toolbar"/>
               <f:facet name="statusbar"/>
-              <af:table value="#{bindings.SasUserRoles.collectionModel}" var="row"
-                        rows="#{bindings.SasUserRoles.rangeSize}"
+              <af:table value="#{bindings.SasUserRoles.collectionModel}"
+                        var="row" rows="#{bindings.SasUserRoles.rangeSize}"
                         emptyText="#{bindings.SasUserRoles.viewable ? 'No data to display.' : 'Access Denied.'}"
-                        fetchSize="#{bindings.SasUserRoles.rangeSize}" columnStretching="last" rowBandingInterval="0"
-                        id="t2" rowSelection="single"
+                        fetchSize="#{bindings.SasUserRoles.rangeSize}"
+                        columnStretching="last" rowBandingInterval="0" id="t2"
+                        rowSelection="single"
                         selectionListener="#{bindings.SasUserRoles.collectionModel.makeCurrent}">
                 <af:column sortProperty="Name" sortable="true"
-                           headerText="#{perpsasviewcontrollerBundle['perpsas.sas001.perpviewer.role']}" id="c4">
+                           headerText="#{perpsasviewcontrollerBundle['perpsas.sas001.perpviewer.role']}"
+                           id="c4">
                   <af:outputText value="#{row.Name}" id="ot4"/>
                 </af:column>
               </af:table>
             </af:panelCollection>
-            <af:spacer width="10" height="10" id="s2"/>
-            <af:inputText label="Label 2" id="it1" value="#{bindings.MenuLable.inputValue}"/>
-            <af:inputText label="Label 3" id="it2"/>
-            <af:button text="Open Form" id="btnOpenForm"/>
-            <af:panelCollection id="pcl2">
-              <f:facet name="menus">
-                <af:menu text="#{bindings.SasUserRolesIterator.currentRow.gusId}" id="m2" partialTriggers="::pc1:t2"/>
-              </f:facet>
-              <af:treeTable value="#{bindings.SasMenusRootX1.treeModel}" var="node" columnStretching="last"
-                            rowSelection="single" id="tt1" partialTriggers=":::pc1:t2">
-                <f:facet name="nodeStamp">
-                  <af:column id="c5" width="350">
-                    <!--  <af:commandLink text="#{node.MenuLable}" id="cl1"
+          </af:panelBox>
+        </f:facet>
+        <f:facet name="second">
+          <af:panelTabbed id="panelTab1">
+            <af:showDetailItem text="#{perpsasviewcontrollerBundle['perpsas.sas001.perpviewer.menuListTitle']}"
+                               id="tab1" stretchChildren="first">
+              <af:panelCollection id="pcl2">
+                <f:facet name="menus">
+                  <af:menu text="#{bindings.SasUserRolesIterator.currentRow.gusId}"
+                           id="m2" partialTriggers="::pc1:t2"/>
+                </f:facet>             
+                <af:treeTable value="#{bindings.SasMenusRootX1.treeModel}"
+                              var="node" columnStretching="last"
+                              rowSelection="single" id="tt1"
+                              partialTriggers=":::pc1:t2">
+                  <f:facet name="nodeStamp">
+                    <af:column id="c5" width="350">
+                      <!--  <af:commandLink text="#{node.MenuLable}" id="cl1"
                                       partialSubmit="true"
                                       actionListener="#{perpviewer.openOraFormsFacesActionListener}">
                         <f:attribute name="gusId" value="#{bindings.SasUserRolesIterator.currentRow.gusId}"/>
                         <f:attribute name="menuName" value="#{node.MenuName}"/>
                       </af:commandLink>
                        -->
-                    <af:activeOutputText value="#{node.MenuLable}" id="aot1"/>
-                  </af:column>
-                </f:facet>
-                <f:facet name="pathStamp">
-                  <af:outputText value="#{node}" id="ot5"/>
-                </f:facet>
-                <af:column id="column2">
-                  <!-- <af:commandLink text="#{node.MenuLable}" id="cl2"
+                      <af:activeOutputText value="#{node.MenuLable}" id="aot1"/>
+                    </af:column>
+                  </f:facet>
+                  <f:facet name="pathStamp">
+                    <af:outputText value="#{node}" id="ot5"/>
+                  </f:facet>
+                  <af:column id="column2">
+                    <!-- <af:commandLink text="#{node.MenuLable}" id="cl2"
                                     actionListener="#{perpviewer.openOraFormsFacesActionListener}"
                                     partialSubmit="true">
                       <f:attribute name="menuName" value="#{node.MenuName}"/>
                     </af:commandLink>-->
-                  <af:goLink text="Open" id="gl1" targetFrame="_blank"
-                             destination="/faces/perpLauchServlet?gusId=#{bindings.SasUserRolesIterator.currentRow.gusId}&amp;menuName=#{node.MenuName}&amp;menId=#{node.MenId}"
-                             rendered="true"/>
-                </af:column>
-              </af:treeTable>
-            </af:panelCollection>
-          </af:panelGroupLayout>
-        </f:facet>
-        <f:facet name="second">
-          <af:panelTabbed id="panelTab1">
-            <af:showDetailItem text="#{perpsasviewcontrollerBundle['perpsas.sas001.perpviewer.menuListTitle']}"
-                               id="tab1" stretchChildren="first"/>
+                    <af:goLink text="Open" id="gl1" targetFrame="_blank"
+                               destination="/faces/perpLauchServlet?gusId=#{bindings.SasUserRolesIterator.currentRow.gusId}&amp;menuName=#{node.MenuName}&amp;menId=#{node.MenId}"
+                               rendered="true"/>
+                  </af:column>
+                </af:treeTable>
+              </af:panelCollection>
+            </af:showDetailItem>
             <af:showDetailItem text="Danh sách quy trình" id="sdi1"
                                stretchChildren="first">
               <af:panelStretchLayout id="psl2"
