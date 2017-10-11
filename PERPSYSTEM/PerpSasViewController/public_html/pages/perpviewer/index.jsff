@@ -72,6 +72,9 @@
                 <f:facet name="nodeStamp">
                   <af:column id="c5" width="350">
                     <!--  <af:commandLink text="#{node.MenuLable}" id="cl1"
+<<<<<<< HEAD
+>>>>>>> parent of a6b73d1... 20171011_hoanthanh convert jsp sang jsf
+=======
 >>>>>>> parent of a6b73d1... 20171011_hoanthanh convert jsp sang jsf
                                       partialSubmit="true"
                                       actionListener="#{perpviewer.openOraFormsFacesActionListener}">
@@ -79,6 +82,7 @@
                         <f:attribute name="menuName" value="#{node.MenuName}"/>
                       </af:commandLink>
                        -->
+<<<<<<< HEAD
 <<<<<<< HEAD
                       <af:activeOutputText value="#{node.MenuLable}" id="aot1"/>
                     </af:column>
@@ -89,6 +93,8 @@
                   <af:column id="column2">
                     <!-- <af:commandLink text="#{node.MenuLable}" id="cl2"
 =======
+=======
+>>>>>>> parent of a6b73d1... 20171011_hoanthanh convert jsp sang jsf
                     <af:activeOutputText value="#{node.MenuLable}" id="aot1"/>
                   </af:column>
                 </f:facet>
@@ -97,11 +103,15 @@
                 </f:facet>
                 <af:column id="column2">
                   <!-- <af:commandLink text="#{node.MenuLable}" id="cl2"
+<<<<<<< HEAD
+>>>>>>> parent of a6b73d1... 20171011_hoanthanh convert jsp sang jsf
+=======
 >>>>>>> parent of a6b73d1... 20171011_hoanthanh convert jsp sang jsf
                                     actionListener="#{perpviewer.openOraFormsFacesActionListener}"
                                     partialSubmit="true">
                       <f:attribute name="menuName" value="#{node.MenuName}"/>
                     </af:commandLink>-->
+<<<<<<< HEAD
 <<<<<<< HEAD
                     <af:goLink text="Open" id="gl1" targetFrame="_blank"
                                destination="/faces/perpLauchServlet?gusId=#{bindings.SasUserRolesIterator.currentRow.gusId}&amp;menuName=#{node.MenuName}&amp;menId=#{node.MenId}"
@@ -111,6 +121,8 @@
               </af:panelCollection>
             </af:showDetailItem>
 =======
+=======
+>>>>>>> parent of a6b73d1... 20171011_hoanthanh convert jsp sang jsf
                   <af:goLink text="Open" id="gl1" targetFrame="_blank"
                              destination="/faces/perpLauchServlet?gusId=#{bindings.SasUserRolesIterator.currentRow.gusId}&amp;menuName=#{node.MenuName}&amp;menId=#{node.MenId}"
                              rendered="true"/>
@@ -123,6 +135,9 @@
           <af:panelTabbed id="panelTab1">
             <af:showDetailItem text="#{perpsasviewcontrollerBundle['perpsas.sas001.perpviewer.menuListTitle']}"
                                id="tab1" stretchChildren="first"/>
+<<<<<<< HEAD
+>>>>>>> parent of a6b73d1... 20171011_hoanthanh convert jsp sang jsf
+=======
 >>>>>>> parent of a6b73d1... 20171011_hoanthanh convert jsp sang jsf
             <af:showDetailItem text="Danh sách quy trình" id="sdi1"
                                stretchChildren="first">
