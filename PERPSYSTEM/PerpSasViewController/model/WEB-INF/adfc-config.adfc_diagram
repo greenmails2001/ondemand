@@ -20,7 +20,7 @@
       <property
          name="y">85.20117</property>
       <property
-         name="page">/pages/oraformsfaces.jsf</property>
+         name="page">/pages/oraformsfaces.jspx</property>
       <property
          name="exceptionHandler">false</property>
    </View>
@@ -35,7 +35,7 @@
       <property
          name="y">467.4406</property>
       <property
-         name="page">/pages/perpviewer.jsf</property>
+         name="page">/pages/perpviewer.jspx</property>
       <property
          name="exceptionHandler">false</property>
    </View>
@@ -50,7 +50,7 @@
       <property
          name="y">83.5</property>
       <property
-         name="page">/pages/sas001/perpviewer_.jsf</property>
+         name="page">/pages/sas001/perpviewer_.jspx</property>
       <property
          name="exceptionHandler">false</property>
    </View>
@@ -65,7 +65,7 @@
       <property
          name="y">291.5</property>
       <property
-         name="page">/pages/login/login.jsf</property>
+         name="page">/pages/login/login.jspx</property>
       <property
          name="exceptionHandler">false</property>
    </View>
@@ -90,7 +90,7 @@
       <property
          name="y">623.4253</property>
       <property
-         name="page">/pages/userprofile.jsf</property>
+         name="page">/pages/userprofile.jspx</property>
       <property
          name="exceptionHandler">false</property>
    </View>
@@ -205,7 +205,7 @@
       <property
          name="y">527.2988</property>
       <property
-         name="page">/pages/callforms.jsf</property>
+         name="page">/pages/callforms.jspx</property>
       <property
          name="exceptionHandler">false</property>
    </View>

@@ -1,19 +1,19 @@
 <?xml version="1.0" encoding="UTF-8" ?>
 <adfc-config xmlns="http://xmlns.oracle.com/adf/controller" version="1.2">
   <view id="oraformsfaces">
-    <page>/pages/oraformsfaces.jsf</page>
+    <page>/pages/oraformsfaces.jspx</page>
   </view>
   <view id="perpviewer">
-    <page>/pages/perpviewer.jsf</page>
+    <page>/pages/perpviewer.jspx</page>
   </view>
   <view id="perpviewer_">
-    <page>/pages/sas001/perpviewer_.jsf</page>
+    <page>/pages/sas001/perpviewer_.jspx</page>
   </view>
   <view id="login">
-    <page>/pages/login/login.jsf</page>
+    <page>/pages/login/login.jspx</page>
   </view>
   <view id="userprofile">
-    <page>/pages/userprofile.jsf</page>
+    <page>/pages/userprofile.jspx</page>
   </view>
   <url-view id="sasn">
     <url>/sasn/faces/index</url>
@@ -22,7 +22,7 @@
     <url>/sasr</url>
   </url-view>
   <view id="callforms">
-    <page>/pages/callforms.jsf</page>
+    <page>/pages/callforms.jspx</page>
   </view>
   <control-flow-rule id="__10">
     <from-activity-id id="__11">login</from-activity-id>
