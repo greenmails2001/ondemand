@@ -1,5 +1,8 @@
 <?xml version='1.0' encoding='windows-1252'?>
-<ui:composition xmlns:dvt="http://xmlns.oracle.com/dss/adf/faces" xmlns:f="http://java.sun.com/jsf/core" xmlns:af="http://xmlns.oracle.com/adf/faces/rich" xmlns:ui="http://java.sun.com/jsf/facelets">
+<jsp:root xmlns:jsp="http://java.sun.com/JSP/Page" version="2.1"
+          xmlns:dvt="http://xmlns.oracle.com/dss/adf/faces"
+          xmlns:f="http://java.sun.com/jsf/core"
+          xmlns:af="http://xmlns.oracle.com/adf/faces/rich">
   <af:panelGroupLayout id="pgl2" layout="vertical" halign="right">
     <af:commandLink text="Tro lai " id="cl1" action="back"/>
   </af:panelGroupLayout>
@@ -46,4 +49,4 @@
       </f:facet>
     </dvt:node>
   </dvt:hierarchyViewer>
-</ui:composition>
+</jsp:root>

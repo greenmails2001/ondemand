@@ -931,26 +931,6 @@
             <value n="URI" v="http://xmlns.oracle.com/dss/adf/faces"/>
             <value n="version" v="1.1"/>
          </hash>
-         <hash>
-            <hash n="baseLibrary">
-               <value n="name" v="Trinidad Components"/>
-               <value n="version" v="2.0"/>
-            </hash>
-            <value n="name" v="Trinidad Components"/>
-            <value n="taglibURL" v="@oracle.home@../oracle_common/modules/oracle.adf.view/trinidad-impl.jar!/META-INF/tr.taglib.xml"/>
-            <value n="URI" v="http://myfaces.apache.org/trinidad"/>
-            <value n="version" v="2.0"/>
-         </hash>
-         <hash>
-            <hash n="baseLibrary">
-               <value n="name" v="Trinidad HTML Components"/>
-               <value n="version" v="2.0"/>
-            </hash>
-            <value n="name" v="Trinidad HTML Components"/>
-            <value n="taglibURL" v="@oracle.home@../oracle_common/modules/oracle.adf.view/trinidad-impl.jar!/META-INF/trh.taglib.xml"/>
-            <value n="URI" v="http://myfaces.apache.org/trinidad/html"/>
-            <value n="version" v="2.0"/>
-         </hash>
       </list>
    </hash>
    <hash n="oracle.jdevimpl.webapp.jsp.libraries.model.ProjectTagLibraries">

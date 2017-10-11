@@ -1,5 +1,7 @@
 <?xml version='1.0' encoding='UTF-8'?>
-<ui:composition xmlns:af="http://xmlns.oracle.com/adf/faces/rich" xmlns:f="http://java.sun.com/jsf/core" xmlns:ui="http://java.sun.com/jsf/facelets">
+<jsp:root xmlns:jsp="http://java.sun.com/JSP/Page" version="2.1"
+          xmlns:af="http://xmlns.oracle.com/adf/faces/rich"
+          xmlns:f="http://java.sun.com/jsf/core">
   <af:panelSplitter id="ps1" splitterPosition="270" styleClass="AFVisualRoot">
     <f:facet name="first">
       <af:panelAccordion id="pa1" visible="false">
@@ -33,4 +35,4 @@
       </af:decorativeBox>
     </f:facet>
   </af:panelSplitter>
-</ui:composition>
+</jsp:root>
