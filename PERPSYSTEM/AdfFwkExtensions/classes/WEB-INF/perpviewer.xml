@@ -7,6 +7,11 @@
       <value>#{pageFlowScope.outcome}</value>
       <class>java.lang.String</class>
     </input-parameter-definition>
+    <managed-bean id="__2">
+      <managed-bean-name>MenuTreeSelected</managed-bean-name>
+      <managed-bean-class>com.perp.sasviewcontroller.MenuTreeSelected</managed-bean-class>
+      <managed-bean-scope>request</managed-bean-scope>
+    </managed-bean>
     <view id="index">
       <page>/pages/perpviewer/index.jsff</page>
     </view>

@@ -35,45 +35,40 @@
             <af:inputText label="Label 2" id="it1" value="#{bindings.MenuLable.inputValue}"/>
             <af:inputText label="Label 3" id="it2"/>
             <af:button text="Open Form" id="btnOpenForm"/>
-            <af:decorativeBox id="db1">
-              <f:facet name="top"/>
-              <f:facet name="center">
-                <af:panelCollection id="pcl2">
-                  <f:facet name="menus">
-                    <af:menu text="#{bindings.SasUserRolesIterator.currentRow.gusId}" id="m2"
-                             partialTriggers="::pc1:t2"/>
-                  </f:facet>
-                  <af:treeTable value="#{bindings.SasMenusRootX1.treeModel}" var="node" columnStretching="last"
-                                rowSelection="single" id="tt1" partialTriggers=":::pc1:t2">
-                    <f:facet name="nodeStamp">
-                      <af:column id="c5" width="350">
-                        <!--  <af:commandLink text="#{node.MenuLable}" id="cl1"
+            <af:panelCollection id="pcl2">
+              <f:facet name="menus">
+                <af:menu text="#{bindings.SasUserRolesIterator.currentRow.gusId}" id="m2" partialTriggers="::pc1:t2"/>
+              </f:facet>
+              <af:treeTable value="#{bindings.SasMenusRootX1.treeModel}" var="node" columnStretching="last"
+                            rowSelection="single" id="tt1" partialTriggers=":::pc1:t2"
+                            selectionListener="#{MenuTreeSelected.onPrintSelection}">
+                <f:facet name="nodeStamp">
+                  <af:column id="c5" width="350">
+                    <!--  <af:commandLink text="#{node.MenuLable}" id="cl1"
                                       partialSubmit="true"
                                       actionListener="#{perpviewer.openOraFormsFacesActionListener}">
                         <f:attribute name="gusId" value="#{bindings.SasUserRolesIterator.currentRow.gusId}"/>
                         <f:attribute name="menuName" value="#{node.MenuName}"/>
                       </af:commandLink>
                        -->
-                        <af:activeOutputText value="#{node.MenuLable}" id="aot1"/>
-                      </af:column>
-                    </f:facet>
-                    <f:facet name="pathStamp">
-                      <af:outputText value="#{node}" id="ot5"/>
-                    </f:facet>
-                    <af:column id="column2">
-                      <!-- <af:commandLink text="#{node.MenuLable}" id="cl2"
+                    <af:activeOutputText value="#{node.MenuLable}" id="aot1"/>
+                  </af:column>
+                </f:facet>
+                <f:facet name="pathStamp">
+                  <af:outputText value="#{node}" id="ot5"/>
+                </f:facet>
+                <af:column id="column2">
+                  <!-- <af:commandLink text="#{node.MenuLable}" id="cl2"
                                     actionListener="#{perpviewer.openOraFormsFacesActionListener}"
                                     partialSubmit="true">
                       <f:attribute name="menuName" value="#{node.MenuName}"/>
                     </af:commandLink>-->
-                      <af:goLink text="Open" id="gl1" targetFrame="_blank"
-                                 destination="/faces/perpLauchServlet?gusId=#{bindings.SasUserRolesIterator.currentRow.gusId}&amp;menuName=#{node.MenuName}&amp;menId=#{node.MenId}"
-                                 rendered="true"/>
-                    </af:column>
-                  </af:treeTable>
-                </af:panelCollection>
-              </f:facet>
-            </af:decorativeBox>
+                  <af:goLink text="Open" id="gl1" targetFrame="_blank"
+                             destination="/faces/perpLauchServlet?gusId=#{bindings.SasUserRolesIterator.currentRow.gusId}&amp;menuName=#{node.MenuName}&amp;menId=#{node.MenId}"
+                             rendered="true"/>
+                </af:column>
+              </af:treeTable>
+            </af:panelCollection>
           </af:panelGroupLayout>
         </f:facet>
         <f:facet name="second">
