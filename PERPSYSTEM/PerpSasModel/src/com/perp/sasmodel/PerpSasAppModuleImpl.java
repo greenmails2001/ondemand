@@ -7,12 +7,12 @@ import com.perp.beans.DBUtils;
 import com.perp.beans.PerpAccountChecking;
 import com.perp.beans.SessionLoginObject;
 import com.perp.sasmodel.common.PerpSasAppModule;
-
+/*
 import com.perp.sasmodel.views.sas.AppLoginView1Impl;
 import com.perp.sasmodel.views.sas.AppLoginView1RowImpl;
 import com.perp.sasmodel.views.sas.AppLoginViewImpl;
 import com.perp.sasmodel.views.sas.AppLoginViewRowImpl;
-
+*/
 import com.perp.sasmodel.views.sas.AppLoginsImpl;
 
 import com.perp.sasmodel.views.sas.AppLoginsRowImpl;

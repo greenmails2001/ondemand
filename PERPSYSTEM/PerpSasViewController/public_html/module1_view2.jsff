@@ -1,0 +1,16 @@
+<?xml version='1.0' encoding='windows-1252'?>
+<ui:composition xmlns:ui="http://java.sun.com/jsf/facelets" xmlns:af="http://xmlns.oracle.com/adf/faces/rich"
+                xmlns:f="http://java.sun.com/jsf/core">
+    <af:panelSplitter orientation="vertical" splitterPosition="96" id="ps1">
+        <f:facet name="first">
+            <af:panelBox text="PanelBox1" id="pb1">
+                <f:facet name="toolbar"/>
+                <af:button text="back" id="bBack1" action="back1"/>
+                <af:button text="step2" id="bStep2" action="step2"/>
+            </af:panelBox>
+        </f:facet>
+        <f:facet name="second">
+            <af:image source="/images/globals/EnteringJounals.GIF" id="i1" inlineStyle="flex-align:center;"/>
+        </f:facet>
+    </af:panelSplitter>
+</ui:composition>

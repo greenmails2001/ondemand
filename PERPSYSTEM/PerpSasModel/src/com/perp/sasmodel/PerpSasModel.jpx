@@ -5,14 +5,23 @@
 <JboProject
    xmlns="http://xmlns.oracle.com/bc4j"
    Name="PerpSasModel"
-   Version="11.1.1.56.60"
+   Version="12.2.1.12.24"
    SeparateXMLFiles="true"
    PackageName="com.perp.sasmodel">
    <DesignTime>
       <Attr Name="_jprName" Value="../../../../PerpSasModel.jpr"/>
       <Attr Name="_appModuleNames0" Value="com.perp.sasmodel.PerpSasAppModule"/>
       <Attr Name="_NamedConnection" Value="PerpSasConnection"/>
+      <Attr Name="_appModuleNames1" Value="com.perp.sasmodel.entities.am.AppModule"/>
    </DesignTime>
+   <Containee
+      Name="am"
+      PackageName="com.perp.sasmodel.entities.am"
+      ObjectType="JboPackage">
+      <DesignTime>
+         <Attr Name="_AM" Value="true"/>
+      </DesignTime>
+   </Containee>
    <Containee
       Name="entities"
       PackageName="com.perp.sasmodel.entities"
@@ -20,6 +29,22 @@
       <DesignTime>
          <Attr Name="_EO" Value="true"/>
          <Attr Name="_AS" Value="true"/>
+      </DesignTime>
+   </Containee>
+   <Containee
+      Name="module01"
+      PackageName="com.perp.sasmodel.entities.entity.module01"
+      ObjectType="JboPackage">
+      <DesignTime>
+         <Attr Name="_EO" Value="true"/>
+      </DesignTime>
+   </Containee>
+   <Containee
+      Name="module01"
+      PackageName="com.perp.sasmodel.entities.view.module01"
+      ObjectType="JboPackage">
+      <DesignTime>
+         <Attr Name="_VO" Value="true"/>
       </DesignTime>
    </Containee>
    <Containee

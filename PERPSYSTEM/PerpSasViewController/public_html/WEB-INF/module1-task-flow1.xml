@@ -8,6 +8,37 @@
     <view id="module1-view1">
       <page>/module1-view1.jsff</page>
     </view>
+    <view id="module1_view2">
+      <page>/module1_view2.jsff</page>
+    </view>
+    <view id="module1_view3">
+      <page>/module1_view3.jsff</page>
+    </view>
+    <control-flow-rule id="__1">
+      <from-activity-id>module1-view1</from-activity-id>
+      <control-flow-case id="__2">
+        <from-outcome>step1</from-outcome>
+        <to-activity-id>module1_view2</to-activity-id>
+      </control-flow-case>
+    </control-flow-rule>
+    <control-flow-rule id="__3">
+      <from-activity-id>module1_view2</from-activity-id>
+      <control-flow-case id="__4">
+        <from-outcome>step2</from-outcome>
+        <to-activity-id>module1_view3</to-activity-id>
+      </control-flow-case>
+      <control-flow-case id="__7">
+        <from-outcome>back1</from-outcome>
+        <to-activity-id>module1-view1</to-activity-id>
+      </control-flow-case>
+    </control-flow-rule>
+    <control-flow-rule id="__5">
+      <from-activity-id>module1_view3</from-activity-id>
+      <control-flow-case id="__6">
+        <from-outcome>back2</from-outcome>
+        <to-activity-id>module1_view2</to-activity-id>
+      </control-flow-case>
+    </control-flow-rule>
     <use-page-fragments/>
   </task-flow-definition>
 </adfc-config>

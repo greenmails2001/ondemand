@@ -9,16 +9,90 @@
       <property
          name="pageFragment">true</property>
       <property
-         name="x">562.0</property>
+         name="x">249.0</property>
       <property
          name="start">true</property>
       <property
          name="description">&lt;html>&lt;p>&lt;b>module1-view1&lt;/b> (Default Activity)&lt;/p>&lt;p>Activity Type:  View&lt;/p></property>
       <property
-         name="y">173.68945</property>
+         name="y">126.98828</property>
       <property
          name="page">/module1-view1.jsff</property>
       <property
          name="exceptionHandler">false</property>
    </View>
+   <View
+      id="View3">
+      <property
+         name="activityId">module1_view2</property>
+      <property
+         name="pageFragment">true</property>
+      <property
+         name="x">442.0</property>
+      <property
+         name="description">&lt;html>&lt;p>&lt;b>module1_view2&lt;/b>&lt;/p>&lt;p>Activity Type:  View&lt;/p></property>
+      <property
+         name="y">119.59766</property>
+      <property
+         name="page">/module1_view2.jsff</property>
+      <property
+         name="exceptionHandler">false</property>
+   </View>
+   <ControlFlowCase
+      islink="true"
+      id="ControlFlowCase4"
+      from="View2"
+      to="View3">
+      <property
+         name="fromOutcome">step1</property>
+      <property
+         name="sdm:polyPoints">R50,290.0,126.637695,401.0,119.24707,L50</property>
+   </ControlFlowCase>
+   <View
+      id="View5">
+      <property
+         name="activityId">module1_view3</property>
+      <property
+         name="pageFragment">true</property>
+      <property
+         name="x">627.0</property>
+      <property
+         name="description">&lt;html>&lt;p>&lt;b>module1_view3&lt;/b>&lt;/p>&lt;p>Activity Type:  View&lt;/p></property>
+      <property
+         name="y">120.59766</property>
+      <property
+         name="page">/module1_view3.jsff</property>
+      <property
+         name="exceptionHandler">false</property>
+   </View>
+   <ControlFlowCase
+      islink="true"
+      id="ControlFlowCase6"
+      from="View3"
+      to="View5">
+      <property
+         name="fromOutcome">step2</property>
+      <property
+         name="sdm:polyPoints">R46,483.03397,115.74707,586.0,116.74707,L46</property>
+   </ControlFlowCase>
+   <ControlFlowCase
+      islink="true"
+      id="ControlFlowCase7"
+      from="View5"
+      to="View3">
+      <property
+         name="fromOutcome">back2</property>
+      <property
+         name="sdm:polyPoints">L54,585.966,123.74707,483.0,122.74707,R54</property>
+   </ControlFlowCase>
+   <ControlFlowCase
+      islink="true"
+      id="ControlFlowCase8"
+      from="View3"
+      to="View2">
+      <property
+         name="fromOutcome">back1</property>
+      <property
+         name="sdm:polyPoints">L54,401.0,122.74707,290.2328,130.1377,R54</property>
+   </ControlFlowCase>
 </SDM>

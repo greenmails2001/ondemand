@@ -168,6 +168,7 @@
             <af:selectItem label="Label" value="label" id="si3"/>
             <af:selectItem label="Description" value="description" id="si4"/>
           </af:selectOneChoice>
+          <af:button text="button 1" id="b1"/>
           <af:inputText label="#{perpsasviewcontrollerBundle['perpsas.sas001.perpviewer.searchText']}"
                         id="it8" value="#{perpviewer.searchText}"/>
           <af:commandButton text="#{perpsasviewcontrollerBundle['perpsas.sas001.perpviewer.searchButton']}"

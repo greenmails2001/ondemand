@@ -38,6 +38,7 @@
           usageId="com_perp_sasviewcontroller_historyPageDef"/>
     <page path="/pages/userprofile/index.jsff"
           usageId="com_perp_sasviewcontroller_indexPageDef1"/>
+    <page path="/module1-view1.jsff" usageId="com_perp_sasviewcontroller_module1_view1PageDef"/>
   </pageMap>
   <pageDefinitionUsages>
     <page id="com_perp_sasviewcontroller_loginPageDef"
@@ -78,6 +79,8 @@
           path="pages.userprofile.historyPageDef"/>
     <page id="com_perp_sasviewcontroller_indexPageDef1"
           path="pages.userprofile.indexPageDef"/>
+    <page id="com_perp_sasviewcontroller_module1_view1PageDef"
+          path="com.perp.sasviewcontroller.pageDefs.module1_view1PageDef"/>
   </pageDefinitionUsages>
   <dataControlUsages>
     <BC4JDataControl id="PerpSasAppModuleDataControl"
@@ -96,6 +99,11 @@
                      SupportsSortCollection="true"
                      Configuration="PerpSasRegistAppModuleLocal"
                      syncMode="Immediate"
+                     xmlns="http://xmlns.oracle.com/adfm/datacontrol"/>
+    <BC4JDataControl id="AppModuleDataControl" Package="com.perp.sasmodel.entities.am"
+                     FactoryClass="oracle.adf.model.bc4j.DataControlFactoryImpl" SupportsTransactions="true"
+                     SupportsFindMode="true" SupportsRangesize="true" SupportsResetState="true"
+                     SupportsSortCollection="true" Configuration="AppModuleLocal" syncMode="Immediate"
                      xmlns="http://xmlns.oracle.com/adfm/datacontrol"/>
   </dataControlUsages>
 </Application>

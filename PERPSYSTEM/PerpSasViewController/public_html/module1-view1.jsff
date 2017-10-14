@@ -1,17 +1,1269 @@
 <?xml version='1.0' encoding='windows-1252'?>
 <ui:composition xmlns:ui="http://java.sun.com/jsf/facelets" xmlns:af="http://xmlns.oracle.com/adf/faces/rich"
                 xmlns:f="http://java.sun.com/jsf/core">
-    <af:panelSplitter orientation="vertical" splitterPosition="50" id="ps1">
+    <af:panelSplitter orientation="vertical" splitterPosition="76" id="ps1">
         <f:facet name="first">
             <af:panelBox text="PanelBox1" id="pb1">
                 <f:facet name="toolbar"/>
-                <af:button text="button 1" id="b1" inlineStyle="flex-align:center; flex-line-pack:center; width:10%;"/>
+                <af:button text="step1" id="b1" inlineStyle="flex-align:center; flex-line-pack:center; width:10%;"
+                           action="step1"/>
+                <af:button text="button 2" id="b2"/>
             </af:panelBox>
         </f:facet>
         <f:facet name="second">
             <af:panelBox text="PanelBox2" id="pb2">
                 <f:facet name="toolbar"/>
                 <af:inputText label="Label 1" id="it1"/>
+                <af:table value="#{bindings.ProjectsView1.collectionModel}" var="row"
+                          rows="#{bindings.ProjectsView1.rangeSize}"
+                          emptyText="#{bindings.ProjectsView1.viewable ? 'No data to display.' : 'Access Denied.'}"
+                          rowBandingInterval="0" fetchSize="#{bindings.ProjectsView1.rangeSize}"
+                          filterModel="#{bindings.ProjectsView1Query.queryDescriptor}" filterVisible="true"
+                          queryListener="#{bindings.ProjectsView1Query.processQuery}" varStatus="vs" id="t1">
+                    <af:column sortProperty="#{bindings.ProjectsView1.hints.ProjId.name}" filterable="true"
+                               sortable="true" headerText="#{bindings.ProjectsView1.hints.ProjId.label}" id="c1">
+                        <af:inputText value="#{row.bindings.ProjId.inputValue}"
+                                      label="#{bindings.ProjectsView1.hints.ProjId.label}"
+                                      required="#{bindings.ProjectsView1.hints.ProjId.mandatory}"
+                                      columns="#{bindings.ProjectsView1.hints.ProjId.displayWidth}"
+                                      maximumLength="#{bindings.ProjectsView1.hints.ProjId.precision}"
+                                      shortDesc="#{bindings.ProjectsView1.hints.ProjId.tooltip}" id="it2">
+                            <f:validator binding="#{row.bindings.ProjId.validator}"/>
+                            <af:convertNumber groupingUsed="false"
+                                              pattern="#{bindings.ProjectsView1.hints.ProjId.format}"/>
+                        </af:inputText>
+                    </af:column>
+                    <af:column sortProperty="#{bindings.ProjectsView1.hints.ProjectNumber.name}" filterable="true"
+                               sortable="true" headerText="#{bindings.ProjectsView1.hints.ProjectNumber.label}" id="c2">
+                        <af:inputText value="#{row.bindings.ProjectNumber.inputValue}"
+                                      label="#{bindings.ProjectsView1.hints.ProjectNumber.label}"
+                                      required="#{bindings.ProjectsView1.hints.ProjectNumber.mandatory}"
+                                      columns="#{bindings.ProjectsView1.hints.ProjectNumber.displayWidth}"
+                                      maximumLength="#{bindings.ProjectsView1.hints.ProjectNumber.precision}"
+                                      shortDesc="#{bindings.ProjectsView1.hints.ProjectNumber.tooltip}" id="it3">
+                            <f:validator binding="#{row.bindings.ProjectNumber.validator}"/>
+                        </af:inputText>
+                    </af:column>
+                    <af:column sortProperty="#{bindings.ProjectsView1.hints.ProjectName.name}" filterable="true"
+                               sortable="true" headerText="#{bindings.ProjectsView1.hints.ProjectName.label}" id="c3">
+                        <af:inputText value="#{row.bindings.ProjectName.inputValue}"
+                                      label="#{bindings.ProjectsView1.hints.ProjectName.label}"
+                                      required="#{bindings.ProjectsView1.hints.ProjectName.mandatory}"
+                                      columns="#{bindings.ProjectsView1.hints.ProjectName.displayWidth}"
+                                      maximumLength="#{bindings.ProjectsView1.hints.ProjectName.precision}"
+                                      shortDesc="#{bindings.ProjectsView1.hints.ProjectName.tooltip}" id="it4">
+                            <f:validator binding="#{row.bindings.ProjectName.validator}"/>
+                        </af:inputText>
+                    </af:column>
+                    <af:column sortProperty="#{bindings.ProjectsView1.hints.ProjectCategory.name}" filterable="true"
+                               sortable="true" headerText="#{bindings.ProjectsView1.hints.ProjectCategory.label}"
+                               id="c4">
+                        <af:inputText value="#{row.bindings.ProjectCategory.inputValue}"
+                                      label="#{bindings.ProjectsView1.hints.ProjectCategory.label}"
+                                      required="#{bindings.ProjectsView1.hints.ProjectCategory.mandatory}"
+                                      columns="#{bindings.ProjectsView1.hints.ProjectCategory.displayWidth}"
+                                      maximumLength="#{bindings.ProjectsView1.hints.ProjectCategory.precision}"
+                                      shortDesc="#{bindings.ProjectsView1.hints.ProjectCategory.tooltip}" id="it5">
+                            <f:validator binding="#{row.bindings.ProjectCategory.validator}"/>
+                        </af:inputText>
+                    </af:column>
+                    <af:column sortProperty="#{bindings.ProjectsView1.hints.ProjectType.name}" filterable="true"
+                               sortable="true" headerText="#{bindings.ProjectsView1.hints.ProjectType.label}" id="c5">
+                        <af:inputText value="#{row.bindings.ProjectType.inputValue}"
+                                      label="#{bindings.ProjectsView1.hints.ProjectType.label}"
+                                      required="#{bindings.ProjectsView1.hints.ProjectType.mandatory}"
+                                      columns="#{bindings.ProjectsView1.hints.ProjectType.displayWidth}"
+                                      maximumLength="#{bindings.ProjectsView1.hints.ProjectType.precision}"
+                                      shortDesc="#{bindings.ProjectsView1.hints.ProjectType.tooltip}" id="it6">
+                            <f:validator binding="#{row.bindings.ProjectType.validator}"/>
+                        </af:inputText>
+                    </af:column>
+                    <af:column sortProperty="#{bindings.ProjectsView1.hints.RplId.name}" filterable="true"
+                               sortable="true" headerText="#{bindings.ProjectsView1.hints.RplId.label}" id="c6">
+                        <af:inputText value="#{row.bindings.RplId.inputValue}"
+                                      label="#{bindings.ProjectsView1.hints.RplId.label}"
+                                      required="#{bindings.ProjectsView1.hints.RplId.mandatory}"
+                                      columns="#{bindings.ProjectsView1.hints.RplId.displayWidth}"
+                                      maximumLength="#{bindings.ProjectsView1.hints.RplId.precision}"
+                                      shortDesc="#{bindings.ProjectsView1.hints.RplId.tooltip}" id="it7">
+                            <f:validator binding="#{row.bindings.RplId.validator}"/>
+                            <af:convertNumber groupingUsed="false"
+                                              pattern="#{bindings.ProjectsView1.hints.RplId.format}"/>
+                        </af:inputText>
+                    </af:column>
+                    <af:column sortProperty="#{bindings.ProjectsView1.hints.OunId.name}" filterable="true"
+                               sortable="true" headerText="#{bindings.ProjectsView1.hints.OunId.label}" id="c7">
+                        <af:inputText value="#{row.bindings.OunId.inputValue}"
+                                      label="#{bindings.ProjectsView1.hints.OunId.label}"
+                                      required="#{bindings.ProjectsView1.hints.OunId.mandatory}"
+                                      columns="#{bindings.ProjectsView1.hints.OunId.displayWidth}"
+                                      maximumLength="#{bindings.ProjectsView1.hints.OunId.precision}"
+                                      shortDesc="#{bindings.ProjectsView1.hints.OunId.tooltip}" id="it8">
+                            <f:validator binding="#{row.bindings.OunId.validator}"/>
+                            <af:convertNumber groupingUsed="false"
+                                              pattern="#{bindings.ProjectsView1.hints.OunId.format}"/>
+                        </af:inputText>
+                    </af:column>
+                    <af:column sortProperty="#{bindings.ProjectsView1.hints.InvestmentMethod.name}" filterable="true"
+                               sortable="true" headerText="#{bindings.ProjectsView1.hints.InvestmentMethod.label}"
+                               id="c8">
+                        <af:inputText value="#{row.bindings.InvestmentMethod.inputValue}"
+                                      label="#{bindings.ProjectsView1.hints.InvestmentMethod.label}"
+                                      required="#{bindings.ProjectsView1.hints.InvestmentMethod.mandatory}"
+                                      columns="#{bindings.ProjectsView1.hints.InvestmentMethod.displayWidth}"
+                                      maximumLength="#{bindings.ProjectsView1.hints.InvestmentMethod.precision}"
+                                      shortDesc="#{bindings.ProjectsView1.hints.InvestmentMethod.tooltip}" id="it9">
+                            <f:validator binding="#{row.bindings.InvestmentMethod.validator}"/>
+                        </af:inputText>
+                    </af:column>
+                    <af:column sortProperty="#{bindings.ProjectsView1.hints.InvestmentPurpose.name}" filterable="true"
+                               sortable="true" headerText="#{bindings.ProjectsView1.hints.InvestmentPurpose.label}"
+                               id="c9">
+                        <af:inputText value="#{row.bindings.InvestmentPurpose.inputValue}"
+                                      label="#{bindings.ProjectsView1.hints.InvestmentPurpose.label}"
+                                      required="#{bindings.ProjectsView1.hints.InvestmentPurpose.mandatory}"
+                                      columns="#{bindings.ProjectsView1.hints.InvestmentPurpose.displayWidth}"
+                                      maximumLength="#{bindings.ProjectsView1.hints.InvestmentPurpose.precision}"
+                                      shortDesc="#{bindings.ProjectsView1.hints.InvestmentPurpose.tooltip}" id="it10">
+                            <f:validator binding="#{row.bindings.InvestmentPurpose.validator}"/>
+                        </af:inputText>
+                    </af:column>
+                    <af:column sortProperty="#{bindings.ProjectsView1.hints.InvestmentScale.name}" filterable="true"
+                               sortable="true" headerText="#{bindings.ProjectsView1.hints.InvestmentScale.label}"
+                               id="c10">
+                        <af:inputText value="#{row.bindings.InvestmentScale.inputValue}"
+                                      label="#{bindings.ProjectsView1.hints.InvestmentScale.label}"
+                                      required="#{bindings.ProjectsView1.hints.InvestmentScale.mandatory}"
+                                      columns="#{bindings.ProjectsView1.hints.InvestmentScale.displayWidth}"
+                                      maximumLength="#{bindings.ProjectsView1.hints.InvestmentScale.precision}"
+                                      shortDesc="#{bindings.ProjectsView1.hints.InvestmentScale.tooltip}" id="it11">
+                            <f:validator binding="#{row.bindings.InvestmentScale.validator}"/>
+                        </af:inputText>
+                    </af:column>
+                    <af:column sortProperty="#{bindings.ProjectsView1.hints.ProjectManager.name}" filterable="true"
+                               sortable="true" headerText="#{bindings.ProjectsView1.hints.ProjectManager.label}"
+                               id="c11">
+                        <af:inputText value="#{row.bindings.ProjectManager.inputValue}"
+                                      label="#{bindings.ProjectsView1.hints.ProjectManager.label}"
+                                      required="#{bindings.ProjectsView1.hints.ProjectManager.mandatory}"
+                                      columns="#{bindings.ProjectsView1.hints.ProjectManager.displayWidth}"
+                                      maximumLength="#{bindings.ProjectsView1.hints.ProjectManager.precision}"
+                                      shortDesc="#{bindings.ProjectsView1.hints.ProjectManager.tooltip}" id="it12">
+                            <f:validator binding="#{row.bindings.ProjectManager.validator}"/>
+                        </af:inputText>
+                    </af:column>
+                    <af:column sortProperty="#{bindings.ProjectsView1.hints.CarryingOutOrganization.name}"
+                               filterable="true" sortable="true"
+                               headerText="#{bindings.ProjectsView1.hints.CarryingOutOrganization.label}" id="c12">
+                        <af:inputText value="#{row.bindings.CarryingOutOrganization.inputValue}"
+                                      label="#{bindings.ProjectsView1.hints.CarryingOutOrganization.label}"
+                                      required="#{bindings.ProjectsView1.hints.CarryingOutOrganization.mandatory}"
+                                      columns="#{bindings.ProjectsView1.hints.CarryingOutOrganization.displayWidth}"
+                                      maximumLength="#{bindings.ProjectsView1.hints.CarryingOutOrganization.precision}"
+                                      shortDesc="#{bindings.ProjectsView1.hints.CarryingOutOrganization.tooltip}"
+                                      id="it13">
+                            <f:validator binding="#{row.bindings.CarryingOutOrganization.validator}"/>
+                        </af:inputText>
+                    </af:column>
+                    <af:column sortProperty="#{bindings.ProjectsView1.hints.ConstructionSite.name}" filterable="true"
+                               sortable="true" headerText="#{bindings.ProjectsView1.hints.ConstructionSite.label}"
+                               id="c13">
+                        <af:inputText value="#{row.bindings.ConstructionSite.inputValue}"
+                                      label="#{bindings.ProjectsView1.hints.ConstructionSite.label}"
+                                      required="#{bindings.ProjectsView1.hints.ConstructionSite.mandatory}"
+                                      columns="#{bindings.ProjectsView1.hints.ConstructionSite.displayWidth}"
+                                      maximumLength="#{bindings.ProjectsView1.hints.ConstructionSite.precision}"
+                                      shortDesc="#{bindings.ProjectsView1.hints.ConstructionSite.tooltip}" id="it14">
+                            <f:validator binding="#{row.bindings.ConstructionSite.validator}"/>
+                        </af:inputText>
+                    </af:column>
+                    <af:column sortProperty="#{bindings.ProjectsView1.hints.PpeType.name}" filterable="true"
+                               sortable="true" headerText="#{bindings.ProjectsView1.hints.PpeType.label}" id="c14">
+                        <af:inputText value="#{row.bindings.PpeType.inputValue}"
+                                      label="#{bindings.ProjectsView1.hints.PpeType.label}"
+                                      required="#{bindings.ProjectsView1.hints.PpeType.mandatory}"
+                                      columns="#{bindings.ProjectsView1.hints.PpeType.displayWidth}"
+                                      maximumLength="#{bindings.ProjectsView1.hints.PpeType.precision}"
+                                      shortDesc="#{bindings.ProjectsView1.hints.PpeType.tooltip}" id="it15">
+                            <f:validator binding="#{row.bindings.PpeType.validator}"/>
+                        </af:inputText>
+                    </af:column>
+                    <af:column sortProperty="#{bindings.ProjectsView1.hints.ApprovedInvestmentAmount.name}"
+                               filterable="true" sortable="true"
+                               headerText="#{bindings.ProjectsView1.hints.ApprovedInvestmentAmount.label}" id="c15">
+                        <af:inputText value="#{row.bindings.ApprovedInvestmentAmount.inputValue}"
+                                      label="#{bindings.ProjectsView1.hints.ApprovedInvestmentAmount.label}"
+                                      required="#{bindings.ProjectsView1.hints.ApprovedInvestmentAmount.mandatory}"
+                                      columns="#{bindings.ProjectsView1.hints.ApprovedInvestmentAmount.displayWidth}"
+                                      maximumLength="#{bindings.ProjectsView1.hints.ApprovedInvestmentAmount.precision}"
+                                      shortDesc="#{bindings.ProjectsView1.hints.ApprovedInvestmentAmount.tooltip}"
+                                      id="it16">
+                            <f:validator binding="#{row.bindings.ApprovedInvestmentAmount.validator}"/>
+                            <af:convertNumber groupingUsed="false"
+                                              pattern="#{bindings.ProjectsView1.hints.ApprovedInvestmentAmount.format}"/>
+                        </af:inputText>
+                    </af:column>
+                    <af:column sortProperty="#{bindings.ProjectsView1.hints.ApprovedBudgetAmount.name}"
+                               filterable="true" sortable="true"
+                               headerText="#{bindings.ProjectsView1.hints.ApprovedBudgetAmount.label}" id="c16">
+                        <af:inputText value="#{row.bindings.ApprovedBudgetAmount.inputValue}"
+                                      label="#{bindings.ProjectsView1.hints.ApprovedBudgetAmount.label}"
+                                      required="#{bindings.ProjectsView1.hints.ApprovedBudgetAmount.mandatory}"
+                                      columns="#{bindings.ProjectsView1.hints.ApprovedBudgetAmount.displayWidth}"
+                                      maximumLength="#{bindings.ProjectsView1.hints.ApprovedBudgetAmount.precision}"
+                                      shortDesc="#{bindings.ProjectsView1.hints.ApprovedBudgetAmount.tooltip}"
+                                      id="it17">
+                            <f:validator binding="#{row.bindings.ApprovedBudgetAmount.validator}"/>
+                            <af:convertNumber groupingUsed="false"
+                                              pattern="#{bindings.ProjectsView1.hints.ApprovedBudgetAmount.format}"/>
+                        </af:inputText>
+                    </af:column>
+                    <af:column sortProperty="#{bindings.ProjectsView1.hints.ApprovedBudgetAccAmount.name}"
+                               filterable="true" sortable="true"
+                               headerText="#{bindings.ProjectsView1.hints.ApprovedBudgetAccAmount.label}" id="c17">
+                        <af:inputText value="#{row.bindings.ApprovedBudgetAccAmount.inputValue}"
+                                      label="#{bindings.ProjectsView1.hints.ApprovedBudgetAccAmount.label}"
+                                      required="#{bindings.ProjectsView1.hints.ApprovedBudgetAccAmount.mandatory}"
+                                      columns="#{bindings.ProjectsView1.hints.ApprovedBudgetAccAmount.displayWidth}"
+                                      maximumLength="#{bindings.ProjectsView1.hints.ApprovedBudgetAccAmount.precision}"
+                                      shortDesc="#{bindings.ProjectsView1.hints.ApprovedBudgetAccAmount.tooltip}"
+                                      id="it18">
+                            <f:validator binding="#{row.bindings.ApprovedBudgetAccAmount.validator}"/>
+                            <af:convertNumber groupingUsed="false"
+                                              pattern="#{bindings.ProjectsView1.hints.ApprovedBudgetAccAmount.format}"/>
+                        </af:inputText>
+                    </af:column>
+                    <af:column sortProperty="#{bindings.ProjectsView1.hints.ApprovedInvestmentAccAmount.name}"
+                               filterable="true" sortable="true"
+                               headerText="#{bindings.ProjectsView1.hints.ApprovedInvestmentAccAmount.label}" id="c18">
+                        <af:inputText value="#{row.bindings.ApprovedInvestmentAccAmount.inputValue}"
+                                      label="#{bindings.ProjectsView1.hints.ApprovedInvestmentAccAmount.label}"
+                                      required="#{bindings.ProjectsView1.hints.ApprovedInvestmentAccAmount.mandatory}"
+                                      columns="#{bindings.ProjectsView1.hints.ApprovedInvestmentAccAmount.displayWidth}"
+                                      maximumLength="#{bindings.ProjectsView1.hints.ApprovedInvestmentAccAmount.precision}"
+                                      shortDesc="#{bindings.ProjectsView1.hints.ApprovedInvestmentAccAmount.tooltip}"
+                                      id="it19">
+                            <f:validator binding="#{row.bindings.ApprovedInvestmentAccAmount.validator}"/>
+                            <af:convertNumber groupingUsed="false"
+                                              pattern="#{bindings.ProjectsView1.hints.ApprovedInvestmentAccAmount.format}"/>
+                        </af:inputText>
+                    </af:column>
+                    <af:column sortProperty="#{bindings.ProjectsView1.hints.TxnControlFlag.name}" filterable="true"
+                               sortable="true" headerText="#{bindings.ProjectsView1.hints.TxnControlFlag.label}"
+                               id="c19">
+                        <af:inputText value="#{row.bindings.TxnControlFlag.inputValue}"
+                                      label="#{bindings.ProjectsView1.hints.TxnControlFlag.label}"
+                                      required="#{bindings.ProjectsView1.hints.TxnControlFlag.mandatory}"
+                                      columns="#{bindings.ProjectsView1.hints.TxnControlFlag.displayWidth}"
+                                      maximumLength="#{bindings.ProjectsView1.hints.TxnControlFlag.precision}"
+                                      shortDesc="#{bindings.ProjectsView1.hints.TxnControlFlag.tooltip}" id="it20">
+                            <f:validator binding="#{row.bindings.TxnControlFlag.validator}"/>
+                        </af:inputText>
+                    </af:column>
+                    <af:column sortProperty="#{bindings.ProjectsView1.hints.CurCode.name}" filterable="true"
+                               sortable="true" headerText="#{bindings.ProjectsView1.hints.CurCode.label}" id="c20">
+                        <af:inputText value="#{row.bindings.CurCode.inputValue}"
+                                      label="#{bindings.ProjectsView1.hints.CurCode.label}"
+                                      required="#{bindings.ProjectsView1.hints.CurCode.mandatory}"
+                                      columns="#{bindings.ProjectsView1.hints.CurCode.displayWidth}"
+                                      maximumLength="#{bindings.ProjectsView1.hints.CurCode.precision}"
+                                      shortDesc="#{bindings.ProjectsView1.hints.CurCode.tooltip}" id="it21">
+                            <f:validator binding="#{row.bindings.CurCode.validator}"/>
+                        </af:inputText>
+                    </af:column>
+                    <af:column sortProperty="#{bindings.ProjectsView1.hints.CpsId.name}" filterable="true"
+                               sortable="true" headerText="#{bindings.ProjectsView1.hints.CpsId.label}" id="c21">
+                        <af:inputText value="#{row.bindings.CpsId.inputValue}"
+                                      label="#{bindings.ProjectsView1.hints.CpsId.label}"
+                                      required="#{bindings.ProjectsView1.hints.CpsId.mandatory}"
+                                      columns="#{bindings.ProjectsView1.hints.CpsId.displayWidth}"
+                                      maximumLength="#{bindings.ProjectsView1.hints.CpsId.precision}"
+                                      shortDesc="#{bindings.ProjectsView1.hints.CpsId.tooltip}" id="it22">
+                            <f:validator binding="#{row.bindings.CpsId.validator}"/>
+                            <af:convertNumber groupingUsed="false"
+                                              pattern="#{bindings.ProjectsView1.hints.CpsId.format}"/>
+                        </af:inputText>
+                    </af:column>
+                    <af:column sortProperty="#{bindings.ProjectsView1.hints.Description.name}" filterable="true"
+                               sortable="true" headerText="#{bindings.ProjectsView1.hints.Description.label}" id="c22">
+                        <af:inputText value="#{row.bindings.Description.inputValue}"
+                                      label="#{bindings.ProjectsView1.hints.Description.label}"
+                                      required="#{bindings.ProjectsView1.hints.Description.mandatory}"
+                                      columns="#{bindings.ProjectsView1.hints.Description.displayWidth}"
+                                      maximumLength="#{bindings.ProjectsView1.hints.Description.precision}"
+                                      shortDesc="#{bindings.ProjectsView1.hints.Description.tooltip}" id="it23">
+                            <f:validator binding="#{row.bindings.Description.validator}"/>
+                        </af:inputText>
+                    </af:column>
+                    <af:column sortProperty="#{bindings.ProjectsView1.hints.Status.name}" filterable="true"
+                               sortable="true" headerText="#{bindings.ProjectsView1.hints.Status.label}" id="c23">
+                        <af:inputText value="#{row.bindings.Status.inputValue}"
+                                      label="#{bindings.ProjectsView1.hints.Status.label}"
+                                      required="#{bindings.ProjectsView1.hints.Status.mandatory}"
+                                      columns="#{bindings.ProjectsView1.hints.Status.displayWidth}"
+                                      maximumLength="#{bindings.ProjectsView1.hints.Status.precision}"
+                                      shortDesc="#{bindings.ProjectsView1.hints.Status.tooltip}" id="it24">
+                            <f:validator binding="#{row.bindings.Status.validator}"/>
+                        </af:inputText>
+                    </af:column>
+                    <af:column sortProperty="#{bindings.ProjectsView1.hints.ActualStartDate.name}" filterable="true"
+                               sortable="true" headerText="#{bindings.ProjectsView1.hints.ActualStartDate.label}"
+                               id="c24">
+                        <f:facet name="filter">
+                            <af:inputDate value="#{bindings.ProjectsView1Query.queryDescriptor.filterConjunctionCriterion.criterionMap.ActualStartDate.value}"
+                                          id="id1">
+                                <af:convertDateTime pattern="#{bindings.ProjectsView1.hints.ActualStartDate.format}"/>
+                            </af:inputDate>
+                        </f:facet>
+                        <af:inputDate value="#{row.bindings.ActualStartDate.inputValue}"
+                                      label="#{bindings.ProjectsView1.hints.ActualStartDate.label}"
+                                      required="#{bindings.ProjectsView1.hints.ActualStartDate.mandatory}"
+                                      columns="#{bindings.ProjectsView1.hints.ActualStartDate.displayWidth}"
+                                      shortDesc="#{bindings.ProjectsView1.hints.ActualStartDate.tooltip}" id="id2">
+                            <f:validator binding="#{row.bindings.ActualStartDate.validator}"/>
+                            <af:convertDateTime pattern="#{bindings.ProjectsView1.hints.ActualStartDate.format}"/>
+                        </af:inputDate>
+                    </af:column>
+                    <af:column sortProperty="#{bindings.ProjectsView1.hints.ActualFinishDate.name}" filterable="true"
+                               sortable="true" headerText="#{bindings.ProjectsView1.hints.ActualFinishDate.label}"
+                               id="c25">
+                        <f:facet name="filter">
+                            <af:inputDate value="#{bindings.ProjectsView1Query.queryDescriptor.filterConjunctionCriterion.criterionMap.ActualFinishDate.value}"
+                                          id="id3">
+                                <af:convertDateTime pattern="#{bindings.ProjectsView1.hints.ActualFinishDate.format}"/>
+                            </af:inputDate>
+                        </f:facet>
+                        <af:inputDate value="#{row.bindings.ActualFinishDate.inputValue}"
+                                      label="#{bindings.ProjectsView1.hints.ActualFinishDate.label}"
+                                      required="#{bindings.ProjectsView1.hints.ActualFinishDate.mandatory}"
+                                      columns="#{bindings.ProjectsView1.hints.ActualFinishDate.displayWidth}"
+                                      shortDesc="#{bindings.ProjectsView1.hints.ActualFinishDate.tooltip}" id="id4">
+                            <f:validator binding="#{row.bindings.ActualFinishDate.validator}"/>
+                            <af:convertDateTime pattern="#{bindings.ProjectsView1.hints.ActualFinishDate.format}"/>
+                        </af:inputDate>
+                    </af:column>
+                    <af:column sortProperty="#{bindings.ProjectsView1.hints.ClosedDate.name}" filterable="true"
+                               sortable="true" headerText="#{bindings.ProjectsView1.hints.ClosedDate.label}" id="c26">
+                        <f:facet name="filter">
+                            <af:inputDate value="#{bindings.ProjectsView1Query.queryDescriptor.filterConjunctionCriterion.criterionMap.ClosedDate.value}"
+                                          id="id5">
+                                <af:convertDateTime pattern="#{bindings.ProjectsView1.hints.ClosedDate.format}"/>
+                            </af:inputDate>
+                        </f:facet>
+                        <af:inputDate value="#{row.bindings.ClosedDate.inputValue}"
+                                      label="#{bindings.ProjectsView1.hints.ClosedDate.label}"
+                                      required="#{bindings.ProjectsView1.hints.ClosedDate.mandatory}"
+                                      columns="#{bindings.ProjectsView1.hints.ClosedDate.displayWidth}"
+                                      shortDesc="#{bindings.ProjectsView1.hints.ClosedDate.tooltip}" id="id6">
+                            <f:validator binding="#{row.bindings.ClosedDate.validator}"/>
+                            <af:convertDateTime pattern="#{bindings.ProjectsView1.hints.ClosedDate.format}"/>
+                        </af:inputDate>
+                    </af:column>
+                    <af:column sortProperty="#{bindings.ProjectsView1.hints.ApprovedStartDate.name}" filterable="true"
+                               sortable="true" headerText="#{bindings.ProjectsView1.hints.ApprovedStartDate.label}"
+                               id="c27">
+                        <f:facet name="filter">
+                            <af:inputDate value="#{bindings.ProjectsView1Query.queryDescriptor.filterConjunctionCriterion.criterionMap.ApprovedStartDate.value}"
+                                          id="id7">
+                                <af:convertDateTime pattern="#{bindings.ProjectsView1.hints.ApprovedStartDate.format}"/>
+                            </af:inputDate>
+                        </f:facet>
+                        <af:inputDate value="#{row.bindings.ApprovedStartDate.inputValue}"
+                                      label="#{bindings.ProjectsView1.hints.ApprovedStartDate.label}"
+                                      required="#{bindings.ProjectsView1.hints.ApprovedStartDate.mandatory}"
+                                      columns="#{bindings.ProjectsView1.hints.ApprovedStartDate.displayWidth}"
+                                      shortDesc="#{bindings.ProjectsView1.hints.ApprovedStartDate.tooltip}" id="id8">
+                            <f:validator binding="#{row.bindings.ApprovedStartDate.validator}"/>
+                            <af:convertDateTime pattern="#{bindings.ProjectsView1.hints.ApprovedStartDate.format}"/>
+                        </af:inputDate>
+                    </af:column>
+                    <af:column sortProperty="#{bindings.ProjectsView1.hints.ApprovedCompletionDate.name}"
+                               filterable="true" sortable="true"
+                               headerText="#{bindings.ProjectsView1.hints.ApprovedCompletionDate.label}" id="c28">
+                        <f:facet name="filter">
+                            <af:inputDate value="#{bindings.ProjectsView1Query.queryDescriptor.filterConjunctionCriterion.criterionMap.ApprovedCompletionDate.value}"
+                                          id="id9">
+                                <af:convertDateTime pattern="#{bindings.ProjectsView1.hints.ApprovedCompletionDate.format}"/>
+                            </af:inputDate>
+                        </f:facet>
+                        <af:inputDate value="#{row.bindings.ApprovedCompletionDate.inputValue}"
+                                      label="#{bindings.ProjectsView1.hints.ApprovedCompletionDate.label}"
+                                      required="#{bindings.ProjectsView1.hints.ApprovedCompletionDate.mandatory}"
+                                      columns="#{bindings.ProjectsView1.hints.ApprovedCompletionDate.displayWidth}"
+                                      shortDesc="#{bindings.ProjectsView1.hints.ApprovedCompletionDate.tooltip}"
+                                      id="id10">
+                            <f:validator binding="#{row.bindings.ApprovedCompletionDate.validator}"/>
+                            <af:convertDateTime pattern="#{bindings.ProjectsView1.hints.ApprovedCompletionDate.format}"/>
+                        </af:inputDate>
+                    </af:column>
+                    <af:column sortProperty="#{bindings.ProjectsView1.hints.CapitalizingAmount.name}" filterable="true"
+                               sortable="true" headerText="#{bindings.ProjectsView1.hints.CapitalizingAmount.label}"
+                               id="c29">
+                        <af:inputText value="#{row.bindings.CapitalizingAmount.inputValue}"
+                                      label="#{bindings.ProjectsView1.hints.CapitalizingAmount.label}"
+                                      required="#{bindings.ProjectsView1.hints.CapitalizingAmount.mandatory}"
+                                      columns="#{bindings.ProjectsView1.hints.CapitalizingAmount.displayWidth}"
+                                      maximumLength="#{bindings.ProjectsView1.hints.CapitalizingAmount.precision}"
+                                      shortDesc="#{bindings.ProjectsView1.hints.CapitalizingAmount.tooltip}" id="it25">
+                            <f:validator binding="#{row.bindings.CapitalizingAmount.validator}"/>
+                            <af:convertNumber groupingUsed="false"
+                                              pattern="#{bindings.ProjectsView1.hints.CapitalizingAmount.format}"/>
+                        </af:inputText>
+                    </af:column>
+                    <af:column sortProperty="#{bindings.ProjectsView1.hints.CapitalizingAccountedAmount.name}"
+                               filterable="true" sortable="true"
+                               headerText="#{bindings.ProjectsView1.hints.CapitalizingAccountedAmount.label}" id="c30">
+                        <af:inputText value="#{row.bindings.CapitalizingAccountedAmount.inputValue}"
+                                      label="#{bindings.ProjectsView1.hints.CapitalizingAccountedAmount.label}"
+                                      required="#{bindings.ProjectsView1.hints.CapitalizingAccountedAmount.mandatory}"
+                                      columns="#{bindings.ProjectsView1.hints.CapitalizingAccountedAmount.displayWidth}"
+                                      maximumLength="#{bindings.ProjectsView1.hints.CapitalizingAccountedAmount.precision}"
+                                      shortDesc="#{bindings.ProjectsView1.hints.CapitalizingAccountedAmount.tooltip}"
+                                      id="it26">
+                            <f:validator binding="#{row.bindings.CapitalizingAccountedAmount.validator}"/>
+                            <af:convertNumber groupingUsed="false"
+                                              pattern="#{bindings.ProjectsView1.hints.CapitalizingAccountedAmount.format}"/>
+                        </af:inputText>
+                    </af:column>
+                    <af:column sortProperty="#{bindings.ProjectsView1.hints.ApprovedAmount.name}" filterable="true"
+                               sortable="true" headerText="#{bindings.ProjectsView1.hints.ApprovedAmount.label}"
+                               id="c31">
+                        <af:inputText value="#{row.bindings.ApprovedAmount.inputValue}"
+                                      label="#{bindings.ProjectsView1.hints.ApprovedAmount.label}"
+                                      required="#{bindings.ProjectsView1.hints.ApprovedAmount.mandatory}"
+                                      columns="#{bindings.ProjectsView1.hints.ApprovedAmount.displayWidth}"
+                                      maximumLength="#{bindings.ProjectsView1.hints.ApprovedAmount.precision}"
+                                      shortDesc="#{bindings.ProjectsView1.hints.ApprovedAmount.tooltip}" id="it27">
+                            <f:validator binding="#{row.bindings.ApprovedAmount.validator}"/>
+                            <af:convertNumber groupingUsed="false"
+                                              pattern="#{bindings.ProjectsView1.hints.ApprovedAmount.format}"/>
+                        </af:inputText>
+                    </af:column>
+                    <af:column sortProperty="#{bindings.ProjectsView1.hints.ApprovedAccountedAmount.name}"
+                               filterable="true" sortable="true"
+                               headerText="#{bindings.ProjectsView1.hints.ApprovedAccountedAmount.label}" id="c32">
+                        <af:inputText value="#{row.bindings.ApprovedAccountedAmount.inputValue}"
+                                      label="#{bindings.ProjectsView1.hints.ApprovedAccountedAmount.label}"
+                                      required="#{bindings.ProjectsView1.hints.ApprovedAccountedAmount.mandatory}"
+                                      columns="#{bindings.ProjectsView1.hints.ApprovedAccountedAmount.displayWidth}"
+                                      maximumLength="#{bindings.ProjectsView1.hints.ApprovedAccountedAmount.precision}"
+                                      shortDesc="#{bindings.ProjectsView1.hints.ApprovedAccountedAmount.tooltip}"
+                                      id="it28">
+                            <f:validator binding="#{row.bindings.ApprovedAccountedAmount.validator}"/>
+                            <af:convertNumber groupingUsed="false"
+                                              pattern="#{bindings.ProjectsView1.hints.ApprovedAccountedAmount.format}"/>
+                        </af:inputText>
+                    </af:column>
+                    <af:column sortProperty="#{bindings.ProjectsView1.hints.ExchangeRateType.name}" filterable="true"
+                               sortable="true" headerText="#{bindings.ProjectsView1.hints.ExchangeRateType.label}"
+                               id="c33">
+                        <af:inputText value="#{row.bindings.ExchangeRateType.inputValue}"
+                                      label="#{bindings.ProjectsView1.hints.ExchangeRateType.label}"
+                                      required="#{bindings.ProjectsView1.hints.ExchangeRateType.mandatory}"
+                                      columns="#{bindings.ProjectsView1.hints.ExchangeRateType.displayWidth}"
+                                      maximumLength="#{bindings.ProjectsView1.hints.ExchangeRateType.precision}"
+                                      shortDesc="#{bindings.ProjectsView1.hints.ExchangeRateType.tooltip}" id="it29">
+                            <f:validator binding="#{row.bindings.ExchangeRateType.validator}"/>
+                        </af:inputText>
+                    </af:column>
+                    <af:column sortProperty="#{bindings.ProjectsView1.hints.ExchangeDate.name}" filterable="true"
+                               sortable="true" headerText="#{bindings.ProjectsView1.hints.ExchangeDate.label}" id="c34">
+                        <f:facet name="filter">
+                            <af:inputDate value="#{bindings.ProjectsView1Query.queryDescriptor.filterConjunctionCriterion.criterionMap.ExchangeDate.value}"
+                                          id="id11">
+                                <af:convertDateTime pattern="#{bindings.ProjectsView1.hints.ExchangeDate.format}"/>
+                            </af:inputDate>
+                        </f:facet>
+                        <af:inputDate value="#{row.bindings.ExchangeDate.inputValue}"
+                                      label="#{bindings.ProjectsView1.hints.ExchangeDate.label}"
+                                      required="#{bindings.ProjectsView1.hints.ExchangeDate.mandatory}"
+                                      columns="#{bindings.ProjectsView1.hints.ExchangeDate.displayWidth}"
+                                      shortDesc="#{bindings.ProjectsView1.hints.ExchangeDate.tooltip}" id="id12">
+                            <f:validator binding="#{row.bindings.ExchangeDate.validator}"/>
+                            <af:convertDateTime pattern="#{bindings.ProjectsView1.hints.ExchangeDate.format}"/>
+                        </af:inputDate>
+                    </af:column>
+                    <af:column sortProperty="#{bindings.ProjectsView1.hints.ExchangeRate.name}" filterable="true"
+                               sortable="true" headerText="#{bindings.ProjectsView1.hints.ExchangeRate.label}" id="c35">
+                        <af:inputText value="#{row.bindings.ExchangeRate.inputValue}"
+                                      label="#{bindings.ProjectsView1.hints.ExchangeRate.label}"
+                                      required="#{bindings.ProjectsView1.hints.ExchangeRate.mandatory}"
+                                      columns="#{bindings.ProjectsView1.hints.ExchangeRate.displayWidth}"
+                                      maximumLength="#{bindings.ProjectsView1.hints.ExchangeRate.precision}"
+                                      shortDesc="#{bindings.ProjectsView1.hints.ExchangeRate.tooltip}" id="it30">
+                            <f:validator binding="#{row.bindings.ExchangeRate.validator}"/>
+                            <af:convertNumber groupingUsed="false"
+                                              pattern="#{bindings.ProjectsView1.hints.ExchangeRate.format}"/>
+                        </af:inputText>
+                    </af:column>
+                    <af:column sortProperty="#{bindings.ProjectsView1.hints.Taxable.name}" filterable="true"
+                               sortable="true" headerText="#{bindings.ProjectsView1.hints.Taxable.label}" id="c36">
+                        <af:inputText value="#{row.bindings.Taxable.inputValue}"
+                                      label="#{bindings.ProjectsView1.hints.Taxable.label}"
+                                      required="#{bindings.ProjectsView1.hints.Taxable.mandatory}"
+                                      columns="#{bindings.ProjectsView1.hints.Taxable.displayWidth}"
+                                      maximumLength="#{bindings.ProjectsView1.hints.Taxable.precision}"
+                                      shortDesc="#{bindings.ProjectsView1.hints.Taxable.tooltip}" id="it31">
+                            <f:validator binding="#{row.bindings.Taxable.validator}"/>
+                        </af:inputText>
+                    </af:column>
+                    <af:column sortProperty="#{bindings.ProjectsView1.hints.CreateDate.name}" filterable="true"
+                               sortable="true" headerText="#{bindings.ProjectsView1.hints.CreateDate.label}" id="c37">
+                        <f:facet name="filter">
+                            <af:inputDate value="#{bindings.ProjectsView1Query.queryDescriptor.filterConjunctionCriterion.criterionMap.CreateDate.value}"
+                                          id="id13">
+                                <af:convertDateTime pattern="#{bindings.ProjectsView1.hints.CreateDate.format}"/>
+                            </af:inputDate>
+                        </f:facet>
+                        <af:inputDate value="#{row.bindings.CreateDate.inputValue}"
+                                      label="#{bindings.ProjectsView1.hints.CreateDate.label}"
+                                      required="#{bindings.ProjectsView1.hints.CreateDate.mandatory}"
+                                      columns="#{bindings.ProjectsView1.hints.CreateDate.displayWidth}"
+                                      shortDesc="#{bindings.ProjectsView1.hints.CreateDate.tooltip}" id="id14">
+                            <f:validator binding="#{row.bindings.CreateDate.validator}"/>
+                            <af:convertDateTime pattern="#{bindings.ProjectsView1.hints.CreateDate.format}"/>
+                        </af:inputDate>
+                    </af:column>
+                    <af:column sortProperty="#{bindings.ProjectsView1.hints.CreatedBy.name}" filterable="true"
+                               sortable="true" headerText="#{bindings.ProjectsView1.hints.CreatedBy.label}" id="c38">
+                        <af:inputText value="#{row.bindings.CreatedBy.inputValue}"
+                                      label="#{bindings.ProjectsView1.hints.CreatedBy.label}"
+                                      required="#{bindings.ProjectsView1.hints.CreatedBy.mandatory}"
+                                      columns="#{bindings.ProjectsView1.hints.CreatedBy.displayWidth}"
+                                      maximumLength="#{bindings.ProjectsView1.hints.CreatedBy.precision}"
+                                      shortDesc="#{bindings.ProjectsView1.hints.CreatedBy.tooltip}" id="it32">
+                            <f:validator binding="#{row.bindings.CreatedBy.validator}"/>
+                        </af:inputText>
+                    </af:column>
+                    <af:column sortProperty="#{bindings.ProjectsView1.hints.ModifiedBy.name}" filterable="true"
+                               sortable="true" headerText="#{bindings.ProjectsView1.hints.ModifiedBy.label}" id="c39">
+                        <af:inputText value="#{row.bindings.ModifiedBy.inputValue}"
+                                      label="#{bindings.ProjectsView1.hints.ModifiedBy.label}"
+                                      required="#{bindings.ProjectsView1.hints.ModifiedBy.mandatory}"
+                                      columns="#{bindings.ProjectsView1.hints.ModifiedBy.displayWidth}"
+                                      maximumLength="#{bindings.ProjectsView1.hints.ModifiedBy.precision}"
+                                      shortDesc="#{bindings.ProjectsView1.hints.ModifiedBy.tooltip}" id="it33">
+                            <f:validator binding="#{row.bindings.ModifiedBy.validator}"/>
+                        </af:inputText>
+                    </af:column>
+                    <af:column sortProperty="#{bindings.ProjectsView1.hints.ModifyDate.name}" filterable="true"
+                               sortable="true" headerText="#{bindings.ProjectsView1.hints.ModifyDate.label}" id="c40">
+                        <f:facet name="filter">
+                            <af:inputDate value="#{bindings.ProjectsView1Query.queryDescriptor.filterConjunctionCriterion.criterionMap.ModifyDate.value}"
+                                          id="id15">
+                                <af:convertDateTime pattern="#{bindings.ProjectsView1.hints.ModifyDate.format}"/>
+                            </af:inputDate>
+                        </f:facet>
+                        <af:inputDate value="#{row.bindings.ModifyDate.inputValue}"
+                                      label="#{bindings.ProjectsView1.hints.ModifyDate.label}"
+                                      required="#{bindings.ProjectsView1.hints.ModifyDate.mandatory}"
+                                      columns="#{bindings.ProjectsView1.hints.ModifyDate.displayWidth}"
+                                      shortDesc="#{bindings.ProjectsView1.hints.ModifyDate.tooltip}" id="id16">
+                            <f:validator binding="#{row.bindings.ModifyDate.validator}"/>
+                            <af:convertDateTime pattern="#{bindings.ProjectsView1.hints.ModifyDate.format}"/>
+                        </af:inputDate>
+                    </af:column>
+                    <af:column sortProperty="#{bindings.ProjectsView1.hints.PtemId.name}" filterable="true"
+                               sortable="true" headerText="#{bindings.ProjectsView1.hints.PtemId.label}" id="c41">
+                        <af:inputText value="#{row.bindings.PtemId.inputValue}"
+                                      label="#{bindings.ProjectsView1.hints.PtemId.label}"
+                                      required="#{bindings.ProjectsView1.hints.PtemId.mandatory}"
+                                      columns="#{bindings.ProjectsView1.hints.PtemId.displayWidth}"
+                                      maximumLength="#{bindings.ProjectsView1.hints.PtemId.precision}"
+                                      shortDesc="#{bindings.ProjectsView1.hints.PtemId.tooltip}" id="it34">
+                            <f:validator binding="#{row.bindings.PtemId.validator}"/>
+                            <af:convertNumber groupingUsed="false"
+                                              pattern="#{bindings.ProjectsView1.hints.PtemId.format}"/>
+                        </af:inputText>
+                    </af:column>
+                    <af:column sortProperty="#{bindings.ProjectsView1.hints.TplId.name}" filterable="true"
+                               sortable="true" headerText="#{bindings.ProjectsView1.hints.TplId.label}" id="c42">
+                        <af:inputText value="#{row.bindings.TplId.inputValue}"
+                                      label="#{bindings.ProjectsView1.hints.TplId.label}"
+                                      required="#{bindings.ProjectsView1.hints.TplId.mandatory}"
+                                      columns="#{bindings.ProjectsView1.hints.TplId.displayWidth}"
+                                      maximumLength="#{bindings.ProjectsView1.hints.TplId.precision}"
+                                      shortDesc="#{bindings.ProjectsView1.hints.TplId.tooltip}" id="it35">
+                            <f:validator binding="#{row.bindings.TplId.validator}"/>
+                            <af:convertNumber groupingUsed="false"
+                                              pattern="#{bindings.ProjectsView1.hints.TplId.format}"/>
+                        </af:inputText>
+                    </af:column>
+                    <af:column sortProperty="#{bindings.ProjectsView1.hints.TaxName.name}" filterable="true"
+                               sortable="true" headerText="#{bindings.ProjectsView1.hints.TaxName.label}" id="c43">
+                        <af:inputText value="#{row.bindings.TaxName.inputValue}"
+                                      label="#{bindings.ProjectsView1.hints.TaxName.label}"
+                                      required="#{bindings.ProjectsView1.hints.TaxName.mandatory}"
+                                      columns="#{bindings.ProjectsView1.hints.TaxName.displayWidth}"
+                                      maximumLength="#{bindings.ProjectsView1.hints.TaxName.precision}"
+                                      shortDesc="#{bindings.ProjectsView1.hints.TaxName.tooltip}" id="it36">
+                            <f:validator binding="#{row.bindings.TaxName.validator}"/>
+                        </af:inputText>
+                    </af:column>
+                    <af:column sortProperty="#{bindings.ProjectsView1.hints.UrlId.name}" filterable="true"
+                               sortable="true" headerText="#{bindings.ProjectsView1.hints.UrlId.label}" id="c44">
+                        <af:inputText value="#{row.bindings.UrlId.inputValue}"
+                                      label="#{bindings.ProjectsView1.hints.UrlId.label}"
+                                      required="#{bindings.ProjectsView1.hints.UrlId.mandatory}"
+                                      columns="#{bindings.ProjectsView1.hints.UrlId.displayWidth}"
+                                      maximumLength="#{bindings.ProjectsView1.hints.UrlId.precision}"
+                                      shortDesc="#{bindings.ProjectsView1.hints.UrlId.tooltip}" id="it37">
+                            <f:validator binding="#{row.bindings.UrlId.validator}"/>
+                            <af:convertNumber groupingUsed="false"
+                                              pattern="#{bindings.ProjectsView1.hints.UrlId.format}"/>
+                        </af:inputText>
+                    </af:column>
+                    <af:column sortProperty="#{bindings.ProjectsView1.hints.InvestmentAmount.name}" filterable="true"
+                               sortable="true" headerText="#{bindings.ProjectsView1.hints.InvestmentAmount.label}"
+                               id="c45">
+                        <af:inputText value="#{row.bindings.InvestmentAmount.inputValue}"
+                                      label="#{bindings.ProjectsView1.hints.InvestmentAmount.label}"
+                                      required="#{bindings.ProjectsView1.hints.InvestmentAmount.mandatory}"
+                                      columns="#{bindings.ProjectsView1.hints.InvestmentAmount.displayWidth}"
+                                      maximumLength="#{bindings.ProjectsView1.hints.InvestmentAmount.precision}"
+                                      shortDesc="#{bindings.ProjectsView1.hints.InvestmentAmount.tooltip}" id="it38">
+                            <f:validator binding="#{row.bindings.InvestmentAmount.validator}"/>
+                            <af:convertNumber groupingUsed="false"
+                                              pattern="#{bindings.ProjectsView1.hints.InvestmentAmount.format}"/>
+                        </af:inputText>
+                    </af:column>
+                    <af:column sortProperty="#{bindings.ProjectsView1.hints.InvestmentAccountedAmount.name}"
+                               filterable="true" sortable="true"
+                               headerText="#{bindings.ProjectsView1.hints.InvestmentAccountedAmount.label}" id="c46">
+                        <af:inputText value="#{row.bindings.InvestmentAccountedAmount.inputValue}"
+                                      label="#{bindings.ProjectsView1.hints.InvestmentAccountedAmount.label}"
+                                      required="#{bindings.ProjectsView1.hints.InvestmentAccountedAmount.mandatory}"
+                                      columns="#{bindings.ProjectsView1.hints.InvestmentAccountedAmount.displayWidth}"
+                                      maximumLength="#{bindings.ProjectsView1.hints.InvestmentAccountedAmount.precision}"
+                                      shortDesc="#{bindings.ProjectsView1.hints.InvestmentAccountedAmount.tooltip}"
+                                      id="it39">
+                            <f:validator binding="#{row.bindings.InvestmentAccountedAmount.validator}"/>
+                            <af:convertNumber groupingUsed="false"
+                                              pattern="#{bindings.ProjectsView1.hints.InvestmentAccountedAmount.format}"/>
+                        </af:inputText>
+                    </af:column>
+                    <af:column sortProperty="#{bindings.ProjectsView1.hints.InvestmentApproval.name}" filterable="true"
+                               sortable="true" headerText="#{bindings.ProjectsView1.hints.InvestmentApproval.label}"
+                               id="c47">
+                        <af:inputText value="#{row.bindings.InvestmentApproval.inputValue}"
+                                      label="#{bindings.ProjectsView1.hints.InvestmentApproval.label}"
+                                      required="#{bindings.ProjectsView1.hints.InvestmentApproval.mandatory}"
+                                      columns="#{bindings.ProjectsView1.hints.InvestmentApproval.displayWidth}"
+                                      maximumLength="#{bindings.ProjectsView1.hints.InvestmentApproval.precision}"
+                                      shortDesc="#{bindings.ProjectsView1.hints.InvestmentApproval.tooltip}" id="it40">
+                            <f:validator binding="#{row.bindings.InvestmentApproval.validator}"/>
+                        </af:inputText>
+                    </af:column>
+                    <af:column sortProperty="#{bindings.ProjectsView1.hints.ApprovalInvestmentDocNumber.name}"
+                               filterable="true" sortable="true"
+                               headerText="#{bindings.ProjectsView1.hints.ApprovalInvestmentDocNumber.label}" id="c48">
+                        <af:inputText value="#{row.bindings.ApprovalInvestmentDocNumber.inputValue}"
+                                      label="#{bindings.ProjectsView1.hints.ApprovalInvestmentDocNumber.label}"
+                                      required="#{bindings.ProjectsView1.hints.ApprovalInvestmentDocNumber.mandatory}"
+                                      columns="#{bindings.ProjectsView1.hints.ApprovalInvestmentDocNumber.displayWidth}"
+                                      maximumLength="#{bindings.ProjectsView1.hints.ApprovalInvestmentDocNumber.precision}"
+                                      shortDesc="#{bindings.ProjectsView1.hints.ApprovalInvestmentDocNumber.tooltip}"
+                                      id="it41">
+                            <f:validator binding="#{row.bindings.ApprovalInvestmentDocNumber.validator}"/>
+                        </af:inputText>
+                    </af:column>
+                    <af:column sortProperty="#{bindings.ProjectsView1.hints.ApprovalInvestmentDocDate.name}"
+                               filterable="true" sortable="true"
+                               headerText="#{bindings.ProjectsView1.hints.ApprovalInvestmentDocDate.label}" id="c49">
+                        <f:facet name="filter">
+                            <af:inputDate value="#{bindings.ProjectsView1Query.queryDescriptor.filterConjunctionCriterion.criterionMap.ApprovalInvestmentDocDate.value}"
+                                          id="id17">
+                                <af:convertDateTime pattern="#{bindings.ProjectsView1.hints.ApprovalInvestmentDocDate.format}"/>
+                            </af:inputDate>
+                        </f:facet>
+                        <af:inputDate value="#{row.bindings.ApprovalInvestmentDocDate.inputValue}"
+                                      label="#{bindings.ProjectsView1.hints.ApprovalInvestmentDocDate.label}"
+                                      required="#{bindings.ProjectsView1.hints.ApprovalInvestmentDocDate.mandatory}"
+                                      columns="#{bindings.ProjectsView1.hints.ApprovalInvestmentDocDate.displayWidth}"
+                                      shortDesc="#{bindings.ProjectsView1.hints.ApprovalInvestmentDocDate.tooltip}"
+                                      id="id18">
+                            <f:validator binding="#{row.bindings.ApprovalInvestmentDocDate.validator}"/>
+                            <af:convertDateTime pattern="#{bindings.ProjectsView1.hints.ApprovalInvestmentDocDate.format}"/>
+                        </af:inputDate>
+                    </af:column>
+                    <af:column sortProperty="#{bindings.ProjectsView1.hints.ApprovalBudgetDocDate.name}"
+                               filterable="true" sortable="true"
+                               headerText="#{bindings.ProjectsView1.hints.ApprovalBudgetDocDate.label}" id="c50">
+                        <f:facet name="filter">
+                            <af:inputDate value="#{bindings.ProjectsView1Query.queryDescriptor.filterConjunctionCriterion.criterionMap.ApprovalBudgetDocDate.value}"
+                                          id="id19">
+                                <af:convertDateTime pattern="#{bindings.ProjectsView1.hints.ApprovalBudgetDocDate.format}"/>
+                            </af:inputDate>
+                        </f:facet>
+                        <af:inputDate value="#{row.bindings.ApprovalBudgetDocDate.inputValue}"
+                                      label="#{bindings.ProjectsView1.hints.ApprovalBudgetDocDate.label}"
+                                      required="#{bindings.ProjectsView1.hints.ApprovalBudgetDocDate.mandatory}"
+                                      columns="#{bindings.ProjectsView1.hints.ApprovalBudgetDocDate.displayWidth}"
+                                      shortDesc="#{bindings.ProjectsView1.hints.ApprovalBudgetDocDate.tooltip}"
+                                      id="id20">
+                            <f:validator binding="#{row.bindings.ApprovalBudgetDocDate.validator}"/>
+                            <af:convertDateTime pattern="#{bindings.ProjectsView1.hints.ApprovalBudgetDocDate.format}"/>
+                        </af:inputDate>
+                    </af:column>
+                    <af:column sortProperty="#{bindings.ProjectsView1.hints.ApprovalBudgetDocNumber.name}"
+                               filterable="true" sortable="true"
+                               headerText="#{bindings.ProjectsView1.hints.ApprovalBudgetDocNumber.label}" id="c51">
+                        <af:inputText value="#{row.bindings.ApprovalBudgetDocNumber.inputValue}"
+                                      label="#{bindings.ProjectsView1.hints.ApprovalBudgetDocNumber.label}"
+                                      required="#{bindings.ProjectsView1.hints.ApprovalBudgetDocNumber.mandatory}"
+                                      columns="#{bindings.ProjectsView1.hints.ApprovalBudgetDocNumber.displayWidth}"
+                                      maximumLength="#{bindings.ProjectsView1.hints.ApprovalBudgetDocNumber.precision}"
+                                      shortDesc="#{bindings.ProjectsView1.hints.ApprovalBudgetDocNumber.tooltip}"
+                                      id="it42">
+                            <f:validator binding="#{row.bindings.ApprovalBudgetDocNumber.validator}"/>
+                        </af:inputText>
+                    </af:column>
+                    <af:column sortProperty="#{bindings.ProjectsView1.hints.InveId.name}" filterable="true"
+                               sortable="true" headerText="#{bindings.ProjectsView1.hints.InveId.label}" id="c52">
+                        <af:inputText value="#{row.bindings.InveId.inputValue}"
+                                      label="#{bindings.ProjectsView1.hints.InveId.label}"
+                                      required="#{bindings.ProjectsView1.hints.InveId.mandatory}"
+                                      columns="#{bindings.ProjectsView1.hints.InveId.displayWidth}"
+                                      maximumLength="#{bindings.ProjectsView1.hints.InveId.precision}"
+                                      shortDesc="#{bindings.ProjectsView1.hints.InveId.tooltip}" id="it43">
+                            <f:validator binding="#{row.bindings.InveId.validator}"/>
+                            <af:convertNumber groupingUsed="false"
+                                              pattern="#{bindings.ProjectsView1.hints.InveId.format}"/>
+                        </af:inputText>
+                    </af:column>
+                    <af:column sortProperty="#{bindings.ProjectsView1.hints.ApprovalOrganization.name}"
+                               filterable="true" sortable="true"
+                               headerText="#{bindings.ProjectsView1.hints.ApprovalOrganization.label}" id="c53">
+                        <af:inputText value="#{row.bindings.ApprovalOrganization.inputValue}"
+                                      label="#{bindings.ProjectsView1.hints.ApprovalOrganization.label}"
+                                      required="#{bindings.ProjectsView1.hints.ApprovalOrganization.mandatory}"
+                                      columns="#{bindings.ProjectsView1.hints.ApprovalOrganization.displayWidth}"
+                                      maximumLength="#{bindings.ProjectsView1.hints.ApprovalOrganization.precision}"
+                                      shortDesc="#{bindings.ProjectsView1.hints.ApprovalOrganization.tooltip}"
+                                      id="it44">
+                            <f:validator binding="#{row.bindings.ApprovalOrganization.validator}"/>
+                        </af:inputText>
+                    </af:column>
+                    <af:column sortProperty="#{bindings.ProjectsView1.hints.ActualInvestmentScale.name}"
+                               filterable="true" sortable="true"
+                               headerText="#{bindings.ProjectsView1.hints.ActualInvestmentScale.label}" id="c54">
+                        <af:inputText value="#{row.bindings.ActualInvestmentScale.inputValue}"
+                                      label="#{bindings.ProjectsView1.hints.ActualInvestmentScale.label}"
+                                      required="#{bindings.ProjectsView1.hints.ActualInvestmentScale.mandatory}"
+                                      columns="#{bindings.ProjectsView1.hints.ActualInvestmentScale.displayWidth}"
+                                      maximumLength="#{bindings.ProjectsView1.hints.ActualInvestmentScale.precision}"
+                                      shortDesc="#{bindings.ProjectsView1.hints.ActualInvestmentScale.tooltip}"
+                                      id="it45">
+                            <f:validator binding="#{row.bindings.ActualInvestmentScale.validator}"/>
+                        </af:inputText>
+                    </af:column>
+                    <af:column sortProperty="#{bindings.ProjectsView1.hints.CapitalizedFlag.name}" filterable="true"
+                               sortable="true" headerText="#{bindings.ProjectsView1.hints.CapitalizedFlag.label}"
+                               id="c55">
+                        <af:inputText value="#{row.bindings.CapitalizedFlag.inputValue}"
+                                      label="#{bindings.ProjectsView1.hints.CapitalizedFlag.label}"
+                                      required="#{bindings.ProjectsView1.hints.CapitalizedFlag.mandatory}"
+                                      columns="#{bindings.ProjectsView1.hints.CapitalizedFlag.displayWidth}"
+                                      maximumLength="#{bindings.ProjectsView1.hints.CapitalizedFlag.precision}"
+                                      shortDesc="#{bindings.ProjectsView1.hints.CapitalizedFlag.tooltip}" id="it46">
+                            <f:validator binding="#{row.bindings.CapitalizedFlag.validator}"/>
+                        </af:inputText>
+                    </af:column>
+                    <af:column sortProperty="#{bindings.ProjectsView1.hints.CapitalizedDate.name}" filterable="true"
+                               sortable="true" headerText="#{bindings.ProjectsView1.hints.CapitalizedDate.label}"
+                               id="c56">
+                        <f:facet name="filter">
+                            <af:inputDate value="#{bindings.ProjectsView1Query.queryDescriptor.filterConjunctionCriterion.criterionMap.CapitalizedDate.value}"
+                                          id="id21">
+                                <af:convertDateTime pattern="#{bindings.ProjectsView1.hints.CapitalizedDate.format}"/>
+                            </af:inputDate>
+                        </f:facet>
+                        <af:inputDate value="#{row.bindings.CapitalizedDate.inputValue}"
+                                      label="#{bindings.ProjectsView1.hints.CapitalizedDate.label}"
+                                      required="#{bindings.ProjectsView1.hints.CapitalizedDate.mandatory}"
+                                      columns="#{bindings.ProjectsView1.hints.CapitalizedDate.displayWidth}"
+                                      shortDesc="#{bindings.ProjectsView1.hints.CapitalizedDate.tooltip}" id="id22">
+                            <f:validator binding="#{row.bindings.CapitalizedDate.validator}"/>
+                            <af:convertDateTime pattern="#{bindings.ProjectsView1.hints.CapitalizedDate.format}"/>
+                        </af:inputDate>
+                    </af:column>
+                    <af:column sortProperty="#{bindings.ProjectsView1.hints.SubmitedDocDate.name}" filterable="true"
+                               sortable="true" headerText="#{bindings.ProjectsView1.hints.SubmitedDocDate.label}"
+                               id="c57">
+                        <f:facet name="filter">
+                            <af:inputDate value="#{bindings.ProjectsView1Query.queryDescriptor.filterConjunctionCriterion.criterionMap.SubmitedDocDate.value}"
+                                          id="id23">
+                                <af:convertDateTime pattern="#{bindings.ProjectsView1.hints.SubmitedDocDate.format}"/>
+                            </af:inputDate>
+                        </f:facet>
+                        <af:inputDate value="#{row.bindings.SubmitedDocDate.inputValue}"
+                                      label="#{bindings.ProjectsView1.hints.SubmitedDocDate.label}"
+                                      required="#{bindings.ProjectsView1.hints.SubmitedDocDate.mandatory}"
+                                      columns="#{bindings.ProjectsView1.hints.SubmitedDocDate.displayWidth}"
+                                      shortDesc="#{bindings.ProjectsView1.hints.SubmitedDocDate.tooltip}" id="id24">
+                            <f:validator binding="#{row.bindings.SubmitedDocDate.validator}"/>
+                            <af:convertDateTime pattern="#{bindings.ProjectsView1.hints.SubmitedDocDate.format}"/>
+                        </af:inputDate>
+                    </af:column>
+                    <af:column sortProperty="#{bindings.ProjectsView1.hints.ReceiveDocOrganization.name}"
+                               filterable="true" sortable="true"
+                               headerText="#{bindings.ProjectsView1.hints.ReceiveDocOrganization.label}" id="c58">
+                        <af:inputText value="#{row.bindings.ReceiveDocOrganization.inputValue}"
+                                      label="#{bindings.ProjectsView1.hints.ReceiveDocOrganization.label}"
+                                      required="#{bindings.ProjectsView1.hints.ReceiveDocOrganization.mandatory}"
+                                      columns="#{bindings.ProjectsView1.hints.ReceiveDocOrganization.displayWidth}"
+                                      maximumLength="#{bindings.ProjectsView1.hints.ReceiveDocOrganization.precision}"
+                                      shortDesc="#{bindings.ProjectsView1.hints.ReceiveDocOrganization.tooltip}"
+                                      id="it47">
+                            <f:validator binding="#{row.bindings.ReceiveDocOrganization.validator}"/>
+                        </af:inputText>
+                    </af:column>
+                    <af:column sortProperty="#{bindings.ProjectsView1.hints.Attribute1.name}" filterable="true"
+                               sortable="true" headerText="#{bindings.ProjectsView1.hints.Attribute1.label}" id="c59">
+                        <af:inputText value="#{row.bindings.Attribute1.inputValue}"
+                                      label="#{bindings.ProjectsView1.hints.Attribute1.label}"
+                                      required="#{bindings.ProjectsView1.hints.Attribute1.mandatory}"
+                                      columns="#{bindings.ProjectsView1.hints.Attribute1.displayWidth}"
+                                      maximumLength="#{bindings.ProjectsView1.hints.Attribute1.precision}"
+                                      shortDesc="#{bindings.ProjectsView1.hints.Attribute1.tooltip}" id="it48">
+                            <f:validator binding="#{row.bindings.Attribute1.validator}"/>
+                        </af:inputText>
+                    </af:column>
+                    <af:column sortProperty="#{bindings.ProjectsView1.hints.Attribute2.name}" filterable="true"
+                               sortable="true" headerText="#{bindings.ProjectsView1.hints.Attribute2.label}" id="c60">
+                        <af:inputText value="#{row.bindings.Attribute2.inputValue}"
+                                      label="#{bindings.ProjectsView1.hints.Attribute2.label}"
+                                      required="#{bindings.ProjectsView1.hints.Attribute2.mandatory}"
+                                      columns="#{bindings.ProjectsView1.hints.Attribute2.displayWidth}"
+                                      maximumLength="#{bindings.ProjectsView1.hints.Attribute2.precision}"
+                                      shortDesc="#{bindings.ProjectsView1.hints.Attribute2.tooltip}" id="it49">
+                            <f:validator binding="#{row.bindings.Attribute2.validator}"/>
+                        </af:inputText>
+                    </af:column>
+                    <af:column sortProperty="#{bindings.ProjectsView1.hints.Attribute3.name}" filterable="true"
+                               sortable="true" headerText="#{bindings.ProjectsView1.hints.Attribute3.label}" id="c61">
+                        <af:inputText value="#{row.bindings.Attribute3.inputValue}"
+                                      label="#{bindings.ProjectsView1.hints.Attribute3.label}"
+                                      required="#{bindings.ProjectsView1.hints.Attribute3.mandatory}"
+                                      columns="#{bindings.ProjectsView1.hints.Attribute3.displayWidth}"
+                                      maximumLength="#{bindings.ProjectsView1.hints.Attribute3.precision}"
+                                      shortDesc="#{bindings.ProjectsView1.hints.Attribute3.tooltip}" id="it50">
+                            <f:validator binding="#{row.bindings.Attribute3.validator}"/>
+                        </af:inputText>
+                    </af:column>
+                    <af:column sortProperty="#{bindings.ProjectsView1.hints.Attribute4.name}" filterable="true"
+                               sortable="true" headerText="#{bindings.ProjectsView1.hints.Attribute4.label}" id="c62">
+                        <af:inputText value="#{row.bindings.Attribute4.inputValue}"
+                                      label="#{bindings.ProjectsView1.hints.Attribute4.label}"
+                                      required="#{bindings.ProjectsView1.hints.Attribute4.mandatory}"
+                                      columns="#{bindings.ProjectsView1.hints.Attribute4.displayWidth}"
+                                      maximumLength="#{bindings.ProjectsView1.hints.Attribute4.precision}"
+                                      shortDesc="#{bindings.ProjectsView1.hints.Attribute4.tooltip}" id="it51">
+                            <f:validator binding="#{row.bindings.Attribute4.validator}"/>
+                        </af:inputText>
+                    </af:column>
+                    <af:column sortProperty="#{bindings.ProjectsView1.hints.Attribute5.name}" filterable="true"
+                               sortable="true" headerText="#{bindings.ProjectsView1.hints.Attribute5.label}" id="c63">
+                        <af:inputText value="#{row.bindings.Attribute5.inputValue}"
+                                      label="#{bindings.ProjectsView1.hints.Attribute5.label}"
+                                      required="#{bindings.ProjectsView1.hints.Attribute5.mandatory}"
+                                      columns="#{bindings.ProjectsView1.hints.Attribute5.displayWidth}"
+                                      maximumLength="#{bindings.ProjectsView1.hints.Attribute5.precision}"
+                                      shortDesc="#{bindings.ProjectsView1.hints.Attribute5.tooltip}" id="it52">
+                            <f:validator binding="#{row.bindings.Attribute5.validator}"/>
+                        </af:inputText>
+                    </af:column>
+                    <af:column sortProperty="#{bindings.ProjectsView1.hints.Attribute6.name}" filterable="true"
+                               sortable="true" headerText="#{bindings.ProjectsView1.hints.Attribute6.label}" id="c64">
+                        <af:inputText value="#{row.bindings.Attribute6.inputValue}"
+                                      label="#{bindings.ProjectsView1.hints.Attribute6.label}"
+                                      required="#{bindings.ProjectsView1.hints.Attribute6.mandatory}"
+                                      columns="#{bindings.ProjectsView1.hints.Attribute6.displayWidth}"
+                                      maximumLength="#{bindings.ProjectsView1.hints.Attribute6.precision}"
+                                      shortDesc="#{bindings.ProjectsView1.hints.Attribute6.tooltip}" id="it53">
+                            <f:validator binding="#{row.bindings.Attribute6.validator}"/>
+                        </af:inputText>
+                    </af:column>
+                    <af:column sortProperty="#{bindings.ProjectsView1.hints.Attribute7.name}" filterable="true"
+                               sortable="true" headerText="#{bindings.ProjectsView1.hints.Attribute7.label}" id="c65">
+                        <af:inputText value="#{row.bindings.Attribute7.inputValue}"
+                                      label="#{bindings.ProjectsView1.hints.Attribute7.label}"
+                                      required="#{bindings.ProjectsView1.hints.Attribute7.mandatory}"
+                                      columns="#{bindings.ProjectsView1.hints.Attribute7.displayWidth}"
+                                      maximumLength="#{bindings.ProjectsView1.hints.Attribute7.precision}"
+                                      shortDesc="#{bindings.ProjectsView1.hints.Attribute7.tooltip}" id="it54">
+                            <f:validator binding="#{row.bindings.Attribute7.validator}"/>
+                        </af:inputText>
+                    </af:column>
+                    <af:column sortProperty="#{bindings.ProjectsView1.hints.Attribute8.name}" filterable="true"
+                               sortable="true" headerText="#{bindings.ProjectsView1.hints.Attribute8.label}" id="c66">
+                        <af:inputText value="#{row.bindings.Attribute8.inputValue}"
+                                      label="#{bindings.ProjectsView1.hints.Attribute8.label}"
+                                      required="#{bindings.ProjectsView1.hints.Attribute8.mandatory}"
+                                      columns="#{bindings.ProjectsView1.hints.Attribute8.displayWidth}"
+                                      maximumLength="#{bindings.ProjectsView1.hints.Attribute8.precision}"
+                                      shortDesc="#{bindings.ProjectsView1.hints.Attribute8.tooltip}" id="it55">
+                            <f:validator binding="#{row.bindings.Attribute8.validator}"/>
+                        </af:inputText>
+                    </af:column>
+                    <af:column sortProperty="#{bindings.ProjectsView1.hints.Attribute9.name}" filterable="true"
+                               sortable="true" headerText="#{bindings.ProjectsView1.hints.Attribute9.label}" id="c67">
+                        <af:inputText value="#{row.bindings.Attribute9.inputValue}"
+                                      label="#{bindings.ProjectsView1.hints.Attribute9.label}"
+                                      required="#{bindings.ProjectsView1.hints.Attribute9.mandatory}"
+                                      columns="#{bindings.ProjectsView1.hints.Attribute9.displayWidth}"
+                                      maximumLength="#{bindings.ProjectsView1.hints.Attribute9.precision}"
+                                      shortDesc="#{bindings.ProjectsView1.hints.Attribute9.tooltip}" id="it56">
+                            <f:validator binding="#{row.bindings.Attribute9.validator}"/>
+                        </af:inputText>
+                    </af:column>
+                    <af:column sortProperty="#{bindings.ProjectsView1.hints.Attribute10.name}" filterable="true"
+                               sortable="true" headerText="#{bindings.ProjectsView1.hints.Attribute10.label}" id="c68">
+                        <af:inputText value="#{row.bindings.Attribute10.inputValue}"
+                                      label="#{bindings.ProjectsView1.hints.Attribute10.label}"
+                                      required="#{bindings.ProjectsView1.hints.Attribute10.mandatory}"
+                                      columns="#{bindings.ProjectsView1.hints.Attribute10.displayWidth}"
+                                      maximumLength="#{bindings.ProjectsView1.hints.Attribute10.precision}"
+                                      shortDesc="#{bindings.ProjectsView1.hints.Attribute10.tooltip}" id="it57">
+                            <f:validator binding="#{row.bindings.Attribute10.validator}"/>
+                        </af:inputText>
+                    </af:column>
+                    <af:column sortProperty="#{bindings.ProjectsView1.hints.AprovedTimeDescription.name}"
+                               filterable="true" sortable="true"
+                               headerText="#{bindings.ProjectsView1.hints.AprovedTimeDescription.label}" id="c69">
+                        <af:inputText value="#{row.bindings.AprovedTimeDescription.inputValue}"
+                                      label="#{bindings.ProjectsView1.hints.AprovedTimeDescription.label}"
+                                      required="#{bindings.ProjectsView1.hints.AprovedTimeDescription.mandatory}"
+                                      columns="#{bindings.ProjectsView1.hints.AprovedTimeDescription.displayWidth}"
+                                      maximumLength="#{bindings.ProjectsView1.hints.AprovedTimeDescription.precision}"
+                                      shortDesc="#{bindings.ProjectsView1.hints.AprovedTimeDescription.tooltip}"
+                                      id="it58">
+                            <f:validator binding="#{row.bindings.AprovedTimeDescription.validator}"/>
+                        </af:inputText>
+                    </af:column>
+                    <af:column sortProperty="#{bindings.ProjectsView1.hints.ActualTimeDescription.name}"
+                               filterable="true" sortable="true"
+                               headerText="#{bindings.ProjectsView1.hints.ActualTimeDescription.label}" id="c70">
+                        <af:inputText value="#{row.bindings.ActualTimeDescription.inputValue}"
+                                      label="#{bindings.ProjectsView1.hints.ActualTimeDescription.label}"
+                                      required="#{bindings.ProjectsView1.hints.ActualTimeDescription.mandatory}"
+                                      columns="#{bindings.ProjectsView1.hints.ActualTimeDescription.displayWidth}"
+                                      maximumLength="#{bindings.ProjectsView1.hints.ActualTimeDescription.precision}"
+                                      shortDesc="#{bindings.ProjectsView1.hints.ActualTimeDescription.tooltip}"
+                                      id="it59">
+                            <f:validator binding="#{row.bindings.ActualTimeDescription.validator}"/>
+                        </af:inputText>
+                    </af:column>
+                    <af:column sortProperty="#{bindings.ProjectsView1.hints.InvestmentAmountDescription.name}"
+                               filterable="true" sortable="true"
+                               headerText="#{bindings.ProjectsView1.hints.InvestmentAmountDescription.label}" id="c71">
+                        <af:inputText value="#{row.bindings.InvestmentAmountDescription.inputValue}"
+                                      label="#{bindings.ProjectsView1.hints.InvestmentAmountDescription.label}"
+                                      required="#{bindings.ProjectsView1.hints.InvestmentAmountDescription.mandatory}"
+                                      columns="#{bindings.ProjectsView1.hints.InvestmentAmountDescription.displayWidth}"
+                                      maximumLength="#{bindings.ProjectsView1.hints.InvestmentAmountDescription.precision}"
+                                      shortDesc="#{bindings.ProjectsView1.hints.InvestmentAmountDescription.tooltip}"
+                                      id="it60">
+                            <f:validator binding="#{row.bindings.InvestmentAmountDescription.validator}"/>
+                        </af:inputText>
+                    </af:column>
+                    <af:column sortProperty="#{bindings.ProjectsView1.hints.ManagementMethod.name}" filterable="true"
+                               sortable="true" headerText="#{bindings.ProjectsView1.hints.ManagementMethod.label}"
+                               id="c72">
+                        <af:inputText value="#{row.bindings.ManagementMethod.inputValue}"
+                                      label="#{bindings.ProjectsView1.hints.ManagementMethod.label}"
+                                      required="#{bindings.ProjectsView1.hints.ManagementMethod.mandatory}"
+                                      columns="#{bindings.ProjectsView1.hints.ManagementMethod.displayWidth}"
+                                      maximumLength="#{bindings.ProjectsView1.hints.ManagementMethod.precision}"
+                                      shortDesc="#{bindings.ProjectsView1.hints.ManagementMethod.tooltip}" id="it61">
+                            <f:validator binding="#{row.bindings.ManagementMethod.validator}"/>
+                        </af:inputText>
+                    </af:column>
+                    <af:column sortProperty="#{bindings.ProjectsView1.hints.InvestmentNeed.name}" filterable="true"
+                               sortable="true" headerText="#{bindings.ProjectsView1.hints.InvestmentNeed.label}"
+                               id="c73">
+                        <af:inputText value="#{row.bindings.InvestmentNeed.inputValue}"
+                                      label="#{bindings.ProjectsView1.hints.InvestmentNeed.label}"
+                                      required="#{bindings.ProjectsView1.hints.InvestmentNeed.mandatory}"
+                                      columns="#{bindings.ProjectsView1.hints.InvestmentNeed.displayWidth}"
+                                      maximumLength="#{bindings.ProjectsView1.hints.InvestmentNeed.precision}"
+                                      shortDesc="#{bindings.ProjectsView1.hints.InvestmentNeed.tooltip}" id="it62">
+                            <f:validator binding="#{row.bindings.InvestmentNeed.validator}"/>
+                        </af:inputText>
+                    </af:column>
+                    <af:column sortProperty="#{bindings.ProjectsView1.hints.ApprovedTimes.name}" filterable="true"
+                               sortable="true" headerText="#{bindings.ProjectsView1.hints.ApprovedTimes.label}"
+                               id="c74">
+                        <af:inputText value="#{row.bindings.ApprovedTimes.inputValue}"
+                                      label="#{bindings.ProjectsView1.hints.ApprovedTimes.label}"
+                                      required="#{bindings.ProjectsView1.hints.ApprovedTimes.mandatory}"
+                                      columns="#{bindings.ProjectsView1.hints.ApprovedTimes.displayWidth}"
+                                      maximumLength="#{bindings.ProjectsView1.hints.ApprovedTimes.precision}"
+                                      shortDesc="#{bindings.ProjectsView1.hints.ApprovedTimes.tooltip}" id="it63">
+                            <f:validator binding="#{row.bindings.ApprovedTimes.validator}"/>
+                        </af:inputText>
+                    </af:column>
+                    <af:column sortProperty="#{bindings.ProjectsView1.hints.ApprovedReason.name}" filterable="true"
+                               sortable="true" headerText="#{bindings.ProjectsView1.hints.ApprovedReason.label}"
+                               id="c75">
+                        <af:inputText value="#{row.bindings.ApprovedReason.inputValue}"
+                                      label="#{bindings.ProjectsView1.hints.ApprovedReason.label}"
+                                      required="#{bindings.ProjectsView1.hints.ApprovedReason.mandatory}"
+                                      columns="#{bindings.ProjectsView1.hints.ApprovedReason.displayWidth}"
+                                      maximumLength="#{bindings.ProjectsView1.hints.ApprovedReason.precision}"
+                                      shortDesc="#{bindings.ProjectsView1.hints.ApprovedReason.tooltip}" id="it64">
+                            <f:validator binding="#{row.bindings.ApprovedReason.validator}"/>
+                        </af:inputText>
+                    </af:column>
+                    <af:column sortProperty="#{bindings.ProjectsView1.hints.ApprovedDocNumber.name}" filterable="true"
+                               sortable="true" headerText="#{bindings.ProjectsView1.hints.ApprovedDocNumber.label}"
+                               id="c76">
+                        <af:inputText value="#{row.bindings.ApprovedDocNumber.inputValue}"
+                                      label="#{bindings.ProjectsView1.hints.ApprovedDocNumber.label}"
+                                      required="#{bindings.ProjectsView1.hints.ApprovedDocNumber.mandatory}"
+                                      columns="#{bindings.ProjectsView1.hints.ApprovedDocNumber.displayWidth}"
+                                      maximumLength="#{bindings.ProjectsView1.hints.ApprovedDocNumber.precision}"
+                                      shortDesc="#{bindings.ProjectsView1.hints.ApprovedDocNumber.tooltip}" id="it65">
+                            <f:validator binding="#{row.bindings.ApprovedDocNumber.validator}"/>
+                        </af:inputText>
+                    </af:column>
+                    <af:column sortProperty="#{bindings.ProjectsView1.hints.ApprovedDocDate.name}" filterable="true"
+                               sortable="true" headerText="#{bindings.ProjectsView1.hints.ApprovedDocDate.label}"
+                               id="c77">
+                        <f:facet name="filter">
+                            <af:inputDate value="#{bindings.ProjectsView1Query.queryDescriptor.filterConjunctionCriterion.criterionMap.ApprovedDocDate.value}"
+                                          id="id25">
+                                <af:convertDateTime pattern="#{bindings.ProjectsView1.hints.ApprovedDocDate.format}"/>
+                            </af:inputDate>
+                        </f:facet>
+                        <af:inputDate value="#{row.bindings.ApprovedDocDate.inputValue}"
+                                      label="#{bindings.ProjectsView1.hints.ApprovedDocDate.label}"
+                                      required="#{bindings.ProjectsView1.hints.ApprovedDocDate.mandatory}"
+                                      columns="#{bindings.ProjectsView1.hints.ApprovedDocDate.displayWidth}"
+                                      shortDesc="#{bindings.ProjectsView1.hints.ApprovedDocDate.tooltip}" id="id26">
+                            <f:validator binding="#{row.bindings.ApprovedDocDate.validator}"/>
+                            <af:convertDateTime pattern="#{bindings.ProjectsView1.hints.ApprovedDocDate.format}"/>
+                        </af:inputDate>
+                    </af:column>
+                    <af:column sortProperty="#{bindings.ProjectsView1.hints.GroundRentAmount.name}" filterable="true"
+                               sortable="true" headerText="#{bindings.ProjectsView1.hints.GroundRentAmount.label}"
+                               id="c78">
+                        <af:inputText value="#{row.bindings.GroundRentAmount.inputValue}"
+                                      label="#{bindings.ProjectsView1.hints.GroundRentAmount.label}"
+                                      required="#{bindings.ProjectsView1.hints.GroundRentAmount.mandatory}"
+                                      columns="#{bindings.ProjectsView1.hints.GroundRentAmount.displayWidth}"
+                                      maximumLength="#{bindings.ProjectsView1.hints.GroundRentAmount.precision}"
+                                      shortDesc="#{bindings.ProjectsView1.hints.GroundRentAmount.tooltip}" id="it66">
+                            <f:validator binding="#{row.bindings.GroundRentAmount.validator}"/>
+                            <af:convertNumber groupingUsed="false"
+                                              pattern="#{bindings.ProjectsView1.hints.GroundRentAmount.format}"/>
+                        </af:inputText>
+                    </af:column>
+                    <af:column sortProperty="#{bindings.ProjectsView1.hints.AreaOfLandUse.name}" filterable="true"
+                               sortable="true" headerText="#{bindings.ProjectsView1.hints.AreaOfLandUse.label}"
+                               id="c79">
+                        <af:inputText value="#{row.bindings.AreaOfLandUse.inputValue}"
+                                      label="#{bindings.ProjectsView1.hints.AreaOfLandUse.label}"
+                                      required="#{bindings.ProjectsView1.hints.AreaOfLandUse.mandatory}"
+                                      columns="#{bindings.ProjectsView1.hints.AreaOfLandUse.displayWidth}"
+                                      maximumLength="#{bindings.ProjectsView1.hints.AreaOfLandUse.precision}"
+                                      shortDesc="#{bindings.ProjectsView1.hints.AreaOfLandUse.tooltip}" id="it67">
+                            <f:validator binding="#{row.bindings.AreaOfLandUse.validator}"/>
+                        </af:inputText>
+                    </af:column>
+                    <af:column sortProperty="#{bindings.ProjectsView1.hints.PlanToBuild.name}" filterable="true"
+                               sortable="true" headerText="#{bindings.ProjectsView1.hints.PlanToBuild.label}" id="c80">
+                        <af:inputText value="#{row.bindings.PlanToBuild.inputValue}"
+                                      label="#{bindings.ProjectsView1.hints.PlanToBuild.label}"
+                                      required="#{bindings.ProjectsView1.hints.PlanToBuild.mandatory}"
+                                      columns="#{bindings.ProjectsView1.hints.PlanToBuild.displayWidth}"
+                                      maximumLength="#{bindings.ProjectsView1.hints.PlanToBuild.precision}"
+                                      shortDesc="#{bindings.ProjectsView1.hints.PlanToBuild.tooltip}" id="it68">
+                            <f:validator binding="#{row.bindings.PlanToBuild.validator}"/>
+                        </af:inputText>
+                    </af:column>
+                    <af:column sortProperty="#{bindings.ProjectsView1.hints.ProjectLevel.name}" filterable="true"
+                               sortable="true" headerText="#{bindings.ProjectsView1.hints.ProjectLevel.label}" id="c81">
+                        <af:inputText value="#{row.bindings.ProjectLevel.inputValue}"
+                                      label="#{bindings.ProjectsView1.hints.ProjectLevel.label}"
+                                      required="#{bindings.ProjectsView1.hints.ProjectLevel.mandatory}"
+                                      columns="#{bindings.ProjectsView1.hints.ProjectLevel.displayWidth}"
+                                      maximumLength="#{bindings.ProjectsView1.hints.ProjectLevel.precision}"
+                                      shortDesc="#{bindings.ProjectsView1.hints.ProjectLevel.tooltip}" id="it69">
+                            <f:validator binding="#{row.bindings.ProjectLevel.validator}"/>
+                        </af:inputText>
+                    </af:column>
+                    <af:column sortProperty="#{bindings.ProjectsView1.hints.EquipmentDescription.name}"
+                               filterable="true" sortable="true"
+                               headerText="#{bindings.ProjectsView1.hints.EquipmentDescription.label}" id="c82">
+                        <af:inputText value="#{row.bindings.EquipmentDescription.inputValue}"
+                                      label="#{bindings.ProjectsView1.hints.EquipmentDescription.label}"
+                                      required="#{bindings.ProjectsView1.hints.EquipmentDescription.mandatory}"
+                                      columns="#{bindings.ProjectsView1.hints.EquipmentDescription.displayWidth}"
+                                      maximumLength="#{bindings.ProjectsView1.hints.EquipmentDescription.precision}"
+                                      shortDesc="#{bindings.ProjectsView1.hints.EquipmentDescription.tooltip}"
+                                      id="it70">
+                            <f:validator binding="#{row.bindings.EquipmentDescription.validator}"/>
+                        </af:inputText>
+                    </af:column>
+                    <af:column sortProperty="#{bindings.ProjectsView1.hints.ClearanceResettlementOption.name}"
+                               filterable="true" sortable="true"
+                               headerText="#{bindings.ProjectsView1.hints.ClearanceResettlementOption.label}" id="c83">
+                        <af:inputText value="#{row.bindings.ClearanceResettlementOption.inputValue}"
+                                      label="#{bindings.ProjectsView1.hints.ClearanceResettlementOption.label}"
+                                      required="#{bindings.ProjectsView1.hints.ClearanceResettlementOption.mandatory}"
+                                      columns="#{bindings.ProjectsView1.hints.ClearanceResettlementOption.displayWidth}"
+                                      maximumLength="#{bindings.ProjectsView1.hints.ClearanceResettlementOption.precision}"
+                                      shortDesc="#{bindings.ProjectsView1.hints.ClearanceResettlementOption.tooltip}"
+                                      id="it71">
+                            <f:validator binding="#{row.bindings.ClearanceResettlementOption.validator}"/>
+                        </af:inputText>
+                    </af:column>
+                    <af:column sortProperty="#{bindings.ProjectsView1.hints.FirstYearWorkingCapital.name}"
+                               filterable="true" sortable="true"
+                               headerText="#{bindings.ProjectsView1.hints.FirstYearWorkingCapital.label}" id="c84">
+                        <af:inputText value="#{row.bindings.FirstYearWorkingCapital.inputValue}"
+                                      label="#{bindings.ProjectsView1.hints.FirstYearWorkingCapital.label}"
+                                      required="#{bindings.ProjectsView1.hints.FirstYearWorkingCapital.mandatory}"
+                                      columns="#{bindings.ProjectsView1.hints.FirstYearWorkingCapital.displayWidth}"
+                                      maximumLength="#{bindings.ProjectsView1.hints.FirstYearWorkingCapital.precision}"
+                                      shortDesc="#{bindings.ProjectsView1.hints.FirstYearWorkingCapital.tooltip}"
+                                      id="it72">
+                            <f:validator binding="#{row.bindings.FirstYearWorkingCapital.validator}"/>
+                            <af:convertNumber groupingUsed="false"
+                                              pattern="#{bindings.ProjectsView1.hints.FirstYearWorkingCapital.format}"/>
+                        </af:inputText>
+                    </af:column>
+                    <af:column sortProperty="#{bindings.ProjectsView1.hints.FundingSource.name}" filterable="true"
+                               sortable="true" headerText="#{bindings.ProjectsView1.hints.FundingSource.label}"
+                               id="c85">
+                        <af:inputText value="#{row.bindings.FundingSource.inputValue}"
+                                      label="#{bindings.ProjectsView1.hints.FundingSource.label}"
+                                      required="#{bindings.ProjectsView1.hints.FundingSource.mandatory}"
+                                      columns="#{bindings.ProjectsView1.hints.FundingSource.displayWidth}"
+                                      maximumLength="#{bindings.ProjectsView1.hints.FundingSource.precision}"
+                                      shortDesc="#{bindings.ProjectsView1.hints.FundingSource.tooltip}" id="it73">
+                            <f:validator binding="#{row.bindings.FundingSource.validator}"/>
+                        </af:inputText>
+                    </af:column>
+                    <af:column sortProperty="#{bindings.ProjectsView1.hints.SoAwardType.name}" filterable="true"
+                               sortable="true" headerText="#{bindings.ProjectsView1.hints.SoAwardType.label}" id="c86">
+                        <af:inputText value="#{row.bindings.SoAwardType.inputValue}"
+                                      label="#{bindings.ProjectsView1.hints.SoAwardType.label}"
+                                      required="#{bindings.ProjectsView1.hints.SoAwardType.mandatory}"
+                                      columns="#{bindings.ProjectsView1.hints.SoAwardType.displayWidth}"
+                                      maximumLength="#{bindings.ProjectsView1.hints.SoAwardType.precision}"
+                                      shortDesc="#{bindings.ProjectsView1.hints.SoAwardType.tooltip}" id="it74">
+                            <f:validator binding="#{row.bindings.SoAwardType.validator}"/>
+                        </af:inputText>
+                    </af:column>
+                    <af:column sortProperty="#{bindings.ProjectsView1.hints.RequirementProperty.name}" filterable="true"
+                               sortable="true" headerText="#{bindings.ProjectsView1.hints.RequirementProperty.label}"
+                               id="c87">
+                        <af:inputText value="#{row.bindings.RequirementProperty.inputValue}"
+                                      label="#{bindings.ProjectsView1.hints.RequirementProperty.label}"
+                                      required="#{bindings.ProjectsView1.hints.RequirementProperty.mandatory}"
+                                      columns="#{bindings.ProjectsView1.hints.RequirementProperty.displayWidth}"
+                                      maximumLength="#{bindings.ProjectsView1.hints.RequirementProperty.precision}"
+                                      shortDesc="#{bindings.ProjectsView1.hints.RequirementProperty.tooltip}" id="it75">
+                            <f:validator binding="#{row.bindings.RequirementProperty.validator}"/>
+                        </af:inputText>
+                    </af:column>
+                    <af:column sortProperty="#{bindings.ProjectsView1.hints.Awarded.name}" filterable="true"
+                               sortable="true" headerText="#{bindings.ProjectsView1.hints.Awarded.label}" id="c88">
+                        <af:inputText value="#{row.bindings.Awarded.inputValue}"
+                                      label="#{bindings.ProjectsView1.hints.Awarded.label}"
+                                      required="#{bindings.ProjectsView1.hints.Awarded.mandatory}"
+                                      columns="#{bindings.ProjectsView1.hints.Awarded.displayWidth}"
+                                      maximumLength="#{bindings.ProjectsView1.hints.Awarded.precision}"
+                                      shortDesc="#{bindings.ProjectsView1.hints.Awarded.tooltip}" id="it76">
+                            <f:validator binding="#{row.bindings.Awarded.validator}"/>
+                        </af:inputText>
+                    </af:column>
+                    <af:column sortProperty="#{bindings.ProjectsView1.hints.FailureReason.name}" filterable="true"
+                               sortable="true" headerText="#{bindings.ProjectsView1.hints.FailureReason.label}"
+                               id="c89">
+                        <af:inputText value="#{row.bindings.FailureReason.inputValue}"
+                                      label="#{bindings.ProjectsView1.hints.FailureReason.label}"
+                                      required="#{bindings.ProjectsView1.hints.FailureReason.mandatory}"
+                                      columns="#{bindings.ProjectsView1.hints.FailureReason.displayWidth}"
+                                      maximumLength="#{bindings.ProjectsView1.hints.FailureReason.precision}"
+                                      shortDesc="#{bindings.ProjectsView1.hints.FailureReason.tooltip}" id="it77">
+                            <f:validator binding="#{row.bindings.FailureReason.validator}"/>
+                        </af:inputText>
+                    </af:column>
+                    <af:column sortProperty="#{bindings.ProjectsView1.hints.ScheduledSoSignDate.name}" filterable="true"
+                               sortable="true" headerText="#{bindings.ProjectsView1.hints.ScheduledSoSignDate.label}"
+                               id="c90">
+                        <f:facet name="filter">
+                            <af:inputDate value="#{bindings.ProjectsView1Query.queryDescriptor.filterConjunctionCriterion.criterionMap.ScheduledSoSignDate.value}"
+                                          id="id27">
+                                <af:convertDateTime pattern="#{bindings.ProjectsView1.hints.ScheduledSoSignDate.format}"/>
+                            </af:inputDate>
+                        </f:facet>
+                        <af:inputDate value="#{row.bindings.ScheduledSoSignDate.inputValue}"
+                                      label="#{bindings.ProjectsView1.hints.ScheduledSoSignDate.label}"
+                                      required="#{bindings.ProjectsView1.hints.ScheduledSoSignDate.mandatory}"
+                                      columns="#{bindings.ProjectsView1.hints.ScheduledSoSignDate.displayWidth}"
+                                      shortDesc="#{bindings.ProjectsView1.hints.ScheduledSoSignDate.tooltip}" id="id28">
+                            <f:validator binding="#{row.bindings.ScheduledSoSignDate.validator}"/>
+                            <af:convertDateTime pattern="#{bindings.ProjectsView1.hints.ScheduledSoSignDate.format}"/>
+                        </af:inputDate>
+                    </af:column>
+                    <af:column sortProperty="#{bindings.ProjectsView1.hints.ScheduledStartDate.name}" filterable="true"
+                               sortable="true" headerText="#{bindings.ProjectsView1.hints.ScheduledStartDate.label}"
+                               id="c91">
+                        <f:facet name="filter">
+                            <af:inputDate value="#{bindings.ProjectsView1Query.queryDescriptor.filterConjunctionCriterion.criterionMap.ScheduledStartDate.value}"
+                                          id="id29">
+                                <af:convertDateTime pattern="#{bindings.ProjectsView1.hints.ScheduledStartDate.format}"/>
+                            </af:inputDate>
+                        </f:facet>
+                        <af:inputDate value="#{row.bindings.ScheduledStartDate.inputValue}"
+                                      label="#{bindings.ProjectsView1.hints.ScheduledStartDate.label}"
+                                      required="#{bindings.ProjectsView1.hints.ScheduledStartDate.mandatory}"
+                                      columns="#{bindings.ProjectsView1.hints.ScheduledStartDate.displayWidth}"
+                                      shortDesc="#{bindings.ProjectsView1.hints.ScheduledStartDate.tooltip}" id="id30">
+                            <f:validator binding="#{row.bindings.ScheduledStartDate.validator}"/>
+                            <af:convertDateTime pattern="#{bindings.ProjectsView1.hints.ScheduledStartDate.format}"/>
+                        </af:inputDate>
+                    </af:column>
+                    <af:column sortProperty="#{bindings.ProjectsView1.hints.ProjectNote.name}" filterable="true"
+                               sortable="true" headerText="#{bindings.ProjectsView1.hints.ProjectNote.label}" id="c92">
+                        <af:inputText value="#{row.bindings.ProjectNote.inputValue}"
+                                      label="#{bindings.ProjectsView1.hints.ProjectNote.label}"
+                                      required="#{bindings.ProjectsView1.hints.ProjectNote.mandatory}"
+                                      columns="#{bindings.ProjectsView1.hints.ProjectNote.displayWidth}"
+                                      maximumLength="#{bindings.ProjectsView1.hints.ProjectNote.precision}"
+                                      shortDesc="#{bindings.ProjectsView1.hints.ProjectNote.tooltip}" id="it78">
+                            <f:validator binding="#{row.bindings.ProjectNote.validator}"/>
+                        </af:inputText>
+                    </af:column>
+                    <af:column sortProperty="#{bindings.ProjectsView1.hints.CusId.name}" filterable="true"
+                               sortable="true" headerText="#{bindings.ProjectsView1.hints.CusId.label}" id="c93">
+                        <af:inputText value="#{row.bindings.CusId.inputValue}"
+                                      label="#{bindings.ProjectsView1.hints.CusId.label}"
+                                      required="#{bindings.ProjectsView1.hints.CusId.mandatory}"
+                                      columns="#{bindings.ProjectsView1.hints.CusId.displayWidth}"
+                                      maximumLength="#{bindings.ProjectsView1.hints.CusId.precision}"
+                                      shortDesc="#{bindings.ProjectsView1.hints.CusId.tooltip}" id="it79">
+                            <f:validator binding="#{row.bindings.CusId.validator}"/>
+                            <af:convertNumber groupingUsed="false"
+                                              pattern="#{bindings.ProjectsView1.hints.CusId.format}"/>
+                        </af:inputText>
+                    </af:column>
+                    <af:column sortProperty="#{bindings.ProjectsView1.hints.CceId.name}" filterable="true"
+                               sortable="true" headerText="#{bindings.ProjectsView1.hints.CceId.label}" id="c94">
+                        <af:inputText value="#{row.bindings.CceId.inputValue}"
+                                      label="#{bindings.ProjectsView1.hints.CceId.label}"
+                                      required="#{bindings.ProjectsView1.hints.CceId.mandatory}"
+                                      columns="#{bindings.ProjectsView1.hints.CceId.displayWidth}"
+                                      maximumLength="#{bindings.ProjectsView1.hints.CceId.precision}"
+                                      shortDesc="#{bindings.ProjectsView1.hints.CceId.tooltip}" id="it80">
+                            <f:validator binding="#{row.bindings.CceId.validator}"/>
+                        </af:inputText>
+                    </af:column>
+                </af:table>
             </af:panelBox>
         </f:facet>
     </af:panelSplitter>

@@ -1,0 +1,113 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<pageDefinition xmlns="http://xmlns.oracle.com/adfm/uimodel" version="12.2.1.12.24" id="module1_view1PageDef"
+                Package="com.perp.sasviewcontroller.pageDefs">
+  <parameters/>
+  <executables>
+    <variableIterator id="variables"/>
+    <iterator Binds="ProjectsView1" RangeSize="25" DataControl="AppModuleDataControl" id="ProjectsView1Iterator"/>
+    <searchRegion Binds="ProjectsView1Iterator" Criteria=""
+                  Customizer="oracle.jbo.uicli.binding.JUSearchBindingCustomizer" id="ProjectsView1Query"/>
+  </executables>
+  <bindings>
+    <tree IterBinding="ProjectsView1Iterator" id="ProjectsView1">
+      <nodeDefinition DefName="com.perp.sasmodel.entities.view.module01.ProjectsView" Name="ProjectsView10">
+        <AttrNames>
+          <Item Value="ProjId"/>
+          <Item Value="ProjectNumber"/>
+          <Item Value="ProjectName"/>
+          <Item Value="ProjectCategory"/>
+          <Item Value="ProjectType"/>
+          <Item Value="RplId"/>
+          <Item Value="OunId"/>
+          <Item Value="InvestmentMethod"/>
+          <Item Value="InvestmentPurpose"/>
+          <Item Value="InvestmentScale"/>
+          <Item Value="ProjectManager"/>
+          <Item Value="CarryingOutOrganization"/>
+          <Item Value="ConstructionSite"/>
+          <Item Value="PpeType"/>
+          <Item Value="ApprovedInvestmentAmount"/>
+          <Item Value="ApprovedBudgetAmount"/>
+          <Item Value="ApprovedBudgetAccAmount"/>
+          <Item Value="ApprovedInvestmentAccAmount"/>
+          <Item Value="TxnControlFlag"/>
+          <Item Value="CurCode"/>
+          <Item Value="CpsId"/>
+          <Item Value="Description"/>
+          <Item Value="Status"/>
+          <Item Value="ActualStartDate"/>
+          <Item Value="ActualFinishDate"/>
+          <Item Value="ClosedDate"/>
+          <Item Value="ApprovedStartDate"/>
+          <Item Value="ApprovedCompletionDate"/>
+          <Item Value="CapitalizingAmount"/>
+          <Item Value="CapitalizingAccountedAmount"/>
+          <Item Value="ApprovedAmount"/>
+          <Item Value="ApprovedAccountedAmount"/>
+          <Item Value="ExchangeRateType"/>
+          <Item Value="ExchangeDate"/>
+          <Item Value="ExchangeRate"/>
+          <Item Value="Taxable"/>
+          <Item Value="CreateDate"/>
+          <Item Value="CreatedBy"/>
+          <Item Value="ModifiedBy"/>
+          <Item Value="ModifyDate"/>
+          <Item Value="PtemId"/>
+          <Item Value="TplId"/>
+          <Item Value="TaxName"/>
+          <Item Value="UrlId"/>
+          <Item Value="InvestmentAmount"/>
+          <Item Value="InvestmentAccountedAmount"/>
+          <Item Value="InvestmentApproval"/>
+          <Item Value="ApprovalInvestmentDocNumber"/>
+          <Item Value="ApprovalInvestmentDocDate"/>
+          <Item Value="ApprovalBudgetDocDate"/>
+          <Item Value="ApprovalBudgetDocNumber"/>
+          <Item Value="InveId"/>
+          <Item Value="ApprovalOrganization"/>
+          <Item Value="ActualInvestmentScale"/>
+          <Item Value="CapitalizedFlag"/>
+          <Item Value="CapitalizedDate"/>
+          <Item Value="SubmitedDocDate"/>
+          <Item Value="ReceiveDocOrganization"/>
+          <Item Value="Attribute1"/>
+          <Item Value="Attribute2"/>
+          <Item Value="Attribute3"/>
+          <Item Value="Attribute4"/>
+          <Item Value="Attribute5"/>
+          <Item Value="Attribute6"/>
+          <Item Value="Attribute7"/>
+          <Item Value="Attribute8"/>
+          <Item Value="Attribute9"/>
+          <Item Value="Attribute10"/>
+          <Item Value="AprovedTimeDescription"/>
+          <Item Value="ActualTimeDescription"/>
+          <Item Value="InvestmentAmountDescription"/>
+          <Item Value="ManagementMethod"/>
+          <Item Value="InvestmentNeed"/>
+          <Item Value="ApprovedTimes"/>
+          <Item Value="ApprovedReason"/>
+          <Item Value="ApprovedDocNumber"/>
+          <Item Value="ApprovedDocDate"/>
+          <Item Value="GroundRentAmount"/>
+          <Item Value="AreaOfLandUse"/>
+          <Item Value="PlanToBuild"/>
+          <Item Value="ProjectLevel"/>
+          <Item Value="EquipmentDescription"/>
+          <Item Value="ClearanceResettlementOption"/>
+          <Item Value="FirstYearWorkingCapital"/>
+          <Item Value="FundingSource"/>
+          <Item Value="SoAwardType"/>
+          <Item Value="RequirementProperty"/>
+          <Item Value="Awarded"/>
+          <Item Value="FailureReason"/>
+          <Item Value="ScheduledSoSignDate"/>
+          <Item Value="ScheduledStartDate"/>
+          <Item Value="ProjectNote"/>
+          <Item Value="CusId"/>
+          <Item Value="CceId"/>
+        </AttrNames>
+      </nodeDefinition>
+    </tree>
+  </bindings>
+</pageDefinition>
